@@ -8,13 +8,25 @@
 
 import UIKit
 
-class BasicInfoViewController: UIViewController {
+class BasicInfoViewController: UIViewController {   
+    
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.dataSource = self
+            tableView.delegate = self
+        }
+    }
     
     var pet: Pet?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
+        setupTableView()
+    }
+    
+    func setupTableView() {
+        tableView.registerCellWithNib(identifier: String(describing: BasicInfoTableViewCell.self), bundle: nil)
     }
 }
 
@@ -28,7 +40,13 @@ extension BasicInfoViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        
+        guard
+            let cell = tableView.dequeueReusableCell(withIdentifier: BasicInfoTableViewCell.identifier, for: indexPath) as? BasicInfoTableViewCell
+        else {
+                return UITableViewCell()
+        }
+        return cell
     }
     
 }

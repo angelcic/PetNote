@@ -11,10 +11,10 @@ import Foundation
 struct Pet {
     let name: String
     let type: PetType
-    let color: String?
-    let gender: String?
-    let birth: String?
-    let breed: String?
+    var color: String?
+    var gender: String?
+    var birth: String?
+    var breed: String?
 }
 
 enum PetType {
