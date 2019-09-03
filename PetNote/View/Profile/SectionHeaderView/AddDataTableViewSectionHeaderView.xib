@@ -22,8 +22,15 @@
                     <color key="textColor" red="0.2470588235" green="0.2274509804" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0cU-G1-VIS">
+                    <rect key="frame" x="20" y="153" width="643" height="2"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2" id="Zb5-eY-Ir4"/>
+                    </constraints>
+                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y8B-K9-7w6">
-                    <rect key="frame" x="172.5" y="62.5" width="40" height="40"/>
+                    <rect key="frame" x="172" y="62" width="40" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="Fvr-Im-fqO"/>
                         <constraint firstAttribute="width" secondItem="y8B-K9-7w6" secondAttribute="height" multiplier="1:1" id="vRO-th-eKV"/>
@@ -38,8 +45,11 @@
                 <constraint firstItem="ZWe-Hh-xxX" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="37y-5f-Qbl"/>
                 <constraint firstItem="ZWe-Hh-xxX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="Gsi-aq-ONk"/>
                 <constraint firstItem="y8B-K9-7w6" firstAttribute="leading" secondItem="ZWe-Hh-xxX" secondAttribute="trailing" constant="30" id="NyD-vt-BBh"/>
+                <constraint firstItem="0cU-G1-VIS" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="OFI-Ac-42w"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ZWe-Hh-xxX" secondAttribute="bottom" constant="20" id="WXm-0o-EM4"/>
+                <constraint firstAttribute="bottom" secondItem="0cU-G1-VIS" secondAttribute="bottom" id="c0P-7n-iSt"/>
                 <constraint firstItem="y8B-K9-7w6" firstAttribute="centerY" secondItem="ZWe-Hh-xxX" secondAttribute="centerY" id="eaz-BT-k0O"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="0cU-G1-VIS" secondAttribute="trailing" constant="20" id="jGZ-dH-eIB"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>

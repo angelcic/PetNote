@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DeseasePreventionViewController: UIViewController {
+class ProtectPlanViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView! {
         
@@ -19,9 +19,14 @@ class DeseasePreventionViewController: UIViewController {
         
     }
     
+    var protectPlan: [ProtectPlan] = []
+    
+    @IBOutlet weak var alertView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setTableView()
+        
         // Do any additional setup after loading the view.
     }
     
@@ -33,9 +38,14 @@ class DeseasePreventionViewController: UIViewController {
 
 }
 
-extension DeseasePreventionViewController: UITableViewDataSource {
+extension ProtectPlanViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if protectPlan.count == 0 {
+            alertView.isHidden = false
+        } else {
+            alertView.isHidden = true
+        }
+        return protectPlan.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -47,7 +57,7 @@ extension DeseasePreventionViewController: UITableViewDataSource {
     }
 }
 
-extension DeseasePreventionViewController: UITableViewDelegate {
+extension ProtectPlanViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 60
     }
@@ -62,9 +72,19 @@ extension DeseasePreventionViewController: UITableViewDelegate {
     }
 }
 
-extension DeseasePreventionViewController: SectionHeaderDelegate {
+extension ProtectPlanViewController: SectionHeaderDelegate {
     func pressAddButton() {
-        print("+++")
+        
+        guard let AddPlanViewController = UIStoryboard.profile.instantiateViewController(
+            withIdentifier: "AddPreventionPage")
+            as? AddingProtectPlanViewController
+        else {
+            return
+
+        }
+        
+        show(AddPlanViewController, sender: nil)
+        
     }   
     
 }

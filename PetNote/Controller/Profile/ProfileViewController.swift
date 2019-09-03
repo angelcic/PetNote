@@ -151,7 +151,11 @@ extension ProfileViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         if indexPath.section < pets.count {
-            cell.setImage(name: "IMG_1098")
+            if indexPath.section == 0 {
+                cell.setImage(name: "IMG_1098")
+            } else {
+                cell.setImage(name: "IMG_8903")
+            }
             cell.setText(name: pets[indexPath.section].name, gender: "♂︎", birth: "2018年1月23日")
         } else {
             cell.showAddPetLabel()

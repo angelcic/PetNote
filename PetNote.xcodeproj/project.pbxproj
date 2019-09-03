@@ -33,13 +33,20 @@
 		9181BC6B23191247007BB7C6 /* PetsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181BC6923191247007BB7C6 /* PetsCollectionViewCell.swift */; };
 		9181BC6C23191247007BB7C6 /* PetsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9181BC6A23191247007BB7C6 /* PetsCollectionViewCell.xib */; };
 		9181BC6E231C9A9B007BB7C6 /* BasicInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181BC6D231C9A9B007BB7C6 /* BasicInfoViewController.swift */; };
-		9181BC71231C9CF5007BB7C6 /* DeseasePreventionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181BC70231C9CF5007BB7C6 /* DeseasePreventionViewController.swift */; };
+		9181BC71231C9CF5007BB7C6 /* ProtectPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181BC70231C9CF5007BB7C6 /* ProtectPlanViewController.swift */; };
 		9194B91B231CD8D500AAA963 /* BasicInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B919231CD8D500AAA963 /* BasicInfoTableViewCell.swift */; };
 		9194B91C231CD8D500AAA963 /* BasicInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9194B91A231CD8D500AAA963 /* BasicInfoTableViewCell.xib */; };
 		9194B920231CEB9A00AAA963 /* BasicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B91E231CEB9A00AAA963 /* BasicCollectionViewCell.swift */; };
 		9194B921231CEB9A00AAA963 /* BasicCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9194B91F231CEB9A00AAA963 /* BasicCollectionViewCell.xib */; };
 		9194B923231CF36B00AAA963 /* AddDataTableViewSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B922231CF36B00AAA963 /* AddDataTableViewSectionHeaderView.swift */; };
 		9194B925231CF38800AAA963 /* AddDataTableViewSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9194B924231CF38800AAA963 /* AddDataTableViewSectionHeaderView.xib */; };
+		9194B929231D097900AAA963 /* HealthRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B928231D097900AAA963 /* HealthRecordViewController.swift */; };
+		9194B92B231D12DD00AAA963 /* UIScreenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B92A231D12DD00AAA963 /* UIScreenExtension.swift */; };
+		9194B92D231D164D00AAA963 /* AddingProtectPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B92C231D164D00AAA963 /* AddingProtectPlanViewController.swift */; };
+		9194B92F231D213600AAA963 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B92E231D213600AAA963 /* BaseViewController.swift */; };
+		9194B933231D335E00AAA963 /* ProtectTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B931231D335E00AAA963 /* ProtectTypeTableViewCell.swift */; };
+		9194B934231D335E00AAA963 /* ProtectTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9194B932231D335E00AAA963 /* ProtectTypeTableViewCell.xib */; };
+		9194B937231E08ED00AAA963 /* ProtectPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B936231E08ED00AAA963 /* ProtectPlan.swift */; };
 		933214776B257E5501F30B83 /* Pods_PetNote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C36075D08FC74716301080A /* Pods_PetNote.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,13 +81,20 @@
 		9181BC6923191247007BB7C6 /* PetsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsCollectionViewCell.swift; sourceTree = "<group>"; };
 		9181BC6A23191247007BB7C6 /* PetsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PetsCollectionViewCell.xib; sourceTree = "<group>"; };
 		9181BC6D231C9A9B007BB7C6 /* BasicInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInfoViewController.swift; sourceTree = "<group>"; };
-		9181BC70231C9CF5007BB7C6 /* DeseasePreventionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeseasePreventionViewController.swift; sourceTree = "<group>"; };
+		9181BC70231C9CF5007BB7C6 /* ProtectPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectPlanViewController.swift; sourceTree = "<group>"; };
 		9194B919231CD8D500AAA963 /* BasicInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInfoTableViewCell.swift; sourceTree = "<group>"; };
 		9194B91A231CD8D500AAA963 /* BasicInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasicInfoTableViewCell.xib; sourceTree = "<group>"; };
 		9194B91E231CEB9A00AAA963 /* BasicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicCollectionViewCell.swift; sourceTree = "<group>"; };
 		9194B91F231CEB9A00AAA963 /* BasicCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasicCollectionViewCell.xib; sourceTree = "<group>"; };
 		9194B922231CF36B00AAA963 /* AddDataTableViewSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDataTableViewSectionHeaderView.swift; sourceTree = "<group>"; };
 		9194B924231CF38800AAA963 /* AddDataTableViewSectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddDataTableViewSectionHeaderView.xib; sourceTree = "<group>"; };
+		9194B928231D097900AAA963 /* HealthRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthRecordViewController.swift; sourceTree = "<group>"; };
+		9194B92A231D12DD00AAA963 /* UIScreenExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreenExtension.swift; sourceTree = "<group>"; };
+		9194B92C231D164D00AAA963 /* AddingProtectPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingProtectPlanViewController.swift; sourceTree = "<group>"; };
+		9194B92E231D213600AAA963 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		9194B931231D335E00AAA963 /* ProtectTypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectTypeTableViewCell.swift; sourceTree = "<group>"; };
+		9194B932231D335E00AAA963 /* ProtectTypeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProtectTypeTableViewCell.xib; sourceTree = "<group>"; };
+		9194B936231E08ED00AAA963 /* ProtectPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectPlan.swift; sourceTree = "<group>"; };
 		C1B26700EEE001AE14DFC34D /* Pods-PetNote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetNote.debug.xcconfig"; path = "Target Support Files/Pods-PetNote/Pods-PetNote.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,6 +166,7 @@
 			children = (
 				9181BC2823177E1C007BB7C6 /* TabBarViewController.swift */,
 				9181BC622318ED07007BB7C6 /* BaseNavigationController.swift */,
+				9194B92E231D213600AAA963 /* BaseViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -186,6 +201,7 @@
 				9181BC562317C8C2007BB7C6 /* UITableViewExtension.swift */,
 				9181BC582317CC4B007BB7C6 /* UIViewExtension.swift */,
 				9181BC662319119C007BB7C6 /* UICollectionViewExtension.swift */,
+				9194B92A231D12DD00AAA963 /* UIScreenExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -196,7 +212,8 @@
 				9181BC4B2317C38C007BB7C6 /* ProfileViewController.swift */,
 				9181BC5E2317E1DE007BB7C6 /* ProfileDetailViewController.swift */,
 				9181BC6D231C9A9B007BB7C6 /* BasicInfoViewController.swift */,
-				9181BC70231C9CF5007BB7C6 /* DeseasePreventionViewController.swift */,
+				9194B930231D315A00AAA963 /* ProtectPlan */,
+				9194B928231D097900AAA963 /* HealthRecordViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -213,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				9181BC4F2317C461007BB7C6 /* Pet.swift */,
+				9194B936231E08ED00AAA963 /* ProtectPlan.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -227,6 +245,7 @@
 				9194B91D231CD8DA00AAA963 /* BasicInfoTableViewCell */,
 				9194B927231CF6E900AAA963 /* BasicCollectionView */,
 				9194B926231CF6D900AAA963 /* SectionHeaderView */,
+				9194B935231D336800AAA963 /* ProtectTypeTableViewCell */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -282,6 +301,24 @@
 				9194B91F231CEB9A00AAA963 /* BasicCollectionViewCell.xib */,
 			);
 			path = BasicCollectionView;
+			sourceTree = "<group>";
+		};
+		9194B930231D315A00AAA963 /* ProtectPlan */ = {
+			isa = PBXGroup;
+			children = (
+				9181BC70231C9CF5007BB7C6 /* ProtectPlanViewController.swift */,
+				9194B92C231D164D00AAA963 /* AddingProtectPlanViewController.swift */,
+			);
+			path = ProtectPlan;
+			sourceTree = "<group>";
+		};
+		9194B935231D336800AAA963 /* ProtectTypeTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				9194B931231D335E00AAA963 /* ProtectTypeTableViewCell.swift */,
+				9194B932231D335E00AAA963 /* ProtectTypeTableViewCell.xib */,
+			);
+			path = ProtectTypeTableViewCell;
 			sourceTree = "<group>";
 		};
 		AC18D7B45FD28547649DADAA /* Frameworks */ = {
@@ -364,6 +401,7 @@
 				9181BC2C23177E1C007BB7C6 /* Main.storyboard in Resources */,
 				9181BC422317A03D007BB7C6 /* Record.storyboard in Resources */,
 				9194B91C231CD8D500AAA963 /* BasicInfoTableViewCell.xib in Resources */,
+				9194B934231D335E00AAA963 /* ProtectTypeTableViewCell.xib in Resources */,
 				9181BC6C23191247007BB7C6 /* PetsCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,13 +476,17 @@
 				9181BC612318C5DA007BB7C6 /* ProfileRootView.swift in Sources */,
 				9181BC6E231C9A9B007BB7C6 /* BasicInfoViewController.swift in Sources */,
 				9181BC2923177E1C007BB7C6 /* TabBarViewController.swift in Sources */,
+				9194B937231E08ED00AAA963 /* ProtectPlan.swift in Sources */,
 				9181BC5D2317DE27007BB7C6 /* SelectionView.swift in Sources */,
 				9194B920231CEB9A00AAA963 /* BasicCollectionViewCell.swift in Sources */,
 				9181BC672319119D007BB7C6 /* UICollectionViewExtension.swift in Sources */,
 				9181BC542317C530007BB7C6 /* ProfileTableViewCell.swift in Sources */,
+				9194B929231D097900AAA963 /* HealthRecordViewController.swift in Sources */,
+				9194B933231D335E00AAA963 /* ProtectTypeTableViewCell.swift in Sources */,
 				9181BC5F2317E1DE007BB7C6 /* ProfileDetailViewController.swift in Sources */,
+				9194B92D231D164D00AAA963 /* AddingProtectPlanViewController.swift in Sources */,
 				9181BC2723177E1C007BB7C6 /* AppDelegate.swift in Sources */,
-				9181BC71231C9CF5007BB7C6 /* DeseasePreventionViewController.swift in Sources */,
+				9181BC71231C9CF5007BB7C6 /* ProtectPlanViewController.swift in Sources */,
 				9181BC572317C8C2007BB7C6 /* UITableViewExtension.swift in Sources */,
 				9181BC4C2317C38C007BB7C6 /* ProfileViewController.swift in Sources */,
 				9181BC6B23191247007BB7C6 /* PetsCollectionViewCell.swift in Sources */,
@@ -452,7 +494,9 @@
 				9181BC592317CC4B007BB7C6 /* UIViewExtension.swift in Sources */,
 				9194B91B231CD8D500AAA963 /* BasicInfoTableViewCell.swift in Sources */,
 				9181BC652319109B007BB7C6 /* ProfileDetailView.swift in Sources */,
+				9194B92F231D213600AAA963 /* BaseViewController.swift in Sources */,
 				9181BC492317AA3F007BB7C6 /* UIStoryboardExtension.swift in Sources */,
+				9194B92B231D12DD00AAA963 /* UIScreenExtension.swift in Sources */,
 				9181BC2F23177E1C007BB7C6 /* PetNote.xcdatamodeld in Sources */,
 				9194B923231CF36B00AAA963 /* AddDataTableViewSectionHeaderView.swift in Sources */,
 			);
@@ -602,6 +646,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5XT523M7P4;
 				INFOPLIST_FILE = PetNote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -620,6 +665,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5XT523M7P4;
 				INFOPLIST_FILE = PetNote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
