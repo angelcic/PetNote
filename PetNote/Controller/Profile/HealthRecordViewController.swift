@@ -35,6 +35,8 @@ class HealthRecordViewController: UIViewController {
 extension HealthRecordViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // TODO:
+        let weightRecordVC = UIStoryboard.profile.instantiateViewController(withIdentifier: String(describing: WeightRecordViewController.self))
+        show(weightRecordVC, sender: nil)
     }
 }
 

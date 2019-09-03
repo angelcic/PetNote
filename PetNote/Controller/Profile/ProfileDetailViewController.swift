@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileDetailViewController: UIViewController {
+class ProfileDetailViewController: BaseViewController {
 
     @IBOutlet var detailView: ProfileDetailView! {
         didSet {

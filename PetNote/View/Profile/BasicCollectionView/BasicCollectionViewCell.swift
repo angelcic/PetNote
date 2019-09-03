@@ -29,12 +29,16 @@ class BasicCollectionViewCell: UICollectionViewCell {
     
     func changeSelectedStatus() {
         if isSelected {
-            backgroundLayer.backgroundColor = isSelectedBGColor
-            titleLabel.textColor = .white
+            setSelectedBG()
         } else {
             backgroundLayer.backgroundColor = deSelectedBGColor
             titleLabel.textColor = .gray
         }
+    }
+    
+    func setSelectedBG() {
+        backgroundLayer.backgroundColor = isSelectedBGColor
+        titleLabel.textColor = .white
     }
     
 }

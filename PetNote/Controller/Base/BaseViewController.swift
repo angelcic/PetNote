@@ -9,7 +9,7 @@
 import UIKit
 
 class BaseViewController: UIViewController {
-    
+        
     static var identifier: String {
         
         return String(describing: self)
@@ -17,8 +17,14 @@ class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navigationBarSetting()
         // Do any additional setup after loading the view.
+    }
+    
+    // 設定 navigationbar 文字顏色、按鈕
+    func navigationBarSetting() {
+        self.navigationController?.navigationBar.tintColor = .darkGray
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
 
 }

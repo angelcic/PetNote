@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProtectPlanViewController: UIViewController {
+class ProtectPlanViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView! {
         
@@ -35,7 +35,7 @@ class ProtectPlanViewController: UIViewController {
             identifier: String(describing: AddDataTableViewSectionHeaderView.self),
             bundle: nil)
     }
-
+    
 }
 
 extension ProtectPlanViewController: UITableViewDataSource {
@@ -80,7 +80,6 @@ extension ProtectPlanViewController: SectionHeaderDelegate {
             as? AddingProtectPlanViewController
         else {
             return
-
         }
         
         show(AddPlanViewController, sender: nil)

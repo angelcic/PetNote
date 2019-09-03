@@ -47,6 +47,9 @@
 		9194B933231D335E00AAA963 /* ProtectTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B931231D335E00AAA963 /* ProtectTypeTableViewCell.swift */; };
 		9194B934231D335E00AAA963 /* ProtectTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9194B932231D335E00AAA963 /* ProtectTypeTableViewCell.xib */; };
 		9194B937231E08ED00AAA963 /* ProtectPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B936231E08ED00AAA963 /* ProtectPlan.swift */; };
+		9194B942231E6C0800AAA963 /* NotifyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B940231E6C0800AAA963 /* NotifyTableViewCell.swift */; };
+		9194B943231E6C0800AAA963 /* NotifyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9194B941231E6C0800AAA963 /* NotifyTableViewCell.xib */; };
+		9194B946231E773100AAA963 /* WeightRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B945231E773100AAA963 /* WeightRecordViewController.swift */; };
 		933214776B257E5501F30B83 /* Pods_PetNote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C36075D08FC74716301080A /* Pods_PetNote.framework */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +98,9 @@
 		9194B931231D335E00AAA963 /* ProtectTypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectTypeTableViewCell.swift; sourceTree = "<group>"; };
 		9194B932231D335E00AAA963 /* ProtectTypeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProtectTypeTableViewCell.xib; sourceTree = "<group>"; };
 		9194B936231E08ED00AAA963 /* ProtectPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectPlan.swift; sourceTree = "<group>"; };
+		9194B940231E6C0800AAA963 /* NotifyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyTableViewCell.swift; sourceTree = "<group>"; };
+		9194B941231E6C0800AAA963 /* NotifyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotifyTableViewCell.xib; sourceTree = "<group>"; };
+		9194B945231E773100AAA963 /* WeightRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightRecordViewController.swift; sourceTree = "<group>"; };
 		C1B26700EEE001AE14DFC34D /* Pods-PetNote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetNote.debug.xcconfig"; path = "Target Support Files/Pods-PetNote/Pods-PetNote.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -214,6 +220,7 @@
 				9181BC6D231C9A9B007BB7C6 /* BasicInfoViewController.swift */,
 				9194B930231D315A00AAA963 /* ProtectPlan */,
 				9194B928231D097900AAA963 /* HealthRecordViewController.swift */,
+				9194B945231E773100AAA963 /* WeightRecordViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -246,6 +253,7 @@
 				9194B927231CF6E900AAA963 /* BasicCollectionView */,
 				9194B926231CF6D900AAA963 /* SectionHeaderView */,
 				9194B935231D336800AAA963 /* ProtectTypeTableViewCell */,
+				9194B944231E76EC00AAA963 /* NotifyTableViewCell */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -319,6 +327,15 @@
 				9194B932231D335E00AAA963 /* ProtectTypeTableViewCell.xib */,
 			);
 			path = ProtectTypeTableViewCell;
+			sourceTree = "<group>";
+		};
+		9194B944231E76EC00AAA963 /* NotifyTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				9194B940231E6C0800AAA963 /* NotifyTableViewCell.swift */,
+				9194B941231E6C0800AAA963 /* NotifyTableViewCell.xib */,
+			);
+			path = NotifyTableViewCell;
 			sourceTree = "<group>";
 		};
 		AC18D7B45FD28547649DADAA /* Frameworks */ = {
@@ -396,6 +413,7 @@
 				9181BC442317A050007BB7C6 /* Medical.storyboard in Resources */,
 				9181BC402317A02F007BB7C6 /* Profile.storyboard in Resources */,
 				9194B921231CEB9A00AAA963 /* BasicCollectionViewCell.xib in Resources */,
+				9194B943231E6C0800AAA963 /* NotifyTableViewCell.xib in Resources */,
 				9181BC462317A067007BB7C6 /* Other.storyboard in Resources */,
 				9181BC552317C530007BB7C6 /* ProfileTableViewCell.xib in Resources */,
 				9181BC2C23177E1C007BB7C6 /* Main.storyboard in Resources */,
@@ -476,12 +494,14 @@
 				9181BC612318C5DA007BB7C6 /* ProfileRootView.swift in Sources */,
 				9181BC6E231C9A9B007BB7C6 /* BasicInfoViewController.swift in Sources */,
 				9181BC2923177E1C007BB7C6 /* TabBarViewController.swift in Sources */,
+				9194B942231E6C0800AAA963 /* NotifyTableViewCell.swift in Sources */,
 				9194B937231E08ED00AAA963 /* ProtectPlan.swift in Sources */,
 				9181BC5D2317DE27007BB7C6 /* SelectionView.swift in Sources */,
 				9194B920231CEB9A00AAA963 /* BasicCollectionViewCell.swift in Sources */,
 				9181BC672319119D007BB7C6 /* UICollectionViewExtension.swift in Sources */,
 				9181BC542317C530007BB7C6 /* ProfileTableViewCell.swift in Sources */,
 				9194B929231D097900AAA963 /* HealthRecordViewController.swift in Sources */,
+				9194B946231E773100AAA963 /* WeightRecordViewController.swift in Sources */,
 				9194B933231D335E00AAA963 /* ProtectTypeTableViewCell.swift in Sources */,
 				9181BC5F2317E1DE007BB7C6 /* ProfileDetailViewController.swift in Sources */,
 				9194B92D231D164D00AAA963 /* AddingProtectPlanViewController.swift in Sources */,
