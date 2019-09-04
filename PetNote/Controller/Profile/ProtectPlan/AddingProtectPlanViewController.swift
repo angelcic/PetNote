@@ -62,6 +62,7 @@ class AddingProtectPlanViewController: BaseViewController {
     func setTableView() {
         tableView.registerCellWithNib(identifier: String(describing: ProtectTypeTableViewCell.self), bundle: nil)
         tableView.registerCellWithNib(identifier: String(describing: NotifyTableViewCell.self), bundle: nil)
+        tableView.registerHeaderWithNib(identifier: String(describing: WithImageSectionHeaderView.self), bundle: nil)
         
     }
     
@@ -114,6 +115,8 @@ extension AddingProtectPlanViewController: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        // TODO:
+
 //        if let cell = collectionView.cellForItem(at: indexPath)
 //                    as? BasicCollectionViewCell {
 //            cell.changeSelectedStatus()
@@ -164,6 +167,10 @@ extension AddingProtectPlanViewController: UITableViewDataSource {
         return 2
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 60
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             var sectionCount = currentPreventType.protectFuntions.count
@@ -177,10 +184,9 @@ extension AddingProtectPlanViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: String(describing: AddDataTableViewSectionHeaderView.self))
-            as? AddDataTableViewSectionHeaderView
+        guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: String(describing: WithImageSectionHeaderView.self))
+            as? WithImageSectionHeaderView
         else {return UIView()}
-        view.addButton.isHidden = true
         if section == 0 {
             view.layoutHeaderView(title: "預防計畫")
         } else {

@@ -16,21 +16,15 @@
             <rect key="frame" x="0.0" y="0.0" width="683" height="155"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="疾病預防計畫" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWe-Hh-xxX">
-                    <rect key="frame" x="20" y="64" width="122.5" height="37"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <color key="textColor" red="0.2470588235" green="0.2274509804" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0cU-G1-VIS">
-                    <rect key="frame" x="20" y="153" width="643" height="2"/>
+                    <rect key="frame" x="20" y="119" width="643" height="2"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="2" id="Zb5-eY-Ir4"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y8B-K9-7w6">
-                    <rect key="frame" x="172" y="62" width="40" height="40"/>
+                    <rect key="frame" x="172.5" y="57.5" width="40" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="Fvr-Im-fqO"/>
                         <constraint firstAttribute="width" secondItem="y8B-K9-7w6" secondAttribute="height" multiplier="1:1" id="vRO-th-eKV"/>
@@ -40,16 +34,21 @@
                         <action selector="addAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="4dE-jx-5Wt"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="疾病預防計畫" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWe-Hh-xxX">
+                    <rect key="frame" x="20" y="65.5" width="122.5" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" red="0.2470588235" green="0.2274509804" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <constraints>
-                <constraint firstItem="ZWe-Hh-xxX" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="37y-5f-Qbl"/>
-                <constraint firstItem="ZWe-Hh-xxX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="Gsi-aq-ONk"/>
                 <constraint firstItem="y8B-K9-7w6" firstAttribute="leading" secondItem="ZWe-Hh-xxX" secondAttribute="trailing" constant="30" id="NyD-vt-BBh"/>
                 <constraint firstItem="0cU-G1-VIS" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="OFI-Ac-42w"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ZWe-Hh-xxX" secondAttribute="bottom" constant="20" id="WXm-0o-EM4"/>
-                <constraint firstAttribute="bottom" secondItem="0cU-G1-VIS" secondAttribute="bottom" id="c0P-7n-iSt"/>
+                <constraint firstItem="ZWe-Hh-xxX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="TCp-Yg-Xcb"/>
                 <constraint firstItem="y8B-K9-7w6" firstAttribute="centerY" secondItem="ZWe-Hh-xxX" secondAttribute="centerY" id="eaz-BT-k0O"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="0cU-G1-VIS" secondAttribute="bottom" id="hDb-AF-eF8"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="0cU-G1-VIS" secondAttribute="trailing" constant="20" id="jGZ-dH-eIB"/>
+                <constraint firstItem="ZWe-Hh-xxX" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="lqp-la-vn9"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
@@ -59,7 +58,7 @@
                 <outlet property="addButton" destination="y8B-K9-7w6" id="B4x-X2-rXt"/>
                 <outlet property="titleLabel" destination="ZWe-Hh-xxX" id="xpe-CK-Nqq"/>
             </connections>
-            <point key="canvasLocation" x="281.8840579710145" y="-369.97767857142856"/>
+            <point key="canvasLocation" x="281.8840579710145" y="-420.87053571428572"/>
         </view>
     </objects>
     <resources>
