@@ -57,6 +57,8 @@
 		9194B971231F97FF00AAA963 /* ChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9194B96F231F97FF00AAA963 /* ChartTableViewCell.xib */; };
 		9194B974231F9E0700AAA963 /* WeightLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B972231F9E0700AAA963 /* WeightLabelTableViewCell.swift */; };
 		9194B975231F9E0700AAA963 /* WeightLabelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9194B973231F9E0700AAA963 /* WeightLabelTableViewCell.xib */; };
+		9194B979231FA0AC00AAA963 /* SwitchPetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B978231FA0AC00AAA963 /* SwitchPetView.swift */; };
+		9194B97B231FA0BE00AAA963 /* SwitchPetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9194B97A231FA0BE00AAA963 /* SwitchPetView.xib */; };
 		933214776B257E5501F30B83 /* Pods_PetNote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C36075D08FC74716301080A /* Pods_PetNote.framework */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +117,8 @@
 		9194B96F231F97FF00AAA963 /* ChartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartTableViewCell.xib; sourceTree = "<group>"; };
 		9194B972231F9E0700AAA963 /* WeightLabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightLabelTableViewCell.swift; sourceTree = "<group>"; };
 		9194B973231F9E0700AAA963 /* WeightLabelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeightLabelTableViewCell.xib; sourceTree = "<group>"; };
+		9194B978231FA0AC00AAA963 /* SwitchPetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchPetView.swift; sourceTree = "<group>"; };
+		9194B97A231FA0BE00AAA963 /* SwitchPetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchPetView.xib; sourceTree = "<group>"; };
 		C1B26700EEE001AE14DFC34D /* Pods-PetNote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetNote.debug.xcconfig"; path = "Target Support Files/Pods-PetNote/Pods-PetNote.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -371,6 +375,8 @@
 			isa = PBXGroup;
 			children = (
 				9194B927231CF6E900AAA963 /* BasicCollectionView */,
+				9194B978231FA0AC00AAA963 /* SwitchPetView.swift */,
+				9194B97A231FA0BE00AAA963 /* SwitchPetView.xib */,
 			);
 			path = Basic;
 			sourceTree = "<group>";
@@ -452,6 +458,7 @@
 				9194B921231CEB9A00AAA963 /* BasicCollectionViewCell.xib in Resources */,
 				9194B943231E6C0800AAA963 /* NotifyTableViewCell.xib in Resources */,
 				9181BC462317A067007BB7C6 /* Other.storyboard in Resources */,
+				9194B97B231FA0BE00AAA963 /* SwitchPetView.xib in Resources */,
 				9181BC552317C530007BB7C6 /* ProfileTableViewCell.xib in Resources */,
 				9181BC2C23177E1C007BB7C6 /* Main.storyboard in Resources */,
 				9181BC422317A03D007BB7C6 /* Record.storyboard in Resources */,
@@ -546,6 +553,7 @@
 				9194B946231E773100AAA963 /* WeightRecordViewController.swift in Sources */,
 				9194B933231D335E00AAA963 /* ProtectTypeTableViewCell.swift in Sources */,
 				9194B974231F9E0700AAA963 /* WeightLabelTableViewCell.swift in Sources */,
+				9194B979231FA0AC00AAA963 /* SwitchPetView.swift in Sources */,
 				9181BC5F2317E1DE007BB7C6 /* ProfileDetailViewController.swift in Sources */,
 				9194B92D231D164D00AAA963 /* AddingProtectPlanViewController.swift in Sources */,
 				9181BC2723177E1C007BB7C6 /* AppDelegate.swift in Sources */,
