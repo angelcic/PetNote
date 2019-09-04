@@ -50,6 +50,7 @@
 		9194B942231E6C0800AAA963 /* NotifyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B940231E6C0800AAA963 /* NotifyTableViewCell.swift */; };
 		9194B943231E6C0800AAA963 /* NotifyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9194B941231E6C0800AAA963 /* NotifyTableViewCell.xib */; };
 		9194B946231E773100AAA963 /* WeightRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B945231E773100AAA963 /* WeightRecordViewController.swift */; };
+		9194B969231F64C400AAA963 /* PNChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B968231F64C400AAA963 /* PNChartView.swift */; };
 		933214776B257E5501F30B83 /* Pods_PetNote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C36075D08FC74716301080A /* Pods_PetNote.framework */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +102,7 @@
 		9194B940231E6C0800AAA963 /* NotifyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyTableViewCell.swift; sourceTree = "<group>"; };
 		9194B941231E6C0800AAA963 /* NotifyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotifyTableViewCell.xib; sourceTree = "<group>"; };
 		9194B945231E773100AAA963 /* WeightRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightRecordViewController.swift; sourceTree = "<group>"; };
+		9194B968231F64C400AAA963 /* PNChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNChartView.swift; sourceTree = "<group>"; };
 		C1B26700EEE001AE14DFC34D /* Pods-PetNote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetNote.debug.xcconfig"; path = "Target Support Files/Pods-PetNote/Pods-PetNote.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -262,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				9181BC5C2317DE27007BB7C6 /* SelectionView.swift */,
+				9194B968231F64C400AAA963 /* PNChartView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 				9181BC502317C461007BB7C6 /* Pet.swift in Sources */,
 				9181BC592317CC4B007BB7C6 /* UIViewExtension.swift in Sources */,
 				9194B91B231CD8D500AAA963 /* BasicInfoTableViewCell.swift in Sources */,
+				9194B969231F64C400AAA963 /* PNChartView.swift in Sources */,
 				9181BC652319109B007BB7C6 /* ProfileDetailView.swift in Sources */,
 				9194B92F231D213600AAA963 /* BaseViewController.swift in Sources */,
 				9181BC492317AA3F007BB7C6 /* UIStoryboardExtension.swift in Sources */,
