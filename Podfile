@@ -10,4 +10,5 @@ target 'PetNote' do
   pod 'SwiftLint'
   pod 'Charts'
   pod 'ChartsRealm'
+  pod 'FSCalendar'
 end

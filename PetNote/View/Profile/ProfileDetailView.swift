@@ -31,19 +31,17 @@ class ProfileDetailView: UIView {
         }
     }
     
-    @IBOutlet weak var collectionView: UICollectionView! {
-        
-        didSet {
-            
-            collectionView.dataSource = self.delegate
-            
-            collectionView.delegate = self.delegate
-        }
-    }
-    
     @IBOutlet weak var basicInfoContainerView: UIView!
     @IBOutlet weak var protectPlanContainerView: UIView!
     @IBOutlet weak var healthRecordContainerView: UIView!
+    
+    @IBOutlet weak var userSwitchLayer: UIView!
+    
+    weak var switchPetView: SwitchPetView! {
+        didSet {
+            switchPetView.delegate = self.delegate
+        }
+    }
     
     var containerViews: [UIView] {
         
@@ -54,11 +52,9 @@ class ProfileDetailView: UIView {
         
         didSet {
             
-            guard let collectionView = collectionView else { return }
-            
-            collectionView.dataSource = self.delegate
-            
-            collectionView.delegate = self.delegate
+            if let switchPetView = switchPetView {
+                switchPetView.delegate = self.delegate
+            }
         }
     }
     
@@ -66,16 +62,17 @@ class ProfileDetailView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        setupCollectionView()
+        setupPetSwitchLayer()
+//        setupCollectionView()
     }
     
-    private func setupCollectionView() {
-        
-        collectionView.registerCellWithNib(
-            identifier: String(describing: PetsCollectionViewCell.self),
-            bundle: nil
-        )
+    private func setupPetSwitchLayer() {
+        let switchPetView = SwitchPetView(
+                frame: CGRect(x: 0, y: 0,
+                              width: userSwitchLayer.frame.width,
+                              height: userSwitchLayer.frame.height))
+        self.switchPetView = switchPetView
+        userSwitchLayer.addSubview(self.switchPetView)
     }
     
     private func updateContainer(type: PageType) {
@@ -97,7 +94,7 @@ class ProfileDetailView: UIView {
     }
 }
 
-protocol ProfileDetailViewDelegate: UICollectionViewDelegate, UICollectionViewDataSource, AnyObject {
+protocol ProfileDetailViewDelegate: UICollectionViewDelegate, UICollectionViewDataSource, SwitchPetViewDelegate {
     
 }
 
