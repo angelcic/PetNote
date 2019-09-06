@@ -9,7 +9,7 @@
 import UIKit
 import FSCalendar
 
-class RecordViewController: UIViewController {
+class RecordViewController: BaseViewController {
     
     @IBOutlet weak var switchPetLayer: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -58,6 +58,8 @@ class RecordViewController: UIViewController {
     }
         
     @IBAction func addAction(_ sender: Any) {
+        guard let addRecordVC = UIStoryboard.record.instantiateViewController(withIdentifier: String(describing: AddRecordViewController.self)) as? AddRecordViewController else { return }
+        show(addRecordVC, sender: nil)
     }
 }
 

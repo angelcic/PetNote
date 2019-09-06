@@ -27,7 +27,7 @@ class ProtectTypeTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         checkButton.setImage(isDeSelectedImage, for: .normal)
-//        checkButton.setImage(isSelectedImage, for: .selected)
+        checkButton.setImage(isSelectedImage, for: .selected)
 //        checkButton.imageView?.image = isDeSelectedImage
     }
 
@@ -42,16 +42,19 @@ class ProtectTypeTableViewCell: UITableViewCell {
         textFieldLayer.isHidden = hideTextField
     }
     
-    @IBAction func checkAction(_ sender: Any) {
+    @IBAction func checkAction(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected        
         delegate?.checkAction(cell: self)
     }
     
     func changeSelectedStatus(_ isSelected: Bool) {
         if isSelected {
-            checkButton.setImage(isSelectedImage, for: .normal)
+            checkButton.isSelected = true
+//            checkButton.setImage(isSelectedImage, for: .normal)
 //            checkButton.imageView?.image = isSelectedImage
         } else {
-            checkButton.setImage(isDeSelectedImage, for: .normal)
+            checkButton.isSelected = false
+//            checkButton.setImage(isDeSelectedImage, for: .normal)
 //            checkButton.imageView?.image = isDeSelectedImage
         }
     }
@@ -59,5 +62,5 @@ class ProtectTypeTableViewCell: UITableViewCell {
 }
 
 protocol ProtectTypeTableViewCellDelegate: AnyObject {
-    func checkAction(cell: UITableViewCell)
+    func checkAction(cell: ProtectTypeTableViewCell)
 }

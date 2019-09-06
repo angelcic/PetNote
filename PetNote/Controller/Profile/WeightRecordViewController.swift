@@ -24,6 +24,9 @@ class WeightRecordViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.title = "體重計錄"
+        
         setupPetSwitchLayer()
         setupTableView()
     }

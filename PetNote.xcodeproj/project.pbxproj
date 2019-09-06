@@ -60,6 +60,11 @@
 		9194B979231FA0AC00AAA963 /* SwitchPetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B978231FA0AC00AAA963 /* SwitchPetView.swift */; };
 		9194B97B231FA0BE00AAA963 /* SwitchPetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9194B97A231FA0BE00AAA963 /* SwitchPetView.xib */; };
 		9194B97E2320F95F00AAA963 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B97D2320F95F00AAA963 /* RecordViewController.swift */; };
+		9194B981232135C700AAA963 /* AddRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B980232135C700AAA963 /* AddRecordViewController.swift */; };
+		9194B98523213FC900AAA963 /* DateSelectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B98323213FC900AAA963 /* DateSelectTableViewCell.swift */; };
+		9194B98623213FC900AAA963 /* DateSelectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9194B98423213FC900AAA963 /* DateSelectTableViewCell.xib */; };
+		9194B989232140C700AAA963 /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B987232140C700AAA963 /* DescriptionTableViewCell.swift */; };
+		9194B98A232140C700AAA963 /* DescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9194B988232140C700AAA963 /* DescriptionTableViewCell.xib */; };
 		933214776B257E5501F30B83 /* Pods_PetNote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C36075D08FC74716301080A /* Pods_PetNote.framework */; };
 /* End PBXBuildFile section */
 
@@ -122,6 +127,11 @@
 		9194B97A231FA0BE00AAA963 /* SwitchPetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchPetView.xib; sourceTree = "<group>"; };
 		9194B97C231FC0BB00AAA963 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		9194B97D2320F95F00AAA963 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
+		9194B980232135C700AAA963 /* AddRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordViewController.swift; sourceTree = "<group>"; };
+		9194B98323213FC900AAA963 /* DateSelectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectTableViewCell.swift; sourceTree = "<group>"; };
+		9194B98423213FC900AAA963 /* DateSelectTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateSelectTableViewCell.xib; sourceTree = "<group>"; };
+		9194B987232140C700AAA963 /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		9194B988232140C700AAA963 /* DescriptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionTableViewCell.xib; sourceTree = "<group>"; };
 		C1B26700EEE001AE14DFC34D /* Pods-PetNote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetNote.debug.xcconfig"; path = "Target Support Files/Pods-PetNote/Pods-PetNote.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -206,6 +216,7 @@
 				9194B977231F9F9500AAA963 /* Basic */,
 				9181BC5B2317DE0A007BB7C6 /* UI */,
 				9181BC512317C4E8007BB7C6 /* Profile */,
+				9194B98223213F6700AAA963 /* Record */,
 				9181BC2A23177E1C007BB7C6 /* Main.storyboard */,
 				9181BC3F2317A02F007BB7C6 /* Profile.storyboard */,
 				9181BC412317A03D007BB7C6 /* Record.storyboard */,
@@ -390,6 +401,18 @@
 			isa = PBXGroup;
 			children = (
 				9194B97D2320F95F00AAA963 /* RecordViewController.swift */,
+				9194B980232135C700AAA963 /* AddRecordViewController.swift */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
+		9194B98223213F6700AAA963 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				9194B98323213FC900AAA963 /* DateSelectTableViewCell.swift */,
+				9194B98423213FC900AAA963 /* DateSelectTableViewCell.xib */,
+				9194B987232140C700AAA963 /* DescriptionTableViewCell.swift */,
+				9194B988232140C700AAA963 /* DescriptionTableViewCell.xib */,
 			);
 			path = Record;
 			sourceTree = "<group>";
@@ -469,6 +492,7 @@
 				9181BC442317A050007BB7C6 /* Medical.storyboard in Resources */,
 				9181BC402317A02F007BB7C6 /* Profile.storyboard in Resources */,
 				9194B921231CEB9A00AAA963 /* BasicCollectionViewCell.xib in Resources */,
+				9194B98623213FC900AAA963 /* DateSelectTableViewCell.xib in Resources */,
 				9194B943231E6C0800AAA963 /* NotifyTableViewCell.xib in Resources */,
 				9181BC462317A067007BB7C6 /* Other.storyboard in Resources */,
 				9194B97B231FA0BE00AAA963 /* SwitchPetView.xib in Resources */,
@@ -478,6 +502,7 @@
 				9194B91C231CD8D500AAA963 /* BasicInfoTableViewCell.xib in Resources */,
 				9194B975231F9E0700AAA963 /* WeightLabelTableViewCell.xib in Resources */,
 				9194B971231F97FF00AAA963 /* ChartTableViewCell.xib in Resources */,
+				9194B98A232140C700AAA963 /* DescriptionTableViewCell.xib in Resources */,
 				9194B96D231F909D00AAA963 /* WithImageSectionHeaderView.xib in Resources */,
 				9194B934231D335E00AAA963 /* ProtectTypeTableViewCell.xib in Resources */,
 				9181BC6C23191247007BB7C6 /* PetsCollectionViewCell.xib in Resources */,
@@ -562,7 +587,9 @@
 				9194B920231CEB9A00AAA963 /* BasicCollectionViewCell.swift in Sources */,
 				9181BC672319119D007BB7C6 /* UICollectionViewExtension.swift in Sources */,
 				9181BC542317C530007BB7C6 /* ProfileTableViewCell.swift in Sources */,
+				9194B98523213FC900AAA963 /* DateSelectTableViewCell.swift in Sources */,
 				9194B929231D097900AAA963 /* HealthRecordViewController.swift in Sources */,
+				9194B989232140C700AAA963 /* DescriptionTableViewCell.swift in Sources */,
 				9194B946231E773100AAA963 /* WeightRecordViewController.swift in Sources */,
 				9194B933231D335E00AAA963 /* ProtectTypeTableViewCell.swift in Sources */,
 				9194B974231F9E0700AAA963 /* WeightLabelTableViewCell.swift in Sources */,
@@ -573,6 +600,7 @@
 				9181BC2723177E1C007BB7C6 /* AppDelegate.swift in Sources */,
 				9181BC71231C9CF5007BB7C6 /* ProtectPlanViewController.swift in Sources */,
 				9181BC572317C8C2007BB7C6 /* UITableViewExtension.swift in Sources */,
+				9194B981232135C700AAA963 /* AddRecordViewController.swift in Sources */,
 				9181BC4C2317C38C007BB7C6 /* ProfileViewController.swift in Sources */,
 				9181BC6B23191247007BB7C6 /* PetsCollectionViewCell.swift in Sources */,
 				9181BC502317C461007BB7C6 /* Pet.swift in Sources */,
