@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zmW-W0-JMV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L3e-c2-8xN">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,20 +10,93 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--就診記錄-->
         <scene sceneID="WZP-g4-FR7">
             <objects>
-                <viewController id="zmW-W0-JMV" sceneMemberID="viewController">
+                <viewController id="zmW-W0-JMV" customClass="MedicalViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JNO-Oh-PF6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eLV-lE-toe">
+                                <rect key="frame" x="20" y="108" width="374" height="150"/>
+                                <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="IZ1-Vm-KcS"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="FbW-wR-trM"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zz5-se-J9i">
+                                <rect key="frame" x="20" y="278" width="374" height="584"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hc2-OP-lx9" firstAttribute="trailing" secondItem="zz5-se-J9i" secondAttribute="trailing" constant="20" id="CLn-9q-qnm"/>
+                            <constraint firstItem="zz5-se-J9i" firstAttribute="leading" secondItem="hc2-OP-lx9" secondAttribute="leading" constant="20" id="JLL-0c-cVB"/>
+                            <constraint firstItem="hc2-OP-lx9" firstAttribute="trailing" secondItem="eLV-lE-toe" secondAttribute="trailing" constant="20" id="L2E-fl-AIo"/>
+                            <constraint firstItem="hc2-OP-lx9" firstAttribute="bottom" secondItem="zz5-se-J9i" secondAttribute="bottom" id="Q07-v4-MNg"/>
+                            <constraint firstItem="eLV-lE-toe" firstAttribute="top" secondItem="hc2-OP-lx9" secondAttribute="top" constant="20" id="VRw-ZO-R48"/>
+                            <constraint firstItem="zz5-se-J9i" firstAttribute="top" secondItem="eLV-lE-toe" secondAttribute="bottom" constant="20" id="f2s-X5-V5d"/>
+                            <constraint firstItem="eLV-lE-toe" firstAttribute="leading" secondItem="hc2-OP-lx9" secondAttribute="leading" constant="20" id="fm9-xD-9BU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="hc2-OP-lx9"/>
                     </view>
+                    <navigationItem key="navigationItem" title="就診記錄" id="9uw-Bz-Ps3"/>
+                    <connections>
+                        <outlet property="switchPetLayer" destination="eLV-lE-toe" id="U7E-hY-1rG"/>
+                        <outlet property="tableView" destination="zz5-se-J9i" id="4Fd-p0-f9N"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NOS-V1-Cnc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="167" y="74"/>
+            <point key="canvasLocation" x="1076.8115942028987" y="73.660714285714278"/>
+        </scene>
+        <!--Add Medical Record View Controller-->
+        <scene sceneID="6Yc-xp-DiO">
+            <objects>
+                <viewController storyboardIdentifier="AddMedicalRecordViewController" id="aFy-pi-JF2" customClass="AddMedicalRecordViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YJV-ca-QmD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KRK-gS-0wh">
+                                <rect key="frame" x="20" y="44" width="374" height="818"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ieO-qZ-p4K" firstAttribute="bottom" secondItem="KRK-gS-0wh" secondAttribute="bottom" id="HxS-ia-bQH"/>
+                            <constraint firstItem="KRK-gS-0wh" firstAttribute="leading" secondItem="ieO-qZ-p4K" secondAttribute="leading" constant="20" id="XwQ-mh-2GV"/>
+                            <constraint firstItem="KRK-gS-0wh" firstAttribute="top" secondItem="ieO-qZ-p4K" secondAttribute="top" id="cu5-8J-KGB"/>
+                            <constraint firstItem="ieO-qZ-p4K" firstAttribute="trailing" secondItem="KRK-gS-0wh" secondAttribute="trailing" constant="20" id="eG3-qC-bII"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ieO-qZ-p4K"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rHq-D8-fTL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1924" y="68"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3LV-Ac-z4q">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="L3e-c2-8xN" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Yw8-zD-4na">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="zmW-W0-JMV" kind="relationship" relationship="rootViewController" id="78c-k6-gIx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="chI-OH-RIO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="166.66666666666669" y="73.660714285714278"/>
         </scene>
     </scenes>
 </document>

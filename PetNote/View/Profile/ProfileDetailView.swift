@@ -71,6 +71,7 @@ class ProfileDetailView: UIView {
                 frame: CGRect(x: 0, y: 0,
                               width: userSwitchLayer.frame.width,
                               height: userSwitchLayer.frame.height))
+//        guard let switchPetView = SwitchPetView.instanceFromNib() as? SwitchPetView else {return}
         self.switchPetView = switchPetView
         userSwitchLayer.addSubview(self.switchPetView)
     }

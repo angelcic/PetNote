@@ -29,13 +29,25 @@
                         <constraint firstAttribute="height" constant="40" id="sNM-5D-ZX7"/>
                     </constraints>
                 </imageView>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DeV-DO-OHc">
+                    <rect key="frame" x="214.5" y="68" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="DeV-DO-OHc" secondAttribute="height" multiplier="1:1" id="Bev-vR-m5w"/>
+                    </constraints>
+                    <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" image="icons-50px_add"/>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="DeV-DO-OHc" firstAttribute="bottom" secondItem="0cF-jf-Yb3" secondAttribute="bottom" id="46h-5X-7pg"/>
                 <constraint firstItem="L0m-vK-8Wj" firstAttribute="centerY" secondItem="0cF-jf-Yb3" secondAttribute="centerY" id="4KT-dM-AnY"/>
                 <constraint firstItem="0cF-jf-Yb3" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="7nI-oY-Ze2"/>
                 <constraint firstItem="L0m-vK-8Wj" firstAttribute="leading" secondItem="0cF-jf-Yb3" secondAttribute="trailing" constant="16" id="Oo4-bL-Ubz"/>
+                <constraint firstItem="DeV-DO-OHc" firstAttribute="leading" secondItem="L0m-vK-8Wj" secondAttribute="trailing" constant="16" id="QVg-LC-Z5e"/>
+                <constraint firstItem="DeV-DO-OHc" firstAttribute="top" secondItem="0cF-jf-Yb3" secondAttribute="top" id="eEI-fy-GIj"/>
                 <constraint firstItem="0cF-jf-Yb3" firstAttribute="width" secondItem="0cF-jf-Yb3" secondAttribute="height" multiplier="1:1" id="fct-OH-kNe"/>
+                <constraint firstItem="DeV-DO-OHc" firstAttribute="centerY" secondItem="0cF-jf-Yb3" secondAttribute="centerY" id="o1u-Cs-REL"/>
                 <constraint firstItem="0cF-jf-Yb3" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="z13-05-viL"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
@@ -50,5 +62,6 @@
     </objects>
     <resources>
         <image name="Icons_32px_footprint01" width="24" height="24"/>
+        <image name="icons-50px_add" width="37" height="37"/>
     </resources>
 </document>

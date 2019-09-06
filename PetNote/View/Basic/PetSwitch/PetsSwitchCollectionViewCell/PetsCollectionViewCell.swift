@@ -15,7 +15,12 @@ class PetsCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        petImageView.addCorner(cornerRadius: 40)
+        
     }
-
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.layoutIfNeeded()
+        petImageView.addCorner(cornerRadius: petImageView.frame.height * 0.5)
+    }
 }
