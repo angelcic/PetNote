@@ -71,6 +71,10 @@
 		9194B9982322638F00AAA963 /* AddMedicalRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B9972322638F00AAA963 /* AddMedicalRecordViewController.swift */; };
 		9194B99C232285FB00AAA963 /* BasicMedicalRecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B99A232285FB00AAA963 /* BasicMedicalRecordTableViewCell.swift */; };
 		9194B99D232285FC00AAA963 /* BasicMedicalRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9194B99B232285FB00AAA963 /* BasicMedicalRecordTableViewCell.xib */; };
+		9194B9A02322922300AAA963 /* TitleWithButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B99E2322922300AAA963 /* TitleWithButtonTableViewCell.swift */; };
+		9194B9A12322922300AAA963 /* TitleWithButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9194B99F2322922300AAA963 /* TitleWithButtonTableViewCell.xib */; };
+		9194B9A42322923B00AAA963 /* TitleWithDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B9A22322923B00AAA963 /* TitleWithDateTableViewCell.swift */; };
+		9194B9A52322923B00AAA963 /* TitleWithDateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9194B9A32322923B00AAA963 /* TitleWithDateTableViewCell.xib */; };
 		933214776B257E5501F30B83 /* Pods_PetNote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C36075D08FC74716301080A /* Pods_PetNote.framework */; };
 /* End PBXBuildFile section */
 
@@ -144,6 +148,10 @@
 		9194B9972322638F00AAA963 /* AddMedicalRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMedicalRecordViewController.swift; sourceTree = "<group>"; };
 		9194B99A232285FB00AAA963 /* BasicMedicalRecordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicMedicalRecordTableViewCell.swift; sourceTree = "<group>"; };
 		9194B99B232285FB00AAA963 /* BasicMedicalRecordTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasicMedicalRecordTableViewCell.xib; sourceTree = "<group>"; };
+		9194B99E2322922300AAA963 /* TitleWithButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleWithButtonTableViewCell.swift; sourceTree = "<group>"; };
+		9194B99F2322922300AAA963 /* TitleWithButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleWithButtonTableViewCell.xib; sourceTree = "<group>"; };
+		9194B9A22322923B00AAA963 /* TitleWithDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleWithDateTableViewCell.swift; sourceTree = "<group>"; };
+		9194B9A32322923B00AAA963 /* TitleWithDateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleWithDateTableViewCell.xib; sourceTree = "<group>"; };
 		C1B26700EEE001AE14DFC34D /* Pods-PetNote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetNote.debug.xcconfig"; path = "Target Support Files/Pods-PetNote/Pods-PetNote.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -438,6 +446,10 @@
 				9194B99123225A6E00AAA963 /* MedicalRecordTableViewCell.xib */,
 				9194B99A232285FB00AAA963 /* BasicMedicalRecordTableViewCell.swift */,
 				9194B99B232285FB00AAA963 /* BasicMedicalRecordTableViewCell.xib */,
+				9194B99E2322922300AAA963 /* TitleWithButtonTableViewCell.swift */,
+				9194B99F2322922300AAA963 /* TitleWithButtonTableViewCell.xib */,
+				9194B9A22322923B00AAA963 /* TitleWithDateTableViewCell.swift */,
+				9194B9A32322923B00AAA963 /* TitleWithDateTableViewCell.xib */,
 			);
 			path = Medical;
 			sourceTree = "<group>";
@@ -544,6 +556,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9194B9A12322922300AAA963 /* TitleWithButtonTableViewCell.xib in Resources */,
 				9181BC3423177E1D007BB7C6 /* LaunchScreen.storyboard in Resources */,
 				9194B925231CF38800AAA963 /* AddDataTableViewSectionHeaderView.xib in Resources */,
 				9181BC3123177E1D007BB7C6 /* Assets.xcassets in Resources */,
@@ -554,6 +567,7 @@
 				9194B943231E6C0800AAA963 /* NotifyTableViewCell.xib in Resources */,
 				9181BC462317A067007BB7C6 /* Other.storyboard in Resources */,
 				9181BC552317C530007BB7C6 /* ProfileTableViewCell.xib in Resources */,
+				9194B9A52322923B00AAA963 /* TitleWithDateTableViewCell.xib in Resources */,
 				9181BC2C23177E1C007BB7C6 /* Main.storyboard in Resources */,
 				9181BC422317A03D007BB7C6 /* Record.storyboard in Resources */,
 				9194B91C231CD8D500AAA963 /* BasicInfoTableViewCell.xib in Resources */,
@@ -647,6 +661,7 @@
 				9194B98F2322384000AAA963 /* MedicalViewController.swift in Sources */,
 				9194B96B231F908000AAA963 /* WithImageSectionHeaderView.swift in Sources */,
 				9194B970231F97FF00AAA963 /* ChartTableViewCell.swift in Sources */,
+				9194B9A42322923B00AAA963 /* TitleWithDateTableViewCell.swift in Sources */,
 				9194B920231CEB9A00AAA963 /* BasicCollectionViewCell.swift in Sources */,
 				9181BC672319119D007BB7C6 /* UICollectionViewExtension.swift in Sources */,
 				9181BC542317C530007BB7C6 /* ProfileTableViewCell.swift in Sources */,
@@ -656,6 +671,7 @@
 				9194B946231E773100AAA963 /* WeightRecordViewController.swift in Sources */,
 				9194B933231D335E00AAA963 /* ProtectTypeTableViewCell.swift in Sources */,
 				9194B974231F9E0700AAA963 /* WeightLabelTableViewCell.swift in Sources */,
+				9194B9A02322922300AAA963 /* TitleWithButtonTableViewCell.swift in Sources */,
 				9194B979231FA0AC00AAA963 /* SwitchPetView.swift in Sources */,
 				9194B97E2320F95F00AAA963 /* RecordViewController.swift in Sources */,
 				9181BC5F2317E1DE007BB7C6 /* ProfileDetailViewController.swift in Sources */,

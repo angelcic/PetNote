@@ -1,5 +1,5 @@
 //
-//  BasicMedicalRecordTableViewCell.swift
+//  TitleWithDateTableViewCell.swift
 //  PetNote
 //
 //  Created by iching chen on 2019/9/6.
@@ -8,13 +8,15 @@
 
 import UIKit
 
-class BasicMedicalRecordTableViewCell: UITableViewCell {
-    @IBOutlet weak var medicalImageView: UIImageView!
+class TitleWithDateTableViewCell: UITableViewCell {
+
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var timeTextField: UITextField!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        medicalImageView.addCorner(cornerRadius: 30)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

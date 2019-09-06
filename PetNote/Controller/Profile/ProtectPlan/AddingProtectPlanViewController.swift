@@ -110,7 +110,7 @@ extension AddingProtectPlanViewController: UICollectionViewDelegate {
 //        }
         // TODO:
         currentPreventType = protectTypes[indexPath.row]
-//        tableView.reloadData()
+        tableView.reloadData()
         
     }
     
@@ -197,23 +197,29 @@ extension AddingProtectPlanViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
            
-                guard
-                    let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ProtectTypeTableViewCell.self), for: indexPath)
-                        as?  ProtectTypeTableViewCell
-                    else {
-                        return  UITableViewCell()
-                }
-                cell.delegate = self
+            guard
+                let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ProtectTypeTableViewCell.self), for: indexPath)
+                    as?  ProtectTypeTableViewCell
+                else {
+                    return  UITableViewCell()
+            }
+            cell.delegate = self
             
             switch currentPreventType {
             case .other:
                 cell.layoutCell(title: currentPreventType.protectFuntions[indexPath.row], hideTextField: false)
-                
+                cell.changeSelectedStatus(true)
+
             default:
                 if indexPath.row == currentPreventType.protectFuntions.count - 1 {
                     cell.layoutCell(title: currentPreventType.protectFuntions[indexPath.row], hideTextField: false)
                 } else {
                 cell.layoutCell(title: currentPreventType.protectFuntions[indexPath.row], hideTextField: true)
+                }
+                if indexPath.row == 0 {
+                    cell.changeSelectedStatus(true)
+                } else {
+                   cell.changeSelectedStatus(false)
                 }
             }
             return cell

@@ -31,8 +31,6 @@ class SwitchPetView: UIView {
 
     }
     
-
-    
     class func instanceFromNib() -> UIView? {
 //        let nib = UINib(nibName: "SwitchPetView", bundle: nil)
 //        let instantArray = nib.instantiate(withOwner: nil, options: nil)
