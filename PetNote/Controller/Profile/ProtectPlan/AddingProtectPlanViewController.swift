@@ -41,7 +41,7 @@ class AddingProtectPlanViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = .white
+//        self.view.backgroundColor = .white
         self.navigationItem.title = "添加預防計畫"
         
         setCollectionView()
@@ -110,7 +110,7 @@ extension AddingProtectPlanViewController: UICollectionViewDelegate {
 //        }
         // TODO:
         currentPreventType = protectTypes[indexPath.row]
-        tableView.reloadData()
+//        tableView.reloadData()
         
     }
     
@@ -140,13 +140,12 @@ extension AddingProtectPlanViewController: UICollectionViewDelegateFlowLayout {
 // TableView
 
 extension AddingProtectPlanViewController: ProtectTypeTableViewCellDelegate {
-    func checkAction(cell: UITableViewCell) {
+    func checkAction(cell: ProtectTypeTableViewCell) {
         for cell in tableView.visibleCells {
             if let cell = cell as? ProtectTypeTableViewCell {
                 cell.changeSelectedStatus(false)
             }
-        }
-        guard let cell = cell as? ProtectTypeTableViewCell else {return}
+        }        
         cell.changeSelectedStatus(true)
     }
 }

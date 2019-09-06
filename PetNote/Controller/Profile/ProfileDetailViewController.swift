@@ -28,7 +28,9 @@ class ProfileDetailViewController: BaseViewController {
 }
 
 extension ProfileDetailViewController: ProfileDetailViewDelegate {
-    
+    func changePet(_ indexPath: IndexPath) {
+        // TODO
+    }
 }
 
 extension ProfileDetailViewController: UICollectionViewDataSource {

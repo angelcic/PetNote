@@ -12,8 +12,7 @@ import Charts
 class WeightRecordViewController: BaseViewController {
 
     @IBOutlet weak var userSwitchLayer: UIView!
-    
-    
+        
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.delegate = self
@@ -25,6 +24,9 @@ class WeightRecordViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.title = "體重計錄"
+        
         setupPetSwitchLayer()
         setupTableView()
     }
@@ -38,13 +40,14 @@ class WeightRecordViewController: BaseViewController {
         let switchPetView = SwitchPetView(frame: CGRect(x: 0, y: 0,
                                                         width: userSwitchLayer.frame.width,
                                                         height: userSwitchLayer.frame.height))
+        switchPetView.delegate = self
         userSwitchLayer.addSubview(switchPetView)
         
     }
 }
 
 extension WeightRecordViewController: SwitchPetViewDelegate {
-    func changePet() {
+    func changePet(_ indexPath: IndexPath) {
         // TODO:
     }
 }

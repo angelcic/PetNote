@@ -43,7 +43,7 @@ class PNChartView: UIView {
         chartView.xAxis.axisMinimum = 0 // 最小刻度
         chartView.xAxis.granularity = 1 // 最小間隔
         chartView.leftAxis.granularity = 1 // 最小間隔
-        chartView.leftAxis.axisMaximum = 5 // 最大刻度
+        chartView.leftAxis.axisMaximum = 6 // 最大刻度
         chartView.leftAxis.axisMinimum = 0 // 最小刻度
 //        chartView.leftAxis.entryCount = 4
         
@@ -57,12 +57,13 @@ class PNChartView: UIView {
  
     func setupData(entries: [ChartDataEntry]?, label: String?) {
         // 隨機數據
-        let dataEntries = [ChartDataEntry]()
-//        for i in 0..<1 {
+        var dataEntries = [ChartDataEntry]()
+        for i in 0..<5 {
 //            let y = arc4random()%100
-//            let entry = ChartDataEntry.init(x: Double(i), y: Double(y))
-//            dataEntries.append(entry)
-//        }
+            let y = Double.random(in: 0...6)
+            let entry = ChartDataEntry.init(x: Double(i), y: Double(y))
+            dataEntries.append(entry)
+        }
         //这50条数据作为1根折线里的所有数据
         let chartDataSet = LineChartDataSet(entries: entries ?? dataEntries, label: label ?? "八月")
         
