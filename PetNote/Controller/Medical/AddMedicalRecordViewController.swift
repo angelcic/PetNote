@@ -66,6 +66,7 @@ extension AddMedicalRecordViewController: UITableViewDataSource {
         }
         if section == 1 {
             header.hideAddButton(false)
+            header.delegate = self
         } else {
             header.hideAddButton(true)
         }
@@ -134,4 +135,16 @@ extension AddMedicalRecordViewController: UITableViewDataSource {
         }
     }
     
+}
+
+extension AddMedicalRecordViewController: WithImageSectionHeaderDelegate {
+    func pressAddButton() {
+        guard let addMedicalVC = UIStoryboard.medical.instantiateViewController(withIdentifier: String(describing: AddMedicalViewController.self))
+        as? AddMedicalViewController
+            else {
+                return
+        }
+        
+        show(addMedicalVC, sender: nil)
+    }
 }

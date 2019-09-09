@@ -62,8 +62,6 @@ class SwitchPetView: UIView {
     private func setupCollectionView(frame: CGRect) {
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        print(frame)
-         print("===========")
         layout.itemSize = CGSize(width: frame.width / 4, height: frame.height) // cell的寬、高
         layout.minimumLineSpacing = CGFloat(integerLiteral: 10) // 滑動方向為「垂直」的話即「上下」的間距;滑動方向為「平行」則為「左右」的間距
         layout.minimumInteritemSpacing = CGFloat(integerLiteral: 6) // 滑動方向為「垂直」的話即「左右」的間距;滑動方向為「平行」則為「上下」的間距

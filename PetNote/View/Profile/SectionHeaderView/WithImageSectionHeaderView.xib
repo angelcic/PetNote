@@ -36,6 +36,9 @@
                     </constraints>
                     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" image="icons-50px_add"/>
+                    <connections>
+                        <action selector="addAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="vFR-ao-9p6"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

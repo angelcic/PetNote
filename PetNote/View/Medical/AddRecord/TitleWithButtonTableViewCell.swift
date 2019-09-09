@@ -10,7 +10,7 @@ import UIKit
 
 class TitleWithButtonTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var leftButton: UIButton!
+    @IBOutlet weak var rightButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     
     override func awakeFromNib() {
@@ -22,6 +22,13 @@ class TitleWithButtonTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func layoutCell(title: String, buttonTitle: String?) {
+        titleLabel.text = title
+        if let buttonTitle =  buttonTitle {
+            rightButton.setTitle("\(buttonTitle) 〉", for: .normal)
+        }
     }
     
 }
