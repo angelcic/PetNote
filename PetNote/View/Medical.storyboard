@@ -56,12 +56,12 @@
         <!--Add Medical Record View Controller-->
         <scene sceneID="6Yc-xp-DiO">
             <objects>
-                <viewController storyboardIdentifier="AddMedicalRecordViewController" id="aFy-pi-JF2" customClass="AddMedicalRecordViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddMedicalRecordViewController" hidesBottomBarWhenPushed="YES" id="aFy-pi-JF2" customClass="AddMedicalRecordViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YJV-ca-QmD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KRK-gS-0wh">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KRK-gS-0wh">
                                 <rect key="frame" x="20" y="44" width="374" height="818"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
@@ -86,7 +86,7 @@
         <!--Add Medical View Controller-->
         <scene sceneID="djh-hO-dkg">
             <objects>
-                <viewController storyboardIdentifier="AddMedicalViewController" id="OzQ-p5-dRc" customClass="AddMedicalViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddMedicalViewController" hidesBottomBarWhenPushed="YES" id="OzQ-p5-dRc" customClass="AddMedicalViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pyk-ll-CnB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

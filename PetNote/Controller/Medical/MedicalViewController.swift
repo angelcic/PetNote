@@ -40,7 +40,8 @@ class MedicalViewController: BaseViewController {
     }
     
     func showAddRecordPage() {
-        guard let addMedicalRecordVC = UIStoryboard.medical.instantiateViewController(withIdentifier: String(describing: AddMedicalRecordViewController.self))
+        guard let addMedicalRecordVC = UIStoryboard.medical.instantiateViewController(
+            withIdentifier: String(describing: AddMedicalRecordViewController.self))
             as? AddMedicalRecordViewController
             else {
                 return
@@ -78,7 +79,9 @@ extension MedicalViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: MedicalRecordTableViewCell.self), for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: String(describing: MedicalRecordTableViewCell.self),
+            for: indexPath)
             as? MedicalRecordTableViewCell
         else {
             return UITableViewCell()

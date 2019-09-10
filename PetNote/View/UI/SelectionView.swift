@@ -24,7 +24,7 @@ class SelectionView: UIView {
     
     var currentSelectedIndex = 0 // 現在被選擇的 button
     
-    let IndicatorView = UIView()
+    let indicatorView = UIView()
     
     init(_ rect: CGRect) {
         super.init(frame: rect)
@@ -45,11 +45,14 @@ class SelectionView: UIView {
         stackView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
         stackView.axis = .horizontal
         
-        IndicatorView.frame = CGRect(x: 0, y: self.frame.height, width: self.frame.width / CGFloat(buttonNumber), height: 3)
-        IndicatorView.backgroundColor = dataSource?.indicatorColor()
+        indicatorView.frame = CGRect(x: 0,
+                                     y: self.frame.height,
+                                     width: self.frame.width / CGFloat(buttonNumber),
+                                     height: 3)
+        indicatorView.backgroundColor = dataSource?.indicatorColor()
         
         self.addSubview(stackView)
-        self.addSubview(IndicatorView)
+        self.addSubview(indicatorView)
     }
     
     // 依據 datasource 創建 button
@@ -88,7 +91,7 @@ class SelectionView: UIView {
         if delegate.isEnableBeSelectAt(self, index: sender.tag) {
             
             UIView.animate(withDuration: 0.3) {
-                self.IndicatorView.center.x = sender.center.x
+                self.indicatorView.center.x = sender.center.x
             }
             
             delegate.didSelectAt(self, index: sender.tag)

@@ -51,7 +51,7 @@
         <!--Search Hospital View Controller-->
         <scene sceneID="R8r-hi-kqc">
             <objects>
-                <viewController storyboardIdentifier="SearchHospitalViewController" id="xOx-rG-DjU" customClass="SearchHospitalViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchHospitalViewController" hidesBottomBarWhenPushed="YES" id="xOx-rG-DjU" customClass="SearchHospitalViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kc7-kl-TO4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -139,7 +139,7 @@
         <!--Notification Manage View Controller-->
         <scene sceneID="Cip-uR-z7f">
             <objects>
-                <viewController storyboardIdentifier="NotificationManageViewController" id="gls-nt-98I" customClass="NotificationManageViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NotificationManageViewController" hidesBottomBarWhenPushed="YES" id="gls-nt-98I" customClass="NotificationManageViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rA2-pV-Gaz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -176,7 +176,7 @@
         <!--Notificaton View Controller-->
         <scene sceneID="gSN-UF-ZAf">
             <objects>
-                <viewController storyboardIdentifier="NotificatonViewController" id="rpr-4Y-J09" customClass="NotificatonViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NotificatonViewController" hidesBottomBarWhenPushed="YES" id="rpr-4Y-J09" customClass="NotificatonViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hI9-vu-Vyf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -206,12 +206,12 @@
         <!--Search Hospital Result View Controller-->
         <scene sceneID="9Cl-EJ-kUX">
             <objects>
-                <viewController storyboardIdentifier="SearchHospitalResultViewController" id="SGl-1s-yZ0" customClass="SearchHospitalResultViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchHospitalResultViewController" hidesBottomBarWhenPushed="YES" id="SGl-1s-yZ0" customClass="SearchHospitalResultViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DUO-OF-TgS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Z9U-Hn-Stg">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Z9U-Hn-Stg">
                                 <rect key="frame" x="30" y="74" width="354" height="758"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>

@@ -72,7 +72,9 @@ extension WeightRecordViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             guard
-                let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ChartTableViewCell.self), for: indexPath)
+                let cell = tableView.dequeueReusableCell(
+                    withIdentifier: String(describing: ChartTableViewCell.self),
+                    for: indexPath)
                 as? ChartTableViewCell
             else {
                     return UITableViewCell()
@@ -88,7 +90,9 @@ extension WeightRecordViewController: UITableViewDataSource {
             
         } else {
             guard
-                let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: WeightLabelTableViewCell.self), for: indexPath)
+                let cell = tableView.dequeueReusableCell(
+                    withIdentifier: String(describing: WeightLabelTableViewCell.self),
+                    for: indexPath)
                     as? WeightLabelTableViewCell
             else {
                     return UITableViewCell()

@@ -47,6 +47,19 @@ class AddMedicalRecordViewController: BaseViewController {
     
 }
 
+extension AddMedicalRecordViewController: TitleWithButtonTableViewCellDelegate {
+    func pressRightButton() {
+        guard let notifySettingVC = UIStoryboard.notify.instantiateViewController(
+            withIdentifier: String(describing: SettingNotifyViewController.self))
+            as? SettingNotifyViewController
+            else {
+                return
+        }
+        
+        show(notifySettingVC, sender: nil)
+    }
+}
+
 extension AddMedicalRecordViewController: UITableViewDelegate {
     
 }
@@ -59,7 +72,8 @@ extension AddMedicalRecordViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 { return nil}
         guard let
-            header = tableView.dequeueReusableHeaderFooterView(withIdentifier: String(describing: WithImageSectionHeaderView.self))
+            header = tableView.dequeueReusableHeaderFooterView(
+                withIdentifier: String(describing: WithImageSectionHeaderView.self))
             as? WithImageSectionHeaderView
         else {
             return nil
@@ -101,29 +115,39 @@ extension AddMedicalRecordViewController: UITableViewDataSource {
       
         switch indexPath.section {
         case 0:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: BasicMedicalRecordTableViewCell.self), for: indexPath)
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: String(describing: BasicMedicalRecordTableViewCell.self),
+                for: indexPath)
             as? BasicMedicalRecordTableViewCell
                 else {
                     return UITableViewCell()
             }
             return cell
         case 1:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TitleWithButtonTableViewCell.self), for: indexPath)
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: String(describing: TitleWithButtonTableViewCell.self),
+                for: indexPath)
                 as? TitleWithButtonTableViewCell
                 else {
                     return UITableViewCell()
             }
+            cell.delegate = self
+            cell.layoutCell(title: "通知管理", buttonTitle: "管理")
             return cell
         case 2:
             if indexPath.row == 0 {
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TitleWithDateTableViewCell.self), for: indexPath)
+                guard let cell = tableView.dequeueReusableCell(
+                    withIdentifier: String(describing: TitleWithDateTableViewCell.self),
+                    for: indexPath)
                     as? TitleWithDateTableViewCell
                     else {
                         return UITableViewCell()
                 }
                 return cell
             } else {
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TitleWithButtonTableViewCell.self), for: indexPath)
+                guard let cell = tableView.dequeueReusableCell(
+                    withIdentifier: String(describing: TitleWithButtonTableViewCell.self),
+                    for: indexPath)
                     as? TitleWithButtonTableViewCell
                     else {
                         return UITableViewCell()
@@ -139,7 +163,8 @@ extension AddMedicalRecordViewController: UITableViewDataSource {
 
 extension AddMedicalRecordViewController: WithImageSectionHeaderDelegate {
     func pressAddButton() {
-        guard let addMedicalVC = UIStoryboard.medical.instantiateViewController(withIdentifier: String(describing: AddMedicalViewController.self))
+        guard let addMedicalVC = UIStoryboard.medical.instantiateViewController(
+            withIdentifier: String(describing: AddMedicalViewController.self))
         as? AddMedicalViewController
             else {
                 return

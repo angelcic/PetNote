@@ -27,10 +27,12 @@ class SearchHospitalViewController: BaseViewController {
 
 extension SearchHospitalViewController: SearchHospitalViewDeleate {
     func pressSearchButton() {
-        guard let SearchResultVC = UIStoryboard.other.instantiateViewController(withIdentifier: String(describing: SearchHospitalResultViewController.self)) as? SearchHospitalResultViewController
+        guard let searchResultVC = UIStoryboard.other.instantiateViewController(
+            withIdentifier: String(describing: SearchHospitalResultViewController.self))
+            as? SearchHospitalResultViewController
             else {
             return
         }
-        show(SearchResultVC, sender: nil)
+        show(searchResultVC, sender: nil)
     }
 }

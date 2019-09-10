@@ -72,22 +72,31 @@ extension AddRecordViewController: UITableViewDataSource {
         switch  indexPath.section {
         case 0:
             if indexPath.row == 0 {
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: DateSelectTableViewCell.self), for: indexPath)
+                guard
+                    let cell = tableView.dequeueReusableCell(
+                        withIdentifier: String(describing: DateSelectTableViewCell.self),
+                        for: indexPath)
                     as? DateSelectTableViewCell
-                    else {
-                        return UITableViewCell()
+                else {
+                    return UITableViewCell()
                 }
                 return cell
             } else {
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: DescriptionTableViewCell.self), for: indexPath)
+                guard
+                    let cell = tableView.dequeueReusableCell(
+                        withIdentifier: String(describing: DescriptionTableViewCell.self),
+                        for: indexPath)
                     as? DescriptionTableViewCell
-                    else {
-                        return UITableViewCell()
+                else {
+                    return UITableViewCell()
                 }
                 return cell
             }
         default:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ProtectTypeTableViewCell.self), for: indexPath)
+            guard
+                let cell = tableView.dequeueReusableCell(
+                    withIdentifier: String(describing: ProtectTypeTableViewCell.self),
+                    for: indexPath)
                 as? ProtectTypeTableViewCell
                 else {
                     return UITableViewCell()

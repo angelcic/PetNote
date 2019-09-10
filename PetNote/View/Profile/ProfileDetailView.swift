@@ -21,7 +21,11 @@ class ProfileDetailView: UIView {
     
     @IBOutlet weak var selectionViewLayer: UIView! {
         didSet {
-            let selectionView = SelectionView(CGRect(x: 0, y: 0, width: selectionViewLayer.frame.width, height: selectionViewLayer.frame.height))
+            let selectionView = SelectionView(
+                CGRect(x: 0,
+                       y: 0,
+                       width: selectionViewLayer.frame.width,
+                       height: selectionViewLayer.frame.height))
             
             selectionView.delegate = self
             selectionView.dataSource = self

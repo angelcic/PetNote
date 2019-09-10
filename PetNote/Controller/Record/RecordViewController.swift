@@ -31,7 +31,8 @@ class RecordViewController: BaseViewController {
     
     fileprivate lazy var scopeGesture: UIPanGestureRecognizer = {
         [unowned self] in
-        let panGesture = UIPanGestureRecognizer(target: self.calendar, action: #selector(self.calendar.handleScopeGesture(_:)))
+        let panGesture = UIPanGestureRecognizer(target: self.calendar,
+                                                action: #selector(self.calendar.handleScopeGesture(_:)))
         panGesture.delegate = self
         panGesture.minimumNumberOfTouches = 1
         panGesture.maximumNumberOfTouches = 2
@@ -58,7 +59,9 @@ class RecordViewController: BaseViewController {
     }
         
     @IBAction func addAction(_ sender: Any) {
-        guard let addRecordVC = UIStoryboard.record.instantiateViewController(withIdentifier: String(describing: AddRecordViewController.self)) as? AddRecordViewController else { return }
+        guard let addRecordVC = UIStoryboard.record.instantiateViewController(
+            withIdentifier: String(describing: AddRecordViewController.self))
+            as? AddRecordViewController else { return }
         show(addRecordVC, sender: nil)
     }
 }

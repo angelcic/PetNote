@@ -24,9 +24,13 @@ class OtherFunctionViewController: BaseViewController {
         func getFunctionVC() -> UIViewController? {
             switch self {
             case .hospital:
-                return UIStoryboard.other.instantiateViewController(withIdentifier: String(describing: SearchHospitalViewController.self)) as? SearchHospitalViewController
+                return UIStoryboard.other.instantiateViewController(
+                    withIdentifier: String(describing: SearchHospitalViewController.self))
+                    as? SearchHospitalViewController
             case .alert:
-                return UIStoryboard.other.instantiateViewController(withIdentifier: String(describing: NotificationManageViewController.self)) as? NotificationManageViewController
+                return UIStoryboard.other.instantiateViewController(
+                    withIdentifier: String(describing: NotificationManageViewController.self))
+                    as? NotificationManageViewController
             }
         }
     }
@@ -43,7 +47,9 @@ class OtherFunctionViewController: BaseViewController {
     
     func showfunctionPage(_ type: FunctionType) {
         
-//        guard  let functionVC = UIStoryboard.other.instantiateViewController(withIdentifier: String(describing: SearchHospitalViewController.self)) as? SearchHospitalViewController
+//        guard  let functionVC = UIStoryboard.other.instantiateViewController(
+//        withIdentifier: String(
+//        describing: SearchHospitalViewController.self)) as? SearchHospitalViewController
         guard
             let functionVC = type.getFunctionVC()
         else {
@@ -66,15 +72,21 @@ extension OtherFunctionViewController: UICollectionViewDelegateFlowLayout {
     var screenWidth: CGFloat {
         return UIScreen.width
     }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: screenWidth / 3, height: screenWidth / 3)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 6
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 30
     }
 }
@@ -88,8 +100,10 @@ extension OtherFunctionViewController: UICollectionViewDataSource {
         return functions.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: BasicCollectionViewCell.self), for: indexPath)
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: String(describing: BasicCollectionViewCell.self), for: indexPath)
         as? BasicCollectionViewCell
             else {
                 return BasicCollectionViewCell()

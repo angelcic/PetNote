@@ -1,21 +1,28 @@
 //
-//  BasicMedicalRecordTableViewCell.swift
+//  AddImageTableViewCell.swift
 //  PetNote
 //
-//  Created by iching chen on 2019/9/6.
+//  Created by iching chen on 2019/9/9.
 //  Copyright © 2019 ichingchen. All rights reserved.
 //
 
 import UIKit
 
-class BasicMedicalRecordTableViewCell: UITableViewCell {
-    @IBOutlet weak var medicalImageView: UIImageView!
+protocol AddImageTableViewCellDelegate: AnyObject {
+    func pressAddImageButton()
+}
+
+class AddImageTableViewCell: UITableViewCell {
+
+    @IBOutlet weak var petImageView: UIImageView!
     
     @IBOutlet weak var addImageButton: UIButton!
+    
+    weak var delegate: AddImageTableViewCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        medicalImageView.addCorner(cornerRadius: 20)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -25,5 +32,8 @@ class BasicMedicalRecordTableViewCell: UITableViewCell {
     }
     
     @IBAction func addImageAction(_ sender: Any) {
+        
+        delegate?.pressAddImageButton()
+        
     }
 }

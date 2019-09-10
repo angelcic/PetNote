@@ -32,6 +32,19 @@ class NotificatonViewController: BaseViewController {
     }
 }
 
+extension NotificatonViewController: TitleWithButtonTableViewCellDelegate {
+    func pressRightButton() {
+        guard let notifySettingVC = UIStoryboard.notify.instantiateViewController(
+            withIdentifier: String(describing: SettingNotifyViewController.self))
+        as? SettingNotifyViewController
+            else {
+                return
+        }
+        
+        show(notifySettingVC, sender: nil)
+    }
+}
+
 extension NotificatonViewController: UITableViewDelegate {
     
 }
@@ -43,7 +56,8 @@ extension NotificatonViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: String(describing: WithImageSectionHeaderView.self))
+        guard let headerView = tableView.dequeueReusableHeaderFooterView(
+            withIdentifier: String(describing: WithImageSectionHeaderView.self))
             as? WithImageSectionHeaderView
         else {
             return nil
@@ -58,11 +72,14 @@ extension NotificatonViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TitleWithButtonTableViewCell.self), for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: String(describing: TitleWithButtonTableViewCell.self),
+            for: indexPath)
         as? TitleWithButtonTableViewCell
         else {
             return UITableViewCell()
         }
+        cell.delegate = self
         cell.layoutCell(title: "某某疫苗", buttonTitle: "管理")
         return cell
     }

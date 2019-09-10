@@ -8,10 +8,16 @@
 
 import UIKit
 
+protocol TitleWithButtonTableViewCellDelegate: AnyObject {
+    func pressRightButton()
+}
+
 class TitleWithButtonTableViewCell: UITableViewCell {
     
     @IBOutlet weak var rightButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
+    
+    weak var delegate: TitleWithButtonTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,6 +35,10 @@ class TitleWithButtonTableViewCell: UITableViewCell {
         if let buttonTitle =  buttonTitle {
             rightButton.setTitle("\(buttonTitle) 〉", for: .normal)
         }
+    }
+    
+    @IBAction func pressRightButton() {
+        delegate?.pressRightButton()
     }
     
 }

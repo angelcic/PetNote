@@ -29,6 +29,16 @@ class SearchHospitalResultViewController: BaseViewController {
         tableView.registerCellWithNib(identifier: String(describing: HospitalDataTableViewCell.self), bundle: nil)
     }
     
+    override func navigationBarSetting() {
+        super.navigationBarSetting()
+        self.navigationController?.navigationBar.tintColor = .darkGray
+        let saveButton = UIBarButtonItem(title: "MAP", style: .plain, target: self, action: #selector(showMap))
+        self.navigationItem.rightBarButtonItem = saveButton
+    }
+    
+    @objc func showMap() {
+        
+    }
 }
 
 extension SearchHospitalResultViewController: UITableViewDelegate {
@@ -41,7 +51,9 @@ extension SearchHospitalResultViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: HospitalDataTableViewCell.self), for: indexPath) as? HospitalDataTableViewCell
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: String(describing: HospitalDataTableViewCell.self), for: indexPath)
+            as? HospitalDataTableViewCell
         else {
             return UITableViewCell()
         }
