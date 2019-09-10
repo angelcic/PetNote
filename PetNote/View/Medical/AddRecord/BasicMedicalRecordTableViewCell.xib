@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="365" id="KGk-i7-Jjw" customClass="BasicMedicalRecordTableViewCell" customModule="PetNote" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="365" id="KGk-i7-Jjw" customClass="BasicMedicalRecordTableViewCell" customModule="PetNote" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="358" height="365"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -62,6 +62,14 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="om2-zz-09W">
+                        <rect key="frame" x="149" y="65" width="60" height="60"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" image="icons8-add-image-60"/>
+                        <connections>
+                            <action selector="addImageAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="DGa-ei-M5a"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="kyU-JK-onG" firstAttribute="top" secondItem="4xO-5Z-UyJ" secondAttribute="bottom" constant="30" id="17R-w6-JOT"/>
@@ -80,17 +88,23 @@
                     <constraint firstItem="kyU-JK-onG" firstAttribute="centerY" secondItem="AgR-F1-Tzq" secondAttribute="centerY" id="b2A-rn-Xnr"/>
                     <constraint firstItem="t7P-vy-Zkg" firstAttribute="leading" secondItem="E3A-1d-w0N" secondAttribute="leading" id="ebQ-Ve-u8Q"/>
                     <constraint firstItem="kRG-LC-uSx" firstAttribute="trailing" secondItem="E3A-1d-w0N" secondAttribute="trailing" id="f7U-uj-vrj"/>
+                    <constraint firstItem="om2-zz-09W" firstAttribute="centerX" secondItem="E3A-1d-w0N" secondAttribute="centerX" id="i2I-iw-5gV"/>
                     <constraint firstItem="4xO-5Z-UyJ" firstAttribute="top" secondItem="t7P-vy-Zkg" secondAttribute="bottom" constant="30" id="r6B-NZ-xtz"/>
                     <constraint firstItem="AgR-F1-Tzq" firstAttribute="trailing" secondItem="E3A-1d-w0N" secondAttribute="trailing" id="rMN-rw-etG"/>
                     <constraint firstItem="E3A-1d-w0N" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="tqj-Yq-2PO"/>
+                    <constraint firstItem="om2-zz-09W" firstAttribute="centerY" secondItem="E3A-1d-w0N" secondAttribute="centerY" id="vBo-cc-qhm"/>
                     <constraint firstItem="onu-bl-mfb" firstAttribute="leading" secondItem="kRG-LC-uSx" secondAttribute="leading" id="yFV-J1-5If"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="addImageButton" destination="om2-zz-09W" id="QqC-W2-L1L"/>
                 <outlet property="medicalImageView" destination="E3A-1d-w0N" id="WU5-bV-ZDz"/>
             </connections>
             <point key="canvasLocation" x="113.04347826086958" y="193.19196428571428"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="icons8-add-image-60" width="60" height="60"/>
+    </resources>
 </document>

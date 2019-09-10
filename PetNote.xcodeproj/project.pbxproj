@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		913F73B723267A02009AE1C0 /* AddImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F73B523267A02009AE1C0 /* AddImageTableViewCell.swift */; };
+		913F73B823267A02009AE1C0 /* AddImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 913F73B623267A02009AE1C0 /* AddImageTableViewCell.xib */; };
 		9181BC2723177E1C007BB7C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181BC2623177E1C007BB7C6 /* AppDelegate.swift */; };
 		9181BC2923177E1C007BB7C6 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181BC2823177E1C007BB7C6 /* TabBarViewController.swift */; };
 		9181BC2C23177E1C007BB7C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9181BC2A23177E1C007BB7C6 /* Main.storyboard */; };
@@ -75,12 +77,29 @@
 		9194B9A12322922300AAA963 /* TitleWithButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9194B99F2322922300AAA963 /* TitleWithButtonTableViewCell.xib */; };
 		9194B9A42322923B00AAA963 /* TitleWithDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B9A22322923B00AAA963 /* TitleWithDateTableViewCell.swift */; };
 		9194B9A52322923B00AAA963 /* TitleWithDateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9194B9A32322923B00AAA963 /* TitleWithDateTableViewCell.xib */; };
+		9194B9A923229E3E00AAA963 /* AddMedicalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B9A823229E3E00AAA963 /* AddMedicalViewController.swift */; };
+		9194B9AC23229F4400AAA963 /* MedicalBasicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B9AA23229F4400AAA963 /* MedicalBasicTableViewCell.swift */; };
+		9194B9AD23229F4400AAA963 /* MedicalBasicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9194B9AB23229F4400AAA963 /* MedicalBasicTableViewCell.xib */; };
+		9194B9AF2323956C00AAA963 /* OtherFunctionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B9AE2323956C00AAA963 /* OtherFunctionViewController.swift */; };
+		9194B9B22323A65B00AAA963 /* SearchHospitalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B9B12323A65B00AAA963 /* SearchHospitalView.swift */; };
+		9194B9B42323A7EB00AAA963 /* SearchHospitalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B9B32323A7EB00AAA963 /* SearchHospitalViewController.swift */; };
+		9194B9B62323A80900AAA963 /* SearchHospitalResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B9B52323A80900AAA963 /* SearchHospitalResultViewController.swift */; };
+		9194B9B92323A85900AAA963 /* HospitalDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B9B72323A85900AAA963 /* HospitalDataTableViewCell.swift */; };
+		9194B9BA2323A85900AAA963 /* HospitalDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9194B9B82323A85900AAA963 /* HospitalDataTableViewCell.xib */; };
+		9194B9BC2325628600AAA963 /* NotificationManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B9BB2325628600AAA963 /* NotificationManageViewController.swift */; };
+		9194B9BE2325EF1400AAA963 /* NotificatonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B9BD2325EF1400AAA963 /* NotificatonViewController.swift */; };
+		9194B9C02326403C00AAA963 /* Notify.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9194B9BF2326403C00AAA963 /* Notify.storyboard */; };
+		9194B9C323264E7F00AAA963 /* SettingNotifyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B9C123264E7F00AAA963 /* SettingNotifyTableViewCell.swift */; };
+		9194B9C423264E7F00AAA963 /* SettingNotifyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9194B9C223264E7F00AAA963 /* SettingNotifyTableViewCell.xib */; };
+		9194B9C723265F4600AAA963 /* SettingNotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194B9C623265F4600AAA963 /* SettingNotifyViewController.swift */; };
 		933214776B257E5501F30B83 /* Pods_PetNote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C36075D08FC74716301080A /* Pods_PetNote.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0C36075D08FC74716301080A /* Pods_PetNote.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetNote.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B1361EE367C157E8D7CBCD6 /* Pods-PetNote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetNote.release.xcconfig"; path = "Target Support Files/Pods-PetNote/Pods-PetNote.release.xcconfig"; sourceTree = "<group>"; };
+		913F73B523267A02009AE1C0 /* AddImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageTableViewCell.swift; sourceTree = "<group>"; };
+		913F73B623267A02009AE1C0 /* AddImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddImageTableViewCell.xib; sourceTree = "<group>"; };
 		9181BC2323177E1C007BB7C6 /* PetNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9181BC2623177E1C007BB7C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9181BC2823177E1C007BB7C6 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +171,21 @@
 		9194B99F2322922300AAA963 /* TitleWithButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleWithButtonTableViewCell.xib; sourceTree = "<group>"; };
 		9194B9A22322923B00AAA963 /* TitleWithDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleWithDateTableViewCell.swift; sourceTree = "<group>"; };
 		9194B9A32322923B00AAA963 /* TitleWithDateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleWithDateTableViewCell.xib; sourceTree = "<group>"; };
+		9194B9A823229E3E00AAA963 /* AddMedicalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMedicalViewController.swift; sourceTree = "<group>"; };
+		9194B9AA23229F4400AAA963 /* MedicalBasicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalBasicTableViewCell.swift; sourceTree = "<group>"; };
+		9194B9AB23229F4400AAA963 /* MedicalBasicTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedicalBasicTableViewCell.xib; sourceTree = "<group>"; };
+		9194B9AE2323956C00AAA963 /* OtherFunctionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherFunctionViewController.swift; sourceTree = "<group>"; };
+		9194B9B12323A65B00AAA963 /* SearchHospitalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHospitalView.swift; sourceTree = "<group>"; };
+		9194B9B32323A7EB00AAA963 /* SearchHospitalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHospitalViewController.swift; sourceTree = "<group>"; };
+		9194B9B52323A80900AAA963 /* SearchHospitalResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHospitalResultViewController.swift; sourceTree = "<group>"; };
+		9194B9B72323A85900AAA963 /* HospitalDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalDataTableViewCell.swift; sourceTree = "<group>"; };
+		9194B9B82323A85900AAA963 /* HospitalDataTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HospitalDataTableViewCell.xib; sourceTree = "<group>"; };
+		9194B9BB2325628600AAA963 /* NotificationManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManageViewController.swift; sourceTree = "<group>"; };
+		9194B9BD2325EF1400AAA963 /* NotificatonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificatonViewController.swift; sourceTree = "<group>"; };
+		9194B9BF2326403C00AAA963 /* Notify.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notify.storyboard; sourceTree = "<group>"; };
+		9194B9C123264E7F00AAA963 /* SettingNotifyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingNotifyTableViewCell.swift; sourceTree = "<group>"; };
+		9194B9C223264E7F00AAA963 /* SettingNotifyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingNotifyTableViewCell.xib; sourceTree = "<group>"; };
+		9194B9C623265F4600AAA963 /* SettingNotifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingNotifyViewController.swift; sourceTree = "<group>"; };
 		C1B26700EEE001AE14DFC34D /* Pods-PetNote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetNote.debug.xcconfig"; path = "Target Support Files/Pods-PetNote/Pods-PetNote.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -174,6 +208,14 @@
 				8B1361EE367C157E8D7CBCD6 /* Pods-PetNote.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		913F73B4232675F4009AE1C0 /* Notify */ = {
+			isa = PBXGroup;
+			children = (
+				9194B9C623265F4600AAA963 /* SettingNotifyViewController.swift */,
+			);
+			path = Notify;
 			sourceTree = "<group>";
 		};
 		9181BC1A23177E1C007BB7C6 = {
@@ -216,6 +258,8 @@
 				9181BC4A2317C35D007BB7C6 /* Profile */,
 				9194B97F2320F97700AAA963 /* Record */,
 				9194B98D2322381800AAA963 /* Medical */,
+				9194B9B02323957800AAA963 /* Other */,
+				913F73B4232675F4009AE1C0 /* Notify */,
 				9181BC3C23179FBF007BB7C6 /* Base */,
 			);
 			path = Controller;
@@ -240,11 +284,13 @@
 				9194B98223213F6700AAA963 /* Record */,
 				9194B98B232237EA00AAA963 /* Medical */,
 				9194B98C2322380100AAA963 /* Other */,
+				9194B9C523265ABB00AAA963 /* Notify */,
 				9181BC2A23177E1C007BB7C6 /* Main.storyboard */,
 				9181BC3F2317A02F007BB7C6 /* Profile.storyboard */,
 				9181BC412317A03D007BB7C6 /* Record.storyboard */,
 				9181BC432317A050007BB7C6 /* Medical.storyboard */,
 				9181BC452317A067007BB7C6 /* Other.storyboard */,
+				9194B9BF2326403C00AAA963 /* Notify.storyboard */,
 				9181BC3223177E1D007BB7C6 /* LaunchScreen.storyboard */,
 			);
 			path = View;
@@ -348,6 +394,8 @@
 			children = (
 				9194B919231CD8D500AAA963 /* BasicInfoTableViewCell.swift */,
 				9194B91A231CD8D500AAA963 /* BasicInfoTableViewCell.xib */,
+				913F73B523267A02009AE1C0 /* AddImageTableViewCell.swift */,
+				913F73B623267A02009AE1C0 /* AddImageTableViewCell.xib */,
 			);
 			path = BasicInfoTableViewCell;
 			sourceTree = "<group>";
@@ -442,14 +490,12 @@
 		9194B98B232237EA00AAA963 /* Medical */ = {
 			isa = PBXGroup;
 			children = (
+				9194B9A723229DD500AAA963 /* AddMedical */,
 				9194B99023225A6E00AAA963 /* MedicalRecordTableViewCell.swift */,
 				9194B99123225A6E00AAA963 /* MedicalRecordTableViewCell.xib */,
-				9194B99A232285FB00AAA963 /* BasicMedicalRecordTableViewCell.swift */,
-				9194B99B232285FB00AAA963 /* BasicMedicalRecordTableViewCell.xib */,
-				9194B99E2322922300AAA963 /* TitleWithButtonTableViewCell.swift */,
-				9194B99F2322922300AAA963 /* TitleWithButtonTableViewCell.xib */,
-				9194B9A22322923B00AAA963 /* TitleWithDateTableViewCell.swift */,
-				9194B9A32322923B00AAA963 /* TitleWithDateTableViewCell.xib */,
+				9194B9A623229DBD00AAA963 /* AddRecord */,
+				9194B9AA23229F4400AAA963 /* MedicalBasicTableViewCell.swift */,
+				9194B9AB23229F4400AAA963 /* MedicalBasicTableViewCell.xib */,
 			);
 			path = Medical;
 			sourceTree = "<group>";
@@ -457,6 +503,9 @@
 		9194B98C2322380100AAA963 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				9194B9B12323A65B00AAA963 /* SearchHospitalView.swift */,
+				9194B9B72323A85900AAA963 /* HospitalDataTableViewCell.swift */,
+				9194B9B82323A85900AAA963 /* HospitalDataTableViewCell.xib */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -466,6 +515,7 @@
 			children = (
 				9194B98E2322384000AAA963 /* MedicalViewController.swift */,
 				9194B9972322638F00AAA963 /* AddMedicalRecordViewController.swift */,
+				9194B9A823229E3E00AAA963 /* AddMedicalViewController.swift */,
 			);
 			path = Medical;
 			sourceTree = "<group>";
@@ -485,6 +535,47 @@
 				9194B978231FA0AC00AAA963 /* SwitchPetView.swift */,
 			);
 			path = PetSwitch;
+			sourceTree = "<group>";
+		};
+		9194B9A623229DBD00AAA963 /* AddRecord */ = {
+			isa = PBXGroup;
+			children = (
+				9194B99A232285FB00AAA963 /* BasicMedicalRecordTableViewCell.swift */,
+				9194B99B232285FB00AAA963 /* BasicMedicalRecordTableViewCell.xib */,
+				9194B99E2322922300AAA963 /* TitleWithButtonTableViewCell.swift */,
+				9194B99F2322922300AAA963 /* TitleWithButtonTableViewCell.xib */,
+				9194B9A22322923B00AAA963 /* TitleWithDateTableViewCell.swift */,
+				9194B9A32322923B00AAA963 /* TitleWithDateTableViewCell.xib */,
+			);
+			path = AddRecord;
+			sourceTree = "<group>";
+		};
+		9194B9A723229DD500AAA963 /* AddMedical */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AddMedical;
+			sourceTree = "<group>";
+		};
+		9194B9B02323957800AAA963 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				9194B9AE2323956C00AAA963 /* OtherFunctionViewController.swift */,
+				9194B9B32323A7EB00AAA963 /* SearchHospitalViewController.swift */,
+				9194B9B52323A80900AAA963 /* SearchHospitalResultViewController.swift */,
+				9194B9BB2325628600AAA963 /* NotificationManageViewController.swift */,
+				9194B9BD2325EF1400AAA963 /* NotificatonViewController.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		9194B9C523265ABB00AAA963 /* Notify */ = {
+			isa = PBXGroup;
+			children = (
+				9194B9C123264E7F00AAA963 /* SettingNotifyTableViewCell.swift */,
+				9194B9C223264E7F00AAA963 /* SettingNotifyTableViewCell.xib */,
+			);
+			path = Notify;
 			sourceTree = "<group>";
 		};
 		AC18D7B45FD28547649DADAA /* Frameworks */ = {
@@ -557,7 +648,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9194B9A12322922300AAA963 /* TitleWithButtonTableViewCell.xib in Resources */,
+				9194B9C423264E7F00AAA963 /* SettingNotifyTableViewCell.xib in Resources */,
+				9194B9C02326403C00AAA963 /* Notify.storyboard in Resources */,
 				9181BC3423177E1D007BB7C6 /* LaunchScreen.storyboard in Resources */,
+				9194B9AD23229F4400AAA963 /* MedicalBasicTableViewCell.xib in Resources */,
 				9194B925231CF38800AAA963 /* AddDataTableViewSectionHeaderView.xib in Resources */,
 				9181BC3123177E1D007BB7C6 /* Assets.xcassets in Resources */,
 				9181BC442317A050007BB7C6 /* Medical.storyboard in Resources */,
@@ -570,7 +664,9 @@
 				9194B9A52322923B00AAA963 /* TitleWithDateTableViewCell.xib in Resources */,
 				9181BC2C23177E1C007BB7C6 /* Main.storyboard in Resources */,
 				9181BC422317A03D007BB7C6 /* Record.storyboard in Resources */,
+				913F73B823267A02009AE1C0 /* AddImageTableViewCell.xib in Resources */,
 				9194B91C231CD8D500AAA963 /* BasicInfoTableViewCell.xib in Resources */,
+				9194B9BA2323A85900AAA963 /* HospitalDataTableViewCell.xib in Resources */,
 				9194B975231F9E0700AAA963 /* WeightLabelTableViewCell.xib in Resources */,
 				9194B99D232285FC00AAA963 /* BasicMedicalRecordTableViewCell.xib in Resources */,
 				9194B971231F97FF00AAA963 /* ChartTableViewCell.xib in Resources */,
@@ -648,22 +744,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9194B9AC23229F4400AAA963 /* MedicalBasicTableViewCell.swift in Sources */,
 				9194B99223225A6E00AAA963 /* MedicalRecordTableViewCell.swift in Sources */,
 				9194B9982322638F00AAA963 /* AddMedicalRecordViewController.swift in Sources */,
 				9181BC632318ED07007BB7C6 /* BaseNavigationController.swift in Sources */,
 				9181BC612318C5DA007BB7C6 /* ProfileRootView.swift in Sources */,
 				9181BC6E231C9A9B007BB7C6 /* BasicInfoViewController.swift in Sources */,
 				9181BC2923177E1C007BB7C6 /* TabBarViewController.swift in Sources */,
+				9194B9A923229E3E00AAA963 /* AddMedicalViewController.swift in Sources */,
 				9194B996232260B200AAA963 /* MedicalRecord.swift in Sources */,
 				9194B942231E6C0800AAA963 /* NotifyTableViewCell.swift in Sources */,
 				9194B937231E08ED00AAA963 /* ProtectPlan.swift in Sources */,
+				9194B9B92323A85900AAA963 /* HospitalDataTableViewCell.swift in Sources */,
 				9181BC5D2317DE27007BB7C6 /* SelectionView.swift in Sources */,
 				9194B98F2322384000AAA963 /* MedicalViewController.swift in Sources */,
+				9194B9C723265F4600AAA963 /* SettingNotifyViewController.swift in Sources */,
 				9194B96B231F908000AAA963 /* WithImageSectionHeaderView.swift in Sources */,
 				9194B970231F97FF00AAA963 /* ChartTableViewCell.swift in Sources */,
 				9194B9A42322923B00AAA963 /* TitleWithDateTableViewCell.swift in Sources */,
+				9194B9B62323A80900AAA963 /* SearchHospitalResultViewController.swift in Sources */,
 				9194B920231CEB9A00AAA963 /* BasicCollectionViewCell.swift in Sources */,
+				9194B9BC2325628600AAA963 /* NotificationManageViewController.swift in Sources */,
 				9181BC672319119D007BB7C6 /* UICollectionViewExtension.swift in Sources */,
+				9194B9BE2325EF1400AAA963 /* NotificatonViewController.swift in Sources */,
 				9181BC542317C530007BB7C6 /* ProfileTableViewCell.swift in Sources */,
 				9194B98523213FC900AAA963 /* DateSelectTableViewCell.swift in Sources */,
 				9194B929231D097900AAA963 /* HealthRecordViewController.swift in Sources */,
@@ -671,14 +774,19 @@
 				9194B946231E773100AAA963 /* WeightRecordViewController.swift in Sources */,
 				9194B933231D335E00AAA963 /* ProtectTypeTableViewCell.swift in Sources */,
 				9194B974231F9E0700AAA963 /* WeightLabelTableViewCell.swift in Sources */,
+				9194B9AF2323956C00AAA963 /* OtherFunctionViewController.swift in Sources */,
 				9194B9A02322922300AAA963 /* TitleWithButtonTableViewCell.swift in Sources */,
 				9194B979231FA0AC00AAA963 /* SwitchPetView.swift in Sources */,
 				9194B97E2320F95F00AAA963 /* RecordViewController.swift in Sources */,
 				9181BC5F2317E1DE007BB7C6 /* ProfileDetailViewController.swift in Sources */,
+				9194B9B42323A7EB00AAA963 /* SearchHospitalViewController.swift in Sources */,
+				9194B9B22323A65B00AAA963 /* SearchHospitalView.swift in Sources */,
+				9194B9C323264E7F00AAA963 /* SettingNotifyTableViewCell.swift in Sources */,
 				9194B99C232285FB00AAA963 /* BasicMedicalRecordTableViewCell.swift in Sources */,
 				9194B92D231D164D00AAA963 /* AddingProtectPlanViewController.swift in Sources */,
 				9181BC2723177E1C007BB7C6 /* AppDelegate.swift in Sources */,
 				9181BC71231C9CF5007BB7C6 /* ProtectPlanViewController.swift in Sources */,
+				913F73B723267A02009AE1C0 /* AddImageTableViewCell.swift in Sources */,
 				9181BC572317C8C2007BB7C6 /* UITableViewExtension.swift in Sources */,
 				9194B981232135C700AAA963 /* AddRecordViewController.swift in Sources */,
 				9181BC4C2317C38C007BB7C6 /* ProfileViewController.swift in Sources */,

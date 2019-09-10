@@ -63,7 +63,9 @@ extension ProtectPlanViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: AddDataTableViewSectionHeaderView.identifier) as? AddDataTableViewSectionHeaderView
+        guard let headerView = tableView.dequeueReusableHeaderFooterView(
+            withIdentifier: AddDataTableViewSectionHeaderView.identifier)
+            as? AddDataTableViewSectionHeaderView
         else {
                 return UIView()
         }
@@ -75,14 +77,14 @@ extension ProtectPlanViewController: UITableViewDelegate {
 extension ProtectPlanViewController: SectionHeaderDelegate {
     func pressAddButton() {
         
-        guard let AddPlanViewController = UIStoryboard.profile.instantiateViewController(
+        guard let addPlanViewController = UIStoryboard.profile.instantiateViewController(
             withIdentifier: "AddPreventionPage")
             as? AddingProtectPlanViewController
         else {
             return
         }
         
-        show(AddPlanViewController, sender: nil)
+        show(addPlanViewController, sender: nil)
         
     }   
     

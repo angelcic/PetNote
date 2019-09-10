@@ -11,7 +11,11 @@ import Charts
 
 class WeightRecordViewController: BaseViewController {
 
-    @IBOutlet weak var userSwitchLayer: UIView!
+    @IBOutlet weak var switchPetLayer: UIView! {
+        didSet {
+            switchPetLayer.addSubview(switchPetView)
+        }
+    }
         
     @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -22,13 +26,24 @@ class WeightRecordViewController: BaseViewController {
     
     let weights: [Double] = [4.5, 4.6, 5.0, 4.8]
     
+    var switchPetView: SwitchPetView = SwitchPetView(frame: CGRect.zero) {
+        didSet {
+            switchPetView.delegate = self
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = "體重計錄"
+        self.navigationItem.title = "體重記錄"
         
-        setupPetSwitchLayer()
         setupTableView()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setupPetSwitchLayer()
+
     }
     
     func setupTableView() {
@@ -37,11 +52,7 @@ class WeightRecordViewController: BaseViewController {
     }
 
     func setupPetSwitchLayer() {
-        let switchPetView = SwitchPetView(frame: CGRect(x: 0, y: 0,
-                                                        width: userSwitchLayer.frame.width,
-                                                        height: userSwitchLayer.frame.height))
-        switchPetView.delegate = self
-        userSwitchLayer.addSubview(switchPetView)
+        switchPetView.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: switchPetLayer.frame.size)
         
     }
 }
@@ -72,7 +83,9 @@ extension WeightRecordViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             guard
-                let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ChartTableViewCell.self), for: indexPath)
+                let cell = tableView.dequeueReusableCell(
+                    withIdentifier: String(describing: ChartTableViewCell.self),
+                    for: indexPath)
                 as? ChartTableViewCell
             else {
                     return UITableViewCell()
@@ -88,7 +101,9 @@ extension WeightRecordViewController: UITableViewDataSource {
             
         } else {
             guard
-                let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: WeightLabelTableViewCell.self), for: indexPath)
+                let cell = tableView.dequeueReusableCell(
+                    withIdentifier: String(describing: WeightLabelTableViewCell.self),
+                    for: indexPath)
                     as? WeightLabelTableViewCell
             else {
                     return UITableViewCell()

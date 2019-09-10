@@ -11,7 +11,9 @@ import UIKit
 class WithImageSectionHeaderView: UITableViewHeaderFooterView {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
-        
+    
+    weak var delegate: WithImageSectionHeaderDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         hideAddButton(true)
@@ -24,4 +26,12 @@ class WithImageSectionHeaderView: UITableViewHeaderFooterView {
     func layoutHeaderView(title: String) {
         titleLabel.text = title
     }
+    
+    @IBAction func addAction(_ sender: Any) {
+        delegate?.pressAddButton()
+    }
+}
+
+protocol WithImageSectionHeaderDelegate: AnyObject {
+    func pressAddButton()
 }

@@ -11,10 +11,11 @@ import UIKit
 class BasicMedicalRecordTableViewCell: UITableViewCell {
     @IBOutlet weak var medicalImageView: UIImageView!
     
+    @IBOutlet weak var addImageButton: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        medicalImageView.addCorner(cornerRadius: 30)
+        medicalImageView.addCorner(cornerRadius: 20)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -23,4 +24,6 @@ class BasicMedicalRecordTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @IBAction func addImageAction(_ sender: Any) {
+    }
 }

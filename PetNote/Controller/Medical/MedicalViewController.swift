@@ -17,22 +17,33 @@ class MedicalViewController: BaseViewController {
         }
     }
     
-    @IBOutlet weak var switchPetLayer: UIView!
-
+    @IBOutlet weak var switchPetLayer: UIView! {
+        didSet {
+            switchPetLayer.addSubview(switchPetView)
+        }
+    }
+    
+    var switchPetView: SwitchPetView = SwitchPetView(frame: CGRect.zero) {
+        didSet {
+            switchPetView.delegate = self
+        }
+    }
+    
     var medicalRecords: [MedicalRecord] = [MedicalRecord(), MedicalRecord(), MedicalRecord()]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupSwitchPetLayer()
         // Do any additional setup after loading the view.
         
         setupTableView()
     }
     
+    override func viewDidLayoutSubviews() {
+        setupSwitchPetLayer()
+    }
+    
     func setupSwitchPetLayer() {
-        let switchPetView = SwitchPetView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: switchPetLayer.frame.size))
-        switchPetView.delegate = self
-        switchPetLayer.addSubview(switchPetView)
+        switchPetView.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: switchPetLayer.frame.size)
     }
     
     func setupTableView() {
@@ -40,7 +51,8 @@ class MedicalViewController: BaseViewController {
     }
     
     func showAddRecordPage() {
-        guard let addMedicalRecordVC = UIStoryboard.medical.instantiateViewController(withIdentifier: String(describing: AddMedicalRecordViewController.self))
+        guard let addMedicalRecordVC = UIStoryboard.medical.instantiateViewController(
+            withIdentifier: String(describing: AddMedicalRecordViewController.self))
             as? AddMedicalRecordViewController
             else {
                 return
@@ -78,7 +90,9 @@ extension MedicalViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: MedicalRecordTableViewCell.self), for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: String(describing: MedicalRecordTableViewCell.self),
+            for: indexPath)
             as? MedicalRecordTableViewCell
         else {
             return UITableViewCell()

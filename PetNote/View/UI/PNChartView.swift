@@ -58,10 +58,10 @@ class PNChartView: UIView {
     func setupData(entries: [ChartDataEntry]?, label: String?) {
         // 隨機數據
         var dataEntries = [ChartDataEntry]()
-        for i in 0..<5 {
+        for index in 0..<5 {
 //            let y = arc4random()%100
-            let y = Double.random(in: 0...6)
-            let entry = ChartDataEntry.init(x: Double(i), y: Double(y))
+            let yyy = Double.random(in: 0...6)
+            let entry = ChartDataEntry.init(x: Double(index), y: Double(yyy))
             dataEntries.append(entry)
         }
         //这50条数据作为1根折线里的所有数据

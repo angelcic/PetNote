@@ -35,7 +35,8 @@ class HealthRecordViewController: UIViewController {
 extension HealthRecordViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // TODO:
-        let weightRecordVC = UIStoryboard.profile.instantiateViewController(withIdentifier: String(describing: WeightRecordViewController.self))
+        let weightRecordVC = UIStoryboard.profile.instantiateViewController(
+            withIdentifier: String(describing: WeightRecordViewController.self))
         show(weightRecordVC, sender: nil)
     }
 }
@@ -45,9 +46,12 @@ extension HealthRecordViewController: UICollectionViewDataSource {
         return functions.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: BasicCollectionViewCell.identifier, for: indexPath)
+            cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: BasicCollectionViewCell.identifier,
+                for: indexPath)
                 as? BasicCollectionViewCell
         else {
             return UICollectionViewCell()

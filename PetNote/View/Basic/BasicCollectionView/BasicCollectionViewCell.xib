@@ -24,7 +24,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="體重紀錄" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VvJ-4r-wHk">
-                        <rect key="frame" x="20" y="16" width="36" height="45"/>
+                        <rect key="frame" x="3" y="28.5" width="70" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -34,11 +34,11 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="WgX-OU-uld" secondAttribute="trailing" id="6m1-DF-CE5"/>
                 <constraint firstItem="WgX-OU-uld" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="D1R-Cj-PCk"/>
-                <constraint firstAttribute="trailing" secondItem="VvJ-4r-wHk" secondAttribute="trailing" constant="20" id="NpQ-NA-zWy"/>
+                <constraint firstAttribute="trailing" secondItem="VvJ-4r-wHk" secondAttribute="trailing" constant="3" id="LCf-Cr-Ce6"/>
+                <constraint firstItem="VvJ-4r-wHk" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="OBd-lG-P8Q"/>
+                <constraint firstItem="VvJ-4r-wHk" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="3" id="TrO-Zq-CmE"/>
+                <constraint firstItem="VvJ-4r-wHk" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="YKy-76-FUE"/>
                 <constraint firstAttribute="bottom" secondItem="WgX-OU-uld" secondAttribute="bottom" id="cny-h7-ddK"/>
-                <constraint firstItem="VvJ-4r-wHk" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="ge5-4K-GOF"/>
-                <constraint firstItem="VvJ-4r-wHk" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="qaX-DF-LeW"/>
-                <constraint firstAttribute="bottom" secondItem="VvJ-4r-wHk" secondAttribute="bottom" constant="16" id="xSc-jP-owX"/>
                 <constraint firstItem="WgX-OU-uld" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="xkP-DH-Jw3"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>

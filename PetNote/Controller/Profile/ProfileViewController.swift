@@ -78,7 +78,9 @@ class ProfileViewController: UIViewController {
     
     func showDetailPage() {
         guard let detailViewController =
-            UIStoryboard.profile.instantiateViewController(withIdentifier: "PetDetailPage") as? ProfileDetailViewController
+            UIStoryboard.profile.instantiateViewController(
+                withIdentifier: "PetDetailPage")
+                as? ProfileDetailViewController
         else {
             print("can't find ProfileDetailViewController")
             return
@@ -119,6 +121,7 @@ extension ProfileViewController: UITableViewDelegate {
         } else {
             
             print("添加寵物")
+            addPet()
         }
     }
 }
@@ -146,7 +149,10 @@ extension ProfileViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ProfileTableViewCell.identifier, for: indexPath) as? ProfileTableViewCell
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: ProfileTableViewCell.identifier,
+            for: indexPath)
+            as? ProfileTableViewCell
         else {
             return UITableViewCell()
         }

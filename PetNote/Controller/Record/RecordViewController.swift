@@ -11,7 +11,11 @@ import FSCalendar
 
 class RecordViewController: BaseViewController {
     
-    @IBOutlet weak var switchPetLayer: UIView!
+    @IBOutlet weak var switchPetLayer: UIView! {
+        didSet {
+            switchPetLayer.addSubview(switchPetView)
+        }
+    }
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var addButton: UIButton! {
@@ -29,9 +33,16 @@ class RecordViewController: BaseViewController {
     
     @IBOutlet weak var calendarHeightConstraint: NSLayoutConstraint!
     
+    var switchPetView: SwitchPetView = SwitchPetView(frame: CGRect.zero) {
+        didSet {
+            switchPetView.delegate = self
+        }
+    }
+    
     fileprivate lazy var scopeGesture: UIPanGestureRecognizer = {
         [unowned self] in
-        let panGesture = UIPanGestureRecognizer(target: self.calendar, action: #selector(self.calendar.handleScopeGesture(_:)))
+        let panGesture = UIPanGestureRecognizer(target: self.calendar,
+                                                action: #selector(self.calendar.handleScopeGesture(_:)))
         panGesture.delegate = self
         panGesture.minimumNumberOfTouches = 1
         panGesture.maximumNumberOfTouches = 2
@@ -42,6 +53,10 @@ class RecordViewController: BaseViewController {
         super.viewDidLoad()
         setCalendar()
         
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         setSwitchPetView()
     }
     
@@ -52,13 +67,13 @@ class RecordViewController: BaseViewController {
     }
     
     func setSwitchPetView() {
-        let switchView = SwitchPetView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: switchPetLayer.frame.size))
-        switchView.delegate = self
-        switchPetLayer.addSubview(switchView)
+        switchPetView.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: switchPetLayer.frame.size)
     }
         
     @IBAction func addAction(_ sender: Any) {
-        guard let addRecordVC = UIStoryboard.record.instantiateViewController(withIdentifier: String(describing: AddRecordViewController.self)) as? AddRecordViewController else { return }
+        guard let addRecordVC = UIStoryboard.record.instantiateViewController(
+            withIdentifier: String(describing: AddRecordViewController.self))
+            as? AddRecordViewController else { return }
         show(addRecordVC, sender: nil)
     }
 }

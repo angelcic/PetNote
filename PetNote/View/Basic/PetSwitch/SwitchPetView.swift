@@ -20,8 +20,12 @@ class SwitchPetView: UIView {
             collectionView.dataSource = self
 
             collectionView.delegate = self
+            collectionView.showsVerticalScrollIndicator = false
+            collectionView.showsHorizontalScrollIndicator = false
         }
     }
+    
+    let minCollectionViewSpacing = 0
     
     weak var delegate: SwitchPetViewDelegate?
     
@@ -59,17 +63,33 @@ class SwitchPetView: UIView {
         )
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+
+        layout.itemSize = CGSize(
+            width: frame.width / 4,
+            height: frame.height
+        )
+        print(layout.itemSize)
+    }
+    
     private func setupCollectionView(frame: CGRect) {
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        print(frame)
-         print("===========")
-        layout.itemSize = CGSize(width: frame.width / 4, height: frame.height) // cell的寬、高
-        layout.minimumLineSpacing = CGFloat(integerLiteral: 10) // 滑動方向為「垂直」的話即「上下」的間距;滑動方向為「平行」則為「左右」的間距
-        layout.minimumInteritemSpacing = CGFloat(integerLiteral: 6) // 滑動方向為「垂直」的話即「左右」的間距;滑動方向為「平行」則為「上下」的間距
-        layout.scrollDirection = UICollectionView.ScrollDirection.horizontal // 滑動方向預設為垂直。注意若設為垂直，則cell的加入方式為由左至右，滿了才會換行；若是水平則由上往下，滿了才會換列
+            
+        layout.itemSize = CGSize(width: frame.width / 4,
+                                 height: frame.height) // cell的寬、高
+        layout.minimumLineSpacing = CGFloat(integerLiteral: minCollectionViewSpacing) // 滑動方向為「垂直」的話即「上下」的間距;滑動方向為「平行」則為「左右」的間距
+        layout.minimumInteritemSpacing = CGFloat(integerLiteral: minCollectionViewSpacing) // 滑動方向為「垂直」的話即「左右」的間距;滑動方向為「平行」則為「上下」的間距
+        layout.scrollDirection = UICollectionView.ScrollDirection.horizontal //滑動方向預設為垂直。注意若設為垂直，則cell的加入方式為由左至右，
+//        滿了才會換行；若是水平則由上往下，滿了才會換列
         
-        collectionView = UICollectionView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: frame.size), collectionViewLayout: layout)
+        collectionView = UICollectionView(
+            frame: CGRect(origin: CGPoint(x: 0, y: 0),
+                          size: frame.size),
+            collectionViewLayout: layout)
 //        (x: 0, y: 0, width: self.frame.width, height: self.frame.height)
         self.addSubview(collectionView)
         collectionView.backgroundColor = .white
@@ -84,7 +104,7 @@ class SwitchPetView: UIView {
 }
 
 extension SwitchPetView: UICollectionViewDelegateFlowLayout {
-   
+    
 }
 
 extension SwitchPetView: UICollectionViewDelegate {
@@ -98,8 +118,12 @@ extension SwitchPetView: UICollectionViewDataSource {
         return 10
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PetsCollectionViewCell.identifier, for: indexPath) as? PetsCollectionViewCell
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: PetsCollectionViewCell.identifier,
+            for: indexPath)
+            as? PetsCollectionViewCell
             else {
                 return UICollectionViewCell()
         }

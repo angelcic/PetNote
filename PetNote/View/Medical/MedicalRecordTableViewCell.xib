@@ -22,20 +22,20 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IN0-na-MJU">
                         <rect key="frame" x="20" y="10" width="323" height="113.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="某某動物醫院" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tEx-cd-XAn">
-                                <rect key="frame" x="60" y="20" width="203" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="某某動物醫院" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="tEx-cd-XAn">
+                                <rect key="frame" x="50" y="20" width="213" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="500" text="2019年09月12日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D1R-0w-9Ng">
-                                <rect key="frame" x="60" y="49" width="128.5" height="15.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="500" text="2019年09月12日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="D1R-0w-9Ng">
+                                <rect key="frame" x="50" y="49" width="138.5" height="15.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="結紮" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9r-Ma-OSz">
-                                <rect key="frame" x="60" y="72.5" width="35" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="結紮" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="i9r-Ma-OSz">
+                                <rect key="frame" x="50" y="72.5" width="35" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -44,15 +44,15 @@
                                 <rect key="frame" x="16" y="20" width="291" height="73.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmA-H2-8no">
-                                        <rect key="frame" x="20" y="18.5" width="37" height="37"/>
+                                        <rect key="frame" x="8" y="18.5" width="37" height="37"/>
                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="icons-50px_add"/>
                                         <connections>
                                             <action selector="addAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="R5B-MZ-vMc"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="添加新的就診紀錄" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hl5-rT-nHy">
-                                        <rect key="frame" x="77" y="22" width="203" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="添加新的就診紀錄" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hl5-rT-nHy">
+                                        <rect key="frame" x="61" y="22" width="203" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -62,8 +62,9 @@
                                 <constraints>
                                     <constraint firstItem="hl5-rT-nHy" firstAttribute="centerY" secondItem="hmA-H2-8no" secondAttribute="centerY" id="ReJ-wd-xXb"/>
                                     <constraint firstItem="hmA-H2-8no" firstAttribute="centerY" secondItem="SBl-wX-U5Y" secondAttribute="centerY" id="WRR-1T-Oqr"/>
-                                    <constraint firstItem="hmA-H2-8no" firstAttribute="leading" secondItem="iRo-QK-BXk" secondAttribute="leading" constant="20" id="ifG-P4-Fvw"/>
-                                    <constraint firstItem="hl5-rT-nHy" firstAttribute="leading" secondItem="hmA-H2-8no" secondAttribute="trailing" constant="20" id="pkr-UK-MZZ"/>
+                                    <constraint firstItem="hmA-H2-8no" firstAttribute="leading" secondItem="iRo-QK-BXk" secondAttribute="leading" constant="8" id="ifG-P4-Fvw"/>
+                                    <constraint firstItem="hl5-rT-nHy" firstAttribute="leading" secondItem="hmA-H2-8no" secondAttribute="trailing" constant="16" id="pkr-UK-MZZ"/>
+                                    <constraint firstItem="iRo-QK-BXk" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hl5-rT-nHy" secondAttribute="trailing" constant="16" id="xB9-63-15i"/>
                                 </constraints>
                                 <viewLayoutGuide key="safeArea" id="iRo-QK-BXk"/>
                             </view>
@@ -72,7 +73,7 @@
                         <constraints>
                             <constraint firstItem="SBl-wX-U5Y" firstAttribute="leading" secondItem="IN0-na-MJU" secondAttribute="leading" constant="16" id="2Sj-eM-q4G"/>
                             <constraint firstItem="i9r-Ma-OSz" firstAttribute="top" secondItem="D1R-0w-9Ng" secondAttribute="bottom" constant="8" id="2vA-dj-tgj"/>
-                            <constraint firstItem="tEx-cd-XAn" firstAttribute="leading" secondItem="IN0-na-MJU" secondAttribute="leading" constant="60" id="4dW-bi-ogE"/>
+                            <constraint firstItem="tEx-cd-XAn" firstAttribute="leading" secondItem="IN0-na-MJU" secondAttribute="leading" constant="50" id="4dW-bi-ogE"/>
                             <constraint firstAttribute="bottom" secondItem="SBl-wX-U5Y" secondAttribute="bottom" constant="20" id="5QR-ZR-AYF"/>
                             <constraint firstItem="tEx-cd-XAn" firstAttribute="top" secondItem="IN0-na-MJU" secondAttribute="top" constant="20" id="6PY-MT-zeM"/>
                             <constraint firstItem="SBl-wX-U5Y" firstAttribute="top" secondItem="IN0-na-MJU" secondAttribute="top" constant="20" id="91z-O3-ZMe"/>

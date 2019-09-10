@@ -79,9 +79,12 @@ extension AddingProtectPlanViewController: UICollectionViewDataSource {
         return protectPlans.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: BasicCollectionViewCell.identifier, for: indexPath)
+            cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: BasicCollectionViewCell.identifier,
+                for: indexPath)
                 as? BasicCollectionViewCell
             else {
                 return UICollectionViewCell()
@@ -133,8 +136,16 @@ extension AddingProtectPlanViewController: UICollectionViewDelegateFlowLayout {
         sizeForItemAt indexPath: IndexPath
         ) -> CGSize {
         
-        return CGSize(width: UIScreen.width / 5.0, height: UIScreen.width / 5.0)
+        return CGSize(width: UIScreen.width / 5.0 - 6 , height: UIScreen.width / 5.0 - 6)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 6
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 6
+    }
+    
 }
 
 // TableView
@@ -153,6 +164,18 @@ extension AddingProtectPlanViewController: ProtectTypeTableViewCellDelegate {
 extension AddingProtectPlanViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // TODO: 這邊要修改
+        if indexPath.section == 1 {
+            guard let notifySettingVC = UIStoryboard.notify.instantiateViewController(
+                withIdentifier: String(describing: SettingNotifyViewController.self))
+                as? SettingNotifyViewController
+                else {
+                    return
+            }
+            
+            show(notifySettingVC, sender: nil)
+            
+        }
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
@@ -183,7 +206,8 @@ extension AddingProtectPlanViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: String(describing: WithImageSectionHeaderView.self))
+        guard let view = tableView.dequeueReusableHeaderFooterView(
+            withIdentifier: String(describing: WithImageSectionHeaderView.self))
             as? WithImageSectionHeaderView
         else {return UIView()}
         if section == 0 {
@@ -198,7 +222,9 @@ extension AddingProtectPlanViewController: UITableViewDataSource {
         if indexPath.section == 0 {
            
             guard
-                let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ProtectTypeTableViewCell.self), for: indexPath)
+                let cell = tableView.dequeueReusableCell(
+                    withIdentifier: String(describing: ProtectTypeTableViewCell.self),
+                    for: indexPath)
                     as?  ProtectTypeTableViewCell
                 else {
                     return  UITableViewCell()
@@ -224,7 +250,9 @@ extension AddingProtectPlanViewController: UITableViewDataSource {
             }
             return cell
         } else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: NotifyTableViewCell.self), for: indexPath)
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: String(describing: NotifyTableViewCell.self),
+                for: indexPath)
                 as? NotifyTableViewCell
             else {
                 return UITableViewCell()

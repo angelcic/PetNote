@@ -25,10 +25,6 @@ class ProfileDetailViewController: BaseViewController {
         
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        detailView.layoutIfNeeded()
-    }
 }
 
 extension ProfileDetailViewController: ProfileDetailViewDelegate {
@@ -42,8 +38,12 @@ extension ProfileDetailViewController: UICollectionViewDataSource {
         return 10
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PetsCollectionViewCell.identifier, for: indexPath) as? PetsCollectionViewCell
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: PetsCollectionViewCell.identifier,
+            for: indexPath)
+            as? PetsCollectionViewCell
         else {
             return UICollectionViewCell()
         }

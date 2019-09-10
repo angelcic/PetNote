@@ -19,25 +19,27 @@ class ProfileDetailView: UIView {
         case healthRecord = 2
     }
     
-    @IBOutlet weak var selectionViewLayer: UIView! {
-        didSet {
-            let selectionView = SelectionView(CGRect(x: 0, y: 0, width: selectionViewLayer.frame.width, height: selectionViewLayer.frame.height))
-            
-            selectionView.delegate = self
-            selectionView.dataSource = self
-
-            selectionView.backgroundColor = .white
-            selectionViewLayer.addSubview(selectionView)
-        }
-    }
+    @IBOutlet weak var selectionViewLayer: UIView!
     
     @IBOutlet weak var basicInfoContainerView: UIView!
     @IBOutlet weak var protectPlanContainerView: UIView!
     @IBOutlet weak var healthRecordContainerView: UIView!
     
-    @IBOutlet weak var userSwitchLayer: UIView!
+    @IBOutlet weak var userSwitchLayer: UIView! {
+        didSet {
+//            userSwitchLayer.addSubview(self.switchPetView)
+        }
+    }
     
-    weak var switchPetView: SwitchPetView! {
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        print(789)
+        print(selectionViewLayer.frame)
+        setupSubViews()
+    }
+    
+    var switchPetView: SwitchPetView = SwitchPetView(frame: CGRect.zero) {
         didSet {
             switchPetView.delegate = self.delegate
         }
@@ -52,9 +54,8 @@ class ProfileDetailView: UIView {
         
         didSet {
             
-            if let switchPetView = switchPetView {
-                switchPetView.delegate = self.delegate
-            }
+            switchPetView.delegate = self.delegate
+            
         }
     }
     
@@ -62,18 +63,43 @@ class ProfileDetailView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    
+    func setupSubViews() {
         setupPetSwitchLayer()
-//        setupCollectionView()
+        setupSelectionView()
+    }
+    
+    private func setupSelectionView() {
+        
+        let selectionView = SelectionView(
+            CGRect(x: 0,
+                   y: 0,
+                   width: selectionViewLayer.frame.width,
+                   height: selectionViewLayer.frame.height))
+        
+        selectionView.delegate = self
+        selectionView.dataSource = self
+        
+        selectionView.backgroundColor = .white
+        selectionViewLayer.addSubview(selectionView)
+        
     }
     
     private func setupPetSwitchLayer() {
-        let switchPetView = SwitchPetView(
-                frame: CGRect(x: 0, y: 0,
-                              width: userSwitchLayer.frame.width,
-                              height: userSwitchLayer.frame.height))
-//        guard let switchPetView = SwitchPetView.instanceFromNib() as? SwitchPetView else {return}
+//        switchPetView.frame = CGRect(x: 0, y: 0,
+//                              width: userSwitchLayer.frame.width,
+//                              height: userSwitchLayer.frame.height)
+        
+        let switchPetView = SwitchPetView(frame: CGRect(x: 0, y: 0,
+                                                       width: userSwitchLayer.frame.width,
+                                                       height: userSwitchLayer.frame.height))
         self.switchPetView = switchPetView
+        print("userSwitchLayer")
+        print(userSwitchLayer.frame)
+//        guard let switchPetView = SwitchPetView.instanceFromNib() as? SwitchPetView else {return}
         userSwitchLayer.addSubview(self.switchPetView)
+
     }
     
     private func updateContainer(type: PageType) {
