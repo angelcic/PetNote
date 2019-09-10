@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T9t-lh-hL1">
-                        <rect key="frame" x="20" y="20" width="341" height="200"/>
+                        <rect key="frame" x="0.0" y="20" width="381" height="200"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="200" id="uHw-dx-XSc"/>
                         </constraints>
@@ -57,9 +57,9 @@
                     <constraint firstAttribute="bottom" secondItem="MRG-0k-qgt" secondAttribute="bottom" constant="20" id="CQd-H1-tXv"/>
                     <constraint firstItem="MRG-0k-qgt" firstAttribute="leading" secondItem="eMs-MO-SeZ" secondAttribute="leading" id="F5d-re-LoI"/>
                     <constraint firstItem="MRG-0k-qgt" firstAttribute="trailing" secondItem="eMs-MO-SeZ" secondAttribute="trailing" id="Jt6-8d-Fm7"/>
-                    <constraint firstAttribute="trailing" secondItem="T9t-lh-hL1" secondAttribute="trailing" constant="20" id="Kee-Sx-FlN"/>
+                    <constraint firstAttribute="trailing" secondItem="T9t-lh-hL1" secondAttribute="trailing" id="Kee-Sx-FlN"/>
                     <constraint firstItem="qLM-Hd-33w" firstAttribute="centerY" secondItem="MRG-0k-qgt" secondAttribute="centerY" id="OOX-wd-JCY"/>
-                    <constraint firstItem="T9t-lh-hL1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="OZb-Q6-PBI"/>
+                    <constraint firstItem="T9t-lh-hL1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="OZb-Q6-PBI"/>
                     <constraint firstItem="eMs-MO-SeZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="20" id="QRb-f2-T7y"/>
                     <constraint firstItem="qLM-Hd-33w" firstAttribute="leading" secondItem="c5v-qC-po5" secondAttribute="trailing" constant="20" id="SWg-nS-wS8"/>
                     <constraint firstItem="c5v-qC-po5" firstAttribute="centerY" secondItem="MRG-0k-qgt" secondAttribute="centerY" id="W1l-mC-Zv1"/>

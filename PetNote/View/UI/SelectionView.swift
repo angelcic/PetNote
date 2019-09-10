@@ -12,10 +12,9 @@ import UIKit
 class SelectionView: UIView {
     var dataSource: SelectionViewDataSource? {
         didSet {
-            setUp()
+            setUp() 
         }
     }
-    
     weak var delegate: SelectionViewDelegate?
     
     // 使用者決定要幾個 BTN
@@ -33,20 +32,22 @@ class SelectionView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+       
     // datasource 被設定才會開始 setup
     func setUp() {
+        print("set up selectionView")
         // 設定要顯示的 button 數量、樣式
         buttonArray = initSelectBTN()
         
         // 設定 stackView 大小、樣式
         let stackView = UIStackView(arrangedSubviews: buttonArray)
+        
         stackView.distribution = .fillEqually
         stackView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
         stackView.axis = .horizontal
         
         indicatorView.frame = CGRect(x: 0,
-                                     y: self.frame.height,
+                                     y: self.frame.height - 3,
                                      width: self.frame.width / CGFloat(buttonNumber),
                                      height: 3)
         indicatorView.backgroundColor = dataSource?.indicatorColor()

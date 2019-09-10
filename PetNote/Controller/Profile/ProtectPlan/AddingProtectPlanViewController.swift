@@ -136,8 +136,16 @@ extension AddingProtectPlanViewController: UICollectionViewDelegateFlowLayout {
         sizeForItemAt indexPath: IndexPath
         ) -> CGSize {
         
-        return CGSize(width: UIScreen.width / 5.0, height: UIScreen.width / 5.0)
+        return CGSize(width: UIScreen.width / 5.0 - 6 , height: UIScreen.width / 5.0 - 6)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 6
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 6
+    }
+    
 }
 
 // TableView

@@ -29,17 +29,18 @@ private enum Tab {
         
         controller.tabBarItem = tabBarItem()
         
-        controller.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)],
-                                                     for: .normal)
-        controller.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 15)
-        controller.tabBarItem.imageInsets = UIEdgeInsets(top: 5, left: 0, bottom: -5, right: 0)
+        controller.tabBarItem.setTitleTextAttributes(
+            [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)],
+            for: .normal)
+        controller.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 2)
+        controller.tabBarItem.imageInsets = UIEdgeInsets(top: 0, left: -2, bottom: 0, right: 2)
         
         return controller
     }
     
     func tabBarItem() -> UITabBarItem {
         
-        let image = UIImage(named: "Icons_64px_footprint01")
+        let image = UIImage(named: "Icon-foot-Small")
         
         switch self {
         case .profile:

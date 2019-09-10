@@ -25,10 +25,6 @@ class ProfileDetailViewController: BaseViewController {
         
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        detailView.layoutIfNeeded()
-    }
 }
 
 extension ProfileDetailViewController: ProfileDetailViewDelegate {
