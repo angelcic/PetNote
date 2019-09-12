@@ -25,21 +25,19 @@ class ProfileDetailView: UIView {
     @IBOutlet weak var protectPlanContainerView: UIView!
     @IBOutlet weak var healthRecordContainerView: UIView!
     
-    @IBOutlet weak var userSwitchLayer: UIView! {
+    @IBOutlet weak var switchPetLayer: UIView! {
         didSet {
-//            userSwitchLayer.addSubview(self.switchPetView)
+            switchPetLayer.addSubview(self.switchPetView)
         }
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        print(789)
-        print(selectionViewLayer.frame)
         setupSubViews()
     }
     
-    var switchPetView: SwitchPetView = SwitchPetView(frame: CGRect.zero) {
+    var switchPetView: SwitchPetView = SwitchPetView() {
         didSet {
             switchPetView.delegate = self.delegate
         }
@@ -87,19 +85,9 @@ class ProfileDetailView: UIView {
     }
     
     private func setupPetSwitchLayer() {
-//        switchPetView.frame = CGRect(x: 0, y: 0,
-//                              width: userSwitchLayer.frame.width,
-//                              height: userSwitchLayer.frame.height)
-        
-        let switchPetView = SwitchPetView(frame: CGRect(x: 0, y: 0,
-                                                       width: userSwitchLayer.frame.width,
-                                                       height: userSwitchLayer.frame.height))
-        self.switchPetView = switchPetView
-        print("userSwitchLayer")
-        print(userSwitchLayer.frame)
-//        guard let switchPetView = SwitchPetView.instanceFromNib() as? SwitchPetView else {return}
-        userSwitchLayer.addSubview(self.switchPetView)
-
+        switchPetView.frame = CGRect(x: 0, y: 0,
+                              width: switchPetLayer.frame.width,
+                              height: switchPetLayer.frame.height)
     }
     
     private func updateContainer(type: PageType) {

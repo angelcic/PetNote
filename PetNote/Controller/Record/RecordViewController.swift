@@ -33,7 +33,7 @@ class RecordViewController: BaseViewController {
     
     @IBOutlet weak var calendarHeightConstraint: NSLayoutConstraint!
     
-    var switchPetView: SwitchPetView = SwitchPetView(frame: CGRect.zero) {
+    var switchPetView: SwitchPetView = SwitchPetView() {
         didSet {
             switchPetView.delegate = self
         }

@@ -20,37 +20,37 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="752" verticalCompressionResistancePriority="752" text="開啟通知" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOH-bg-j3P">
-                        <rect key="frame" x="40" y="75" width="82" height="24"/>
+                        <rect key="frame" x="20" y="75" width="82" height="24"/>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="751" verticalCompressionResistancePriority="751" text="提醒頻率" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ah-ff-zLP">
-                        <rect key="frame" x="40" y="129" width="82" height="24"/>
+                        <rect key="frame" x="20" y="129" width="82" height="24"/>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="下次提醒日期" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3b-I1-wZ2">
-                        <rect key="frame" x="40" y="183" width="123" height="24"/>
+                        <rect key="frame" x="20" y="183" width="123" height="24"/>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="提醒時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vHH-pc-BOw">
-                        <rect key="frame" x="40" y="237" width="82" height="24"/>
+                        <rect key="frame" x="20" y="237" width="82" height="24"/>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最後一次提醒日期" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZj-jO-fwj">
-                        <rect key="frame" x="40" y="291" width="164" height="22.5"/>
+                        <rect key="frame" x="20" y="291" width="164" height="22.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="752" verticalCompressionResistancePriority="752" text="提醒文字設定" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IsS-0R-JOi">
-                        <rect key="frame" x="40" y="343.5" width="123" height="24"/>
+                        <rect key="frame" x="20" y="343.5" width="123" height="24"/>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -83,7 +83,7 @@
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="該餵ＯＯＯ吃藥囉💊" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Zil-6c-zdL">
-                        <rect key="frame" x="40" y="382.5" width="284" height="120"/>
+                        <rect key="frame" x="20" y="382.5" width="304" height="120"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="120" id="AMY-3L-Zj2"/>
@@ -94,7 +94,7 @@
                     </textView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="SOH-bg-j3P" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="20" id="Bb4-fd-2UH"/>
+                    <constraint firstItem="SOH-bg-j3P" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Bb4-fd-2UH"/>
                     <constraint firstItem="Zil-6c-zdL" firstAttribute="leading" secondItem="SOH-bg-j3P" secondAttribute="leading" id="Bmc-iH-XdG"/>
                     <constraint firstItem="IsS-0R-JOi" firstAttribute="leading" secondItem="SOH-bg-j3P" secondAttribute="leading" id="EXd-Ko-TeF"/>
                     <constraint firstItem="Z3b-I1-wZ2" firstAttribute="top" secondItem="6Ah-ff-zLP" secondAttribute="bottom" constant="30" id="Fzh-FS-mBf"/>
@@ -107,7 +107,7 @@
                     <constraint firstItem="09e-kU-gYF" firstAttribute="trailing" secondItem="29E-le-vi9" secondAttribute="trailing" id="PoN-6d-Z8Z"/>
                     <constraint firstItem="HaQ-Xm-Jd8" firstAttribute="centerY" secondItem="Z3b-I1-wZ2" secondAttribute="centerY" id="Qmz-ip-she"/>
                     <constraint firstItem="85o-bj-wdI" firstAttribute="centerY" secondItem="yZj-jO-fwj" secondAttribute="centerY" id="R4r-bZ-qeX"/>
-                    <constraint firstAttribute="trailing" secondItem="09e-kU-gYF" secondAttribute="trailing" constant="20" id="UPp-7N-aGT"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="09e-kU-gYF" secondAttribute="trailing" id="UPp-7N-aGT"/>
                     <constraint firstItem="IsS-0R-JOi" firstAttribute="top" secondItem="yZj-jO-fwj" secondAttribute="bottom" constant="30" id="UhZ-hI-R2A"/>
                     <constraint firstItem="Zil-6c-zdL" firstAttribute="top" secondItem="IsS-0R-JOi" secondAttribute="bottom" constant="15" id="WTj-Re-u7K"/>
                     <constraint firstItem="vHH-pc-BOw" firstAttribute="leading" secondItem="SOH-bg-j3P" secondAttribute="leading" id="YX4-Ly-SG0"/>

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		913F73B723267A02009AE1C0 /* AddImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F73B523267A02009AE1C0 /* AddImageTableViewCell.swift */; };
 		913F73B823267A02009AE1C0 /* AddImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 913F73B623267A02009AE1C0 /* AddImageTableViewCell.xib */; };
+		913F73BB2328D22A009AE1C0 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F73BA2328D22A009AE1C0 /* StorageManager.swift */; };
 		9181BC2723177E1C007BB7C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181BC2623177E1C007BB7C6 /* AppDelegate.swift */; };
 		9181BC2923177E1C007BB7C6 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181BC2823177E1C007BB7C6 /* TabBarViewController.swift */; };
 		9181BC2C23177E1C007BB7C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9181BC2A23177E1C007BB7C6 /* Main.storyboard */; };
@@ -100,6 +101,7 @@
 		8B1361EE367C157E8D7CBCD6 /* Pods-PetNote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetNote.release.xcconfig"; path = "Target Support Files/Pods-PetNote/Pods-PetNote.release.xcconfig"; sourceTree = "<group>"; };
 		913F73B523267A02009AE1C0 /* AddImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageTableViewCell.swift; sourceTree = "<group>"; };
 		913F73B623267A02009AE1C0 /* AddImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddImageTableViewCell.xib; sourceTree = "<group>"; };
+		913F73BA2328D22A009AE1C0 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		9181BC2323177E1C007BB7C6 /* PetNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9181BC2623177E1C007BB7C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9181BC2823177E1C007BB7C6 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -218,6 +220,15 @@
 			path = Notify;
 			sourceTree = "<group>";
 		};
+		913F73B92328D1F1009AE1C0 /* LocalStorage */ = {
+			isa = PBXGroup;
+			children = (
+				9181BC2D23177E1C007BB7C6 /* PetNote.xcdatamodeld */,
+				913F73BA2328D22A009AE1C0 /* StorageManager.swift */,
+			);
+			path = LocalStorage;
+			sourceTree = "<group>";
+		};
 		9181BC1A23177E1C007BB7C6 = {
 			isa = PBXGroup;
 			children = (
@@ -247,7 +258,6 @@
 				9181BC3E23179FF1007BB7C6 /* Resource */,
 				9181BC2623177E1C007BB7C6 /* AppDelegate.swift */,
 				9181BC3523177E1D007BB7C6 /* Info.plist */,
-				9181BC2D23177E1C007BB7C6 /* PetNote.xcdatamodeld */,
 			);
 			path = PetNote;
 			sourceTree = "<group>";
@@ -332,6 +342,7 @@
 		9181BC4D2317C445007BB7C6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				913F73B92328D1F1009AE1C0 /* LocalStorage */,
 				9194B994232260A300AAA963 /* Medical */,
 				9181BC4E2317C44F007BB7C6 /* Profile */,
 			);
@@ -749,6 +760,7 @@
 				9194B9982322638F00AAA963 /* AddMedicalRecordViewController.swift in Sources */,
 				9181BC632318ED07007BB7C6 /* BaseNavigationController.swift in Sources */,
 				9181BC612318C5DA007BB7C6 /* ProfileRootView.swift in Sources */,
+				913F73BB2328D22A009AE1C0 /* StorageManager.swift in Sources */,
 				9181BC6E231C9A9B007BB7C6 /* BasicInfoViewController.swift in Sources */,
 				9181BC2923177E1C007BB7C6 /* TabBarViewController.swift in Sources */,
 				9194B9A923229E3E00AAA963 /* AddMedicalViewController.swift in Sources */,

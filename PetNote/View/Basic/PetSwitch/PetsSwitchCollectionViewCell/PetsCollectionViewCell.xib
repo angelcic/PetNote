@@ -37,6 +37,7 @@
             <constraints>
                 <constraint firstItem="Bes-dH-dvI" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.2" id="9Mr-S9-fx3"/>
                 <constraint firstItem="iw8-HM-GXR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="14" id="HUw-Lc-4nN"/>
+                <constraint firstAttribute="trailing" secondItem="iw8-HM-GXR" secondAttribute="trailing" priority="750" id="KZU-vi-RiX"/>
                 <constraint firstItem="Bes-dH-dvI" firstAttribute="centerX" secondItem="iw8-HM-GXR" secondAttribute="centerX" id="Rwz-Jb-bpr"/>
                 <constraint firstItem="iw8-HM-GXR" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="WNU-6B-mSg"/>
                 <constraint firstItem="Bes-dH-dvI" firstAttribute="width" secondItem="iw8-HM-GXR" secondAttribute="width" id="j2c-td-fcw"/>

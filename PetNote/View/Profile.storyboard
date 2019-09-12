@@ -129,7 +129,7 @@
                                     <outlet property="healthRecordContainerView" destination="fyP-Wy-agO" id="8MO-5p-rHs"/>
                                     <outlet property="protectPlanContainerView" destination="oYu-9S-lDD" id="sLE-VI-aMk"/>
                                     <outlet property="selectionViewLayer" destination="yn9-uJ-9vw" id="t1p-gj-khK"/>
-                                    <outlet property="userSwitchLayer" destination="NsO-Yu-Nol" id="6hN-bi-O2N"/>
+                                    <outlet property="switchPetLayer" destination="NsO-Yu-Nol" id="fC7-we-4TB"/>
                                 </connections>
                             </view>
                         </subviews>

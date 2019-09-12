@@ -18,8 +18,8 @@ class SwitchPetView: UIView {
         didSet {
 
             collectionView.dataSource = self
-
             collectionView.delegate = self
+            
             collectionView.showsVerticalScrollIndicator = false
             collectionView.showsHorizontalScrollIndicator = false
         }
@@ -31,8 +31,7 @@ class SwitchPetView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupCollectionView()
-
+        setupCollectionViewCell()
     }
     
     class func instanceFromNib() -> UIView? {
@@ -43,10 +42,10 @@ class SwitchPetView: UIView {
         return UINib(nibName: "SwitchPetView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? UIView
     }
     
-    override init(frame: CGRect) {
+    override init(frame: CGRect = CGRect.zero) {
         super.init(frame: frame)
-        setupCollectionView(frame: frame)
         setupCollectionView()
+        setupCollectionViewCell()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -56,7 +55,7 @@ class SwitchPetView: UIView {
 //        setupCollectionView()
     }
     
-    private func setupCollectionView() {
+    private func setupCollectionViewCell() {
         collectionView.registerCellWithNib(
             identifier: String(describing: PetsCollectionViewCell.self),
             bundle: nil
@@ -72,25 +71,26 @@ class SwitchPetView: UIView {
             width: frame.width / 4,
             height: frame.height
         )
-        print(layout.itemSize)
     }
     
-    private func setupCollectionView(frame: CGRect) {
+    private func setupCollectionView() {
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-            
-        layout.itemSize = CGSize(width: frame.width / 4,
-                                 height: frame.height) // cell的寬、高
-        layout.minimumLineSpacing = CGFloat(integerLiteral: minCollectionViewSpacing) // 滑動方向為「垂直」的話即「上下」的間距;滑動方向為「平行」則為「左右」的間距
-        layout.minimumInteritemSpacing = CGFloat(integerLiteral: minCollectionViewSpacing) // 滑動方向為「垂直」的話即「左右」的間距;滑動方向為「平行」則為「上下」的間距
+     
+        layout.minimumLineSpacing = CGFloat(integerLiteral: minCollectionViewSpacing)
+        // 滑動方向為「垂直」的話即「上下」的間距;
+//        滑動方向為「平行」則為「左右」的間距
+        layout.minimumInteritemSpacing = CGFloat(integerLiteral: minCollectionViewSpacing)
+        // 滑動方向為「垂直」的話即「左右」的間距;
+//        滑動方向為「平行」則為「上下」的間距
         layout.scrollDirection = UICollectionView.ScrollDirection.horizontal //滑動方向預設為垂直。注意若設為垂直，則cell的加入方式為由左至右，
 //        滿了才會換行；若是水平則由上往下，滿了才會換列
         
         collectionView = UICollectionView(
             frame: CGRect(origin: CGPoint(x: 0, y: 0),
-                          size: frame.size),
+                          size: CGSize.zero),
             collectionViewLayout: layout)
-//        (x: 0, y: 0, width: self.frame.width, height: self.frame.height)
+        
         self.addSubview(collectionView)
         collectionView.backgroundColor = .white
         collectionView.translatesAutoresizingMaskIntoConstraints = false

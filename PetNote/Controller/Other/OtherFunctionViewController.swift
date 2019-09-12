@@ -69,13 +69,19 @@ extension OtherFunctionViewController: UICollectionViewDelegate {
 }
 
 extension OtherFunctionViewController: UICollectionViewDelegateFlowLayout {
+    
     var screenWidth: CGFloat {
         return UIScreen.width
     }
+    
+    var spacing: CGFloat {
+        return 20
+    }
+    
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellWidth = collectionView.frame.width * 0.45
+        let cellWidth = (collectionView.frame.width - spacing) / 2
         return CGSize(width: cellWidth, height: cellWidth)
     }
     
@@ -88,7 +94,7 @@ extension OtherFunctionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 30
+        return 20
     }
 }
 
