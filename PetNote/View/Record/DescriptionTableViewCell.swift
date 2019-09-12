@@ -10,7 +10,20 @@ import UIKit
 
 class DescriptionTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var descriptionTextView: UITextView! {
+        didSet {
+            descriptionTextView.addBorder(borderColor: .white, borderWidth: 1, cornerRadius: 20)
+        }
+    }
+    
+    @IBOutlet weak var backgroundBorderView: UIView! {
+        didSet {
+            backgroundBorderView.addBorder(borderColor: .gray, borderWidth: 1, cornerRadius: 20)
+        }
+    }
+    
+    @IBOutlet weak var placeHolderLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
