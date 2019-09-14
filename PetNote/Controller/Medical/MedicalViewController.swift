@@ -8,8 +8,8 @@
 
 import UIKit
 
-class MedicalViewController: BaseViewController {
-    
+class MedicalViewController: BaseSwitchPetViewController {
+   
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.delegate = self
@@ -60,6 +60,15 @@ class MedicalViewController: BaseViewController {
         show(addMedicalRecordVC, sender: nil)
     }
 
+    func changePet() {
+        // TODO:
+    }
+    
+    func updateSwitchView() {
+        switchPetView.updatePetsData()
+    }
+    
+    
 }
 
 extension MedicalViewController: SwitchPetViewDelegate {

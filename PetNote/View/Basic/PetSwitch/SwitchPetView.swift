@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol SwitchPetViewDelegate: AnyObject {
+protocol SwitchPetViewDelegate: UICollectionViewDelegate, UICollectionViewDataSource, AnyObject {
     func changePet(_ indexPath: IndexPath)
 //    func addPet()
 }
@@ -19,8 +19,8 @@ class SwitchPetView: UIView {
 
         didSet {
 
-            collectionView.dataSource = self
-            collectionView.delegate = self
+            collectionView.dataSource = self.delegate
+            collectionView.delegate = self.delegate
             
             collectionView.showsVerticalScrollIndicator = false
             collectionView.showsHorizontalScrollIndicator = false
@@ -29,7 +29,12 @@ class SwitchPetView: UIView {
     
     let minCollectionViewSpacing = 0
     
-    weak var delegate: SwitchPetViewDelegate?
+    weak var delegate: SwitchPetViewDelegate? {
+        didSet {
+            collectionView.dataSource = self.delegate
+            collectionView.delegate = self.delegate
+        }
+    }
     
     let storageManager = StorageManager.shared
     
@@ -129,60 +134,60 @@ class SwitchPetView: UIView {
     }
 }
 
-extension SwitchPetView: UICollectionViewDelegateFlowLayout {
-    
-}
+//extension SwitchPetView: UICollectionViewDelegateFlowLayout {
+//
+//}
 
-extension SwitchPetView: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        switch indexPath.section {
-        case 0:
-//             delegate?.addPet()
-            delegate?.changePet(indexPath)
-        default :
-             delegate?.changePet(indexPath)
-        }
-        
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        
-    }
-    
-}
-
-extension SwitchPetView: UICollectionViewDataSource {
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-         return 2
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {
-            return 0
-//            return 1
-        } else {
-//            return 5
-            return storageManager.petsList.count
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: PetsCollectionViewCell.identifier,
-            for: indexPath)
-            as? PetsCollectionViewCell
-            else {
-                return UICollectionViewCell()
-        }
-        
-        if indexPath.section == 0 {
-            cell.layoutCell(image: UIImage(named: "icons-50px_add"), name: "新增")
-        } else {
-            cell.layoutCell(image: nil, name: storageManager.petsList[indexPath.row].name)
-        }
-        
-        return cell
-    }
-}
+//extension SwitchPetView: UICollectionViewDelegate {
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        switch indexPath.section {
+//        case 0:
+////             delegate?.addPet()
+//            delegate?.changePet(indexPath)
+//        default :
+//             delegate?.changePet(indexPath)
+//        }
+//
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+//
+//    }
+//
+//}
+//
+//extension SwitchPetView: UICollectionViewDataSource {
+//
+//    func numberOfSections(in collectionView: UICollectionView) -> Int {
+//         return 2
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        if section == 0 {
+//            return 0
+////            return 1
+//        } else {
+////            return 5
+//            return storageManager.petsList.count
+//        }
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView,
+//                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        guard let cell = collectionView.dequeueReusableCell(
+//            withReuseIdentifier: PetsCollectionViewCell.identifier,
+//            for: indexPath)
+//            as? PetsCollectionViewCell
+//            else {
+//                return UICollectionViewCell()
+//        }
+//
+//        if indexPath.section == 0 {
+//            cell.layoutCell(image: UIImage(named: "icons-50px_add"), name: "新增")
+//        } else {
+//            cell.layoutCell(image: nil, name: storageManager.petsList[indexPath.row].name)
+//        }
+//
+//        return cell
+//    }
+//}

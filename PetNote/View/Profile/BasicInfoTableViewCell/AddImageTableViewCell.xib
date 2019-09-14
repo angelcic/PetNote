@@ -26,10 +26,15 @@
                             <constraint firstAttribute="width" secondItem="AHa-Ww-xAl" secondAttribute="height" multiplier="2:1" id="jkQ-me-nQ3"/>
                         </constraints>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="62d-Oz-JNc">
-                        <rect key="frame" x="131.5" y="52" width="60" height="60"/>
+                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="fill" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="62d-Oz-JNc">
+                        <rect key="frame" x="175" y="87.5" width="118" height="60"/>
+                        <color key="backgroundColor" white="0.66666666669999997" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="62d-Oz-JNc" secondAttribute="height" multiplier="59:30" id="pu0-Fv-cJr"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <state key="normal" image="icons8-add-image-60"/>
+                        <state key="normal" title="編輯照片" image="icons8-add-image-60"/>
                         <connections>
                             <action selector="addImageAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="qmk-BU-SQ5"/>
                         </connections>
@@ -39,10 +44,10 @@
                     <constraint firstItem="AHa-Ww-xAl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="91p-T3-2mZ"/>
                     <constraint firstAttribute="trailing" secondItem="AHa-Ww-xAl" secondAttribute="trailing" constant="30" id="EYG-u8-4pu"/>
                     <constraint firstItem="AHa-Ww-xAl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="JoN-Rt-aAr"/>
-                    <constraint firstItem="62d-Oz-JNc" firstAttribute="centerX" secondItem="AHa-Ww-xAl" secondAttribute="centerX" id="VdW-SL-ZK7"/>
+                    <constraint firstItem="AHa-Ww-xAl" firstAttribute="trailing" secondItem="62d-Oz-JNc" secondAttribute="trailing" id="LWq-lw-Mkt"/>
                     <constraint firstItem="AHa-Ww-xAl" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="dkT-ju-WTD"/>
-                    <constraint firstItem="62d-Oz-JNc" firstAttribute="centerY" secondItem="AHa-Ww-xAl" secondAttribute="centerY" id="hf3-gP-bEh"/>
                     <constraint firstAttribute="bottom" secondItem="AHa-Ww-xAl" secondAttribute="bottom" id="nvA-fu-xyp"/>
+                    <constraint firstItem="AHa-Ww-xAl" firstAttribute="bottom" secondItem="62d-Oz-JNc" secondAttribute="bottom" id="uvM-js-UhX"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

@@ -9,7 +9,7 @@
 import UIKit
 import Charts
 
-class WeightRecordViewController: BaseViewController {
+class WeightRecordViewController: BaseSwitchPetViewController {
 
     @IBOutlet weak var switchPetLayer: UIView! {
         didSet {
@@ -55,6 +55,16 @@ class WeightRecordViewController: BaseViewController {
         switchPetView.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: switchPetLayer.frame.size)
         
     }
+    
+    func changePet() {
+        // TODO:
+    }
+    
+    func updateSwitchView() {
+        switchPetView.updatePetsData()
+    }
+    
+    
 }
 
 extension WeightRecordViewController: SwitchPetViewDelegate {

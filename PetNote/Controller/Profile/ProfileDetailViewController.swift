@@ -8,17 +8,13 @@
 
 import UIKit
 
-class ProfileDetailViewController: BaseViewController {
+class ProfileDetailViewController: BaseSwitchPetViewController {
 
     @IBOutlet var detailView: ProfileDetailView! {
         didSet {
             detailView.delegate = self
         }
     }
-   
-    let storageManager = StorageManager.shared
-    
-//    var pets: [Pet] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,31 +29,15 @@ class ProfileDetailViewController: BaseViewController {
     }
     
     @objc func addPetAction() {
-        
-        guard let addPetVC = UIStoryboard.profile.instantiateViewController(
-            withIdentifier: AddPetViewController.identifier)
-            as? AddPetViewController
-            else {return}
-        
-        addPetVC.delegate = self
-        
-        // 顯示樣式
-        addPetVC.modalPresentationStyle = UIModalPresentationStyle.custom
-        
-        self.present(addPetVC, animated: false, completion: nil)
-        
-        addPetVC.view.backgroundColor = UIColor.clear
+        showAddPetVC()
     }
-}
-
-extension ProfileDetailViewController: AddPetViewControllerDelegate {
-    func addPetResult(_ result: Result<Void, Error>) {
-        switch result {
-        case .success:
-            detailView.updateSwitchView()
-        case .failure(let error) :
-            print(error)
-        }
+    
+    func changePet() {
+        // TODO:
+    }
+    
+    func updateSwitchView() {
+        detailView.updateSwitchView()
     }
 }
 

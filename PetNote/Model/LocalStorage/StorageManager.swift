@@ -100,6 +100,7 @@ class StorageManager: NSObject {
             print(error)
             completion?(Result.failure(error))
         }
+        
     }
     
     // MARK: 修改
