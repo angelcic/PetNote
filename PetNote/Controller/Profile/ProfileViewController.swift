@@ -86,7 +86,7 @@ class ProfileViewController: UIViewController {
             return
         }
         detailViewController.view.backgroundColor = .white
-        detailViewController.pets = pets
+//        detailViewController.pets = pets
         self.navigationController?.pushViewController(detailViewController, animated: true)
     }
 }

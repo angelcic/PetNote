@@ -13,7 +13,7 @@ class StorageManager: NSObject {
     
     private enum Entity: String, CaseIterable {
         
-        case info = "PNInfo"
+        case info = "PNPetInfo"
         
         case protectPlan = "PNProtectPlan"
         
@@ -50,7 +50,11 @@ class StorageManager: NSObject {
         return persistanceContainer.viewContext
     }
     
-    var petsList: [PNPetInfo] = []
+    var petsList: [PNPetInfo] = [] {
+        didSet {
+            print("寵物資料更新, 目前有 \(petsList.count) 筆資料")
+        }
+    }
     
     // MARK: 取得
     func fetchPets(completion: ((Result<[PNPetInfo], Error>) -> Void)? = nil) {
@@ -71,18 +75,17 @@ class StorageManager: NSObject {
     }
     
     // MARK: 新增
-    func addNewPet(name: String, type: PetType) {
+    func addNewPet(name: String, type: PetType, completion: ((Result<Void, Error>) -> Void)? = nil) {
         guard
             let entity =
-            NSEntityDescription.entity(forEntityName: Entity.info.rawValue,
-                                       in: viewContext)
+            NSEntityDescription.entity(forEntityName: Entity.info.rawValue, in: viewContext)
         else {
-            return
-                
+            return                
         }
         
-        let pet = NSManagedObject(entity: entity,
+        guard let pet = NSManagedObject(entity: entity,
                                   insertInto: viewContext)
+            as? PNPetInfo else { return }
         
         pet.setValue(name, forKey: "name")
         pet.setValue(type.rawValue, forKey: "petType")
@@ -90,10 +93,12 @@ class StorageManager: NSObject {
         do {
             
             try viewContext.save()
-            fetchPets()
-            
+//            fetchPets()
+            petsList.append(pet)
+            completion?(Result.success(()))
         } catch let error {
             print(error)
+            completion?(Result.failure(error))
         }
     }
     

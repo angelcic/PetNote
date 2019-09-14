@@ -7,8 +7,10 @@
 //
 
 import UIKit
+
 protocol SwitchPetViewDelegate: AnyObject {
     func changePet(_ indexPath: IndexPath)
+//    func addPet()
 }
 
 class SwitchPetView: UIView {
@@ -29,15 +31,20 @@ class SwitchPetView: UIView {
     
     weak var delegate: SwitchPetViewDelegate?
     
+    let storageManager = StorageManager.shared
+    
+    var pets: [PNPetInfo] = [] {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCollectionViewCell()
     }
     
     class func instanceFromNib() -> UIView? {
-//        let nib = UINib(nibName: "SwitchPetView", bundle: nil)
-//        let instantArray = nib.instantiate(withOwner: nil, options: nil)
-//        let switchPetView = instantArray[0]
         
         return UINib(nibName: "SwitchPetView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? UIView
     }
@@ -49,10 +56,7 @@ class SwitchPetView: UIView {
     }
     
     required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//        self
         fatalError("init(coder:) has not been implemented")
-//        setupCollectionView()
     }
     
     private func setupCollectionViewCell() {
@@ -65,7 +69,10 @@ class SwitchPetView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+        guard
+            let layout = collectionView.collectionViewLayout
+            as? UICollectionViewFlowLayout
+        else { return }
 
         layout.itemSize = CGSize(
             width: frame.width / 4,
@@ -83,11 +90,11 @@ class SwitchPetView: UIView {
         layout.minimumInteritemSpacing = CGFloat(integerLiteral: minCollectionViewSpacing)
         // 滑動方向為「垂直」的話即「左右」的間距;
 //        滑動方向為「平行」則為「上下」的間距
-        layout.scrollDirection = UICollectionView.ScrollDirection.horizontal //滑動方向預設為垂直。注意若設為垂直，則cell的加入方式為由左至右，
+        layout.scrollDirection = UICollectionView.ScrollDirection.horizontal //滑動方向預設為垂直。注意若設為垂直，則 cell 的加入方式為由左至右，
 //        滿了才會換行；若是水平則由上往下，滿了才會換列
         
         collectionView = UICollectionView(
-            frame: CGRect(origin: CGPoint(x: 0, y: 0),
+            frame: CGRect(origin: CGPoint.zero,
                           size: CGSize.zero),
             collectionViewLayout: layout)
         
@@ -101,6 +108,25 @@ class SwitchPetView: UIView {
         collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
+    
+    func fetchData() {
+        storageManager.fetchPets(completion: { [weak self] result in
+            switch result {
+            case .success(let pets):
+                self?.pets = pets
+            case .failure:
+                print("寵物資料讀取失敗")
+            }
+        })
+    }
+    
+    func updatePetsData(pets: [PNPetInfo]) {
+        self.pets = pets
+    }
+    
+    func updatePetsData() {
+        collectionView.reloadData()
+    }
 }
 
 extension SwitchPetView: UICollectionViewDelegateFlowLayout {
@@ -109,13 +135,36 @@ extension SwitchPetView: UICollectionViewDelegateFlowLayout {
 
 extension SwitchPetView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.changePet(indexPath)
+        switch indexPath.section {
+        case 0:
+//             delegate?.addPet()
+            delegate?.changePet(indexPath)
+        default :
+             delegate?.changePet(indexPath)
+        }
+        
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        
+    }
+    
 }
 
 extension SwitchPetView: UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+         return 2
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        if section == 0 {
+            return 0
+//            return 1
+        } else {
+//            return 5
+            return storageManager.petsList.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -127,6 +176,13 @@ extension SwitchPetView: UICollectionViewDataSource {
             else {
                 return UICollectionViewCell()
         }
+        
+        if indexPath.section == 0 {
+            cell.layoutCell(image: UIImage(named: "icons-50px_add"), name: "新增")
+        } else {
+            cell.layoutCell(image: nil, name: storageManager.petsList[indexPath.row].name)
+        }
+        
         return cell
     }
 }

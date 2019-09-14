@@ -10,6 +10,10 @@
 		913F73B723267A02009AE1C0 /* AddImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F73B523267A02009AE1C0 /* AddImageTableViewCell.swift */; };
 		913F73B823267A02009AE1C0 /* AddImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 913F73B623267A02009AE1C0 /* AddImageTableViewCell.xib */; };
 		913F73BB2328D22A009AE1C0 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F73BA2328D22A009AE1C0 /* StorageManager.swift */; };
+		913F73BD232A2E92009AE1C0 /* AddPetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 913F73BC232A2E92009AE1C0 /* AddPetView.xib */; };
+		913F73BF232A2EDE009AE1C0 /* AddPetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F73BE232A2EDE009AE1C0 /* AddPetView.swift */; };
+		913F73C1232A4FDD009AE1C0 /* AddPetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F73C0232A4FDD009AE1C0 /* AddPetViewController.swift */; };
+		913F73C3232CB687009AE1C0 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F73C2232CB687009AE1C0 /* StringExtension.swift */; };
 		9181BC2723177E1C007BB7C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181BC2623177E1C007BB7C6 /* AppDelegate.swift */; };
 		9181BC2923177E1C007BB7C6 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181BC2823177E1C007BB7C6 /* TabBarViewController.swift */; };
 		9181BC2C23177E1C007BB7C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9181BC2A23177E1C007BB7C6 /* Main.storyboard */; };
@@ -102,6 +106,10 @@
 		913F73B523267A02009AE1C0 /* AddImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageTableViewCell.swift; sourceTree = "<group>"; };
 		913F73B623267A02009AE1C0 /* AddImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddImageTableViewCell.xib; sourceTree = "<group>"; };
 		913F73BA2328D22A009AE1C0 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		913F73BC232A2E92009AE1C0 /* AddPetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPetView.xib; sourceTree = "<group>"; };
+		913F73BE232A2EDE009AE1C0 /* AddPetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetView.swift; sourceTree = "<group>"; };
+		913F73C0232A4FDD009AE1C0 /* AddPetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetViewController.swift; sourceTree = "<group>"; };
+		913F73C2232CB687009AE1C0 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		9181BC2323177E1C007BB7C6 /* PetNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9181BC2623177E1C007BB7C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9181BC2823177E1C007BB7C6 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -322,6 +330,7 @@
 				9181BC582317CC4B007BB7C6 /* UIViewExtension.swift */,
 				9181BC662319119C007BB7C6 /* UICollectionViewExtension.swift */,
 				9194B92A231D12DD00AAA963 /* UIScreenExtension.swift */,
+				913F73C2232CB687009AE1C0 /* StringExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -331,6 +340,7 @@
 			children = (
 				9181BC4B2317C38C007BB7C6 /* ProfileViewController.swift */,
 				9181BC5E2317E1DE007BB7C6 /* ProfileDetailViewController.swift */,
+				913F73C0232A4FDD009AE1C0 /* AddPetViewController.swift */,
 				9181BC6D231C9A9B007BB7C6 /* BasicInfoViewController.swift */,
 				9194B930231D315A00AAA963 /* ProtectPlan */,
 				9194B928231D097900AAA963 /* HealthRecordViewController.swift */,
@@ -369,6 +379,8 @@
 				9194B935231D336800AAA963 /* ProtectTypeTableViewCell */,
 				9194B944231E76EC00AAA963 /* NotifyTableViewCell */,
 				9194B976231F9F6500AAA963 /* WeightRecordTabelViewCell */,
+				913F73BC232A2E92009AE1C0 /* AddPetView.xib */,
+				913F73BE232A2EDE009AE1C0 /* AddPetView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -673,6 +685,7 @@
 				9181BC462317A067007BB7C6 /* Other.storyboard in Resources */,
 				9181BC552317C530007BB7C6 /* ProfileTableViewCell.xib in Resources */,
 				9194B9A52322923B00AAA963 /* TitleWithDateTableViewCell.xib in Resources */,
+				913F73BD232A2E92009AE1C0 /* AddPetView.xib in Resources */,
 				9181BC2C23177E1C007BB7C6 /* Main.storyboard in Resources */,
 				9181BC422317A03D007BB7C6 /* Record.storyboard in Resources */,
 				913F73B823267A02009AE1C0 /* AddImageTableViewCell.xib in Resources */,
@@ -769,11 +782,13 @@
 				9194B937231E08ED00AAA963 /* ProtectPlan.swift in Sources */,
 				9194B9B92323A85900AAA963 /* HospitalDataTableViewCell.swift in Sources */,
 				9181BC5D2317DE27007BB7C6 /* SelectionView.swift in Sources */,
+				913F73BF232A2EDE009AE1C0 /* AddPetView.swift in Sources */,
 				9194B98F2322384000AAA963 /* MedicalViewController.swift in Sources */,
 				9194B9C723265F4600AAA963 /* SettingNotifyViewController.swift in Sources */,
 				9194B96B231F908000AAA963 /* WithImageSectionHeaderView.swift in Sources */,
 				9194B970231F97FF00AAA963 /* ChartTableViewCell.swift in Sources */,
 				9194B9A42322923B00AAA963 /* TitleWithDateTableViewCell.swift in Sources */,
+				913F73C3232CB687009AE1C0 /* StringExtension.swift in Sources */,
 				9194B9B62323A80900AAA963 /* SearchHospitalResultViewController.swift in Sources */,
 				9194B920231CEB9A00AAA963 /* BasicCollectionViewCell.swift in Sources */,
 				9194B9BC2325628600AAA963 /* NotificationManageViewController.swift in Sources */,
@@ -796,6 +811,7 @@
 				9194B9C323264E7F00AAA963 /* SettingNotifyTableViewCell.swift in Sources */,
 				9194B99C232285FB00AAA963 /* BasicMedicalRecordTableViewCell.swift in Sources */,
 				9194B92D231D164D00AAA963 /* AddingProtectPlanViewController.swift in Sources */,
+				913F73C1232A4FDD009AE1C0 /* AddPetViewController.swift in Sources */,
 				9181BC2723177E1C007BB7C6 /* AppDelegate.swift in Sources */,
 				9181BC71231C9CF5007BB7C6 /* ProtectPlanViewController.swift in Sources */,
 				913F73B723267A02009AE1C0 /* AddImageTableViewCell.swift in Sources */,

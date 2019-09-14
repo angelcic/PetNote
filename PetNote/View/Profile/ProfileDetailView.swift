@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ProfileDetailViewDelegate: SwitchPetViewDelegate, NSObject {
+    
+}
+
 class ProfileDetailView: UIView {
     
     private enum PageType: Int {
@@ -19,24 +23,18 @@ class ProfileDetailView: UIView {
         case healthRecord = 2
     }
     
-    @IBOutlet weak var selectionViewLayer: UIView!
-    
     @IBOutlet weak var basicInfoContainerView: UIView!
     @IBOutlet weak var protectPlanContainerView: UIView!
     @IBOutlet weak var healthRecordContainerView: UIView!
+    
+    @IBOutlet weak var selectionViewLayer: UIView!
     
     @IBOutlet weak var switchPetLayer: UIView! {
         didSet {
             switchPetLayer.addSubview(self.switchPetView)
         }
     }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        setupSubViews()
-    }
-    
+   
     var switchPetView: SwitchPetView = SwitchPetView() {
         didSet {
             switchPetView.delegate = self.delegate
@@ -57,13 +55,12 @@ class ProfileDetailView: UIView {
         }
     }
     
-    let page = ["基本資料", "預防計畫", "健康記錄"]
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    func setupSubViews() {
+    override func layoutSubviews() {
+        super.layoutSubviews()
         setupPetSwitchLayer()
         setupSelectionView()
     }
@@ -90,6 +87,7 @@ class ProfileDetailView: UIView {
                               height: switchPetLayer.frame.height)
     }
     
+    // MARK: 切換分頁
     private func updateContainer(type: PageType) {
         
         containerViews.forEach({ $0.isHidden = true })
@@ -107,10 +105,10 @@ class ProfileDetailView: UIView {
             
         }
     }
-}
-
-protocol ProfileDetailViewDelegate: UICollectionViewDelegate, UICollectionViewDataSource, SwitchPetViewDelegate {
     
+    func updateSwitchView() {
+        switchPetView.updatePetsData()
+    }
 }
 
 extension ProfileDetailView: SelectionViewDelegate {
@@ -124,6 +122,12 @@ extension ProfileDetailView: SelectionViewDelegate {
 }
 
 extension ProfileDetailView: SelectionViewDataSource {
+    
+    var page: [String] {
+        
+        return ["基本資料", "預防計畫", "健康記錄"]
+        
+    }
     
     func indicatorColor() -> UIColor {
         return .gray

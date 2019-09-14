@@ -9,6 +9,7 @@
 import UIKit
 
 private enum Tab {
+    
     case profile
     
     case record
@@ -18,6 +19,7 @@ private enum Tab {
     case other
     
     func controller() -> UIViewController {
+        
         var controller: UIViewController
         
         switch self {
@@ -45,26 +47,32 @@ private enum Tab {
         switch self {
         case .profile:
             
-//            image.res
             return UITabBarItem(
                 title: "毛孩檔案",
                 image: image,
                 selectedImage: nil)
+            
         case .record:
+            
              return UITabBarItem(
                 title: "症狀記錄",
                 image: image,
                 selectedImage: nil)
+            
         case .medical:
+            
              return UITabBarItem(
                 title: "就診記錄",
                 image: image,
                 selectedImage: nil)
+            
         case .other:
+            
              return UITabBarItem(
                 title: "其它",
                 image: image,
                 selectedImage: nil)
+            
         }
        
     }
@@ -79,9 +87,11 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        viewControllers = tabs.map({ $0.controller()
-        })
+        viewControllers = tabs.map({ $0.controller() })
+        
         self.tabBar.tintColor = .darkGray
+        
+        StorageManager.shared.fetchPets()
         
         delegate = self
     }
