@@ -87,8 +87,9 @@ class StorageManager: NSObject {
                                   insertInto: viewContext)
             as? PNPetInfo else { return }
         
-        pet.setValue(name, forKey: "name")
-        pet.setValue(type.rawValue, forKey: "petType")
+        pet.setValue(name, forKey: PetKey.name.rawValue)
+        pet.setValue(type.rawValue, forKey: PetKey.petType.rawValue)
+        pet.setValue(Date().timeIntervalSince1970, forKey: PetKey.pnId.rawValue)
         
         do {
             

@@ -15,6 +15,11 @@
 		913F73C1232A4FDD009AE1C0 /* AddPetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F73C0232A4FDD009AE1C0 /* AddPetViewController.swift */; };
 		913F73C3232CB687009AE1C0 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F73C2232CB687009AE1C0 /* StringExtension.swift */; };
 		913F73C5232CB98D009AE1C0 /* BaseSwitchPetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F73C4232CB98D009AE1C0 /* BaseSwitchPetViewController.swift */; };
+		913F73C7232DF3CF009AE1C0 /* ModifyBaseInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F73C6232DF3CF009AE1C0 /* ModifyBaseInfoViewController.swift */; };
+		913F73CB232DF4B0009AE1C0 /* ModifyBasicInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F73C9232DF4B0009AE1C0 /* ModifyBasicInfoTableViewCell.swift */; };
+		913F73CC232DF4B0009AE1C0 /* ModifyBasicInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 913F73CA232DF4B0009AE1C0 /* ModifyBasicInfoTableViewCell.xib */; };
+		913F73CE232F3978009AE1C0 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F73CD232F3978009AE1C0 /* IntExtension.swift */; };
+		913F73D0232F46C7009AE1C0 /* BaseContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F73CF232F46C7009AE1C0 /* BaseContainerViewController.swift */; };
 		9181BC2723177E1C007BB7C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181BC2623177E1C007BB7C6 /* AppDelegate.swift */; };
 		9181BC2923177E1C007BB7C6 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181BC2823177E1C007BB7C6 /* TabBarViewController.swift */; };
 		9181BC2C23177E1C007BB7C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9181BC2A23177E1C007BB7C6 /* Main.storyboard */; };
@@ -112,6 +117,11 @@
 		913F73C0232A4FDD009AE1C0 /* AddPetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetViewController.swift; sourceTree = "<group>"; };
 		913F73C2232CB687009AE1C0 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		913F73C4232CB98D009AE1C0 /* BaseSwitchPetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSwitchPetViewController.swift; sourceTree = "<group>"; };
+		913F73C6232DF3CF009AE1C0 /* ModifyBaseInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyBaseInfoViewController.swift; sourceTree = "<group>"; };
+		913F73C9232DF4B0009AE1C0 /* ModifyBasicInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyBasicInfoTableViewCell.swift; sourceTree = "<group>"; };
+		913F73CA232DF4B0009AE1C0 /* ModifyBasicInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModifyBasicInfoTableViewCell.xib; sourceTree = "<group>"; };
+		913F73CD232F3978009AE1C0 /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
+		913F73CF232F46C7009AE1C0 /* BaseContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseContainerViewController.swift; sourceTree = "<group>"; };
 		9181BC2323177E1C007BB7C6 /* PetNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9181BC2623177E1C007BB7C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9181BC2823177E1C007BB7C6 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -239,6 +249,15 @@
 			path = LocalStorage;
 			sourceTree = "<group>";
 		};
+		913F73C8232DF3D9009AE1C0 /* BasicInfo */ = {
+			isa = PBXGroup;
+			children = (
+				9181BC6D231C9A9B007BB7C6 /* BasicInfoViewController.swift */,
+				913F73C6232DF3CF009AE1C0 /* ModifyBaseInfoViewController.swift */,
+			);
+			path = BasicInfo;
+			sourceTree = "<group>";
+		};
 		9181BC1A23177E1C007BB7C6 = {
 			isa = PBXGroup;
 			children = (
@@ -292,6 +311,7 @@
 				9181BC622318ED07007BB7C6 /* BaseNavigationController.swift */,
 				9194B92E231D213600AAA963 /* BaseViewController.swift */,
 				913F73C4232CB98D009AE1C0 /* BaseSwitchPetViewController.swift */,
+				913F73CF232F46C7009AE1C0 /* BaseContainerViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -334,6 +354,7 @@
 				9181BC662319119C007BB7C6 /* UICollectionViewExtension.swift */,
 				9194B92A231D12DD00AAA963 /* UIScreenExtension.swift */,
 				913F73C2232CB687009AE1C0 /* StringExtension.swift */,
+				913F73CD232F3978009AE1C0 /* IntExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -344,7 +365,7 @@
 				9181BC4B2317C38C007BB7C6 /* ProfileViewController.swift */,
 				9181BC5E2317E1DE007BB7C6 /* ProfileDetailViewController.swift */,
 				913F73C0232A4FDD009AE1C0 /* AddPetViewController.swift */,
-				9181BC6D231C9A9B007BB7C6 /* BasicInfoViewController.swift */,
+				913F73C8232DF3D9009AE1C0 /* BasicInfo */,
 				9194B930231D315A00AAA963 /* ProtectPlan */,
 				9194B928231D097900AAA963 /* HealthRecordViewController.swift */,
 				9194B945231E773100AAA963 /* WeightRecordViewController.swift */,
@@ -422,6 +443,8 @@
 				9194B91A231CD8D500AAA963 /* BasicInfoTableViewCell.xib */,
 				913F73B523267A02009AE1C0 /* AddImageTableViewCell.swift */,
 				913F73B623267A02009AE1C0 /* AddImageTableViewCell.xib */,
+				913F73C9232DF4B0009AE1C0 /* ModifyBasicInfoTableViewCell.swift */,
+				913F73CA232DF4B0009AE1C0 /* ModifyBasicInfoTableViewCell.xib */,
 			);
 			path = BasicInfoTableViewCell;
 			sourceTree = "<group>";
@@ -693,6 +716,7 @@
 				9181BC422317A03D007BB7C6 /* Record.storyboard in Resources */,
 				913F73B823267A02009AE1C0 /* AddImageTableViewCell.xib in Resources */,
 				9194B91C231CD8D500AAA963 /* BasicInfoTableViewCell.xib in Resources */,
+				913F73CC232DF4B0009AE1C0 /* ModifyBasicInfoTableViewCell.xib in Resources */,
 				9194B9BA2323A85900AAA963 /* HospitalDataTableViewCell.xib in Resources */,
 				9194B975231F9E0700AAA963 /* WeightLabelTableViewCell.xib in Resources */,
 				9194B99D232285FC00AAA963 /* BasicMedicalRecordTableViewCell.xib in Resources */,
@@ -782,6 +806,7 @@
 				9194B9A923229E3E00AAA963 /* AddMedicalViewController.swift in Sources */,
 				9194B996232260B200AAA963 /* MedicalRecord.swift in Sources */,
 				9194B942231E6C0800AAA963 /* NotifyTableViewCell.swift in Sources */,
+				913F73D0232F46C7009AE1C0 /* BaseContainerViewController.swift in Sources */,
 				9194B937231E08ED00AAA963 /* ProtectPlan.swift in Sources */,
 				9194B9B92323A85900AAA963 /* HospitalDataTableViewCell.swift in Sources */,
 				9181BC5D2317DE27007BB7C6 /* SelectionView.swift in Sources */,
@@ -804,6 +829,7 @@
 				9194B946231E773100AAA963 /* WeightRecordViewController.swift in Sources */,
 				9194B933231D335E00AAA963 /* ProtectTypeTableViewCell.swift in Sources */,
 				9194B974231F9E0700AAA963 /* WeightLabelTableViewCell.swift in Sources */,
+				913F73CE232F3978009AE1C0 /* IntExtension.swift in Sources */,
 				9194B9AF2323956C00AAA963 /* OtherFunctionViewController.swift in Sources */,
 				9194B9A02322922300AAA963 /* TitleWithButtonTableViewCell.swift in Sources */,
 				9194B979231FA0AC00AAA963 /* SwitchPetView.swift in Sources */,
@@ -817,6 +843,7 @@
 				913F73C1232A4FDD009AE1C0 /* AddPetViewController.swift in Sources */,
 				9181BC2723177E1C007BB7C6 /* AppDelegate.swift in Sources */,
 				9181BC71231C9CF5007BB7C6 /* ProtectPlanViewController.swift in Sources */,
+				913F73CB232DF4B0009AE1C0 /* ModifyBasicInfoTableViewCell.swift in Sources */,
 				913F73B723267A02009AE1C0 /* AddImageTableViewCell.swift in Sources */,
 				9181BC572317C8C2007BB7C6 /* UITableViewExtension.swift in Sources */,
 				9194B981232135C700AAA963 /* AddRecordViewController.swift in Sources */,
@@ -826,6 +853,7 @@
 				9181BC592317CC4B007BB7C6 /* UIViewExtension.swift in Sources */,
 				9194B91B231CD8D500AAA963 /* BasicInfoTableViewCell.swift in Sources */,
 				9194B969231F64C400AAA963 /* PNChartView.swift in Sources */,
+				913F73C7232DF3CF009AE1C0 /* ModifyBaseInfoViewController.swift in Sources */,
 				913F73C5232CB98D009AE1C0 /* BaseSwitchPetViewController.swift in Sources */,
 				9181BC652319109B007BB7C6 /* ProfileDetailView.swift in Sources */,
 				9194B92F231D213600AAA963 /* BaseViewController.swift in Sources */,

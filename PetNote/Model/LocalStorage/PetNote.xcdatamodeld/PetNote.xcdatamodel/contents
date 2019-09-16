@@ -15,6 +15,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="petType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="photo" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="pnId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="dailyRecord" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PNDailyRecord" inverseName="petInfo" inverseEntity="PNDailyRecord" syncable="YES"/>
         <relationship name="medicalRecord" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PNMedicalRecord" inverseName="petInfo" inverseEntity="PNMedicalRecord" syncable="YES"/>
         <relationship name="protectPlan" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PNProtectPlan" inverseName="petInfo" inverseEntity="PNProtectPlan" syncable="YES"/>
@@ -27,10 +28,10 @@
         <relationship name="petInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PNPetInfo" inverseName="weightRecord" inverseEntity="PNPetInfo" syncable="YES"/>
     </entity>
     <elements>
-        <element name="PNPetInfo" positionX="-191.4296875" positionY="-20.28515625" width="128" height="223"/>
-        <element name="PNProtectPlan" positionX="-5.66796875" positionY="139.140625" width="128" height="60"/>
-        <element name="PNMedicalRecord" positionX="-4.83203125" positionY="67.47265625" width="128" height="60"/>
         <element name="PNDailyRecord" positionX="-12.12109375" positionY="-0.26171875" width="128" height="60"/>
+        <element name="PNMedicalRecord" positionX="-4.83203125" positionY="67.47265625" width="128" height="60"/>
+        <element name="PNPetInfo" positionX="-191.4296875" positionY="-20.28515625" width="128" height="240"/>
+        <element name="PNProtectPlan" positionX="-5.66796875" positionY="139.140625" width="128" height="60"/>
         <element name="PNWeightRecord" positionX="-16.0546875" positionY="210.6171875" width="128" height="60"/>
     </elements>
 </model>

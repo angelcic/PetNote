@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SwitchPetViewControllerProtocol {
-    func changePet()
+    func changePet(_ indexPath: IndexPath)
     func updateSwitchView()
 }
 
@@ -62,16 +62,30 @@ extension SwitchPetViewController: UICollectionViewDelegate {
         case 0:
             showAddPetVC()
         default :
+            guard
+                let cell = collectionView.cellForItem(at: indexPath)
+                    as? PetsCollectionViewCell
+            else {
+                return
+            }
+            cell.changeSlectedStatus(true)
+            
             guard let controller = self as? BaseSwitchPetViewController else {
                 return
             }
-            controller.changePet()
+            controller.changePet(indexPath)
         }
         
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        
+        guard
+            let cell = collectionView.cellForItem(at: indexPath)
+                as? PetsCollectionViewCell
+            else {
+                return
+        }
+        cell.changeSlectedStatus(false)
     }
     
 }

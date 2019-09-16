@@ -34,12 +34,8 @@ class ProfileDetailView: UIView {
             switchPetLayer.addSubview(self.switchPetView)
         }
     }
-   
-    var switchPetView: SwitchPetView = SwitchPetView() {
-        didSet {
-            switchPetView.delegate = self.delegate
-        }
-    }
+    
+    var switchPetView = SwitchPetView()
     
     var containerViews: [UIView] {
         
@@ -49,9 +45,7 @@ class ProfileDetailView: UIView {
     weak var delegate: ProfileDetailViewDelegate? {
         
         didSet {
-            
             switchPetView.delegate = self.delegate
-            
         }
     }
     
@@ -65,6 +59,7 @@ class ProfileDetailView: UIView {
         setupSelectionView()
     }
     
+    // 更新切換頁面條介面大小
     private func setupSelectionView() {
         
         let selectionView = SelectionView(
@@ -81,6 +76,7 @@ class ProfileDetailView: UIView {
         
     }
     
+    // 更新切換寵物介面大小
     private func setupPetSwitchLayer() {
         switchPetView.frame = CGRect(x: 0, y: 0,
                               width: switchPetLayer.frame.width,
@@ -106,6 +102,7 @@ class ProfileDetailView: UIView {
         }
     }
     
+    // 更新分頁按鈕狀態
     func updateSwitchView() {
         switchPetView.updatePetsData()
     }

@@ -8,7 +8,11 @@
 
 import UIKit
 
-class HealthRecordViewController: UIViewController {
+class HealthRecordViewController: BaseContainerViewController {
+    func petDidChange() {
+        <#code#>
+    }
+    
     
     @IBOutlet weak var collectionView: UICollectionView! {
         

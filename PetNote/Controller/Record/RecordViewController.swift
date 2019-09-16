@@ -33,11 +33,7 @@ class RecordViewController: BaseSwitchPetViewController {
     
     @IBOutlet weak var calendarHeightConstraint: NSLayoutConstraint!
     
-    var switchPetView: SwitchPetView = SwitchPetView() {
-        didSet {
-            switchPetView.delegate = self
-        }
-    }
+    var switchPetView = SwitchPetView()
     
     fileprivate lazy var scopeGesture: UIPanGestureRecognizer = {
         [unowned self] in
@@ -52,7 +48,7 @@ class RecordViewController: BaseSwitchPetViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setCalendar()
-        
+        switchPetView.delegate = self
     }
     
     override func viewDidLayoutSubviews() {
@@ -70,7 +66,7 @@ class RecordViewController: BaseSwitchPetViewController {
         switchPetView.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: switchPetLayer.frame.size)
     }
     
-    func changePet() {
+    func changePet(_ indexPath: IndexPath) {
         // TODO:
     }
     
@@ -87,9 +83,9 @@ class RecordViewController: BaseSwitchPetViewController {
 }
 
 extension RecordViewController: SwitchPetViewDelegate {
-    func changePet(_ indexPath: IndexPath) {
-        
-    }
+//    func changePet(_ indexPath: IndexPath) {
+//        
+//    }
 }
 
 extension RecordViewController: UIGestureRecognizerDelegate {

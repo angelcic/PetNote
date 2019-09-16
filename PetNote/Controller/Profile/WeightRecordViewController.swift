@@ -26,17 +26,13 @@ class WeightRecordViewController: BaseSwitchPetViewController {
     
     let weights: [Double] = [4.5, 4.6, 5.0, 4.8]
     
-    var switchPetView: SwitchPetView = SwitchPetView(frame: CGRect.zero) {
-        didSet {
-            switchPetView.delegate = self
-        }
-    }
+    var switchPetView = SwitchPetView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.title = "體重記錄"
-        
+        switchPetView.delegate = self
         setupTableView()
     }
     
@@ -56,21 +52,18 @@ class WeightRecordViewController: BaseSwitchPetViewController {
         
     }
     
-    func changePet() {
+    // MARK: switchPetView function
+    func changePet(_ indexPath: IndexPath) {
         // TODO:
     }
     
     func updateSwitchView() {
         switchPetView.updatePetsData()
     }
-    
-    
 }
 
 extension WeightRecordViewController: SwitchPetViewDelegate {
-    func changePet(_ indexPath: IndexPath) {
-        // TODO:
-    }
+    
 }
 
 extension WeightRecordViewController: UITableViewDelegate {

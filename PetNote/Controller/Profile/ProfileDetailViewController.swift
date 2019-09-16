@@ -16,6 +16,8 @@ class ProfileDetailViewController: BaseSwitchPetViewController {
         }
     }
     
+    var containerVCs: [UIViewController] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "毛孩資料"
@@ -28,12 +30,17 @@ class ProfileDetailViewController: BaseSwitchPetViewController {
         self.navigationItem.rightBarButtonItem = saveButton
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        containerVCs.append(segue.destination)
+    }
+    
     @objc func addPetAction() {
         showAddPetVC()
     }
     
-    func changePet() {
-        // TODO:
+    func changePet(_ indexPath: IndexPath) {
+        // TODO
+        
     }
     
     func updateSwitchView() {
@@ -42,8 +49,5 @@ class ProfileDetailViewController: BaseSwitchPetViewController {
 }
 
 extension ProfileDetailViewController: ProfileDetailViewDelegate {
-
-    func changePet(_ indexPath: IndexPath) {
-        // TODO
-    }
+    
 }

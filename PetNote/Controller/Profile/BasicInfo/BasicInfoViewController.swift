@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BasicInfoViewController: UIViewController {   
+class BasicInfoViewController: BaseContainerViewController {
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -17,7 +17,11 @@ class BasicInfoViewController: UIViewController {
         }
     }
     
-    var pet: Pet?
+//    var currentPet: PNPetInfo? {
+//        didSet {
+//            tableView.reloadSections(IndexSet(arrayLiteral: 1), with: .none)
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,14 +31,35 @@ class BasicInfoViewController: UIViewController {
     
     func setupTableView() {
         tableView.registerCellWithNib(identifier: String(describing: BasicInfoTableViewCell.self), bundle: nil)
-        tableView.registerCellWithNib(identifier: String(describing: AddImageTableViewCell.self), bundle: nil)
-        
+        tableView.registerCellWithNib(identifier: String(describing: AddImageTableViewCell.self), bundle: nil)        
+    }
+    
+    func petDidChange() {
+        tableView.reloadSections(IndexSet(arrayLiteral: 1), with: .none)
     }
 }
 
 extension BasicInfoViewController: AddImageTableViewCellDelegate {
     func pressAddImageButton() {
         print("加入照片")
+    }
+}
+
+extension BasicInfoViewController: BasicInfoTableViewCellDelegate {
+    func pressModifyButton() {
+        //        TODO: 顯示修改基本資料頁面
+        guard let modifyInfoVC = UIStoryboard.profile.instantiateViewController(
+            withIdentifier: ModifyBaseInfoViewController.identifier)
+            as? ModifyBaseInfoViewController
+            else {return}
+        
+        // 顯示樣式
+        modifyInfoVC.modalPresentationStyle = UIModalPresentationStyle.custom
+        
+        self.present(modifyInfoVC, animated: false, completion: nil)
+        
+        modifyInfoVC.view.backgroundColor = UIColor.clear
+
     }
 }
 
@@ -68,6 +93,18 @@ extension BasicInfoViewController: UITableViewDataSource {
                     as? BasicInfoTableViewCell
                 else {
                     return UITableViewCell()
+            }
+            cell.delegate = self
+            if let pet = currentPet {
+                
+                let birth = Int(pet.birth).getDateString()
+                cell.layoutCell(name: pet.name,
+                                gender: pet.gender,
+                                petType: pet.petType,
+                                petId: pet.id,
+                                birth: birth,
+                                breed: pet.breed,
+                                color: pet.color)
             }
             return cell
         }

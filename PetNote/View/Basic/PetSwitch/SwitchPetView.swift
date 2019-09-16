@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SwitchPetViewDelegate: UICollectionViewDelegate, UICollectionViewDataSource, AnyObject {
-    func changePet(_ indexPath: IndexPath)
+//    func changePet(_ indexPath: IndexPath)
 //    func addPet()
 }
 

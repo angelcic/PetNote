@@ -8,7 +8,11 @@
 
 import UIKit
 
-class ProtectPlanViewController: BaseViewController {
+class ProtectPlanViewController: BaseContainerViewController {
+    func petDidChange() {
+        <#code#>
+    }
+    
 
     @IBOutlet weak var tableView: UITableView! {
         
