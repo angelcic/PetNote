@@ -31,11 +31,12 @@ class BasicInfoViewController: BaseContainerViewController {
     
     func setupTableView() {
         tableView.registerCellWithNib(identifier: String(describing: BasicInfoTableViewCell.self), bundle: nil)
-        tableView.registerCellWithNib(identifier: String(describing: AddImageTableViewCell.self), bundle: nil)        
+        tableView.registerCellWithNib(identifier: String(describing: AddImageTableViewCell.self), bundle: nil)
     }
     
     func petDidChange() {
-        tableView.reloadSections(IndexSet(arrayLiteral: 1), with: .none)
+        tableView.reloadData()
+//        tableView.reloadSections(IndexSet(arrayLiteral: 1), with: .none) // 待研究
     }
 }
 
@@ -55,6 +56,8 @@ extension BasicInfoViewController: BasicInfoTableViewCellDelegate {
         
         // 顯示樣式
         modifyInfoVC.modalPresentationStyle = UIModalPresentationStyle.custom
+        
+        modifyInfoVC.currentPet = currentPet
         
         self.present(modifyInfoVC, animated: false, completion: nil)
         
@@ -97,7 +100,7 @@ extension BasicInfoViewController: UITableViewDataSource {
             cell.delegate = self
             if let pet = currentPet {
                 
-                let birth = Int(pet.birth).getDateString()
+                let birth = pet.getBirth()
                 cell.layoutCell(name: pet.name,
                                 gender: pet.gender,
                                 petType: pet.petType,

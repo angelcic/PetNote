@@ -11,15 +11,15 @@ import Foundation
 extension Int {
     
     func getDate() -> Date {
-        let timeInterval:TimeInterval = TimeInterval(self)
+        let timeInterval: TimeInterval = TimeInterval(self)
         let date: Date = Date(timeIntervalSince1970: timeInterval)
         return date
     }
     
     // return yyyy年MM月dd日
-    func getDateString() -> String {
-        let dateFormat:DateFormatter = DateFormatter()
-        dateFormat.dateFormat = "yyyy年MM月dd日"
+    func getDateString(format: String = "yyyy年MM月dd日") -> String {
+        let dateFormat: DateFormatter = DateFormatter()
+        dateFormat.dateFormat = format
         
         return dateFormat.string(from: self.getDate())
     }

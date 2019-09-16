@@ -16,19 +16,24 @@ class ModifyBasicInfoTableViewCell: UITableViewCell {
     @IBOutlet weak var typeDogButton: UIButton!
     @IBOutlet weak var typeOtherButton: UIButton!
     
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var idTextField: UITextField!
+    @IBOutlet weak var birthTextField: UITextField!
+    @IBOutlet weak var breedTextField: UITextField!
+    @IBOutlet weak var colorTextField: UITextField!
+    
     lazy var genderButtons: [UIButton] =  [genderGirlButton, genderBoyButton]
     
     lazy var petTypeButtons: [UIButton] =  [typeCatButton, typeDogButton, typeOtherButton]
     
-    var currentGender: Gender = .girl
-    var currentPetType: PetType = .cat
-    
-    var pet: PNPetInfo = PNPetInfo() {
+    var currentGender: Gender = .girl {
         didSet {
-            currentGender = Gender.init(rawValue: pet.gender ?? "girl") ?? .girl
-            currentPetType = PetType.init(rawValue: pet.petType ?? "cat") ?? .cat
+            
         }
     }
+    var currentPetType: PetType = .cat
+    
+    var currentDate: Date = Date()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,48 +49,100 @@ class ModifyBasicInfoTableViewCell: UITableViewCell {
     }
     
     func setupGenderButton() {
-        for (index, button) in genderButtons.enumerated() {
-//            if index == currentGender.getGenderIndex() {
-//                button.isSelected = true
-//            }
-            if button.titleLabel?.text == pet.gender {
-                button.isSelected = true
-            }
-            button.tag = index
+        for button in genderButtons {
+            
             button.setTitleColor(.lightGray, for: .normal)
             button.setTitleColor(.black, for: .selected)
-            button.addBorder(borderColor: .gray, borderWidth: 1, cornerRadius: 8)
-            button.addTarget(self, action: #selector(changeGender), for: .touchUpInside)
+            button.addBorder(borderColor: .lightGray, borderWidth: 1, cornerRadius: 8)
+            button.addTarget(self, action: #selector(changeGenderStatus), for: .touchUpInside)
+            
+            if button.titleLabel?.text == currentGender.rawValue {
+                button.isSelected = true
+                button.addBorder(borderColor: .black, borderWidth: 1, cornerRadius: 8)
+            }
         }
     }
 
     func setupTypeButton() {
-        for (index, button) in petTypeButtons.enumerated() {
-            if index == currentPetType.getPetTypeIndex() {
-                button.isSelected = true
-            }
-            button.tag = index
+        for button in petTypeButtons {
+            
             button.setTitleColor(.lightGray, for: .normal)
-            button.setTitleColor(.darkGray, for: .selected)
-            button.addBorder(borderColor: .gray, borderWidth: 1, cornerRadius: 8)
-            button.addTarget(self, action: #selector(changePetType), for: .touchUpInside)
+            button.setTitleColor(.black, for: .selected)
+            button.addBorder(borderColor: .lightGray, borderWidth: 1, cornerRadius: 8)
+            button.addTarget(self, action: #selector(changePetTypeStatus), for: .touchUpInside)
+            
+            if button.titleLabel?.text == currentPetType.rawValue {
+                button.isSelected = true
+                button.addBorder(borderColor: .black, borderWidth: 1, cornerRadius: 8)
+            }
         }
     }
+    //swiftlint:disable function_parameter_count
+    func layoutCell(name: String?, gender: String?,
+                    petType: String?, petId: String?,
+                    birth: String?, breed: String?, color: String?) {
+        nameTextField.text = name
+        if let gender = gender,
+            let currentGender = Gender.init(rawValue: gender) {
+            self.currentGender = currentGender
+            genderButtons.forEach {
+                if $0.titleLabel?.text == gender {
+                    changeGenderStatus(sender: $0)
+                }
+            }
+        }
+        if let petType = petType,
+            let currentPetType = PetType.init(rawValue: petType) {
+            self.currentPetType = currentPetType
+            petTypeButtons.forEach {
+                if $0.titleLabel?.text == gender {
+                    changePetTypeStatus(sender: $0)
+                }
+            }
+        }
+        idTextField.text = petId
+        birthTextField.text = birth
+        breedTextField.text = breed
+        colorTextField.text = color
+    }
+    //swiftlint:enable function_parameter_count
     
-    @objc func changeGender(sender: UIButton) {
-        currentGender = Gender.getGender(with: sender.tag)
+    @objc func changeGenderStatus(sender: UIButton) {
+        guard
+            let gender = sender.titleLabel?.text,
+            let currentGender = Gender.init(rawValue: gender)
+        else {
+            return
+        }
+        
+        self.currentGender = currentGender
+        
         for button in genderButtons {
             button.isSelected = false
+            button.addBorder(borderColor: .lightGray, borderWidth: 1, cornerRadius: 8)
         }
+        
         sender.isSelected = true
+        sender.addBorder(borderColor: .black, borderWidth: 1, cornerRadius: 8)
     }
     
-    @objc func changePetType(sender: UIButton) {
-        currentPetType = PetType.getPetType(with: sender.tag)
+    @objc func changePetTypeStatus(sender: UIButton) {
+        guard
+            let gender = sender.titleLabel?.text,
+            let currentPetType = PetType.init(rawValue: gender)
+            else {
+                return
+        }
+        
+        self.currentPetType = currentPetType
+        
         for button in petTypeButtons {
             button.isSelected = false
+            button.addBorder(borderColor: .lightGray, borderWidth: 1, cornerRadius: 8)
         }
+        
         sender.isSelected = true
+        sender.addBorder(borderColor: .black, borderWidth: 1, cornerRadius: 8)
     }
     
     @IBAction func confirmModifyAction() {

@@ -14,9 +14,9 @@ struct MedicalRecord {
     let reason: String?
     let medical: [Medical]?
     
-    init() {
+    init(time: String? = nil) {
         hospitalName = nil
-        time = nil
+        self.time = time
         reason = nil
         medical = nil
     }

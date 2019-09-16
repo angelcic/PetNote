@@ -37,6 +37,7 @@ class BasicInfoTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    //swiftlint:disable function_parameter_count
     func layoutCell(name: String?, gender: String?,
                     petType: String?, petId: String?,
                     birth: String?, breed: String?, color: String?) {
@@ -48,6 +49,7 @@ class BasicInfoTableViewCell: UITableViewCell {
         breedLabel.text = breed
         colorLabel.text = color
     }
+    //swiftlint:enable function_parameter_count
     
     @IBAction func pressModifyButton() {
         delegate?.pressModifyButton()

@@ -20,6 +20,7 @@
 		913F73CC232DF4B0009AE1C0 /* ModifyBasicInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 913F73CA232DF4B0009AE1C0 /* ModifyBasicInfoTableViewCell.xib */; };
 		913F73CE232F3978009AE1C0 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F73CD232F3978009AE1C0 /* IntExtension.swift */; };
 		913F73D0232F46C7009AE1C0 /* BaseContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F73CF232F46C7009AE1C0 /* BaseContainerViewController.swift */; };
+		913F73D2232F7222009AE1C0 /* PNPetInfoExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F73D1232F7222009AE1C0 /* PNPetInfoExtension.swift */; };
 		9181BC2723177E1C007BB7C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181BC2623177E1C007BB7C6 /* AppDelegate.swift */; };
 		9181BC2923177E1C007BB7C6 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181BC2823177E1C007BB7C6 /* TabBarViewController.swift */; };
 		9181BC2C23177E1C007BB7C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9181BC2A23177E1C007BB7C6 /* Main.storyboard */; };
@@ -122,6 +123,7 @@
 		913F73CA232DF4B0009AE1C0 /* ModifyBasicInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModifyBasicInfoTableViewCell.xib; sourceTree = "<group>"; };
 		913F73CD232F3978009AE1C0 /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
 		913F73CF232F46C7009AE1C0 /* BaseContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseContainerViewController.swift; sourceTree = "<group>"; };
+		913F73D1232F7222009AE1C0 /* PNPetInfoExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNPetInfoExtension.swift; sourceTree = "<group>"; };
 		9181BC2323177E1C007BB7C6 /* PetNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9181BC2623177E1C007BB7C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9181BC2823177E1C007BB7C6 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 			children = (
 				9181BC2D23177E1C007BB7C6 /* PetNote.xcdatamodeld */,
 				913F73BA2328D22A009AE1C0 /* StorageManager.swift */,
+				913F73D1232F7222009AE1C0 /* PNPetInfoExtension.swift */,
 			);
 			path = LocalStorage;
 			sourceTree = "<group>";
@@ -855,6 +858,7 @@
 				9194B969231F64C400AAA963 /* PNChartView.swift in Sources */,
 				913F73C7232DF3CF009AE1C0 /* ModifyBaseInfoViewController.swift in Sources */,
 				913F73C5232CB98D009AE1C0 /* BaseSwitchPetViewController.swift in Sources */,
+				913F73D2232F7222009AE1C0 /* PNPetInfoExtension.swift in Sources */,
 				9181BC652319109B007BB7C6 /* ProfileDetailView.swift in Sources */,
 				9194B92F231D213600AAA963 /* BaseViewController.swift in Sources */,
 				9181BC492317AA3F007BB7C6 /* UIStoryboardExtension.swift in Sources */,

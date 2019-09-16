@@ -5,6 +5,7 @@
 //  Created by iching chen on 2019/8/29.
 //  Copyright © 2019 ichingchen. All rights reserved.
 //
+// 目前這個view已經用不到了
 
 import UIKit
 

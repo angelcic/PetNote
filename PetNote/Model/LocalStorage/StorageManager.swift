@@ -87,6 +87,8 @@ class StorageManager: NSObject {
                                   insertInto: viewContext)
             as? PNPetInfo else { return }
         
+        pet.name = name
+//        pet.
         pet.setValue(name, forKey: PetKey.name.rawValue)
         pet.setValue(type.rawValue, forKey: PetKey.petType.rawValue)
         pet.setValue(Date().timeIntervalSince1970, forKey: PetKey.pnId.rawValue)
@@ -109,19 +111,19 @@ class StorageManager: NSObject {
     // MARK: 刪除
     
     // MARK: 儲存
-    func saveAll(completion: (Result<Void, Error>) -> Void) {
+    func saveAll(completion: ((Result<Void, Error>) -> Void)? = nil) {
         
         do {
             
             try viewContext.save()
             
-            completion(Result.success(()))
+            completion?(Result.success(()))
             
-            fetchPets()
+//            fetchPets()
             
         } catch {
             
-            completion(Result.failure(error))
+            completion?(Result.failure(error))
         }
     }
 }

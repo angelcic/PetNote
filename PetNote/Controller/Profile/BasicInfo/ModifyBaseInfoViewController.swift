@@ -29,6 +29,9 @@ class ModifyBaseInfoViewController: BaseViewController {
         }
     }
     
+    var currentPet: PNPetInfo?
+    var infoCell = ModifyBasicInfoTableViewCell()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,8 +48,17 @@ class ModifyBaseInfoViewController: BaseViewController {
     }
     
     @IBAction func confirmModifyAction() {
-        self.dismiss(animated: false, completion: nil)
+//        guard let cell = infoCell else { return }
+        currentPet?.name = infoCell.nameTextField.text
+        currentPet?.gender = infoCell.currentGender.rawValue
+        currentPet?.petType = infoCell.currentPetType.rawValue
+        currentPet?.id = infoCell.idTextField.text
+        currentPet?.birth = Int64(infoCell.currentDate.timeIntervalSince1970)
+        currentPet?.breed = infoCell.breedTextField.text
+        currentPet?.color = infoCell.colorTextField.text
         
+        StorageManager.shared.saveAll()
+        self.dismiss(animated: false, completion: nil)
     }
 }
 
@@ -60,13 +72,22 @@ extension ModifyBaseInfoViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ModifyBasicInfoTableViewCell", for: indexPath)
-            as? ModifyBasicInfoTableViewCell
-        else {
-            return UITableViewCell()
-        }
-        return cell
+//        guard
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "ModifyBasicInfoTableViewCell", for: indexPath)
+//            as? ModifyBasicInfoTableViewCell
+//        else {
+//            return UITableViewCell()
+//        }
+        guard let currentPet = currentPet else { return infoCell}
+        infoCell.layoutCell(name: currentPet.name,
+                        gender: currentPet.gender,
+                        petType: currentPet.getPetType().rawValue,
+                        petId: currentPet.id,
+                        birth: currentPet.getBirth(),
+                        breed: currentPet.breed,
+                        color: currentPet.color)
+//        infoCell = cell
+        return infoCell
     }
     
 }

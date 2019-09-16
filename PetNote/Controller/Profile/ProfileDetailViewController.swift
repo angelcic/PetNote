@@ -16,7 +16,8 @@ class ProfileDetailViewController: BaseSwitchPetViewController {
         }
     }
     
-    var containerVCs: [UIViewController] = []
+    var containerVCs: [BaseContainerViewController] = []
+    var storageManger = StorageManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,16 +32,21 @@ class ProfileDetailViewController: BaseSwitchPetViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        containerVCs.append(segue.destination)
+        
+        if let containerVC = segue.destination as? BaseContainerViewController {
+            containerVCs.append(containerVC)
+        }
     }
     
     @objc func addPetAction() {
         showAddPetVC()
     }
     
+    // 切換寵物
     func changePet(_ indexPath: IndexPath) {
-        // TODO
-        
+        containerVCs.forEach({
+            $0.currentPet = storageManger.petsList[indexPath.row]
+        })
     }
     
     func updateSwitchView() {

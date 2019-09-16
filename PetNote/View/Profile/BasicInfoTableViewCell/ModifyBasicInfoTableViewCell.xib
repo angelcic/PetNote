@@ -167,8 +167,13 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="birthTextField" destination="8HU-69-Deu" id="P1a-JV-8qR"/>
+                <outlet property="breedTextField" destination="pdy-ae-fP7" id="Uc6-Xs-zea"/>
+                <outlet property="colorTextField" destination="WHR-vA-FLJ" id="aEV-nj-YXz"/>
                 <outlet property="genderBoyButton" destination="OSX-24-qFu" id="8fc-tZ-Txi"/>
                 <outlet property="genderGirlButton" destination="PRc-eF-1tC" id="9Nl-nD-6SK"/>
+                <outlet property="idTextField" destination="ShG-Wi-tlG" id="ZFj-6I-xIc"/>
+                <outlet property="nameTextField" destination="9o3-N3-XJP" id="Vbw-wV-nB7"/>
                 <outlet property="typeCatButton" destination="O74-0V-D6r" id="NdG-5o-cRJ"/>
                 <outlet property="typeDogButton" destination="pBu-kZ-hOy" id="Fh4-Rv-PoX"/>
                 <outlet property="typeOtherButton" destination="vSW-Ib-bku" id="rMI-d1-eKh"/>
