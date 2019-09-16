@@ -30,7 +30,16 @@ class ModifyBaseInfoViewController: BaseViewController {
     }
     
     var currentPet: PNPetInfo?
-    var infoCell = ModifyBasicInfoTableViewCell()
+    
+    var infoCell: ModifyBasicInfoTableViewCell = {
+        if let cell = Bundle(for: ModifyBasicInfoTableViewCell.self).loadNibNamed(ModifyBasicInfoTableViewCell.identifier,
+            owner: nil,
+            options: nil)?.first as? ModifyBasicInfoTableViewCell {
+            return cell
+        } else {
+            return ModifyBasicInfoTableViewCell()
+        }
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +57,6 @@ class ModifyBaseInfoViewController: BaseViewController {
     }
     
     @IBAction func confirmModifyAction() {
-//        guard let cell = infoCell else { return }
         currentPet?.name = infoCell.nameTextField.text
         currentPet?.gender = infoCell.currentGender.rawValue
         currentPet?.petType = infoCell.currentPetType.rawValue
@@ -58,6 +66,7 @@ class ModifyBaseInfoViewController: BaseViewController {
         currentPet?.color = infoCell.colorTextField.text
         
         StorageManager.shared.saveAll()
+        
         self.dismiss(animated: false, completion: nil)
     }
 }
@@ -72,13 +81,11 @@ extension ModifyBaseInfoViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "ModifyBasicInfoTableViewCell", for: indexPath)
-//            as? ModifyBasicInfoTableViewCell
-//        else {
-//            return UITableViewCell()
-//        }
-        guard let currentPet = currentPet else { return infoCell}
+        guard
+            let currentPet = currentPet
+        else {
+            return infoCell
+        }
         infoCell.layoutCell(name: currentPet.name,
                         gender: currentPet.gender,
                         petType: currentPet.getPetType().rawValue,
@@ -86,7 +93,6 @@ extension ModifyBaseInfoViewController: UITableViewDataSource {
                         birth: currentPet.getBirth(),
                         breed: currentPet.breed,
                         color: currentPet.color)
-//        infoCell = cell
         return infoCell
     }
     
