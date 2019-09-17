@@ -23,6 +23,8 @@
 		913F73D2232F7222009AE1C0 /* PNPetInfoExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F73D1232F7222009AE1C0 /* PNPetInfoExtension.swift */; };
 		917BCDA5233063D00063399B /* PNGlobalProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917BCDA4233063D00063399B /* PNGlobalProperties.swift */; };
 		917BCDA72330BE440063399B /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917BCDA62330BE440063399B /* UITextFieldExtension.swift */; };
+		917BCDA92330EC0A0063399B /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917BCDA82330EC0A0063399B /* LocalFileManager.swift */; };
+		917BCDAC2330EDC30063399B /* PNConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917BCDAB2330EDC30063399B /* PNConstant.swift */; };
 		9181BC2723177E1C007BB7C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181BC2623177E1C007BB7C6 /* AppDelegate.swift */; };
 		9181BC2923177E1C007BB7C6 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181BC2823177E1C007BB7C6 /* TabBarViewController.swift */; };
 		9181BC2C23177E1C007BB7C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9181BC2A23177E1C007BB7C6 /* Main.storyboard */; };
@@ -128,6 +130,8 @@
 		913F73D1232F7222009AE1C0 /* PNPetInfoExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNPetInfoExtension.swift; sourceTree = "<group>"; };
 		917BCDA4233063D00063399B /* PNGlobalProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNGlobalProperties.swift; sourceTree = "<group>"; };
 		917BCDA62330BE440063399B /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		917BCDA82330EC0A0063399B /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
+		917BCDAB2330EDC30063399B /* PNConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNConstant.swift; sourceTree = "<group>"; };
 		9181BC2323177E1C007BB7C6 /* PetNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9181BC2623177E1C007BB7C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9181BC2823177E1C007BB7C6 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -265,6 +269,14 @@
 			path = BasicInfo;
 			sourceTree = "<group>";
 		};
+		917BCDAA2330EDAF0063399B /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				917BCDAB2330EDC30063399B /* PNConstant.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
 		9181BC1A23177E1C007BB7C6 = {
 			isa = PBXGroup;
 			children = (
@@ -347,6 +359,7 @@
 		9181BC3E23179FF1007BB7C6 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				917BCDAA2330EDAF0063399B /* Constant */,
 				9181BC3023177E1D007BB7C6 /* Assets.xcassets */,
 			);
 			path = Resource;
@@ -388,6 +401,7 @@
 				9194B994232260A300AAA963 /* Medical */,
 				9181BC4E2317C44F007BB7C6 /* Profile */,
 				917BCDA4233063D00063399B /* PNGlobalProperties.swift */,
+				917BCDA82330EC0A0063399B /* LocalFileManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -831,6 +845,7 @@
 				9194B9BC2325628600AAA963 /* NotificationManageViewController.swift in Sources */,
 				9181BC672319119D007BB7C6 /* UICollectionViewExtension.swift in Sources */,
 				9194B9BE2325EF1400AAA963 /* NotificatonViewController.swift in Sources */,
+				917BCDA92330EC0A0063399B /* LocalFileManager.swift in Sources */,
 				9181BC542317C530007BB7C6 /* ProfileTableViewCell.swift in Sources */,
 				9194B98523213FC900AAA963 /* DateSelectTableViewCell.swift in Sources */,
 				9194B929231D097900AAA963 /* HealthRecordViewController.swift in Sources */,
@@ -858,6 +873,7 @@
 				9181BC572317C8C2007BB7C6 /* UITableViewExtension.swift in Sources */,
 				9194B981232135C700AAA963 /* AddRecordViewController.swift in Sources */,
 				9181BC4C2317C38C007BB7C6 /* ProfileViewController.swift in Sources */,
+				917BCDAC2330EDC30063399B /* PNConstant.swift in Sources */,
 				9181BC6B23191247007BB7C6 /* PetsCollectionViewCell.swift in Sources */,
 				9181BC502317C461007BB7C6 /* Pet.swift in Sources */,
 				9181BC592317CC4B007BB7C6 /* UIViewExtension.swift in Sources */,

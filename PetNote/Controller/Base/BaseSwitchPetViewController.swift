@@ -19,7 +19,7 @@ class SwitchPetViewController: BaseViewController {
  
     let storageManager = StorageManager.shared
     
-    var currentPetIndex = 0
+//    var currentPetIndex = 0
     
     var observer: NSKeyValueObservation!
     
