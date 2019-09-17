@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class StorageManager: NSObject {
+@objcMembers class StorageManager: NSObject {
     
     private enum Entity: String, CaseIterable {
         
@@ -50,11 +50,14 @@ class StorageManager: NSObject {
         return persistanceContainer.viewContext
     }
     
-    var petsList: [PNPetInfo] = [] {
+    dynamic var petsList: [PNPetInfo] = [] {
         didSet {
             print("寵物資料更新, 目前有 \(petsList.count) 筆資料")
         }
     }
+    
+    dynamic var currentPetIndex: Int = 0
+
     
     // MARK: 取得
     func fetchPets(completion: ((Result<[PNPetInfo], Error>) -> Void)? = nil) {
@@ -75,7 +78,7 @@ class StorageManager: NSObject {
     }
     
     // MARK: 新增
-    func addNewPet(name: String, type: PetType, completion: ((Result<Void, Error>) -> Void)? = nil) {
+    func addNewPet(name: String, type: PetType, completion: ((Result<Int, Error>) -> Void)? = nil) {
         guard
             let entity =
             NSEntityDescription.entity(forEntityName: Entity.info.rawValue, in: viewContext)
@@ -88,17 +91,16 @@ class StorageManager: NSObject {
             as? PNPetInfo else { return }
         
         pet.name = name
-//        pet.
-        pet.setValue(name, forKey: PetKey.name.rawValue)
-        pet.setValue(type.rawValue, forKey: PetKey.petType.rawValue)
-        pet.setValue(Date().timeIntervalSince1970, forKey: PetKey.pnId.rawValue)
+        pet.petType = type.rawValue
+//        pet.setValue(name, forKey: PetKey.name.rawValue)
+//        pet.setValue(type.rawValue, forKey: PetKey.petType.rawValue)
         
         do {
             
             try viewContext.save()
 //            fetchPets()
             petsList.append(pet)
-            completion?(Result.success(()))
+            completion?(Result.success(petsList.count - 1))
         } catch let error {
             print(error)
             completion?(Result.failure(error))

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AddPetViewControllerDelegate: AnyObject {
-    func addPetResult(_: Result<Void, Error>)
+    func addPetResult(_: Result<Int, Error>)
 }
 
 class AddPetViewController: BaseViewController {
@@ -52,9 +52,15 @@ extension AddPetViewController: AddPetViewDelegate {
             
             switch result {
                 
-            case .success:
+            case .success(let index):
                 print("success")
-                
+                self?.storageManager.currentPetIndex = index
+//                PNGlobalProperties.currentPetIndex = index
+//                guard let parentVC = self?.navigationController?.parent
+//                    as? ProfileDetailViewController
+//                else {
+//                    return
+//                }
             case .failure(let error):
                 print(error)
             }

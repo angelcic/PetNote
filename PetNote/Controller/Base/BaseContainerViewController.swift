@@ -17,6 +17,7 @@ typealias BaseContainerViewController = ContainerViewController & ContainerViewC
 class ContainerViewController: UIViewController {
 
     var currentPet: PNPetInfo? {
+        
         didSet {
             guard let controller = self as? BaseContainerViewController else {
                 return

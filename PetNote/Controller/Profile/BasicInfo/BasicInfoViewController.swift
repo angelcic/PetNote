@@ -17,16 +17,27 @@ class BasicInfoViewController: BaseContainerViewController {
         }
     }
     
-//    var currentPet: PNPetInfo? {
-//        didSet {
+    @IBOutlet weak var addPetAlertLayer: UIView!
+    
+    override var currentPet: PNPetInfo? {
+        didSet {
+            if currentPet != nil {
+                addPetAlertLayer.isHidden = true
+            } else {
+                addPetAlertLayer.isHidden = false
+            }
 //            tableView.reloadSections(IndexSet(arrayLiteral: 1), with: .none)
-//        }
-//    }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupTableView()
+//        
+//        if currentPet == nil {
+//            addPetAlertLayer.isHidden = false
+//        }
     }
     
     func setupTableView() {

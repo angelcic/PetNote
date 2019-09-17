@@ -112,6 +112,8 @@ class SwitchPetView: UIView {
         collectionView.rightAnchor.constraint(equalTo: self.rightAnchor),
         collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
+        
+//        collectionView(self.collectionView, didSelectItemAt: IndexPath(row: 0, section: 1))
     }
     
     func fetchData() {

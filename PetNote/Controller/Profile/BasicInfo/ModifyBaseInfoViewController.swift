@@ -32,7 +32,8 @@ class ModifyBaseInfoViewController: BaseViewController {
     var currentPet: PNPetInfo?
     
     var infoCell: ModifyBasicInfoTableViewCell = {
-        if let cell = Bundle(for: ModifyBasicInfoTableViewCell.self).loadNibNamed(ModifyBasicInfoTableViewCell.identifier,
+        if let cell = Bundle(for: ModifyBasicInfoTableViewCell.self).loadNibNamed(
+            ModifyBasicInfoTableViewCell.identifier,
             owner: nil,
             options: nil)?.first as? ModifyBasicInfoTableViewCell {
             return cell

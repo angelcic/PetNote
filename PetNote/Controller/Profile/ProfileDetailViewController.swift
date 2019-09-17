@@ -19,9 +19,17 @@ class ProfileDetailViewController: BaseSwitchPetViewController {
     var containerVCs: [BaseContainerViewController] = []
     var storageManger = StorageManager.shared
     
+//    var observer: NSKeyValueObservation!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "毛孩資料"
+        
+        setupContainerView()
+//        observer = storageManager.observe(\.currentPetIndex, options: [.new, .initial]) {[weak self] (object, change) in
+//            print(change)
+//            self?.updateSwitchView()
+//        }
     }
     
     override func navigationBarSetting() {
@@ -42,8 +50,16 @@ class ProfileDetailViewController: BaseSwitchPetViewController {
         showAddPetVC()
     }
     
+    func setupContainerView() {
+        if storageManger.petsList.count > 0 {
+            containerVCs.forEach({
+                $0.currentPet = storageManger.petsList[0]
+            })
+        }
+    }
+    
     // 切換寵物
-    func changePet(_ indexPath: IndexPath) {
+    func changePet(_ indexPath: IndexPath ) {
         containerVCs.forEach({
             $0.currentPet = storageManger.petsList[indexPath.row]
         })

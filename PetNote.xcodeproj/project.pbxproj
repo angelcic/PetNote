@@ -21,6 +21,7 @@
 		913F73CE232F3978009AE1C0 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F73CD232F3978009AE1C0 /* IntExtension.swift */; };
 		913F73D0232F46C7009AE1C0 /* BaseContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F73CF232F46C7009AE1C0 /* BaseContainerViewController.swift */; };
 		913F73D2232F7222009AE1C0 /* PNPetInfoExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F73D1232F7222009AE1C0 /* PNPetInfoExtension.swift */; };
+		917BCDA5233063D00063399B /* PNGlobalProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917BCDA4233063D00063399B /* PNGlobalProperties.swift */; };
 		9181BC2723177E1C007BB7C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181BC2623177E1C007BB7C6 /* AppDelegate.swift */; };
 		9181BC2923177E1C007BB7C6 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181BC2823177E1C007BB7C6 /* TabBarViewController.swift */; };
 		9181BC2C23177E1C007BB7C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9181BC2A23177E1C007BB7C6 /* Main.storyboard */; };
@@ -124,6 +125,7 @@
 		913F73CD232F3978009AE1C0 /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
 		913F73CF232F46C7009AE1C0 /* BaseContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseContainerViewController.swift; sourceTree = "<group>"; };
 		913F73D1232F7222009AE1C0 /* PNPetInfoExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNPetInfoExtension.swift; sourceTree = "<group>"; };
+		917BCDA4233063D00063399B /* PNGlobalProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNGlobalProperties.swift; sourceTree = "<group>"; };
 		9181BC2323177E1C007BB7C6 /* PetNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9181BC2623177E1C007BB7C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9181BC2823177E1C007BB7C6 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -382,6 +384,7 @@
 				913F73B92328D1F1009AE1C0 /* LocalStorage */,
 				9194B994232260A300AAA963 /* Medical */,
 				9181BC4E2317C44F007BB7C6 /* Profile */,
+				917BCDA4233063D00063399B /* PNGlobalProperties.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -833,6 +836,7 @@
 				9194B933231D335E00AAA963 /* ProtectTypeTableViewCell.swift in Sources */,
 				9194B974231F9E0700AAA963 /* WeightLabelTableViewCell.swift in Sources */,
 				913F73CE232F3978009AE1C0 /* IntExtension.swift in Sources */,
+				917BCDA5233063D00063399B /* PNGlobalProperties.swift in Sources */,
 				9194B9AF2323956C00AAA963 /* OtherFunctionViewController.swift in Sources */,
 				9194B9A02322922300AAA963 /* TitleWithButtonTableViewCell.swift in Sources */,
 				9194B979231FA0AC00AAA963 /* SwitchPetView.swift in Sources */,

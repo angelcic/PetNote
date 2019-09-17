@@ -41,4 +41,12 @@ class PetsCollectionViewCell: UICollectionViewCell {
             petImageBorderView.isHidden = true
         }
     }
+    
+    func changeSlectedStatus() {
+        if isSelected {
+            petImageBorderView.isHidden = false
+        } else {
+            petImageBorderView.isHidden = true
+        }
+    }
 }

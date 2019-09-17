@@ -228,10 +228,31 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="415"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="imE-xK-Pku">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="415"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="先新增一位成員吧！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vda-I5-utX">
+                                        <rect key="frame" x="20" y="100" width="335" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="vda-I5-utX" secondAttribute="trailing" constant="20" id="KRe-03-xJY"/>
+                                    <constraint firstItem="vda-I5-utX" firstAttribute="top" secondItem="imE-xK-Pku" secondAttribute="top" constant="100" id="NuH-GX-6R2"/>
+                                    <constraint firstItem="vda-I5-utX" firstAttribute="leading" secondItem="imE-xK-Pku" secondAttribute="leading" constant="20" id="VaF-J8-qwk"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="imE-xK-Pku" firstAttribute="trailing" secondItem="4TO-ub-HZ5" secondAttribute="trailing" id="77m-8Z-nWZ"/>
+                            <constraint firstItem="4TO-ub-HZ5" firstAttribute="bottom" secondItem="imE-xK-Pku" secondAttribute="bottom" id="Ou6-LY-hj5"/>
+                            <constraint firstItem="imE-xK-Pku" firstAttribute="leading" secondItem="4TO-ub-HZ5" secondAttribute="leading" id="Sdr-V3-hts"/>
                             <constraint firstItem="g7v-IE-e7Z" firstAttribute="top" secondItem="rdr-CL-WQ4" secondAttribute="top" id="Y0X-kc-p9K"/>
+                            <constraint firstItem="imE-xK-Pku" firstAttribute="top" secondItem="4TO-ub-HZ5" secondAttribute="top" id="bbN-ye-XuT"/>
                             <constraint firstItem="4TO-ub-HZ5" firstAttribute="trailing" secondItem="g7v-IE-e7Z" secondAttribute="trailing" id="nl3-I7-X29"/>
                             <constraint firstItem="4TO-ub-HZ5" firstAttribute="bottom" secondItem="g7v-IE-e7Z" secondAttribute="bottom" id="wgX-cn-IWI"/>
                             <constraint firstItem="g7v-IE-e7Z" firstAttribute="leading" secondItem="4TO-ub-HZ5" secondAttribute="leading" id="zWr-tS-YcY"/>
@@ -239,6 +260,7 @@
                         <viewLayoutGuide key="safeArea" id="4TO-ub-HZ5"/>
                     </view>
                     <connections>
+                        <outlet property="addPetAlertLayer" destination="imE-xK-Pku" id="OkC-Le-dkl"/>
                         <outlet property="tableView" destination="g7v-IE-e7Z" id="rXl-xA-JtE"/>
                     </connections>
                 </viewController>

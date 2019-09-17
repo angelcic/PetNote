@@ -19,8 +19,21 @@ class SwitchPetViewController: BaseViewController {
  
     let storageManager = StorageManager.shared
     
+    var currentPetIndex = 0
+    
+    var observer: NSKeyValueObservation!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        observer = storageManager.observe(\.currentPetIndex, options: [.new, .initial]) {[weak self] (object, change) in
+            print(change)
+            
+            guard let controller = self as? BaseSwitchPetViewController else {
+                return
+            }
+            controller.updateSwitchView()
+        }
+        
     }
     
     func showAddPetVC() {
@@ -42,14 +55,15 @@ class SwitchPetViewController: BaseViewController {
 
 // 顯示加入成員是否成功，若成功應更新寵物列表
 extension SwitchPetViewController: AddPetViewControllerDelegate {
-    func addPetResult(_ result: Result<Void, Error>) {
+    func addPetResult(_ result: Result<Int, Error>) {
         switch result {
         case .success:
+            
             guard let controller = self as? BaseSwitchPetViewController else {
                 return
             }
-            
             controller.updateSwitchView()
+            
         case .failure(let error) :
             print(error)
         }
@@ -58,17 +72,36 @@ extension SwitchPetViewController: AddPetViewControllerDelegate {
 
 extension SwitchPetViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+//        for cell in collectionView.visibleCells {
+//            guard
+//                let cell = cell as? PetsCollectionViewCell
+//                else {
+//                    return
+//            }
+//            cell.changeSlectedStatus()
+//        }
+        
         switch indexPath.section {
         case 0:
             showAddPetVC()
         default :
-            guard
-                let cell = collectionView.cellForItem(at: indexPath)
-                    as? PetsCollectionViewCell
-            else {
-                return
+            for cell in collectionView.visibleCells {
+                guard
+                    let cell = cell as? PetsCollectionViewCell
+                    else {
+                        return
+                }
+                cell.changeSlectedStatus()
             }
-            cell.changeSlectedStatus(true)
+//            guard
+//                let cell = collectionView.cellForItem(at: indexPath)
+//                    as? PetsCollectionViewCell
+//            else {
+//                return
+//            }
+//            cell.changeSlectedStatus(true)
+            storageManager.currentPetIndex = indexPath.row
             
             guard let controller = self as? BaseSwitchPetViewController else {
                 return
@@ -79,13 +112,13 @@ extension SwitchPetViewController: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        guard
-            let cell = collectionView.cellForItem(at: indexPath)
-                as? PetsCollectionViewCell
-            else {
-                return
-        }
-        cell.changeSlectedStatus(false)
+//        guard
+//            let cell = collectionView.cellForItem(at: indexPath)
+//                as? PetsCollectionViewCell
+//            else {
+//                return
+//        }
+//        cell.changeSlectedStatus(false)
     }
     
 }
@@ -117,9 +150,23 @@ extension SwitchPetViewController: UICollectionViewDataSource {
         }
         
         if indexPath.section == 0 {
-            cell.layoutCell(image: UIImage(named: "icons-50px_add"), name: "新增")
+            cell.layoutCell(image: UIImage(named: "Icons_24px_Add01"), name: "新增")
+            cell.petImageView.contentMode = .center
+            cell.petImageBorderView.isHidden = true
         } else {
+            cell.isSelected = false
+            cell.changeSlectedStatus()
+            
+            if indexPath.row ==                storageManager.currentPetIndex {
+//            PNGlobalProperties.currentPetIndex {
+//                cell.isSelected = true
+                cell.changeSlectedStatus(true)
+                collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+//                cell.petImageBorderView.isHidden = false
+            }
+           
             cell.layoutCell(image: nil, name: storageManager.petsList[indexPath.row].name)
+            
         }
         
         return cell
