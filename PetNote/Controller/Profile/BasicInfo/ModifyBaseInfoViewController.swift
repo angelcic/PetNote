@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ModifyBaseInfoViewControllerDelegate {
+    func confirmModify()
+}
+
 class ModifyBaseInfoViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView! {
@@ -28,6 +32,7 @@ class ModifyBaseInfoViewController: BaseViewController {
             
         }
     }
+    var delegate: ModifyBaseInfoViewControllerDelegate?
     
     var currentPet: PNPetInfo?
     
@@ -62,11 +67,18 @@ class ModifyBaseInfoViewController: BaseViewController {
         currentPet?.gender = infoCell.currentGender.rawValue
         currentPet?.petType = infoCell.currentPetType.rawValue
         currentPet?.id = infoCell.idTextField.text
-        currentPet?.birth = Int64(infoCell.currentDate.timeIntervalSince1970)
+        currentPet?.birth = Int64(infoCell.birthDay.timeIntervalSince1970)
         currentPet?.breed = infoCell.breedTextField.text
         currentPet?.color = infoCell.colorTextField.text
         
-        StorageManager.shared.saveAll()
+        StorageManager.shared.saveAll {[weak self] result in
+            switch result {
+            case .success:
+                self?.delegate?.confirmModify()
+            case .failure(let error):
+                print(error)
+            }
+        }
         
         self.dismiss(animated: false, completion: nil)
     }
@@ -91,7 +103,7 @@ extension ModifyBaseInfoViewController: UITableViewDataSource {
                         gender: currentPet.gender,
                         petType: currentPet.getPetType().rawValue,
                         petId: currentPet.id,
-                        birth: currentPet.getBirth(),
+                        birth: Int(currentPet.birth),
                         breed: currentPet.breed,
                         color: currentPet.color)
         return infoCell

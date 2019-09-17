@@ -53,13 +53,13 @@ class BasicInfoViewController: BaseContainerViewController {
 
 extension BasicInfoViewController: AddImageTableViewCellDelegate {
     func pressAddImageButton() {
+        
         print("加入照片")
     }
 }
 
 extension BasicInfoViewController: BasicInfoTableViewCellDelegate {
     func pressModifyButton() {
-        //        TODO: 顯示修改基本資料頁面
         guard let modifyInfoVC = UIStoryboard.profile.instantiateViewController(
             withIdentifier: ModifyBaseInfoViewController.identifier)
             as? ModifyBaseInfoViewController
@@ -69,11 +69,18 @@ extension BasicInfoViewController: BasicInfoTableViewCellDelegate {
         modifyInfoVC.modalPresentationStyle = UIModalPresentationStyle.custom
         
         modifyInfoVC.currentPet = currentPet
+        modifyInfoVC.delegate = self
         
         self.present(modifyInfoVC, animated: false, completion: nil)
         
         modifyInfoVC.view.backgroundColor = UIColor.clear
 
+    }
+}
+
+extension BasicInfoViewController: ModifyBaseInfoViewControllerDelegate {
+    func confirmModify() {
+        tableView.reloadRows(at: [IndexPath(row: 1, section: 0)], with: .none)
     }
 }
 

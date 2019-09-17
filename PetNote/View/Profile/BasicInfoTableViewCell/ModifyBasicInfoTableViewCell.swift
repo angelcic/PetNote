@@ -18,7 +18,11 @@ class ModifyBasicInfoTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var idTextField: UITextField!
-    @IBOutlet weak var birthTextField: UITextField!
+    @IBOutlet weak var birthTextField: UITextField! {
+        didSet {
+            birthTextField.setInputViewDatePicker(target: self, selector: #selector(modifyDate))
+        }
+    }
     @IBOutlet weak var breedTextField: UITextField!
     @IBOutlet weak var colorTextField: UITextField!
     
@@ -35,11 +39,34 @@ class ModifyBasicInfoTableViewCell: UITableViewCell {
     
     var currentDate: Date = Date()
     
+    lazy var birthDay: Date = currentDate
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         setupGenderButton()
         setupTypeButton()
+        
+    }
+    
+    func setupDatePicker() {
+        if let datePicker = self.birthTextField.inputView as? UIDatePicker {
+            datePicker.date = birthDay
+        }
+    }
+    
+    @objc func modifyDate() {
+        if let datePicker = self.birthTextField.inputView as? UIDatePicker {
+            let dateformatter = DateFormatter()
+            dateformatter.dateFormat = "yyyy年MM月dd日"
+            
+            birthDay = datePicker.date
+            
+            self.birthTextField.text =  dateformatter.string(from: birthDay)
+            
+        }
+        // 完成輸入，關閉 pickerView
+        self.birthTextField.resignFirstResponder()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -77,10 +104,11 @@ class ModifyBasicInfoTableViewCell: UITableViewCell {
             }
         }
     }
+    
     //swiftlint:disable function_parameter_count
     func layoutCell(name: String?, gender: String?,
                     petType: String?, petId: String?,
-                    birth: String?, breed: String?, color: String?) {
+                    birth: Int?, breed: String?, color: String?) {
         nameTextField.text = name
         if let gender = gender,
             let currentGender = Gender.init(rawValue: gender) {
@@ -101,7 +129,13 @@ class ModifyBasicInfoTableViewCell: UITableViewCell {
             }
         }
         idTextField.text = petId
-        birthTextField.text = birth
+        if let birth = birth, birth != 0 {
+            birthDay = birth.getDate()
+            birthTextField.text = birth.getDateString()
+            setupDatePicker()
+        } else {
+            birthTextField.text = ""
+        }
         breedTextField.text = breed
         colorTextField.text = color
     }
@@ -145,7 +179,4 @@ class ModifyBasicInfoTableViewCell: UITableViewCell {
         sender.addBorder(borderColor: .black, borderWidth: 1, cornerRadius: 8)
     }
     
-    @IBAction func confirmModifyAction() {
-        
-    }
 }
