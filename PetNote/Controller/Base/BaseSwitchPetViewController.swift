@@ -11,6 +11,7 @@ import UIKit
 protocol SwitchPetViewControllerProtocol {
     func changePet(_ indexPath: IndexPath)
     func updateSwitchView()
+//    func updateSelectedStatus()
 }
 
 typealias BaseSwitchPetViewController = SwitchPetViewController & SwitchPetViewControllerProtocol
@@ -21,11 +22,12 @@ class SwitchPetViewController: BaseViewController {
     
 //    var currentPetIndex = 0
     
-    var observer: NSKeyValueObservation!
+    var petIndexObserver: NSKeyValueObservation!
+    var petListObserver: NSKeyValueObservation!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        observer = storageManager.observe(\.currentPetIndex, options: [.new, .initial]) {[weak self] (object, change) in
+        petIndexObserver = storageManager.observe(\.currentPetIndex, options: [.new, .initial]) {[weak self] (object, change) in
             print(change)
             
             guard let controller = self as? BaseSwitchPetViewController else {
@@ -34,6 +36,14 @@ class SwitchPetViewController: BaseViewController {
             controller.updateSwitchView()
         }
         
+//        petListObserver = storageManager.observe(\.petsList, options: [.new, .initial]) {[weak self] (object, change) in
+////            print(change)
+//            print("寵物資料改變")
+//            guard let controller = self as? BaseSwitchPetViewController else {
+//                return
+//            }
+//            controller.updateSwitchView()
+//        }
     }
     
     func showAddPetVC() {
@@ -86,6 +96,7 @@ extension SwitchPetViewController: UICollectionViewDelegate {
         case 0:
             showAddPetVC()
         default :
+            
             for cell in collectionView.visibleCells {
                 guard
                     let cell = cell as? PetsCollectionViewCell
@@ -94,18 +105,14 @@ extension SwitchPetViewController: UICollectionViewDelegate {
                 }
                 cell.changeSlectedStatus()
             }
-//            guard
-//                let cell = collectionView.cellForItem(at: indexPath)
-//                    as? PetsCollectionViewCell
-//            else {
-//                return
-//            }
 //            cell.changeSlectedStatus(true)
             storageManager.currentPetIndex = indexPath.row
             
             guard let controller = self as? BaseSwitchPetViewController else {
                 return
             }
+            
+//            controller.updateSelectedStatus()
             controller.changePet(indexPath)
         }
         
@@ -164,8 +171,9 @@ extension SwitchPetViewController: UICollectionViewDataSource {
                 collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
 //                cell.petImageBorderView.isHidden = false
             }
+            let image = LocalFileManager.shared.readImage(imagePath: storageManager.petsList[indexPath.row].photo)
            
-            cell.layoutCell(image: nil, name: storageManager.petsList[indexPath.row].name)
+            cell.layoutCell(image: image, name: storageManager.petsList[indexPath.row].name)
             
         }
         

@@ -19,6 +19,8 @@ class BasicInfoViewController: BaseContainerViewController {
     
     @IBOutlet weak var addPetAlertLayer: UIView!
     
+    var currentImage: UIImage? 
+    
     override var currentPet: PNPetInfo? {
         didSet {
             if currentPet != nil {
@@ -53,9 +55,50 @@ class BasicInfoViewController: BaseContainerViewController {
 
 extension BasicInfoViewController: AddImageTableViewCellDelegate {
     func pressAddImageButton() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .savedPhotosAlbum
+        imagePicker.delegate = self
         
-        print("加入照片")
+        self.present(imagePicker, animated: false, completion: nil)
+//        print("加入照片")
     }
+}
+
+extension BasicInfoViewController: UIImagePickerControllerDelegate {
+    func imagePickerController(
+        _ picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        
+        picker.dismiss(animated: false, completion: nil)
+        
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            
+//            currentImage = image
+            
+//            petDidChange()
+            // 把照片存入 app 下的資料夾
+            LocalFileManager.shared.saveImage(image: image) { [weak self] result in
+                switch result {
+                case .success(let path):
+                    self?.currentPet?.photo = path
+                    StorageManager.shared.saveAll()
+                case .failure(let error):
+                    print(error)
+                }
+            }
+            tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
+            StorageManager.shared.didChangeValue(for: \.currentPetIndex)
+            StorageManager.shared.didChangeValue(forKey: "currentPetIndex")
+        }
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: false, completion: nil)
+    }
+}
+
+extension BasicInfoViewController: UINavigationControllerDelegate {
+    
 }
 
 extension BasicInfoViewController: BasicInfoTableViewCellDelegate {
@@ -105,6 +148,18 @@ extension BasicInfoViewController: UITableViewDataSource {
                     return UITableViewCell()
             }
             cell.delegate = self
+            cell.layoutCell(image: currentImage)
+            
+            if let imagePath = currentPet?.photo { LocalFileManager.shared.readImage(imagePath: imagePath) { result in
+                switch result {
+                case .success(let image):
+                    cell.layoutCell(image: image)
+                case .failure(let error):
+                    print(error)
+                }
+                
+                }
+            }
             return cell
         default:
             guard

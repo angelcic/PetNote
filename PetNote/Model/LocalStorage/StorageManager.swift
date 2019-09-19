@@ -57,7 +57,6 @@ import CoreData
     }
     
     dynamic var currentPetIndex: Int = 0
-
     
     // MARK: 取得
     func fetchPets(completion: ((Result<[PNPetInfo], Error>) -> Void)? = nil) {
@@ -75,6 +74,10 @@ import CoreData
             
             completion?(Result.failure(error))
         }
+    }
+    
+    func addKVONotification() {
+        self.didChangeValue(forKey: "currentPetIndex")
     }
     
     // MARK: 新增

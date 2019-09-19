@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18G87" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="PNDailyRecord" representedClassName="PNDailyRecord" syncable="YES" codeGenerationType="class">
         <relationship name="petInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PNPetInfo" inverseName="dailyRecord" inverseEntity="PNPetInfo" syncable="YES"/>
     </entity>
@@ -14,7 +14,7 @@
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="petType" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="photo" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="photo" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="dailyRecord" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PNDailyRecord" inverseName="petInfo" inverseEntity="PNDailyRecord" syncable="YES"/>
         <relationship name="medicalRecord" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PNMedicalRecord" inverseName="petInfo" inverseEntity="PNMedicalRecord" syncable="YES"/>
         <relationship name="protectPlan" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PNProtectPlan" inverseName="petInfo" inverseEntity="PNProtectPlan" syncable="YES"/>

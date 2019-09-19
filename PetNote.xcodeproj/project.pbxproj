@@ -25,6 +25,7 @@
 		917BCDA72330BE440063399B /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917BCDA62330BE440063399B /* UITextFieldExtension.swift */; };
 		917BCDA92330EC0A0063399B /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917BCDA82330EC0A0063399B /* LocalFileManager.swift */; };
 		917BCDAC2330EDC30063399B /* PNConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917BCDAB2330EDC30063399B /* PNConstant.swift */; };
+		917BCDB22331FB250063399B /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917BCDB12331FB250063399B /* UIImageExtension.swift */; };
 		9181BC2723177E1C007BB7C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181BC2623177E1C007BB7C6 /* AppDelegate.swift */; };
 		9181BC2923177E1C007BB7C6 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181BC2823177E1C007BB7C6 /* TabBarViewController.swift */; };
 		9181BC2C23177E1C007BB7C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9181BC2A23177E1C007BB7C6 /* Main.storyboard */; };
@@ -132,6 +133,7 @@
 		917BCDA62330BE440063399B /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		917BCDA82330EC0A0063399B /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
 		917BCDAB2330EDC30063399B /* PNConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNConstant.swift; sourceTree = "<group>"; };
+		917BCDB12331FB250063399B /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		9181BC2323177E1C007BB7C6 /* PetNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9181BC2623177E1C007BB7C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9181BC2823177E1C007BB7C6 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 				913F73C2232CB687009AE1C0 /* StringExtension.swift */,
 				913F73CD232F3978009AE1C0 /* IntExtension.swift */,
 				917BCDA62330BE440063399B /* UITextFieldExtension.swift */,
+				917BCDB12331FB250063399B /* UIImageExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -841,6 +844,7 @@
 				9194B9A42322923B00AAA963 /* TitleWithDateTableViewCell.swift in Sources */,
 				913F73C3232CB687009AE1C0 /* StringExtension.swift in Sources */,
 				9194B9B62323A80900AAA963 /* SearchHospitalResultViewController.swift in Sources */,
+				917BCDB22331FB250063399B /* UIImageExtension.swift in Sources */,
 				9194B920231CEB9A00AAA963 /* BasicCollectionViewCell.swift in Sources */,
 				9194B9BC2325628600AAA963 /* NotificationManageViewController.swift in Sources */,
 				9181BC672319119D007BB7C6 /* UICollectionViewExtension.swift in Sources */,

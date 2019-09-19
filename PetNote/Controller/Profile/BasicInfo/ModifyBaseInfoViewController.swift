@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ModifyBaseInfoViewControllerDelegate {
+protocol ModifyBaseInfoViewControllerDelegate: AnyObject {
     func confirmModify()
 }
 
@@ -32,7 +32,7 @@ class ModifyBaseInfoViewController: BaseViewController {
             
         }
     }
-    var delegate: ModifyBaseInfoViewControllerDelegate?
+    weak var delegate: ModifyBaseInfoViewControllerDelegate?
     
     var currentPet: PNPetInfo?
     

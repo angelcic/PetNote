@@ -14,7 +14,14 @@ protocol AddImageTableViewCellDelegate: AnyObject {
 
 class AddImageTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var petImageView: UIImageView!
+    @IBOutlet weak var petImageView: UIImageView! {
+        didSet {
+//            petImageView.backgroundColor = .orange
+            petImageView.layer.cornerRadius = 30
+            petImageView.clipsToBounds = true
+            petImageView.contentMode = .scaleAspectFill
+        }
+    }
     
     @IBOutlet weak var addImageButton: UIButton!
     
@@ -29,6 +36,10 @@ class AddImageTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func layoutCell(image: UIImage?) {
+        petImageView.image = image
     }
     
     @IBAction func addImageAction(_ sender: Any) {

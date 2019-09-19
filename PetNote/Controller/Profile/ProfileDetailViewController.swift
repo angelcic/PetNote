@@ -60,16 +60,15 @@ class ProfileDetailViewController: BaseSwitchPetViewController {
     
     // 切換寵物
     func changePet(_ indexPath: IndexPath ) {
-//        containerVCs.forEach({
-//            $0.currentPet = storageManger.petsList[indexPath.row]
-//        })
         changePet(indexPath.row)
     }
     
     func changePet(_ index: Int) {
-        containerVCs.forEach({
-            $0.currentPet = storageManger.petsList[index]
-        })
+        if storageManger.petsList.count > 0 {
+            containerVCs.forEach({
+                $0.currentPet = storageManger.petsList[index]
+            })
+        }
     }
     
     func updateSwitchView() {
