@@ -8,7 +8,10 @@
 
 import UIKit
 
-class ProtectPlanViewController: BaseViewController {
+class ProtectPlanViewController: BaseContainerViewController {
+    func petDidChange() {
+        // TODO: 切換寵物
+    }
 
     @IBOutlet weak var tableView: UITableView! {
         

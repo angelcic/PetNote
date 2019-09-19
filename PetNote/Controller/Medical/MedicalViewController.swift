@@ -8,8 +8,8 @@
 
 import UIKit
 
-class MedicalViewController: BaseViewController {
-    
+class MedicalViewController: BaseSwitchPetViewController {
+   
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.delegate = self
@@ -23,18 +23,14 @@ class MedicalViewController: BaseViewController {
         }
     }
     
-    var switchPetView: SwitchPetView = SwitchPetView(frame: CGRect.zero) {
-        didSet {
-            switchPetView.delegate = self
-        }
-    }
+    var switchPetView = SwitchPetView() 
     
     var medicalRecords: [MedicalRecord] = [MedicalRecord(), MedicalRecord(), MedicalRecord()]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+        switchPetView.delegate = self
         setupTableView()
     }
     
@@ -60,10 +56,17 @@ class MedicalViewController: BaseViewController {
         show(addMedicalRecordVC, sender: nil)
     }
 
+    func changePet(_ indexPath: IndexPath) {
+        // TODO:
+    }
+    
+    func updateSwitchView() {
+        switchPetView.updatePetsData()
+    }
 }
 
 extension MedicalViewController: SwitchPetViewDelegate {
-    func changePet(_ indexPath: IndexPath) {
+    func changePet() {
     }
 }
 

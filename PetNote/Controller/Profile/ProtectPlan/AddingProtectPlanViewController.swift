@@ -27,6 +27,7 @@ class AddingProtectPlanViewController: BaseViewController {
         didSet {
             tableView.delegate = self
             tableView.dataSource = self
+            
         }
     }
     
@@ -136,13 +137,18 @@ extension AddingProtectPlanViewController: UICollectionViewDelegateFlowLayout {
         sizeForItemAt indexPath: IndexPath
         ) -> CGSize {
         
-        return CGSize(width: UIScreen.width / 5.0 - 6 , height: UIScreen.width / 5.0 - 6)
+        return CGSize(width: UIScreen.width / 5.0 - 6,
+                      height: UIScreen.width / 5.0 - 6)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 6
     }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 6
     }
     
@@ -185,6 +191,17 @@ extension AddingProtectPlanViewController: UITableViewDelegate {
 }
 
 extension AddingProtectPlanViewController: UITableViewDataSource {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView == tableView {
+            let sectionHeaderHeight = CGFloat(50)
+            if scrollView.contentOffset.y <= sectionHeaderHeight && scrollView.contentOffset.y >= 0 {
+                scrollView.contentInset = UIEdgeInsets(top: -scrollView.contentOffset.y, left: 0, bottom: 0, right: 0)
+            } else if scrollView.contentOffset.y >= sectionHeaderHeight {
+                scrollView.contentInset = UIEdgeInsets(top: -sectionHeaderHeight, left: 0, bottom: 0, right: 0)
+            }
+        }        
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }

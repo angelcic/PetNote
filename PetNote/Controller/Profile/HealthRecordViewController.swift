@@ -8,7 +8,10 @@
 
 import UIKit
 
-class HealthRecordViewController: UIViewController {
+class HealthRecordViewController: BaseContainerViewController {
+    func petDidChange() {
+        // TODO: 切換寵物
+    }
     
     @IBOutlet weak var collectionView: UICollectionView! {
         

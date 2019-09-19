@@ -18,16 +18,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bzL-3O-keK">
-                                <rect key="frame" x="30" y="74" width="354" height="758"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bzL-3O-keK">
+                                <rect key="frame" x="20" y="74" width="374" height="758"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="bzL-3O-keK" firstAttribute="leading" secondItem="FwJ-36-4W7" secondAttribute="leading" constant="30" id="1pd-1e-HpE"/>
+                            <constraint firstItem="bzL-3O-keK" firstAttribute="leading" secondItem="FwJ-36-4W7" secondAttribute="leading" constant="20" id="1pd-1e-HpE"/>
                             <constraint firstItem="bzL-3O-keK" firstAttribute="top" secondItem="FwJ-36-4W7" secondAttribute="top" constant="30" id="4dV-br-CiT"/>
-                            <constraint firstItem="FwJ-36-4W7" firstAttribute="trailing" secondItem="bzL-3O-keK" secondAttribute="trailing" constant="30" id="IbH-ZK-xvR"/>
+                            <constraint firstItem="FwJ-36-4W7" firstAttribute="trailing" secondItem="bzL-3O-keK" secondAttribute="trailing" constant="20" id="IbH-ZK-xvR"/>
                             <constraint firstItem="FwJ-36-4W7" firstAttribute="bottom" secondItem="bzL-3O-keK" secondAttribute="bottom" constant="30" id="cxR-1O-o5E"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FwJ-36-4W7"/>

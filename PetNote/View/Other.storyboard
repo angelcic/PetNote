@@ -19,8 +19,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nMw-3R-nbP">
-                                <rect key="frame" x="60" y="138" width="294" height="620"/>
+                                <rect key="frame" x="60" y="212.5" width="294" height="471"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="nMw-3R-nbP" secondAttribute="height" multiplier="1:1.5" constant="-20" id="r9E-y1-nJL"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bTb-YH-RbY">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -33,7 +36,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="nMw-3R-nbP" firstAttribute="leading" secondItem="gXc-We-Kd4" secondAttribute="leading" constant="60" id="1hl-DX-zar"/>
-                            <constraint firstItem="nMw-3R-nbP" firstAttribute="top" secondItem="BCJ-kA-f3T" secondAttribute="top" constant="50" id="8xg-gK-GZE"/>
                             <constraint firstItem="nMw-3R-nbP" firstAttribute="centerY" secondItem="gXc-We-Kd4" secondAttribute="centerY" id="hW1-Fy-PSd"/>
                             <constraint firstItem="nMw-3R-nbP" firstAttribute="centerX" secondItem="gXc-We-Kd4" secondAttribute="centerX" id="ola-9C-nuz"/>
                             <constraint firstItem="BCJ-kA-f3T" firstAttribute="trailing" secondItem="nMw-3R-nbP" secondAttribute="trailing" constant="60" id="yUB-o4-DHy"/>

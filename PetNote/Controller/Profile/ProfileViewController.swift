@@ -5,6 +5,7 @@
 //  Created by iching chen on 2019/8/29.
 //  Copyright © 2019 ichingchen. All rights reserved.
 //
+// 目前這個view已經用不到了
 
 import UIKit
 
@@ -25,8 +26,8 @@ class ProfileViewController: UIViewController {
         
         navigationBarSetting()
         
-        pets.append(Pet(name: "蘋果花", type: .cat, color: nil, gender: nil, birth: nil, breed: nil))
-        pets.append(Pet(name: "琵琶", type: .cat, color: nil, gender: nil, birth: nil, breed: nil))
+        pets.append(Pet(name: "蘋果花", type: .cat))
+        pets.append(Pet(name: "琵琶", type: .cat))
     }
     
     // 設定 navigationbar 文字顏色、按鈕
@@ -86,7 +87,7 @@ class ProfileViewController: UIViewController {
             return
         }
         detailViewController.view.backgroundColor = .white
-        detailViewController.pets = pets
+//        detailViewController.pets = pets
         self.navigationController?.pushViewController(detailViewController, animated: true)
     }
 }

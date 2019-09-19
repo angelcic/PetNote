@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ProfileDetailViewDelegate: SwitchPetViewDelegate, NSObject {
+    
+}
+
 class ProfileDetailView: UIView {
     
     private enum PageType: Int {
@@ -19,31 +23,19 @@ class ProfileDetailView: UIView {
         case healthRecord = 2
     }
     
-    @IBOutlet weak var selectionViewLayer: UIView!
-    
     @IBOutlet weak var basicInfoContainerView: UIView!
     @IBOutlet weak var protectPlanContainerView: UIView!
     @IBOutlet weak var healthRecordContainerView: UIView!
     
-    @IBOutlet weak var userSwitchLayer: UIView! {
+    @IBOutlet weak var selectionViewLayer: UIView!
+    
+    @IBOutlet weak var switchPetLayer: UIView! {
         didSet {
-//            userSwitchLayer.addSubview(self.switchPetView)
+            switchPetLayer.addSubview(self.switchPetView)
         }
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        print(789)
-        print(selectionViewLayer.frame)
-        setupSubViews()
-    }
-    
-    var switchPetView: SwitchPetView = SwitchPetView(frame: CGRect.zero) {
-        didSet {
-            switchPetView.delegate = self.delegate
-        }
-    }
+    var switchPetView = SwitchPetView()
     
     var containerViews: [UIView] {
         
@@ -53,23 +45,21 @@ class ProfileDetailView: UIView {
     weak var delegate: ProfileDetailViewDelegate? {
         
         didSet {
-            
             switchPetView.delegate = self.delegate
-            
         }
     }
-    
-    let page = ["基本資料", "預防計畫", "健康記錄"]
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    func setupSubViews() {
+    override func layoutSubviews() {
+        super.layoutSubviews()
         setupPetSwitchLayer()
         setupSelectionView()
     }
     
+    // 更新切換頁面條介面大小
     private func setupSelectionView() {
         
         let selectionView = SelectionView(
@@ -86,22 +76,14 @@ class ProfileDetailView: UIView {
         
     }
     
+    // 更新切換寵物介面大小
     private func setupPetSwitchLayer() {
-//        switchPetView.frame = CGRect(x: 0, y: 0,
-//                              width: userSwitchLayer.frame.width,
-//                              height: userSwitchLayer.frame.height)
-        
-        let switchPetView = SwitchPetView(frame: CGRect(x: 0, y: 0,
-                                                       width: userSwitchLayer.frame.width,
-                                                       height: userSwitchLayer.frame.height))
-        self.switchPetView = switchPetView
-        print("userSwitchLayer")
-        print(userSwitchLayer.frame)
-//        guard let switchPetView = SwitchPetView.instanceFromNib() as? SwitchPetView else {return}
-        userSwitchLayer.addSubview(self.switchPetView)
-
+        switchPetView.frame = CGRect(x: 0, y: 0,
+                              width: switchPetLayer.frame.width,
+                              height: switchPetLayer.frame.height)
     }
     
+    // MARK: 切換分頁
     private func updateContainer(type: PageType) {
         
         containerViews.forEach({ $0.isHidden = true })
@@ -119,10 +101,11 @@ class ProfileDetailView: UIView {
             
         }
     }
-}
-
-protocol ProfileDetailViewDelegate: UICollectionViewDelegate, UICollectionViewDataSource, SwitchPetViewDelegate {
     
+    // 更新分頁按鈕狀態
+    func updateSwitchView() {
+        switchPetView.updatePetsData()
+    }
 }
 
 extension ProfileDetailView: SelectionViewDelegate {
@@ -136,6 +119,12 @@ extension ProfileDetailView: SelectionViewDelegate {
 }
 
 extension ProfileDetailView: SelectionViewDataSource {
+    
+    var page: [String] {
+        
+        return ["基本資料", "預防計畫", "健康記錄"]
+        
+    }
     
     func indicatorColor() -> UIColor {
         return .gray

@@ -35,7 +35,6 @@ class SelectionView: UIView {
        
     // datasource 被設定才會開始 setup
     func setUp() {
-        print("set up selectionView")
         // 設定要顯示的 button 數量、樣式
         buttonArray = initSelectBTN()
         

@@ -7,8 +7,10 @@
 //
 
 import UIKit
-protocol SwitchPetViewDelegate: AnyObject {
-    func changePet(_ indexPath: IndexPath)
+
+protocol SwitchPetViewDelegate: UICollectionViewDelegate, UICollectionViewDataSource, AnyObject {
+//    func changePet(_ indexPath: IndexPath)
+//    func addPet()
 }
 
 class SwitchPetView: UIView {
@@ -17,9 +19,9 @@ class SwitchPetView: UIView {
 
         didSet {
 
-            collectionView.dataSource = self
-
-            collectionView.delegate = self
+            collectionView.dataSource = self.delegate
+            collectionView.delegate = self.delegate
+            
             collectionView.showsVerticalScrollIndicator = false
             collectionView.showsHorizontalScrollIndicator = false
         }
@@ -27,36 +29,42 @@ class SwitchPetView: UIView {
     
     let minCollectionViewSpacing = 0
     
-    weak var delegate: SwitchPetViewDelegate?
+    weak var delegate: SwitchPetViewDelegate? {
+        didSet {
+            collectionView.dataSource = self.delegate
+            collectionView.delegate = self.delegate
+        }
+    }
+    
+    let storageManager = StorageManager.shared
+    
+    var pets: [PNPetInfo] = [] {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupCollectionView()
-
+        setupCollectionViewCell()
     }
     
     class func instanceFromNib() -> UIView? {
-//        let nib = UINib(nibName: "SwitchPetView", bundle: nil)
-//        let instantArray = nib.instantiate(withOwner: nil, options: nil)
-//        let switchPetView = instantArray[0]
         
         return UINib(nibName: "SwitchPetView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? UIView
     }
     
-    override init(frame: CGRect) {
+    override init(frame: CGRect = CGRect.zero) {
         super.init(frame: frame)
-        setupCollectionView(frame: frame)
         setupCollectionView()
+        setupCollectionViewCell()
     }
     
     required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//        self
         fatalError("init(coder:) has not been implemented")
-//        setupCollectionView()
     }
     
-    private func setupCollectionView() {
+    private func setupCollectionViewCell() {
         collectionView.registerCellWithNib(
             identifier: String(describing: PetsCollectionViewCell.self),
             bundle: nil
@@ -66,31 +74,35 @@ class SwitchPetView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+        guard
+            let layout = collectionView.collectionViewLayout
+            as? UICollectionViewFlowLayout
+        else { return }
 
         layout.itemSize = CGSize(
             width: frame.width / 4,
             height: frame.height
         )
-        print(layout.itemSize)
     }
     
-    private func setupCollectionView(frame: CGRect) {
+    private func setupCollectionView() {
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-            
-        layout.itemSize = CGSize(width: frame.width / 4,
-                                 height: frame.height) // cell的寬、高
-        layout.minimumLineSpacing = CGFloat(integerLiteral: minCollectionViewSpacing) // 滑動方向為「垂直」的話即「上下」的間距;滑動方向為「平行」則為「左右」的間距
-        layout.minimumInteritemSpacing = CGFloat(integerLiteral: minCollectionViewSpacing) // 滑動方向為「垂直」的話即「左右」的間距;滑動方向為「平行」則為「上下」的間距
-        layout.scrollDirection = UICollectionView.ScrollDirection.horizontal //滑動方向預設為垂直。注意若設為垂直，則cell的加入方式為由左至右，
+     
+        layout.minimumLineSpacing = CGFloat(integerLiteral: minCollectionViewSpacing)
+        // 滑動方向為「垂直」的話即「上下」的間距;
+//        滑動方向為「平行」則為「左右」的間距
+        layout.minimumInteritemSpacing = CGFloat(integerLiteral: minCollectionViewSpacing)
+        // 滑動方向為「垂直」的話即「左右」的間距;
+//        滑動方向為「平行」則為「上下」的間距
+        layout.scrollDirection = UICollectionView.ScrollDirection.horizontal //滑動方向預設為垂直。注意若設為垂直，則 cell 的加入方式為由左至右，
 //        滿了才會換行；若是水平則由上往下，滿了才會換列
         
         collectionView = UICollectionView(
-            frame: CGRect(origin: CGPoint(x: 0, y: 0),
-                          size: frame.size),
+            frame: CGRect(origin: CGPoint.zero,
+                          size: CGSize.zero),
             collectionViewLayout: layout)
-//        (x: 0, y: 0, width: self.frame.width, height: self.frame.height)
+        
         self.addSubview(collectionView)
         collectionView.backgroundColor = .white
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -100,33 +112,37 @@ class SwitchPetView: UIView {
         collectionView.rightAnchor.constraint(equalTo: self.rightAnchor),
         collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
-    }
-}
-
-extension SwitchPetView: UICollectionViewDelegateFlowLayout {
-    
-}
-
-extension SwitchPetView: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.changePet(indexPath)
-    }
-}
-
-extension SwitchPetView: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        
+//        collectionView(self.collectionView, didSelectItemAt: IndexPath(row: 0, section: 1))
     }
     
-    func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: PetsCollectionViewCell.identifier,
-            for: indexPath)
-            as? PetsCollectionViewCell
-            else {
-                return UICollectionViewCell()
+    func fetchData() {
+        storageManager.fetchPets(completion: { [weak self] result in
+            switch result {
+            case .success(let pets):
+                self?.pets = pets
+            case .failure:
+                print("寵物資料讀取失敗")
+            }
+        })
+    }
+    
+    func updatePetsData(pets: [PNPetInfo]) {
+        self.pets = pets
+    }
+    
+    func updatePetsData() {
+        collectionView.reloadData()
+    }
+    
+    func updateSelectedStatus() {
+        for cell in collectionView.visibleCells {
+            guard
+                let cell = cell as? PetsCollectionViewCell
+                else {
+                    return
+            }
+            cell.changeSlectedStatus()
         }
-        return cell
     }
 }
