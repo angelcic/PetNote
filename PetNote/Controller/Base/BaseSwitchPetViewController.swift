@@ -16,37 +16,43 @@ protocol SwitchPetViewControllerProtocol {
 
 typealias BaseSwitchPetViewController = SwitchPetViewController & SwitchPetViewControllerProtocol
 
-class SwitchPetViewController: BaseViewController {
+class SwitchPetViewController: BaseViewController, SwitchPetViewDelegate {
  
-    @IBOutlet weak var switchPetView1: SwitchPetView!
+    @IBOutlet weak var switchPetView: SwitchPetView! {
+        didSet {
+            switchPetView.delegate = self
+        }
+    }
     
     let storageManager = StorageManager.shared
-    
-//    var currentPetIndex = 0
     
     var petIndexObserver: NSKeyValueObservation!
     var petListObserver: NSKeyValueObservation!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        petIndexObserver = storageManager.observe(\.currentPetIndex, options: [.old, .new, .initial]) {[weak self] (object, change) in
-            print(change)
-            
-            guard let controller = self as? BaseSwitchPetViewController else {
-                return
-            }
-            controller.updateSwitchView()
-        }
         
-//        petListObserver = storageManager.observe(\.petsList, options: [.new, .initial]) {[weak self] (object, change) in
-////            print(change)
-//            print("寵物資料改變")
-//            guard let controller = self as? BaseSwitchPetViewController else {
-//                return
-//            }
-//            controller.updateSwitchView()
-//        }
+        petIndexObserver = storageManager.observe(\.currentPetIndex, options: [.old, .new]) {[weak self] (object, change) in
+            
+            guard let switchPetView = self?.switchPetView else { return }
+//            switchPetView.updatePetsData()
+//            print(change)
+            
+            if let oldValue = change.oldValue {
+                let indexPath = IndexPath(row: oldValue, section: 1)
+               switchPetView.updateSelectedStatus(indexPath: indexPath, isSelected: false)
+            }
+            
+            if let newValue = change.newValue {
+                let indexPath = IndexPath(row: newValue, section: 1)
+                switchPetView.updateSelectedStatus(indexPath: indexPath, isSelected: true)
+                switchPetView.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+                guard let controller = self as? BaseSwitchPetViewController else {
+                    return
+                }
+                controller.changePet(indexPath)
+            }
+        }
     }
     
     func showAddPetVC() {
@@ -86,37 +92,18 @@ extension SwitchPetViewController: AddPetViewControllerDelegate {
 extension SwitchPetViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-//        for cell in collectionView.visibleCells {
-//            guard
-//                let cell = cell as? PetsCollectionViewCell
-//                else {
-//                    return
-//            }
-//            cell.changeSlectedStatus()
-//        }
-        
         switch indexPath.section {
         case 0:
             showAddPetVC()
         default :
             
-//            for cell in collectionView.visibleCells {
-//                guard
-//                    let cell = cell as? PetsCollectionViewCell
-//                    else {
-//                        return
-//                }
-//                cell.changeSlectedStatus()
-//            }
-//            cell.changeSlectedStatus(true)
             storageManager.currentPetIndex = indexPath.row
             
-            guard let controller = self as? BaseSwitchPetViewController else {
-                return
-            }
-            
-//            controller.updateSelectedStatus()
-            controller.changePet(indexPath)
+//            guard let controller = self as? BaseSwitchPetViewController else {
+//                return
+//            }
+//
+//            controller.changePet(indexPath)
         }
         
     }

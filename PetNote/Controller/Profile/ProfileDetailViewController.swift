@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileDetailViewController: BaseSwitchPetViewController {
+class ProfileDetailViewController: SwitchPetViewController, SwitchPetViewControllerProtocol {
 
     @IBOutlet var detailView: ProfileDetailView! {
         didSet {

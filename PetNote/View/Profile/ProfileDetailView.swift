@@ -29,25 +29,23 @@ class ProfileDetailView: UIView {
     
     @IBOutlet weak var selectionViewLayer: UIView!
     
-    @IBOutlet weak var switchPetLayer: UIView! {
-        didSet {
-            switchPetLayer.addSubview(self.switchPetView)
-        }
-    }
-    
-    var switchPetView = SwitchPetView()
-    
+//    @IBOutlet weak var switchPetLayer: UIView! {
+//        didSet {
+//            switchPetLayer.addSubview(self.switchPetView)
+//        }
+//    }
     var containerViews: [UIView] {
         
         return [basicInfoContainerView, protectPlanContainerView, healthRecordContainerView]
     }
     
-    weak var delegate: ProfileDetailViewDelegate? {
-        
-        didSet {
-            switchPetView.delegate = self.delegate
-        }
-    }
+    weak var delegate: ProfileDetailViewDelegate?
+//    {
+    
+//        didSet {
+//            switchPetView.delegate = self.delegate
+//        }
+//    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -55,7 +53,7 @@ class ProfileDetailView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        setupPetSwitchLayer()
+//        setupPetSwitchLayer()
         setupSelectionView()
     }
     
@@ -78,9 +76,9 @@ class ProfileDetailView: UIView {
     
     // 更新切換寵物介面大小
     private func setupPetSwitchLayer() {
-        switchPetView.frame = CGRect(x: 0, y: 0,
-                              width: switchPetLayer.frame.width,
-                              height: switchPetLayer.frame.height)
+//        switchPetView.frame = CGRect(x: 0, y: 0,
+//                              width: switchPetLayer.frame.width,
+//                              height: switchPetLayer.frame.height)
     }
     
     // MARK: 切換分頁
@@ -104,7 +102,7 @@ class ProfileDetailView: UIView {
     
     // 更新分頁按鈕狀態
     func updateSwitchView() {
-        switchPetView.updatePetsData()
+//        switchPetView.updatePetsData()
     }
 }
 

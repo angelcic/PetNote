@@ -64,58 +64,6 @@
             </objects>
             <point key="canvasLocation" x="782" y="-562"/>
         </scene>
-        <!--Record View Controller-->
-        <scene sceneID="cbp-yg-5bd">
-            <objects>
-                <viewController id="03g-mO-eE1" customClass="RecordViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="BTc-c5-hvC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="acg-Lh-fGp" customClass="SwitchPetView" customModule="PetNote" customModuleProvider="target">
-                                <rect key="frame" x="67" y="136" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rZw-aX-vic" customClass="SwitchPetView" customModule="PetNote" customModuleProvider="target">
-                                <rect key="frame" x="93" y="497" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="mGw-tM-2c6"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xZz-aQ-sOq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1647" y="-563"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="bI7-Un-GfI">
-            <objects>
-                <viewController id="ElC-3u-Q13" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="BOR-sI-uXR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hrJ-lV-bBA" customClass="SwitchPetView" customModule="PetNote" customModuleProvider="target">
-                                <rect key="frame" x="67" y="486" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="HVW-1I-6uY"/>
-                    </view>
-                    <connections>
-                        <outlet property="switchPetView" destination="hrJ-lV-bBA" id="ogb-sJ-5iP"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vrY-27-k4H" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2484" y="-563"/>
-        </scene>
         <!--Profile Detail View Controller-->
         <scene sceneID="qb9-aO-RTO">
             <objects>
@@ -124,56 +72,58 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NsO-Yu-Nol" customClass="SwitchPetView" customModule="PetNote" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="106"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="NsO-Yu-Nol" secondAttribute="height" multiplier="375:106" id="mkR-9q-Ala"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5if-ud-av2" customClass="ProfileDetailView" customModule="PetNote" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="170" width="375" height="497"/>
                                 <subviews>
-                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NsO-Yu-Nol">
-                                        <rect key="frame" x="0.0" y="20" width="375" height="106.5"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
-                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yn9-uJ-9vw">
-                                        <rect key="frame" x="20" y="134.5" width="335" height="53.5"/>
-                                        <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </view>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fyP-Wy-agO">
-                                        <rect key="frame" x="0.0" y="188" width="375" height="415"/>
+                                        <rect key="frame" x="0.0" y="53" width="375" height="444"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <segue destination="cJL-Ai-knf" kind="embed" id="CVz-dV-E1I"/>
                                         </connections>
                                     </containerView>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oYu-9S-lDD">
-                                        <rect key="frame" x="0.0" y="188" width="375" height="415"/>
+                                        <rect key="frame" x="0.0" y="53" width="375" height="444"/>
                                         <connections>
                                             <segue destination="YtW-9m-rRu" kind="embed" id="HE8-Ue-8F4"/>
                                         </connections>
                                     </containerView>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cLO-Wo-hhy">
-                                        <rect key="frame" x="0.0" y="188" width="375" height="415"/>
+                                        <rect key="frame" x="0.0" y="53" width="375" height="444"/>
                                         <connections>
                                             <segue destination="cHO-qj-MuJ" kind="embed" id="79T-Q0-SZc"/>
                                         </connections>
                                     </containerView>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yn9-uJ-9vw">
+                                        <rect key="frame" x="20" y="0.0" width="335" height="53"/>
+                                        <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="yn9-uJ-9vw" secondAttribute="height" multiplier="335:53" id="tE7-CO-mnb"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="NsO-Yu-Nol" firstAttribute="top" secondItem="5if-ud-av2" secondAttribute="top" constant="20" id="5jR-Ag-D0O"/>
                                     <constraint firstAttribute="trailing" secondItem="yn9-uJ-9vw" secondAttribute="trailing" constant="20" id="BjO-6b-WyU"/>
-                                    <constraint firstAttribute="trailing" secondItem="NsO-Yu-Nol" secondAttribute="trailing" id="GmX-Lj-ECb"/>
                                     <constraint firstAttribute="trailing" secondItem="cLO-Wo-hhy" secondAttribute="trailing" id="Jf9-7L-1L4"/>
                                     <constraint firstAttribute="bottom" secondItem="cLO-Wo-hhy" secondAttribute="bottom" id="MYE-yX-Jm1"/>
                                     <constraint firstItem="cLO-Wo-hhy" firstAttribute="top" secondItem="yn9-uJ-9vw" secondAttribute="bottom" id="NKj-Wp-HLW"/>
                                     <constraint firstAttribute="bottom" secondItem="fyP-Wy-agO" secondAttribute="bottom" id="Ngd-hT-FF7"/>
-                                    <constraint firstItem="NsO-Yu-Nol" firstAttribute="leading" secondItem="5if-ud-av2" secondAttribute="leading" id="SGv-RG-bJ2"/>
-                                    <constraint firstItem="yn9-uJ-9vw" firstAttribute="height" secondItem="NsO-Yu-Nol" secondAttribute="height" multiplier="0.5" id="TQ2-yW-bEd"/>
                                     <constraint firstItem="yn9-uJ-9vw" firstAttribute="leading" secondItem="5if-ud-av2" secondAttribute="leading" constant="20" id="VLS-o6-AQy"/>
                                     <constraint firstItem="oYu-9S-lDD" firstAttribute="leading" secondItem="5if-ud-av2" secondAttribute="leading" id="WW9-FJ-aef"/>
                                     <constraint firstAttribute="trailing" secondItem="fyP-Wy-agO" secondAttribute="trailing" id="iAi-Ml-FXJ"/>
-                                    <constraint firstItem="yn9-uJ-9vw" firstAttribute="top" secondItem="NsO-Yu-Nol" secondAttribute="bottom" constant="8" id="lAk-fX-vsg"/>
                                     <constraint firstItem="fyP-Wy-agO" firstAttribute="top" secondItem="yn9-uJ-9vw" secondAttribute="bottom" id="lZR-Kk-PDo"/>
                                     <constraint firstAttribute="bottom" secondItem="oYu-9S-lDD" secondAttribute="bottom" id="mFd-bR-Pke"/>
                                     <constraint firstItem="fyP-Wy-agO" firstAttribute="leading" secondItem="5if-ud-av2" secondAttribute="leading" id="rFh-8w-MY2"/>
                                     <constraint firstAttribute="trailing" secondItem="oYu-9S-lDD" secondAttribute="trailing" id="tjA-x1-rgL"/>
+                                    <constraint firstItem="yn9-uJ-9vw" firstAttribute="top" secondItem="5if-ud-av2" secondAttribute="top" id="v8B-Tk-D5U"/>
                                     <constraint firstItem="oYu-9S-lDD" firstAttribute="top" secondItem="yn9-uJ-9vw" secondAttribute="bottom" id="wI3-dv-nJE"/>
                                     <constraint firstItem="cLO-Wo-hhy" firstAttribute="leading" secondItem="5if-ud-av2" secondAttribute="leading" id="z94-sB-QJV"/>
                                 </constraints>
@@ -182,23 +132,25 @@
                                     <outlet property="healthRecordContainerView" destination="fyP-Wy-agO" id="8MO-5p-rHs"/>
                                     <outlet property="protectPlanContainerView" destination="oYu-9S-lDD" id="sLE-VI-aMk"/>
                                     <outlet property="selectionViewLayer" destination="yn9-uJ-9vw" id="t1p-gj-khK"/>
-                                    <outlet property="switchPetLayer" destination="NsO-Yu-Nol" id="fC7-we-4TB"/>
                                 </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="5if-ud-av2" firstAttribute="trailing" secondItem="2sb-z4-g6g" secondAttribute="trailing" id="1XO-aa-UqV"/>
-                            <constraint firstItem="NsO-Yu-Nol" firstAttribute="height" secondItem="2Fi-b7-VLg" secondAttribute="height" multiplier="0.16" id="Cfu-8K-3M2"/>
+                            <constraint firstItem="NsO-Yu-Nol" firstAttribute="top" secondItem="2sb-z4-g6g" secondAttribute="top" id="3gy-2H-Tap"/>
                             <constraint firstItem="2sb-z4-g6g" firstAttribute="bottom" secondItem="5if-ud-av2" secondAttribute="bottom" id="MbJ-nC-mCo"/>
-                            <constraint firstItem="5if-ud-av2" firstAttribute="top" secondItem="2sb-z4-g6g" secondAttribute="top" id="Zc3-PP-t2j"/>
+                            <constraint firstItem="NsO-Yu-Nol" firstAttribute="leading" secondItem="2sb-z4-g6g" secondAttribute="leading" id="N8w-e7-zH2"/>
+                            <constraint firstItem="5if-ud-av2" firstAttribute="top" secondItem="NsO-Yu-Nol" secondAttribute="bottom" id="Zc3-PP-t2j"/>
                             <constraint firstItem="5if-ud-av2" firstAttribute="leading" secondItem="2sb-z4-g6g" secondAttribute="leading" id="fn9-DF-C0X"/>
+                            <constraint firstItem="NsO-Yu-Nol" firstAttribute="trailing" secondItem="2sb-z4-g6g" secondAttribute="trailing" id="zsc-dv-zVw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2sb-z4-g6g"/>
                     </view>
                     <navigationItem key="navigationItem" id="CNL-84-8qh"/>
                     <connections>
                         <outlet property="detailView" destination="5if-ud-av2" id="Inv-RC-bWm"/>
+                        <outlet property="switchPetView" destination="NsO-Yu-Nol" id="dlH-W9-FkK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ep2-fh-fOj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -273,15 +225,15 @@
             <objects>
                 <viewController id="cHO-qj-MuJ" customClass="BasicInfoViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rdr-CL-WQ4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="415"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="444"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g7v-IE-e7Z">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="415"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="444"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="imE-xK-Pku">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="415"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="444"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="先新增一位成員吧！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vda-I5-utX">
                                         <rect key="frame" x="20" y="100" width="335" height="24"/>
@@ -325,11 +277,11 @@
             <objects>
                 <viewController id="YtW-9m-rRu" customClass="ProtectPlanViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k3K-IL-q3k">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="415"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="444"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cw4-KC-X6U">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="415"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="444"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9D-Ti-aZo">
@@ -518,7 +470,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Bn-zL-Wmc">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Bn-zL-Wmc" customClass="SwitchPetView" customModule="PetNote" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="36" width="375" height="106.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -541,7 +493,7 @@
                         <viewLayoutGuide key="safeArea" id="78j-hR-H6u"/>
                     </view>
                     <connections>
-                        <outlet property="switchPetLayer" destination="9Bn-zL-Wmc" id="bud-ss-UBL"/>
+                        <outlet property="switchPetView" destination="9Bn-zL-Wmc" id="AQv-xX-cqc"/>
                         <outlet property="tableView" destination="kQS-gq-KVZ" id="xom-gG-Y2X"/>
                     </connections>
                 </viewController>
@@ -554,11 +506,11 @@
             <objects>
                 <viewController id="cJL-Ai-knf" customClass="HealthRecordViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WpW-2v-g9Z">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="415"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="444"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PJk-KD-idV">
-                                <rect key="frame" x="40" y="20" width="295" height="395"/>
+                                <rect key="frame" x="40" y="20" width="295" height="424"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="12" id="03H-Ui-ogW">
                                     <size key="itemSize" width="50" height="50"/>

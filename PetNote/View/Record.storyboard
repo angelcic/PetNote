@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Hy-UW-u6v">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Hy-UW-u6v" customClass="SwitchPetView" customModule="PetNote" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="108" width="414" height="143.5"/>
                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -69,7 +69,7 @@
                         <outlet property="addButton" destination="DfO-OX-Qcp" id="KCR-xa-GMF"/>
                         <outlet property="calendar" destination="XQE-pB-gzT" id="QPy-FW-owd"/>
                         <outlet property="calendarHeightConstraint" destination="bxx-Vf-q5k" id="sTf-xw-zDx"/>
-                        <outlet property="switchPetLayer" destination="6Hy-UW-u6v" id="mHh-W8-2BH"/>
+                        <outlet property="switchPetView" destination="6Hy-UW-u6v" id="TGx-dZ-mvs"/>
                         <outlet property="tableView" destination="iS9-4f-5Tg" id="THu-0J-J4h"/>
                     </connections>
                 </viewController>

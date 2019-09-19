@@ -9,7 +9,7 @@
 import UIKit
 import Charts
 
-class WeightRecordViewController: BaseSwitchPetViewController {
+class WeightRecordViewController: SwitchPetViewController, SwitchPetViewControllerProtocol {
 
     @IBOutlet weak var switchPetLayer: UIView! {
         didSet {
@@ -26,7 +26,7 @@ class WeightRecordViewController: BaseSwitchPetViewController {
     
     let weights: [Double] = [4.5, 4.6, 5.0, 4.8]
     
-    var switchPetView = SwitchPetView()
+//    var switchPetView = SwitchPetView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,7 @@ class WeightRecordViewController: BaseSwitchPetViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        setupPetSwitchLayer()
+//        setupPetSwitchLayer()
 
     }
     
@@ -62,9 +62,9 @@ class WeightRecordViewController: BaseSwitchPetViewController {
     }
 }
 
-extension WeightRecordViewController: SwitchPetViewDelegate {
-    
-}
+//extension WeightRecordViewController: SwitchPetViewDelegate {
+//    
+//}
 
 extension WeightRecordViewController: UITableViewDelegate {
     

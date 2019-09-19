@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eLV-lE-toe">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eLV-lE-toe" customClass="SwitchPetView" customModule="PetNote" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="108" width="414" height="143.5"/>
                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <viewLayoutGuide key="safeArea" id="FbW-wR-trM"/>
@@ -43,7 +43,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="就診記錄" id="9uw-Bz-Ps3"/>
                     <connections>
-                        <outlet property="switchPetLayer" destination="eLV-lE-toe" id="U7E-hY-1rG"/>
+                        <outlet property="switchPetView" destination="eLV-lE-toe" id="x9g-xd-bf5"/>
                         <outlet property="tableView" destination="zz5-se-J9i" id="4Fd-p0-f9N"/>
                     </connections>
                 </viewController>

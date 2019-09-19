@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MedicalViewController: BaseSwitchPetViewController {
+class MedicalViewController: SwitchPetViewController, SwitchPetViewControllerProtocol {
    
     @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -23,7 +23,7 @@ class MedicalViewController: BaseSwitchPetViewController {
         }
     }
     
-    var switchPetView = SwitchPetView() 
+//    var switchPetView = SwitchPetView() 
     
     var medicalRecords: [MedicalRecord] = [MedicalRecord(), MedicalRecord(), MedicalRecord()]
     
@@ -35,10 +35,10 @@ class MedicalViewController: BaseSwitchPetViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        setupSwitchPetLayer()
+//        setupSwitchPetView()
     }
     
-    func setupSwitchPetLayer() {
+    func setupSwitchPetView() {
         switchPetView.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: switchPetLayer.frame.size)
     }
     
@@ -65,10 +65,10 @@ class MedicalViewController: BaseSwitchPetViewController {
     }
 }
 
-extension MedicalViewController: SwitchPetViewDelegate {
-    func changePet() {
-    }
-}
+//extension MedicalViewController: SwitchPetViewDelegate {
+//    func changePet() {
+//    }
+//}
 
 extension MedicalViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
