@@ -13,7 +13,9 @@ class PetsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var petImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
-    @IBOutlet weak var petImageBorderView: UIView!
+//    @IBOutlet weak var petImageBorderView: UIView!
+    
+    var petPhotoObserver: NSKeyValueObservation!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,9 +26,9 @@ class PetsCollectionViewCell: UICollectionViewCell {
         super.layoutSubviews()
         contentView.layoutIfNeeded()
         petImageView.addCorner(cornerRadius: petImageView.frame.height * 0.5)
-        petImageBorderView.addBorder(borderColor: .white,
-                                     borderWidth: 2,
-                                     cornerRadius: petImageBorderView.frame.height * 0.5)
+//        petImageBorderView.addBorder(borderColor: .white,
+//                                     borderWidth: 2,
+//                                     cornerRadius: petImageBorderView.frame.height * 0.5)
     }
     
     func layoutCell(image: UIImage?, name: String?) {
@@ -36,17 +38,17 @@ class PetsCollectionViewCell: UICollectionViewCell {
     
     func changeSlectedStatus(_ isSelected: Bool) {
         if isSelected {
-            petImageBorderView.isHidden = false
+//            petImageBorderView.isHidden = false
         } else {
-            petImageBorderView.isHidden = true
+//            petImageBorderView.isHidden = true
         }
     }
     
     func changeSlectedStatus() {
         if isSelected {
-            petImageBorderView.isHidden = false
+//            petImageBorderView.isHidden = false
         } else {
-            petImageBorderView.isHidden = true
+//            petImageBorderView.isHidden = true
         }
     }
 }

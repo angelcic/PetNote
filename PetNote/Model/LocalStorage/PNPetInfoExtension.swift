@@ -7,6 +7,33 @@
 //
 
 import Foundation
+import UIKit
+
+class PetInfo {
+    
+    let info: PNPetInfo
+    
+    var image: UIImage?
+    
+    private var observation: NSKeyValueObservation!
+    
+    init(info: PNPetInfo) {
+        
+        self.info = info
+        
+        self.triggerObservation()
+    }
+    
+    func triggerObservation() {
+        
+        observation = info.observe(\.photo, options: [.initial, .new]) { [weak self] (object, change) in
+            
+            guard let newValue = change.newValue else { return }
+            //                print(change)
+            self?.image = LocalFileManager.shared.readImage(imagePath: newValue)
+        }
+    }
+}
 
 extension PNPetInfo {
     

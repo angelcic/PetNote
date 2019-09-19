@@ -11,6 +11,14 @@ import UIKit
 class ProtectPlanViewController: BaseContainerViewController {
     func petDidChange() {
         // TODO: 切換寵物
+        guard
+            let pet = currentPet,
+            let protectPlan = pet.protectPlan?.allObjects
+                as? [ProtectPlan]
+        else {
+            return
+        }
+        self.protectPlan = protectPlan
     }
 
     @IBOutlet weak var tableView: UITableView! {
@@ -22,7 +30,11 @@ class ProtectPlanViewController: BaseContainerViewController {
         
     }
     
-    var protectPlan: [ProtectPlan] = []
+    var protectPlan: [ProtectPlan] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     @IBOutlet weak var alertView: UIView!
     
@@ -30,6 +42,7 @@ class ProtectPlanViewController: BaseContainerViewController {
         super.viewDidLoad()
         setTableView()
         
+        protectPlan = currentPet?.protectPlan?.allObjects as? [ProtectPlan] ?? []
         // Do any additional setup after loading the view.
     }
     
@@ -86,7 +99,9 @@ extension ProtectPlanViewController: SectionHeaderDelegate {
         else {
             return
         }
-        
+        if let petType = currentPet?.getPetType() {
+            addPlanViewController.currentPetType = petType
+        }
         show(addPlanViewController, sender: nil)
         
     }   

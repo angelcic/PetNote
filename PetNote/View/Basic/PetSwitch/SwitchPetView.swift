@@ -22,6 +22,8 @@ class SwitchPetView: UIView {
             collectionView.dataSource = self.delegate
             collectionView.delegate = self.delegate
             
+            
+            
             collectionView.showsVerticalScrollIndicator = false
             collectionView.showsHorizontalScrollIndicator = false
         }

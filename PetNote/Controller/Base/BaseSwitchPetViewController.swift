@@ -18,6 +18,8 @@ typealias BaseSwitchPetViewController = SwitchPetViewController & SwitchPetViewC
 
 class SwitchPetViewController: BaseViewController {
  
+    @IBOutlet weak var switchPetView1: SwitchPetView!
+    
     let storageManager = StorageManager.shared
     
 //    var currentPetIndex = 0
@@ -25,9 +27,10 @@ class SwitchPetViewController: BaseViewController {
     var petIndexObserver: NSKeyValueObservation!
     var petListObserver: NSKeyValueObservation!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        petIndexObserver = storageManager.observe(\.currentPetIndex, options: [.new, .initial]) {[weak self] (object, change) in
+        petIndexObserver = storageManager.observe(\.currentPetIndex, options: [.old, .new, .initial]) {[weak self] (object, change) in
             print(change)
             
             guard let controller = self as? BaseSwitchPetViewController else {
@@ -97,14 +100,14 @@ extension SwitchPetViewController: UICollectionViewDelegate {
             showAddPetVC()
         default :
             
-            for cell in collectionView.visibleCells {
-                guard
-                    let cell = cell as? PetsCollectionViewCell
-                    else {
-                        return
-                }
-                cell.changeSlectedStatus()
-            }
+//            for cell in collectionView.visibleCells {
+//                guard
+//                    let cell = cell as? PetsCollectionViewCell
+//                    else {
+//                        return
+//                }
+//                cell.changeSlectedStatus()
+//            }
 //            cell.changeSlectedStatus(true)
             storageManager.currentPetIndex = indexPath.row
             
@@ -159,7 +162,7 @@ extension SwitchPetViewController: UICollectionViewDataSource {
         if indexPath.section == 0 {
             cell.layoutCell(image: UIImage(named: "Icons_24px_Add01"), name: "新增")
             cell.petImageView.contentMode = .center
-            cell.petImageBorderView.isHidden = true
+//            cell.petImageBorderView.isHidden = true
         } else {
             cell.isSelected = false
             cell.changeSlectedStatus()
@@ -171,8 +174,18 @@ extension SwitchPetViewController: UICollectionViewDataSource {
                 collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
 //                cell.petImageBorderView.isHidden = false
             }
+            
             let image = LocalFileManager.shared.readImage(imagePath: storageManager.petsList[indexPath.row].photo)
-           
+            
+            cell.petPhotoObserver = nil
+            cell.petPhotoObserver = storageManager.petsList[indexPath.row].observe(\.photo, options: [.new]) {[weak self] (object, change) in
+
+                guard let newValue = change.newValue else { return }
+                //                print(change)
+                let image = LocalFileManager.shared.readImage(imagePath: newValue)
+                cell.petImageView.image = image
+            }
+                
             cell.layoutCell(image: image, name: storageManager.petsList[indexPath.row].name)
             
         }

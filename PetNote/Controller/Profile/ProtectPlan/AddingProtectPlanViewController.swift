@@ -19,7 +19,11 @@ class AddingProtectPlanViewController: BaseViewController {
 //
 //    let catExternalParasites: [String] = ["蚤安", "寵愛", "蚤不到", "易撲蚤",  "心疥爽", "其他"]
 //    let dogExternalParasites: [String] = ["益百分", "寵愛", "蚤不到", "易撲蚤", "心疥爽", "其他"]
-    var currentPetType: PetType = .cat
+    var currentPetType: PetType = .cat {
+        didSet {
+            print(123)
+        }
+    }
     
     lazy var currentPreventType: ProtectType = .vaccines(type: currentPetType)
     

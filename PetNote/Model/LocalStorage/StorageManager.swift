@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 @objcMembers class StorageManager: NSObject {
     
@@ -50,10 +51,16 @@ import CoreData
         return persistanceContainer.viewContext
     }
     
-    dynamic var petsList: [PNPetInfo] = [] {
-        didSet {
-            print("寵物資料更新, 目前有 \(petsList.count) 筆資料")
-        }
+    var petsList: [PNPetInfo] {
+        
+        return datas.map({ $0.info })
+    }
+    
+    var datas: [PetInfo] = []
+    
+    var images: [UIImage?] {
+        
+        return datas.map({ $0.image })
     }
     
     dynamic var currentPetIndex: Int = 0
@@ -66,7 +73,7 @@ import CoreData
             
             let petsList = try viewContext.fetch(request)
             
-            self.petsList = petsList
+            self.datas = petsList.map({ PetInfo(info: $0) })
             
             completion?(Result.success(petsList))
             
@@ -102,7 +109,7 @@ import CoreData
             
             try viewContext.save()
 //            fetchPets()
-            petsList.append(pet)
+            datas.append(PetInfo(info: pet))
             completion?(Result.success(petsList.count - 1))
         } catch let error {
             print(error)

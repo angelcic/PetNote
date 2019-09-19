@@ -9,7 +9,7 @@
 import UIKit
 import FSCalendar
 
-class RecordViewController: BaseSwitchPetViewController {
+class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProtocol {
     
     @IBOutlet weak var switchPetLayer: UIView! {
         didSet {
