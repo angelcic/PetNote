@@ -164,10 +164,12 @@ extension SwitchPetViewController: UICollectionViewDataSource {
         }
         
         if indexPath.section == 0 {
+            cell.changeSlectedStatus(false)
             cell.layoutCell(image: UIImage(named: "Icons_24px_Add01"), name: "新增")
             cell.petImageView.contentMode = .center
 //            cell.petImageBorderView.isHidden = true
         } else {
+            cell.changeSlectedStatus(false)
             cell.isSelected = false
             cell.changeSlectedStatus()
             
@@ -179,7 +181,8 @@ extension SwitchPetViewController: UICollectionViewDataSource {
 //                cell.petImageBorderView.isHidden = false
             }
             
-            let image = LocalFileManager.shared.readImage(imagePath: storageManager.petsList[indexPath.row].photo)
+            let image =
+                LocalFileManager.shared.readImage(imagePath: storageManager.petsList[indexPath.row].photo)
             
             cell.petPhotoObserver = nil
             cell.petPhotoObserver =
@@ -188,6 +191,7 @@ extension SwitchPetViewController: UICollectionViewDataSource {
                 guard let newValue = change.newValue else { return }
                 //                print(change)
                 let image = LocalFileManager.shared.readImage(imagePath: newValue)
+                    
                 cell.petImageView.image = image
             }
                 
