@@ -150,7 +150,8 @@ extension BasicInfoViewController: UITableViewDataSource {
             cell.delegate = self
             cell.layoutCell(image: currentImage)
             
-            if let imagePath = currentPet?.photo { LocalFileManager.shared.readImage(imagePath: imagePath) { result in
+            if let imagePath = currentPet?.photo {
+                LocalFileManager.shared.readImage(imagePath: imagePath) { result in
                 switch result {
                 case .success(let image):
                     cell.layoutCell(image: image)

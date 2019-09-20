@@ -84,7 +84,9 @@ extension ProtectPlanViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard
-            let cell = tableView.dequeueReusableCell(withIdentifier: ProtectPlanTableViewCell.identifier, for: indexPath)
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: ProtectPlanTableViewCell.identifier,
+                for: indexPath)
                 as? ProtectPlanTableViewCell
             else {
                 return UITableViewCell()

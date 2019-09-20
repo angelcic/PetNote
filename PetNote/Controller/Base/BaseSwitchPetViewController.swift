@@ -32,7 +32,8 @@ class SwitchPetViewController: BaseViewController, SwitchPetViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        petIndexObserver = storageManager.observe(\.currentPetIndex, options: [.old, .new]) {[weak self] (object, change) in
+        petIndexObserver =
+            storageManager.observe(\.currentPetIndex, options: [.old, .new]) {[weak self] (object, change) in
             
             guard let switchPetView = self?.switchPetView else { return }
 //            switchPetView.updatePetsData()
@@ -165,7 +166,8 @@ extension SwitchPetViewController: UICollectionViewDataSource {
             let image = LocalFileManager.shared.readImage(imagePath: storageManager.petsList[indexPath.row].photo)
             
             cell.petPhotoObserver = nil
-            cell.petPhotoObserver = storageManager.petsList[indexPath.row].observe(\.photo, options: [.new]) {[weak self] (object, change) in
+            cell.petPhotoObserver =
+                storageManager.petsList[indexPath.row].observe(\.photo, options: [.new]) { (object, change) in
 
                 guard let newValue = change.newValue else { return }
                 //                print(change)

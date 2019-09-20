@@ -11,6 +11,8 @@ import UIKit
 
 extension UIImage {
     
+    //swiftlint:disable cyclomatic_complexity function_body_length unneeded_break_in_switch
+
     /// Fix image orientaton to protrait up
     func fixedOrientation() -> UIImage? {
         guard imageOrientation != UIImage.Orientation.up else {
@@ -81,4 +83,6 @@ extension UIImage {
         guard let newCGImage = ctx.makeImage() else { return nil }
         return UIImage.init(cgImage: newCGImage, scale: 1, orientation: .up)
     }
+    
+    //swiftlint:enable cyclomatic_complexity function_body_length unneeded_break_in_switch
 }

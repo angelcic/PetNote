@@ -42,20 +42,28 @@ class AddingProtectPlanViewController: BaseViewController {
     var protectPlan: PNProtectPlan = PNProtectPlan() {
         didSet {
             if let protectType = protectPlan.protectType {
+                
                 currentPreventType = ProtectType.getProtectType(name: protectType, petType: currentPetType)
+                
+                petPreventType = currentPreventType
             }
             if let protectPlan = protectPlan.protectName {
-                currentPlanNameString = protectPlan
+                petPlanNameString = protectPlan
             }
         }
     }
     
-    var currentPlanNameString = ""
+    var petPlanNameString = ""
+    // 
+    var petPreventType: ProtectType?
     
+    // 目前的寵物類型
     var currentPetType: PetType = .cat
     
+    // 目前選擇的的計劃類型
     lazy var currentPreventType: ProtectType = .vaccines(type: currentPetType)
     
+    // 目前選擇的計畫名稱
     var currentProtectPlanIndex = 0
     
     override func viewDidLoad() {
@@ -82,12 +90,13 @@ class AddingProtectPlanViewController: BaseViewController {
     func setTableView() {
         tableView.registerCellWithNib(identifier: String(describing: ProtectTypeTableViewCell.self), bundle: nil)
         tableView.registerCellWithNib(identifier: String(describing: NotifyTableViewCell.self), bundle: nil)
+        tableView.registerCellWithNib(identifier: String(describing: TitleWithButtonTableViewCell.self), bundle: nil)
+        
         tableView.registerHeaderWithNib(identifier: String(describing: WithImageSectionHeaderView.self), bundle: nil)
         
     }
     
     @objc func saveAction() {
-    // TODO:
         print("save")
         
         protectPlan.protectType = currentPreventType.protectTypeName
@@ -101,6 +110,8 @@ class AddingProtectPlanViewController: BaseViewController {
                 protectPlan.protectName = cell.titleLabel.text
             }
         }
+        // TODO:
+
 //        let notifyInfo = PNNotifyInfo()
 //        notifyInfo.repeats = false
 //        notifyInfo.date = 0
@@ -111,19 +122,10 @@ class AddingProtectPlanViewController: BaseViewController {
         self.dismiss(animated: false, completion: nil)
         delegate?.pressAddProtectPlan(protectPlan)
         
-//        StorageManager.shared.saveAll {[weak self] result in
-//            switch result {
-//            case .success:
-//                self?.delegate?.pressAddProtectPlan()
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
-        
     }
 }
 
-// colloectionView
+// MARK: colloectionView setting
 
 extension AddingProtectPlanViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -141,7 +143,7 @@ extension AddingProtectPlanViewController: UICollectionViewDataSource {
                 return UICollectionViewCell()
         }
         cell.layoutCell(title: protectPlans[indexPath.row])
-        if indexPath.row == 0 {
+        if indexPath.row == currentPreventType.protectTypeIndex {
             cell.setSelectedBG()
         }
         return cell
@@ -157,12 +159,7 @@ extension AddingProtectPlanViewController: UICollectionViewDelegate {
                 cell.changeSelectedStatus()
             }
         }
-//
-//        if let cell = collectionView.cellForItem(at: indexPath)
-//                    as? BasicCollectionViewCell {
-//            cell.changeSelectedStatus()
-//        }
-        // TODO:
+        
         currentPreventType = protectTypes[indexPath.row]
         tableView.reloadData()
         
@@ -217,8 +214,8 @@ extension AddingProtectPlanViewController: ProtectTypeTableViewCellDelegate {
 
 extension AddingProtectPlanViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO: 這邊要修改
+    func tableView(_ tableView: UITableView,
+                   didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
             guard let notifySettingVC = UIStoryboard.notify.instantiateViewController(
                 withIdentifier: String(describing: SettingNotifyViewController.self))
@@ -283,59 +280,89 @@ extension AddingProtectPlanViewController: UITableViewDataSource {
         return view
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-           
-            guard
-                let cell = tableView.dequeueReusableCell(
-                    withIdentifier: String(describing: ProtectTypeTableViewCell.self),
-                    for: indexPath)
-                    as?  ProtectTypeTableViewCell
+            
+            return getprotectNameCell(tableView, cellForRowAt: indexPath)
+            
+        } else {
+            // 通知提醒
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: String(describing: TitleWithButtonTableViewCell.self),
+                for: indexPath)
+                as? TitleWithButtonTableViewCell
                 else {
-                    return  UITableViewCell()
+                    return UITableViewCell()
             }
             cell.delegate = self
-            
-            switch currentPreventType {
-            case .other:
-                
-                cell.layoutCell(title: currentPreventType.protectFuntions[indexPath.row], hideTextField: false)
-               
-                cell.layoutTextField(title: currentPlanNameString)
-                
-                cell.changeSelectedStatus(true)
-
-            default:
-                
-                if indexPath.row == currentPreventType.protectFuntions.count - 1 {
-                    cell.layoutCell(title: currentPreventType.protectFuntions[indexPath.row], hideTextField: false)
-                } else {
-                cell.layoutCell(title: currentPreventType.protectFuntions[indexPath.row], hideTextField: true)
-                }
-                
-                if currentPlanNameString == currentPreventType.protectFuntions[indexPath.row] {
-                    cell.changeSelectedStatus(true)
-                } else {
-                    cell.changeSelectedStatus(false)
-                }
-//                if indexPath.row == 0 {
-//                    cell.changeSelectedStatus(true)
-//                } else {
-//                   cell.changeSelectedStatus(false)
-//                }
-            }
-            return cell
-        } else {
-            guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: String(describing: NotifyTableViewCell.self),
-                for: indexPath)
-                as? NotifyTableViewCell
-            else {
-                return UITableViewCell()
-            }
+            cell.layoutCell(title: "通知管理", buttonTitle: "管理")
             return cell
         }
         
     }
     
+    func getprotectNameCell(_ tableView: UITableView,
+                            cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: String(describing: ProtectTypeTableViewCell.self),
+                for: indexPath)
+                as?  ProtectTypeTableViewCell
+            else {
+                return  UITableViewCell()
+        }
+        cell.delegate = self
+        
+        switch currentPreventType {
+        case .other:
+            
+            cell.layoutCell(title: currentPreventType.protectFuntions[indexPath.row], hideTextField: false)
+            
+            if let petPreventType = petPreventType,
+                petPreventType == currentPreventType {
+                cell.layoutTextField(title: petPlanNameString)
+            }
+            
+            cell.changeSelectedStatus(true)
+            
+        default:
+            
+            if indexPath.row == currentPreventType.protectFuntions.count - 1 {
+                cell.layoutCell(title: currentPreventType.protectFuntions[indexPath.row], hideTextField: false)
+            } else {
+                cell.layoutCell(title: currentPreventType.protectFuntions[indexPath.row], hideTextField: true)
+            }
+            
+            if let petPreventType = petPreventType,
+                petPreventType == currentPreventType {
+                if petPlanNameString == currentPreventType.protectFuntions[indexPath.row] {
+                    cell.changeSelectedStatus(true)
+                } else {
+                    cell.changeSelectedStatus(false)
+                }
+                //                    cell.layoutTextField(title: petPlanNameString)
+            } else {
+                if indexPath.row == 0 {
+                    cell.changeSelectedStatus(true)
+                } else {
+                    cell.changeSelectedStatus(false)
+                }
+            }
+        }
+        return cell
+    }
+    
+}
+
+extension AddingProtectPlanViewController: TitleWithButtonTableViewCellDelegate {
+    func pressRightButton() {
+        guard let notifySettingVC = UIStoryboard.notify.instantiateViewController(
+            withIdentifier: String(describing: SettingNotifyViewController.self))
+            as? SettingNotifyViewController
+            else {
+                return
+        }
+        show(notifySettingVC, sender: nil)
+    }
 }

@@ -11,7 +11,7 @@ import Foundation
 struct ProtectPlan {
 }
 
-enum ProtectType {
+enum ProtectType: Equatable {
     case vaccines(type: PetType)
     case entozoa
     case externalParasites(type: PetType)
@@ -52,6 +52,19 @@ enum ProtectType {
             return "體外驅蟲"
         case .other:
             return "其他"
+        }
+    }
+    
+    var protectTypeIndex: Int {
+        switch self {
+        case .vaccines:
+            return 0
+        case .entozoa:
+            return 1
+        case .externalParasites:
+            return 2
+        case .other:
+            return 3
         }
     }
     

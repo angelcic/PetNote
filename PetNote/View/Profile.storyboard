@@ -401,10 +401,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nqu-Cv-gog">
-                                <rect key="frame" x="0.0" y="20" width="375" height="94"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="112.5"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="edO-jj-WDS">
-                                        <rect key="frame" x="16" y="20" width="343" height="74"/>
+                                        <rect key="frame" x="16" y="20" width="343" height="92.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Owr-8f-fB9">
                                             <size key="itemSize" width="50" height="50"/>
@@ -423,10 +423,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="inQ-mI-WsM">
-                                <rect key="frame" x="0.0" y="114" width="375" height="553"/>
+                                <rect key="frame" x="0.0" y="132.5" width="375" height="534.5"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wFE-vR-HUe">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="553"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="534.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="separatorColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
@@ -443,7 +443,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Nqu-Cv-gog" firstAttribute="height" secondItem="Bzw-1M-KVj" secondAttribute="width" multiplier="0.25" id="1dl-Sp-WQu"/>
+                            <constraint firstItem="Nqu-Cv-gog" firstAttribute="height" secondItem="Bzw-1M-KVj" secondAttribute="width" multiplier="0.3" id="1dl-Sp-WQu"/>
                             <constraint firstItem="inQ-mI-WsM" firstAttribute="leading" secondItem="WLY-nX-g5p" secondAttribute="leading" id="2Id-z4-yk3"/>
                             <constraint firstItem="Nqu-Cv-gog" firstAttribute="top" secondItem="WLY-nX-g5p" secondAttribute="top" id="HuA-NJ-E4X"/>
                             <constraint firstAttribute="bottom" secondItem="inQ-mI-WsM" secondAttribute="bottom" id="VJh-wF-3FI"/>

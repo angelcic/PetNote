@@ -26,10 +26,6 @@ class ProfileDetailViewController: SwitchPetViewController, SwitchPetViewControl
         self.navigationItem.title = "毛孩資料"
         
         setupContainerView()
-//        observer = storageManager.observe(\.currentPetIndex, options: [.new, .initial]) {[weak self] (object, change) in
-//            print(change)
-//            self?.updateSwitchView()
-//        }
     }
     
     override func navigationBarSetting() {

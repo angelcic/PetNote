@@ -63,6 +63,6 @@ class ChartTableViewCell: UITableViewCell {
         
         let date = Int(recordDate.timeIntervalSince1970)
         
-        delegate?.addWeightRecord(date: date , weight: weight)
+        delegate?.addWeightRecord(date: date, weight: weight)
     }
 }
