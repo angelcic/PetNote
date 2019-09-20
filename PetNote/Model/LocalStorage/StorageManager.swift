@@ -88,7 +88,7 @@ import UIKit
     }
     
     // MARK: 新增
-    func addNewPet(name: String, type: PetType, completion: ((Result<Int, Error>) -> Void)? = nil) {
+    func addNewPet(petId: Double, name: String, type: PetType, completion: ((Result<Int, Error>) -> Void)? = nil) {
         guard
             let entity =
             NSEntityDescription.entity(forEntityName: Entity.info.rawValue, in: viewContext)
@@ -99,7 +99,7 @@ import UIKit
         guard let pet = NSManagedObject(entity: entity,
                                   insertInto: viewContext)
             as? PNPetInfo else { return }
-        
+        pet.petId = Int64(petId)
         pet.name = name
         pet.petType = type.rawValue
 //        pet.setValue(name, forKey: PetKey.name.rawValue)

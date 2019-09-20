@@ -76,8 +76,11 @@ extension BasicInfoViewController: UIImagePickerControllerDelegate {
 //            currentImage = image
             
 //            petDidChange()
+            guard let pet = currentPet else {return}
+            let petId = "\(pet.petId)"
+            
             // 把照片存入 app 下的資料夾
-            LocalFileManager.shared.saveImage(image: image) { [weak self] result in
+            LocalFileManager.shared.saveImage(petId: petId, image: image) { [weak self] result in
                 switch result {
                 case .success(let path):
                     self?.currentPet?.photo = path

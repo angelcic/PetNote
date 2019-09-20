@@ -46,9 +46,9 @@ extension AddPetViewController: AddPetViewDelegate {
         self.dismiss(animated: false, completion: nil)
     }
     
-    func confirmAction(name: String, type: PetType) {
+    func confirmAction(petId: Double, name: String, type: PetType) {
 //        guard let
-        storageManager.addNewPet(name: name, type: type) {[weak self] result in
+        storageManager.addNewPet(petId: petId, name: name, type: type) {[weak self] result in
             
             switch result {
                 

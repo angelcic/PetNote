@@ -81,8 +81,7 @@ class AddingProtectPlanViewController: BaseViewController {
         self.navigationController?.navigationBar.tintColor = .darkGray
         let saveButton = UIBarButtonItem(title: "儲存", style: .plain, target: self, action: #selector(saveAction))
         self.navigationItem.rightBarButtonItem = saveButton
-    }
-    
+    }    
     
     func setupAddProtectPlanVC(title: String, currentPreventType: ProtectType, protectPlan: ProtectPlan) {
         

@@ -33,7 +33,7 @@ class LocalFileManager {
         
     }
     
-    func saveImage(image: UIImage, completion: ((Result<String, Error>) -> Void)? = nil) {
+    func saveImage(petId: String, image: UIImage, completion: ((Result<String, Error>) -> Void)? = nil) {
         // 判斷存圖片的資料夾是否存在
         
         let isExist = FileManager.default.fileExists(atPath: imageDirectoryURL.absoluteString)
@@ -41,9 +41,9 @@ class LocalFileManager {
         if isExist {
             //        若有則進行存檔
             let filePath = imageDirectoryURL.appendingPathComponent(
-                "\(Date().timeIntervalSince1970).jpg",
+                "\(petId).jpg",
                 isDirectory: false).absoluteString
-            
+            print("filePath = \(filePath)")
             let imageData = image.fixedOrientation()!.jpegData(compressionQuality: 1)
             
             let result = FileManager.default.createFile(atPath: filePath, contents: imageData, attributes: nil)
@@ -64,7 +64,7 @@ class LocalFileManager {
                     withIntermediateDirectories: true,
                     attributes: nil)
                 // 創建成功繼續執行寫入檔案
-                saveImage(image: image, completion: completion)
+                saveImage(petId: petId, image: image, completion: completion)
             } catch let error {
                 print("創建檔案夾失敗")
                 print(error.localizedDescription)

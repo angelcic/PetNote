@@ -24,21 +24,12 @@ class WeightRecordViewController: BaseContainerViewController {
         }
     }
     
-//    var currentPet: PNPetInfo? {
-//        didSet {
-//            guard let pet = currentPet,
-//            let weights = pet.weightRecord?.allObjects as? [PNWeightRecord] else { return }
-//            self.weights = weights
-//        }
-//    }
-    
     func petDidChange() {
         guard let pet = currentPet,
             let weights = pet.weightRecord?.sortedArray(using: [NSSortDescriptor(key: "date", ascending: false)])
                 as? [PNWeightRecord] else { return }
         self.weights = weights
         tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
-//        pet.weightRecord?.sortedArray(using: [NSSortDescriptor(key: "date", ascending: false)])
     }
     
     var weights: [PNWeightRecord] = [] {
@@ -82,7 +73,6 @@ class WeightRecordViewController: BaseContainerViewController {
             let weight = weightRecord.weight
             let entry =
                 ChartDataEntry.init(x: Double(index), y: weight)
-            print("weight = \(weight)")
             dataEntries.append(entry)
             index += 1
             if index == 6 {
@@ -128,7 +118,6 @@ extension WeightRecordViewController: UITableViewDataSource {
             let chartView = PNChartView(chartViewFrame)
             chartView.setup()
             
-//            let month = Int(weights[weights.count - 1].date).getDateString(format: "MM")
             chartView.setupData(entries: getWeightDataEntry(), label: "")
             chartView.setupAxis(xValues: recordDates)
             

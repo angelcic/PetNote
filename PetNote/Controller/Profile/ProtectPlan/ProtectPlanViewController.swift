@@ -10,10 +10,10 @@ import UIKit
 
 class ProtectPlanViewController: BaseContainerViewController {
     func petDidChange() {
-        // TODO: 切換寵物
         guard
             let pet = currentPet,
-            let protectPlan = pet.protectPlan?.sortedArray(using: [NSSortDescriptor(key: "protectType", ascending: false)])
+            let protectPlan = pet.protectPlan?.sortedArray(
+                using: [NSSortDescriptor(key: "protectType", ascending: false)])
                 as? [PNProtectPlan]
         else {
             return

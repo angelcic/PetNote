@@ -10,7 +10,7 @@ import UIKit
 
 protocol AddPetViewDelegate: AnyObject {
     func cancelAction()
-    func confirmAction(name: String, type: PetType)
+    func confirmAction(petId: Double, name: String, type: PetType)
 }
 
 class AddPetView: UIView {
@@ -111,8 +111,8 @@ class AddPetView: UIView {
         }
         
         let type = petType[currentType]
-        
-        delegate?.confirmAction(name: name, type: type)
+        let createTime = Date().timeIntervalSince1970
+        delegate?.confirmAction(petId: createTime, name: name, type: type)
     }
 }
 
