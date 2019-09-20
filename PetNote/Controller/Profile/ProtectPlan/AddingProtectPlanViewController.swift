@@ -53,6 +53,8 @@ class AddingProtectPlanViewController: BaseViewController {
         }
     }
     
+    var handler: ((PNProtectPlan) -> Void)?
+    
     var petPlanNameString = ""
     // 
     var petPreventType: ProtectType?
@@ -128,8 +130,8 @@ class AddingProtectPlanViewController: BaseViewController {
 //        currentPet?.addToProtectPlan(protectPlan)
         
 //        self.dismiss(animated: false, completion: nil)
-        delegate?.pressAddProtectPlan(protectPlan)
-        
+//        delegate?.pressAddProtectPlan(protectPlan)
+        handler?(protectPlan)
         navigationController?.popToRootViewController(animated: false)
         
     }

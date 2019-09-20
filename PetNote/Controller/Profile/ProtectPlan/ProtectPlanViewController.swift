@@ -53,11 +53,39 @@ class ProtectPlanViewController: BaseContainerViewController {
         tableView.registerCellWithNib(identifier: ProtectPlanTableViewCell.identifier, bundle: nil)
     }
     
-    func showAddProtectPlanVC() {
-        showAddProtectPlanVC(protectPlan: StorageManager.shared.getPNProtectPlan(), title: "添加預防計畫")
+    func addProtectPlan() {
+        showAddProtectPlanVC(protectPlan: StorageManager.shared.getPNProtectPlan(),
+                             title: "添加預防計畫") {[weak self] protectPlan in
+            self?.currentPet?.addToProtectPlan(protectPlan)
+            
+            StorageManager.shared.saveAll {[weak self] result in
+                switch result {
+                case .success:
+                    self?.protectPlans.append(protectPlan)
+                    self?.tableView.reloadData()
+                    print("成功加入預防計畫")
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
     }
     
-    func showAddProtectPlanVC(protectPlan: PNProtectPlan, title: String = "編輯預防計畫") {
+    func modifyProtectPlan(protectPlan: PNProtectPlan) {
+        showAddProtectPlanVC(protectPlan: protectPlan, title: "編輯預防計畫") { protectPlan in
+            StorageManager.shared.saveAll {[weak self] result in
+                switch result {
+                case .success:
+                    self?.tableView.reloadData()
+                    print("成功修改預防計畫")
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
+    }
+    
+    func showAddProtectPlanVC(protectPlan: PNProtectPlan, title: String, handler: @escaping (PNProtectPlan) -> Void) {
         guard let addPlanViewController = UIStoryboard.profile.instantiateViewController(
             withIdentifier: "AddPreventionPage")
             as? AddingProtectPlanViewController
@@ -67,6 +95,7 @@ class ProtectPlanViewController: BaseContainerViewController {
         if let petType = currentPet?.getPetType() {
             addPlanViewController.currentPetType = petType
         }
+        addPlanViewController.handler = handler
         addPlanViewController.delegate = self
         addPlanViewController.protectPlan = protectPlan
         addPlanViewController.setupNavigationTitle(title: title)
@@ -125,15 +154,17 @@ extension ProtectPlanViewController: UITableViewDelegate {
         return headerView
     }
     
+    // MARK: 修改預防計畫
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        showAddProtectPlanVC(protectPlan: protectPlans[indexPath.row])
+        
+        modifyProtectPlan(protectPlan: protectPlans[indexPath.row])
     }
 }
 
 extension ProtectPlanViewController: SectionHeaderDelegate {
+    // MARK: 新增預防計畫
     func pressAddButton() {
-        
-        showAddProtectPlanVC()
+        addProtectPlan()
     }
 }
 
