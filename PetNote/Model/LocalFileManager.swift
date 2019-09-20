@@ -12,6 +12,7 @@ import UIKit
 class LocalFileManager {
     
     static let shared = LocalFileManager()
+    
     let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
     lazy var docURL = URL(string: documentDirectory)
     

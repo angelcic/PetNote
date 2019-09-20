@@ -14,11 +14,11 @@ class ProtectPlanViewController: BaseContainerViewController {
         guard
             let pet = currentPet,
             let protectPlan = pet.protectPlan?.allObjects
-                as? [ProtectPlan]
+                as? [PNProtectPlan]
         else {
             return
         }
-        self.protectPlan = protectPlan
+        self.protectPlans = protectPlan
     }
 
     @IBOutlet weak var tableView: UITableView! {
@@ -30,7 +30,7 @@ class ProtectPlanViewController: BaseContainerViewController {
         
     }
     
-    var protectPlan: [ProtectPlan] = [] {
+    var protectPlans: [PNProtectPlan] = [] {
         didSet {
             tableView.reloadData()
         }
@@ -42,7 +42,7 @@ class ProtectPlanViewController: BaseContainerViewController {
         super.viewDidLoad()
         setTableView()
         
-        protectPlan = currentPet?.protectPlan?.allObjects as? [ProtectPlan] ?? []
+        protectPlans = currentPet?.protectPlan?.allObjects as? [PNProtectPlan] ?? []
         // Do any additional setup after loading the view.
     }
     
@@ -50,22 +50,51 @@ class ProtectPlanViewController: BaseContainerViewController {
         tableView.registerHeaderWithNib(
             identifier: String(describing: AddDataTableViewSectionHeaderView.self),
             bundle: nil)
+        tableView.registerCellWithNib(identifier: ProtectPlanTableViewCell.identifier, bundle: nil)
+    }
+    
+    func showAddProtectPlanVC(protectPlan: PNProtectPlan = StorageManager.shared.getPNProtectPlan()) {
+        guard let addPlanViewController = UIStoryboard.profile.instantiateViewController(
+            withIdentifier: "AddPreventionPage")
+            as? AddingProtectPlanViewController
+            else {
+                return
+        }
+        if let petType = currentPet?.getPetType() {
+            addPlanViewController.currentPetType = petType
+        }
+        addPlanViewController.delegate = self
+        addPlanViewController.protectPlan = protectPlan
+        
+        show(addPlanViewController, sender: nil)
     }
     
 }
 
 extension ProtectPlanViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if protectPlan.count == 0 {
+        if protectPlans.count == 0 {
             alertView.isHidden = false
         } else {
             alertView.isHidden = true
         }
-        return protectPlan.count
+        return protectPlans.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        
+        guard
+            let cell = tableView.dequeueReusableCell(withIdentifier: ProtectPlanTableViewCell.identifier, for: indexPath)
+                as? ProtectPlanTableViewCell
+            else {
+                return UITableViewCell()
+        }
+        let type = protectPlans[indexPath.row].protectType
+        let name = protectPlans[indexPath.row].protectName
+        
+        cell.layoutCell(type: type, name: name)
+        
+        return cell
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -88,22 +117,46 @@ extension ProtectPlanViewController: UITableViewDelegate {
         headerView.delegate = self
         return headerView
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        showAddProtectPlanVC(protectPlan: protectPlans[indexPath.row])
+    }
 }
 
 extension ProtectPlanViewController: SectionHeaderDelegate {
     func pressAddButton() {
         
-        guard let addPlanViewController = UIStoryboard.profile.instantiateViewController(
-            withIdentifier: "AddPreventionPage")
-            as? AddingProtectPlanViewController
-        else {
-            return
-        }
-        if let petType = currentPet?.getPetType() {
-            addPlanViewController.currentPetType = petType
-        }
-        show(addPlanViewController, sender: nil)
+//        guard let addPlanViewController = UIStoryboard.profile.instantiateViewController(
+//            withIdentifier: "AddPreventionPage")
+//            as? AddingProtectPlanViewController
+//        else {
+//            return
+//        }
+//        if let petType = currentPet?.getPetType() {
+//            addPlanViewController.currentPetType = petType
+//        }
+//        addPlanViewController.delegate = self
+//        addPlanViewController.protectPlan = StorageManager.shared.getPNProtectPlan()
+//
+//        show(addPlanViewController, sender: nil)
+        showAddProtectPlanVC()
+    }
+}
+
+extension ProtectPlanViewController: AddingProtectPlanVCDelegate {
+    func pressAddProtectPlan(_ protectPlan: PNProtectPlan) {
+        currentPet?.addToProtectPlan(protectPlan)
         
-    }   
+        StorageManager.shared.saveAll {[weak self] result in
+            switch result {
+            case .success:
+                self?.protectPlans.append(protectPlan)
+                self?.tableView.reloadData()
+                print("成功加入預防計畫")
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
     
 }

@@ -1,18 +1,19 @@
 //
-//  WeightLabelTableViewCell.swift
+//  ProtectPlanTableViewCell.swift
 //  PetNote
 //
-//  Created by iching chen on 2019/9/4.
+//  Created by iching chen on 2019/9/19.
 //  Copyright © 2019 ichingchen. All rights reserved.
 //
 
 import UIKit
 
-class WeightLabelTableViewCell: UITableViewCell {
+class ProtectPlanTableViewCell: UITableViewCell {
+
+    @IBOutlet weak var protectType: UILabel!
+    @IBOutlet weak var planName: UILabel!
+    @IBOutlet weak var protectTypeImage: UIImageView!
     
-    @IBOutlet weak var dataLabel: UILabel!
-    @IBOutlet weak var weightLabel: UILabel!
-   
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,9 +25,9 @@ class WeightLabelTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func layoutCell(date: String, weight: String) {
-        dataLabel.text = date
-        weightLabel.text = weight
+    func layoutCell(type: String?, name: String?) {
+        protectType.text = type
+        planName.text = name
     }
     
 }

@@ -138,4 +138,12 @@ import UIKit
             completion?(Result.failure(error))
         }
     }
+    
+    func getPNProtectPlan() -> PNProtectPlan {
+        return PNProtectPlan.init(context: viewContext)
+    }
+    
+    func getPNPNWeightRecord() -> PNWeightRecord {
+        return PNWeightRecord.init(context: viewContext)
+    }
 }

@@ -41,4 +41,29 @@ enum ProtectType {
             return ["其他"]
         }
     }
+    
+    var protectTypeName: String {
+        switch self {
+        case .vaccines:
+            return "疫苗"
+        case .entozoa:
+            return "體內驅蟲"
+        case .externalParasites:
+            return "體外驅蟲"
+        case .other:
+            return "其他"
+        }
+    }
+    
+    static func getProtectType(name: String, petType: PetType) -> ProtectType {
+        if name == "疫苗" {
+            return .vaccines(type: petType)
+        } else if name == "體內驅蟲" {
+            return .entozoa
+        } else if name == "體外驅蟲" {
+            return .externalParasites(type: petType)
+        } else {
+            return .other
+        }
+    }
 }

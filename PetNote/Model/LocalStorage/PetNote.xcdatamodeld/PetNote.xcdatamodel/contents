@@ -6,6 +6,16 @@
     <entity name="PNMedicalRecord" representedClassName="PNMedicalRecord" syncable="YES" codeGenerationType="class">
         <relationship name="petInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PNPetInfo" inverseName="medicalRecord" inverseEntity="PNPetInfo" syncable="YES"/>
     </entity>
+    <entity name="PNNotifyInfo" representedClassName="PNNotifyInfo" syncable="YES" codeGenerationType="class">
+        <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="repeats" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="subtitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="protectPlan" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PNProtectPlan" inverseName="notifyInfo" inverseEntity="PNProtectPlan" syncable="YES"/>
+    </entity>
     <entity name="PNPetInfo" representedClassName="PNPetInfo" syncable="YES" codeGenerationType="class">
         <attribute name="birth" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="breed" optional="YES" attributeType="String" syncable="YES"/>
@@ -21,16 +31,22 @@
         <relationship name="weightRecord" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PNWeightRecord" inverseName="petInfo" inverseEntity="PNWeightRecord" syncable="YES"/>
     </entity>
     <entity name="PNProtectPlan" representedClassName="PNProtectPlan" syncable="YES" codeGenerationType="class">
+        <attribute name="protectName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="protectType" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="notifyInfo" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PNNotifyInfo" inverseName="protectPlan" inverseEntity="PNNotifyInfo" syncable="YES"/>
         <relationship name="petInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PNPetInfo" inverseName="protectPlan" inverseEntity="PNPetInfo" syncable="YES"/>
     </entity>
     <entity name="PNWeightRecord" representedClassName="PNWeightRecord" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="weight" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="petInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PNPetInfo" inverseName="weightRecord" inverseEntity="PNPetInfo" syncable="YES"/>
     </entity>
     <elements>
         <element name="PNDailyRecord" positionX="-12.12109375" positionY="-0.26171875" width="128" height="60"/>
         <element name="PNMedicalRecord" positionX="-4.83203125" positionY="67.47265625" width="128" height="60"/>
         <element name="PNPetInfo" positionX="-191.4296875" positionY="-20.28515625" width="128" height="225"/>
-        <element name="PNProtectPlan" positionX="-5.66796875" positionY="139.140625" width="128" height="60"/>
-        <element name="PNWeightRecord" positionX="-16.0546875" positionY="210.6171875" width="128" height="60"/>
+        <element name="PNProtectPlan" positionX="-5.66796875" positionY="139.140625" width="128" height="105"/>
+        <element name="PNWeightRecord" positionX="-16.0546875" positionY="210.6171875" width="128" height="90"/>
+        <element name="PNNotifyInfo" positionX="-99" positionY="108" width="128" height="165"/>
     </elements>
 </model>

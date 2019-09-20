@@ -8,25 +8,13 @@
 
 import UIKit
 
+protocol AddingProtectPlanVCDelegate: AnyObject {
+    func pressAddProtectPlan(_ protectPlan: PNProtectPlan)
+}
+
 class AddingProtectPlanViewController: BaseViewController {
     
-    let protectPlans: [String] = ["疫苗", "體內驅蟲", "體外驅蟲", "其他"]
-    let protectTypes: [ProtectType] = [.vaccines(type: .cat), .entozoa, .externalParasites(type: .cat), .other]
-//    let catVaccines: [String] = ["三合一", "四合一", "五合一", "貓白血", "狂犬病", "其他"]
-//    let dogVaccines: [String] = ["七合一", "八合一", "十合一", "萊姆病", "狂犬病", "其他"]
-//
-//    let entozoa: [String] = ["犬新寶", "寵愛", "貝脈心", "心疥爽", "其他"]
-//
-//    let catExternalParasites: [String] = ["蚤安", "寵愛", "蚤不到", "易撲蚤",  "心疥爽", "其他"]
-//    let dogExternalParasites: [String] = ["益百分", "寵愛", "蚤不到", "易撲蚤", "心疥爽", "其他"]
-    var currentPetType: PetType = .cat {
-        didSet {
-            print(123)
-        }
-    }
-    
-    lazy var currentPreventType: ProtectType = .vaccines(type: currentPetType)
-    
+    // protectPlan & notifySetting
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.delegate = self
@@ -35,6 +23,7 @@ class AddingProtectPlanViewController: BaseViewController {
         }
     }
     
+    // protectType
     @IBOutlet weak var collectionView: UICollectionView! {
         
         didSet {
@@ -42,6 +31,32 @@ class AddingProtectPlanViewController: BaseViewController {
             collectionView.dataSource = self
         }
     }
+    
+    let protectPlans: [String] = ["疫苗", "體內驅蟲", "體外驅蟲", "其他"]
+    
+    lazy var protectTypes: [ProtectType] =
+        [.vaccines(type: currentPetType), .entozoa, .externalParasites(type: currentPetType), .other]
+    
+    weak var delegate: AddingProtectPlanVCDelegate?
+    
+    var protectPlan: PNProtectPlan = PNProtectPlan() {
+        didSet {
+            if let protectType = protectPlan.protectType {
+                currentPreventType = ProtectType.getProtectType(name: protectType, petType: currentPetType)
+            }
+            if let protectPlan = protectPlan.protectName {
+                currentPlanNameString = protectPlan
+            }
+        }
+    }
+    
+    var currentPlanNameString = ""
+    
+    var currentPetType: PetType = .cat
+    
+    lazy var currentPreventType: ProtectType = .vaccines(type: currentPetType)
+    
+    var currentProtectPlanIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +89,37 @@ class AddingProtectPlanViewController: BaseViewController {
     @objc func saveAction() {
     // TODO:
         print("save")
+        
+        protectPlan.protectType = currentPreventType.protectTypeName
+        
+        if let cell =
+            tableView.cellForRow(at: IndexPath(row: currentProtectPlanIndex, section: 0))
+        as? ProtectTypeTableViewCell {
+            if let text = cell.otherTextField.text, !text.isBlank {
+                protectPlan.protectName = text
+            } else {
+                protectPlan.protectName = cell.titleLabel.text
+            }
+        }
+//        let notifyInfo = PNNotifyInfo()
+//        notifyInfo.repeats = false
+//        notifyInfo.date = 0
+//
+//        protectPlan.addToNotifyInfo(notifyInfo)
+//        currentPet?.addToProtectPlan(protectPlan)
+        
+        self.dismiss(animated: false, completion: nil)
+        delegate?.pressAddProtectPlan(protectPlan)
+        
+//        StorageManager.shared.saveAll {[weak self] result in
+//            switch result {
+//            case .success:
+//                self?.delegate?.pressAddProtectPlan()
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
+        
     }
 }
 
@@ -123,12 +169,6 @@ extension AddingProtectPlanViewController: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        // TODO:
-
-//        if let cell = collectionView.cellForItem(at: indexPath)
-//                    as? BasicCollectionViewCell {
-//            cell.changeSelectedStatus()
-//        }
     }
     
 }
@@ -162,12 +202,16 @@ extension AddingProtectPlanViewController: UICollectionViewDelegateFlowLayout {
 
 extension AddingProtectPlanViewController: ProtectTypeTableViewCellDelegate {
     func checkAction(cell: ProtectTypeTableViewCell) {
+        
+        currentProtectPlanIndex = tableView.indexPath(for: cell)?.row ?? 0
+        
         for cell in tableView.visibleCells {
             if let cell = cell as? ProtectTypeTableViewCell {
                 cell.changeSelectedStatus(false)
             }
         }        
         cell.changeSelectedStatus(true)
+        
     }
 }
 
@@ -254,20 +298,31 @@ extension AddingProtectPlanViewController: UITableViewDataSource {
             
             switch currentPreventType {
             case .other:
+                
                 cell.layoutCell(title: currentPreventType.protectFuntions[indexPath.row], hideTextField: false)
+               
+                cell.layoutTextField(title: currentPlanNameString)
+                
                 cell.changeSelectedStatus(true)
 
             default:
+                
                 if indexPath.row == currentPreventType.protectFuntions.count - 1 {
                     cell.layoutCell(title: currentPreventType.protectFuntions[indexPath.row], hideTextField: false)
                 } else {
                 cell.layoutCell(title: currentPreventType.protectFuntions[indexPath.row], hideTextField: true)
                 }
-                if indexPath.row == 0 {
+                
+                if currentPlanNameString == currentPreventType.protectFuntions[indexPath.row] {
                     cell.changeSelectedStatus(true)
                 } else {
-                   cell.changeSelectedStatus(false)
+                    cell.changeSelectedStatus(false)
                 }
+//                if indexPath.row == 0 {
+//                    cell.changeSelectedStatus(true)
+//                } else {
+//                   cell.changeSelectedStatus(false)
+//                }
             }
             return cell
         } else {

@@ -16,7 +16,7 @@ class ProtectTypeTableViewCell: UITableViewCell {
     
     @IBOutlet weak var textFieldLayer: UIView!
     
-    @IBOutlet weak var otherTectField: UITextField!
+    @IBOutlet weak var otherTextField: UITextField!
     
     let isSelectedImage: UIImage? = UIImage(named: "icons8-checked-checkbox-50")
     
@@ -40,6 +40,10 @@ class ProtectTypeTableViewCell: UITableViewCell {
     func layoutCell(title: String, hideTextField: Bool) {
         titleLabel.text = title
         textFieldLayer.isHidden = hideTextField
+    }
+    
+    func layoutTextField(title: String) {
+        otherTextField.text = title
     }
     
     @IBAction func checkAction(_ sender: UIButton) {
