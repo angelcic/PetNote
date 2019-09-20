@@ -9,7 +9,7 @@
 import UIKit
 import Charts
 
-class WeightRecordViewController: BaseSwitchPetViewController {
+class WeightRecordViewController: SwitchPetViewController, SwitchPetViewControllerProtocol {
 
     @IBOutlet weak var switchPetLayer: UIView! {
         didSet {
@@ -24,9 +24,11 @@ class WeightRecordViewController: BaseSwitchPetViewController {
         }
     }
     
-    let weights: [Double] = [4.5, 4.6, 5.0, 4.8]
+    var currentPet: PNPetInfo?
     
-    var switchPetView = SwitchPetView()
+    let weights: [PNWeightRecord] = []
+    
+//    var switchPetView = SwitchPetView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +40,7 @@ class WeightRecordViewController: BaseSwitchPetViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        setupPetSwitchLayer()
+//        setupPetSwitchLayer()
 
     }
     
@@ -62,9 +64,9 @@ class WeightRecordViewController: BaseSwitchPetViewController {
     }
 }
 
-extension WeightRecordViewController: SwitchPetViewDelegate {
-    
-}
+//extension WeightRecordViewController: SwitchPetViewDelegate {
+//    
+//}
 
 extension WeightRecordViewController: UITableViewDelegate {
     
@@ -93,7 +95,7 @@ extension WeightRecordViewController: UITableViewDataSource {
             else {
                     return UITableViewCell()
             }
-            
+            cell.delegate = self
             let chartViewFrame = CGRect(x: 0, y: 0,
                                         width: cell.chartLayer.frame.width,
                                         height: cell.chartLayer.frame.height)
@@ -112,8 +114,33 @@ extension WeightRecordViewController: UITableViewDataSource {
                     return UITableViewCell()
             }
             
-            return cell        }
+//            cell.layoutCell(date: <#T##String#>, weight: <#T##String#>)
+            
+            return cell
+            
+        }
         
     }
     
+}
+
+extension WeightRecordViewController: ChartTableViewCellDelegate {
+    func addWeightRecord(date: Int, weight: Double) {
+        let weightRecord = StorageManager.shared.getPNPNWeightRecord()
+        weightRecord.date = Int64(date)
+        weightRecord.weight = weight
+        
+        currentPet?.addToWeightRecord(weightRecord)
+        
+        StorageManager.shared.saveAll {[weak self] result in
+            switch result {
+            case .success:
+//                self?.protectPlans.append(weightRecord)
+                self?.tableView.reloadData()
+                print("成功加入體重")
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 }

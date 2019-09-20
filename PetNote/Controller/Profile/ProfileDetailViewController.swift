@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileDetailViewController: BaseSwitchPetViewController {
+class ProfileDetailViewController: SwitchPetViewController, SwitchPetViewControllerProtocol {
 
     @IBOutlet var detailView: ProfileDetailView! {
         didSet {
@@ -26,10 +26,6 @@ class ProfileDetailViewController: BaseSwitchPetViewController {
         self.navigationItem.title = "毛孩資料"
         
         setupContainerView()
-//        observer = storageManager.observe(\.currentPetIndex, options: [.new, .initial]) {[weak self] (object, change) in
-//            print(change)
-//            self?.updateSwitchView()
-//        }
     }
     
     override func navigationBarSetting() {

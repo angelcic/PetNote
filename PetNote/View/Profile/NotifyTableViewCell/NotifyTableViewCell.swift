@@ -8,8 +8,16 @@
 
 import UIKit
 
-class NotifyTableViewCell: UITableViewCell {
+protocol NotifyTableViewCellDelegate: AnyObject {
+    func openAlertManager()
+}
 
+class NotifyTableViewCell: UITableViewCell {
+    @IBOutlet weak var nextExecuteTimeField: UITextField!
+    @IBOutlet weak var alertManagerButton: UIButton!
+    
+    weak var delegate: NotifyTableViewCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,6 +27,10 @@ class NotifyTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    @IBAction func pressAlertManager() {
+        delegate?.openAlertManager()
     }
     
 }

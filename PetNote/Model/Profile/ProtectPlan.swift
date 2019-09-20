@@ -11,7 +11,7 @@ import Foundation
 struct ProtectPlan {
 }
 
-enum ProtectType {
+enum ProtectType: Equatable {
     case vaccines(type: PetType)
     case entozoa
     case externalParasites(type: PetType)
@@ -39,6 +39,44 @@ enum ProtectType {
             }
         case .other:
             return ["其他"]
+        }
+    }
+    
+    var protectTypeName: String {
+        switch self {
+        case .vaccines:
+            return "疫苗"
+        case .entozoa:
+            return "體內驅蟲"
+        case .externalParasites:
+            return "體外驅蟲"
+        case .other:
+            return "其他"
+        }
+    }
+    
+    var protectTypeIndex: Int {
+        switch self {
+        case .vaccines:
+            return 0
+        case .entozoa:
+            return 1
+        case .externalParasites:
+            return 2
+        case .other:
+            return 3
+        }
+    }
+    
+    static func getProtectType(name: String, petType: PetType) -> ProtectType {
+        if name == "疫苗" {
+            return .vaccines(type: petType)
+        } else if name == "體內驅蟲" {
+            return .entozoa
+        } else if name == "體外驅蟲" {
+            return .externalParasites(type: petType)
+        } else {
+            return .other
         }
     }
 }

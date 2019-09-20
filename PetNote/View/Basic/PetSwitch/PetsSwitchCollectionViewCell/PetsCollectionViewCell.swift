@@ -15,6 +15,8 @@ class PetsCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var petImageBorderView: UIView!
     
+    var petPhotoObserver: NSKeyValueObservation!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

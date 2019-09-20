@@ -80,7 +80,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="checkButton" destination="jli-F6-uQ9" id="P9F-tS-LKD"/>
-                <outlet property="otherTectField" destination="kIe-8a-weu" id="0hU-ok-fyt"/>
+                <outlet property="otherTextField" destination="kIe-8a-weu" id="1ZO-Pw-AHN"/>
                 <outlet property="textFieldLayer" destination="S6m-o7-V1L" id="w9n-Tw-gFR"/>
                 <outlet property="titleLabel" destination="HA2-0X-ark" id="EDT-dc-i5J"/>
             </connections>

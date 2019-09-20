@@ -9,7 +9,7 @@
 import UIKit
 import FSCalendar
 
-class RecordViewController: BaseSwitchPetViewController {
+class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProtocol {
     
     @IBOutlet weak var switchPetLayer: UIView! {
         didSet {
@@ -33,7 +33,7 @@ class RecordViewController: BaseSwitchPetViewController {
     
     @IBOutlet weak var calendarHeightConstraint: NSLayoutConstraint!
     
-    var switchPetView = SwitchPetView()
+//    var switchPetView = SwitchPetView()
     
     fileprivate lazy var scopeGesture: UIPanGestureRecognizer = {
         [unowned self] in
@@ -53,7 +53,7 @@ class RecordViewController: BaseSwitchPetViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        setSwitchPetView()
+//        setupSwitchPetView()
     }
     
     func setCalendar() {
@@ -62,7 +62,7 @@ class RecordViewController: BaseSwitchPetViewController {
         self.tableView.panGestureRecognizer.require(toFail: self.scopeGesture)
     }
     
-    func setSwitchPetView() {
+    func setupSwitchPetView() {
         switchPetView.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: switchPetLayer.frame.size)
     }
     
@@ -82,11 +82,11 @@ class RecordViewController: BaseSwitchPetViewController {
     }
 }
 
-extension RecordViewController: SwitchPetViewDelegate {
+//extension RecordViewController: SwitchPetViewDelegate {
 //    func changePet(_ indexPath: IndexPath) {
 //        
 //    }
-}
+//}
 
 extension RecordViewController: UIGestureRecognizerDelegate {
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
