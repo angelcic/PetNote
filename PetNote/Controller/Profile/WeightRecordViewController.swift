@@ -43,9 +43,12 @@ class WeightRecordViewController: BaseContainerViewController {
     
     var weights: [PNWeightRecord] = [] {
         didSet {
+            weights.sort(by: >)
             tableView.reloadData()
         }
     }
+    
+    var recordDates: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,42 +67,32 @@ class WeightRecordViewController: BaseContainerViewController {
         tableView.registerCellWithNib(identifier: String(describing: ChartTableViewCell.self), bundle: nil)
         tableView.registerCellWithNib(identifier: String(describing: WeightLabelTableViewCell.self), bundle: nil)
     }
-
-    // MARK: switchPetView function
-//    func changePet(_ indexPath: IndexPath) {
-//        // TODO:
-//    }
-//
-//    func updateSwitchView() {
-//        switchPetView.updatePetsData()
-//    }
     
     func getWeightDataEntry() -> [ChartDataEntry] {
         
         var dataEntries = [ChartDataEntry]()
         
-        weights.forEach { weightRecord in
+        var index = 0
+        recordDates = []
+        
+        for weightRecord in weights {
             
-            let date = Int(Int(weightRecord.date).getDateString(format: "dd"))
+            let date = Int(weightRecord.date).getDateString(format: "MM/dd")
+            recordDates.append(date)
             let weight = weightRecord.weight
             let entry =
-            ChartDataEntry.init(x: Double(date ?? 0), y: weight)
+                ChartDataEntry.init(x: Double(index), y: weight)
+            print("weight = \(weight)")
             dataEntries.append(entry)
+            index += 1
+            if index == 6 {
+                break
+            }
         }
         
         return dataEntries
-//        for index in 0..<5 {
-//            //            let y = arc4random()%100
-//            let yyy = Double.random(in: 0...6)
-//            let entry = ChartDataEntry.init(x: Double(index), y: Double(yyy))
-//            dataEntries.append(entry)
-//        }
     }
 }
-
-//extension WeightRecordViewController: SwitchPetViewDelegate {
-//    
-//}
 
 extension WeightRecordViewController: UITableViewDelegate {
     
@@ -136,8 +129,8 @@ extension WeightRecordViewController: UITableViewDataSource {
             chartView.setup()
             
 //            let month = Int(weights[weights.count - 1].date).getDateString(format: "MM")
-            
             chartView.setupData(entries: getWeightDataEntry(), label: "")
+            chartView.setupAxis(xValues: recordDates)
             
             cell.chartLayer.subviews.forEach { $0.removeFromSuperview() }
             cell.chartLayer.addSubview(chartView)

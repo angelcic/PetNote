@@ -32,7 +32,7 @@ class PNChartView: UIView {
         notifyDataChanged()
     }
     
-    func setupAxis(xValues: [String]?, yValues: [String]?) {
+    func setupAxis(xValues: [String]?, yValues: [String]? = nil) {
         
         chartView.xAxis.drawGridLinesEnabled = false // 不繪製Ｘ軸延伸格線
         chartView.leftAxis.drawGridLinesEnabled = false //不繪製Y軸延伸格線
@@ -48,8 +48,8 @@ class PNChartView: UIView {
 //        chartView.leftAxis.entryCount = 4
         
         // 自定義刻度文字
-        let xValues =  ["1", "2", "3", "4", "5", "6"]
-        chartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: xValues)
+        let defaultXValues =  ["1", "2", "3", "4", "5", "6"]
+        chartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: xValues ?? defaultXValues)
         if let yValues = yValues {
             chartView.leftAxis.valueFormatter = IndexAxisValueFormatter(values: yValues)
         }
@@ -98,6 +98,7 @@ class PNChartView: UIView {
         
         let chartData = LineChartData(dataSets: [chartDataSet])
         
+        chartData.setValueFormatter(MyFormatter())
         //设置折现图数据
         chartView.data = chartData
     }
@@ -106,6 +107,17 @@ class PNChartView: UIView {
         // 改變資料、樣式要呼叫的方法
         chartView.data?.notifyDataChanged()
         chartView.notifyDataSetChanged()
+    }
+}
+
+class MyFormatter: NSObject, IValueFormatter {
+    func stringForValue(_ value: Double, entry: ChartDataEntry,
+                        dataSetIndex: Int, viewPortHandler: ViewPortHandler?) -> String {
+        let formatter = NumberFormatter()
+        formatter.maximumFractionDigits = 2
+        let string = "\(formatter.string(from: NSNumber(value: value)) ?? "") kg"
+        
+        return string
     }
 }
 

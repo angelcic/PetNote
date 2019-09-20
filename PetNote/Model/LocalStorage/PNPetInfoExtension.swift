@@ -60,3 +60,10 @@ extension PNPetInfo {
         }
     }
 }
+
+extension PNWeightRecord: Comparable {
+    public static func < (lhs: PNWeightRecord, rhs: PNWeightRecord) -> Bool {
+        return lhs.date < rhs.date
+    }
+    
+}
