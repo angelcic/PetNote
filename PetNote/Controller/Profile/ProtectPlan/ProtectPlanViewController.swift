@@ -13,7 +13,7 @@ class ProtectPlanViewController: BaseContainerViewController {
         // TODO: 切換寵物
         guard
             let pet = currentPet,
-            let protectPlan = pet.protectPlan?.allObjects
+            let protectPlan = pet.protectPlan?.sortedArray(using: [NSSortDescriptor(key: "protectType", ascending: false)])
                 as? [PNProtectPlan]
         else {
             return
@@ -53,7 +53,11 @@ class ProtectPlanViewController: BaseContainerViewController {
         tableView.registerCellWithNib(identifier: ProtectPlanTableViewCell.identifier, bundle: nil)
     }
     
-    func showAddProtectPlanVC(protectPlan: PNProtectPlan = StorageManager.shared.getPNProtectPlan()) {
+    func showAddProtectPlanVC() {
+        showAddProtectPlanVC(protectPlan: StorageManager.shared.getPNProtectPlan(), title: "添加預防計畫")
+    }
+    
+    func showAddProtectPlanVC(protectPlan: PNProtectPlan, title: String = "編輯預防計畫") {
         guard let addPlanViewController = UIStoryboard.profile.instantiateViewController(
             withIdentifier: "AddPreventionPage")
             as? AddingProtectPlanViewController
@@ -65,6 +69,7 @@ class ProtectPlanViewController: BaseContainerViewController {
         }
         addPlanViewController.delegate = self
         addPlanViewController.protectPlan = protectPlan
+        addPlanViewController.setupNavigationTitle(title: title)
         
         show(addPlanViewController, sender: nil)
     }
@@ -128,19 +133,6 @@ extension ProtectPlanViewController: UITableViewDelegate {
 extension ProtectPlanViewController: SectionHeaderDelegate {
     func pressAddButton() {
         
-//        guard let addPlanViewController = UIStoryboard.profile.instantiateViewController(
-//            withIdentifier: "AddPreventionPage")
-//            as? AddingProtectPlanViewController
-//        else {
-//            return
-//        }
-//        if let petType = currentPet?.getPetType() {
-//            addPlanViewController.currentPetType = petType
-//        }
-//        addPlanViewController.delegate = self
-//        addPlanViewController.protectPlan = StorageManager.shared.getPNProtectPlan()
-//
-//        show(addPlanViewController, sender: nil)
         showAddProtectPlanVC()
     }
 }

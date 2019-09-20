@@ -143,14 +143,20 @@ class SwitchPetView: UIView {
         for cell in collectionView.visibleCells {
             guard
                 let cell = cell as? PetsCollectionViewCell
-                else {
+            else {
                     return
+            }
+            if collectionView.indexPath(for: cell)?.section == 0 {
+                print("!!!!")
             }
             cell.changeSlectedStatus()
         }
     }
     
     func updateSelectedStatus(indexPath: IndexPath, isSelected: Bool) {
+        if indexPath.section == 0 {
+            print("!!!!")
+        }
             guard
                 let cell = collectionView.cellForItem(at: indexPath)
                     as? PetsCollectionViewCell

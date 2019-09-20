@@ -83,6 +83,15 @@ class AddingProtectPlanViewController: BaseViewController {
         self.navigationItem.rightBarButtonItem = saveButton
     }
     
+    
+    func setupAddProtectPlanVC(title: String, currentPreventType: ProtectType, protectPlan: ProtectPlan) {
+        
+    }
+    
+    func setupNavigationTitle(title: String) {
+        self.navigationItem.title = title
+    }
+    
     func setCollectionView() {
         collectionView.registerCellWithNib(identifier: String(describing: BasicCollectionViewCell.self), bundle: nil)
     }
@@ -119,8 +128,10 @@ class AddingProtectPlanViewController: BaseViewController {
 //        protectPlan.addToNotifyInfo(notifyInfo)
 //        currentPet?.addToProtectPlan(protectPlan)
         
-        self.dismiss(animated: false, completion: nil)
+//        self.dismiss(animated: false, completion: nil)
         delegate?.pressAddProtectPlan(protectPlan)
+        
+        navigationController?.popToRootViewController(animated: false)
         
     }
 }

@@ -56,7 +56,7 @@ import UIKit
         return datas.map({ $0.info })
     }
     
-    var datas: [PetInfo] = []
+    dynamic var datas: [PetInfo] = []
     
     var images: [UIImage?] {
         
