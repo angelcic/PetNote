@@ -26,7 +26,7 @@ class WeightLabelTableViewCell: UITableViewCell {
     
     func layoutCell(date: String, weight: String) {
         dataLabel.text = date
-        weightLabel.text = weight
+        weightLabel.text = "\(weight) kg"
     }
     
 }

@@ -60,6 +60,7 @@ class ChartTableViewCell: UITableViewCell {
             print("請輸入體重")
             return
         }
+        weightTextField.text = ""
         
         let date = Int(recordDate.timeIntervalSince1970)
         
