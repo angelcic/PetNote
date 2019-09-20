@@ -31,28 +31,41 @@ class SwitchPetViewController: BaseViewController, SwitchPetViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupPetIndexObserver()
+        setupPetArrayObserver()
+    }
+    
+    func setupPetIndexObserver() {
         petIndexObserver =
             storageManager.observe(\.currentPetIndex, options: [.old, .new]) {[weak self] (object, change) in
+                
+                guard let switchPetView = self?.switchPetView else { return }
+                //            switchPetView.updatePetsData()
+                //            print(change)
+                
+                if let oldValue = change.oldValue {
+                    let indexPath = IndexPath(row: oldValue, section: 1)
+                    switchPetView.updateSelectedStatus(indexPath: indexPath, isSelected: false)
+                }
+                
+                if let newValue = change.newValue {
+                    let indexPath = IndexPath(row: newValue, section: 1)
+                    switchPetView.updateSelectedStatus(indexPath: indexPath, isSelected: true)
+//                    guard let cell = switchPetView.collectionView.cellForItem(at: indexPath) else {return}
+                    switchPetView.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+                    guard let controller = self as? BaseSwitchPetViewController else {
+                        return
+                    }
+                    controller.changePet(indexPath)
+                }
+        }
+    }
+    
+    func setupPetArrayObserver() {
+        petListObserver = storageManager.observe(\.datas, options: [.new]) {[weak self] (object, change) in
             
             guard let switchPetView = self?.switchPetView else { return }
-//            switchPetView.updatePetsData()
-//            print(change)
-            
-            if let oldValue = change.oldValue {
-                let indexPath = IndexPath(row: oldValue, section: 1)
-               switchPetView.updateSelectedStatus(indexPath: indexPath, isSelected: false)
-            }
-            
-            if let newValue = change.newValue {
-                let indexPath = IndexPath(row: newValue, section: 1)
-                switchPetView.updateSelectedStatus(indexPath: indexPath, isSelected: true)
-                switchPetView.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-                guard let controller = self as? BaseSwitchPetViewController else {
-                    return
-                }
-                controller.changePet(indexPath)
-            }
+            switchPetView.updatePetsData()
         }
     }
     
@@ -78,11 +91,14 @@ extension SwitchPetViewController: AddPetViewControllerDelegate {
     func addPetResult(_ result: Result<Int, Error>) {
         switch result {
         case .success:
-            
-            guard let controller = self as? BaseSwitchPetViewController else {
-                return
-            }
-            controller.updateSwitchView()
+            print("新增success")
+//            switchPetView.updatePetsData()
+//            guard let controller = self as? BaseSwitchPetViewController else {
+//                return
+//            }
+            storageManager.currentPetIndex = storageManager.petsList.count - 1
+//
+//            controller.updateSwitchView()
             
         case .failure(let error) :
             print(error)
@@ -155,7 +171,7 @@ extension SwitchPetViewController: UICollectionViewDataSource {
             cell.isSelected = false
             cell.changeSlectedStatus()
             
-            if indexPath.row ==                storageManager.currentPetIndex {
+            if indexPath.row == storageManager.currentPetIndex {
 //            PNGlobalProperties.currentPetIndex {
 //                cell.isSelected = true
                 cell.changeSlectedStatus(true)

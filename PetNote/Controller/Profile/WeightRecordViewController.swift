@@ -24,9 +24,15 @@ class WeightRecordViewController: SwitchPetViewController, SwitchPetViewControll
         }
     }
     
-    var currentPet: PNPetInfo?
+    var currentPet: PNPetInfo? {
+        didSet {
+            guard let pet = currentPet,
+            let weights = pet.weightRecord?.allObjects as? [PNWeightRecord] else { return }
+            self.weights = weights
+        }
+    }
     
-    let weights: [PNWeightRecord] = []
+    var weights: [PNWeightRecord] = []
     
 //    var switchPetView = SwitchPetView()
     
@@ -61,6 +67,28 @@ class WeightRecordViewController: SwitchPetViewController, SwitchPetViewControll
     
     func updateSwitchView() {
         switchPetView.updatePetsData()
+    }
+    
+    func getWeightDataEntry() -> [ChartDataEntry] {
+        
+        var dataEntries = [ChartDataEntry]()
+        
+        weights.forEach() {
+            
+            let date = Int(Int($0.date).getDateString(format: "dd"))
+            let weight = $0.weight
+            let entry =
+            ChartDataEntry.init(x: Double(date ?? 0), y: weight)
+            dataEntries.append(entry)
+        }
+        
+        return dataEntries
+//        for index in 0..<5 {
+//            //            let y = arc4random()%100
+//            let yyy = Double.random(in: 0...6)
+//            let entry = ChartDataEntry.init(x: Double(index), y: Double(yyy))
+//            dataEntries.append(entry)
+//        }
     }
 }
 
@@ -100,7 +128,12 @@ extension WeightRecordViewController: UITableViewDataSource {
                                         width: cell.chartLayer.frame.width,
                                         height: cell.chartLayer.frame.height)
             let chartView = PNChartView(chartViewFrame)
-                chartView.setup()
+            chartView.setup()
+            
+//            let month = Int(weights[weights.count - 1].date).getDateString(format: "MM")
+            
+            chartView.setupData(entries: getWeightDataEntry() , label: "")
+            
             cell.chartLayer.addSubview(chartView)
             return cell
             
@@ -113,8 +146,9 @@ extension WeightRecordViewController: UITableViewDataSource {
             else {
                     return UITableViewCell()
             }
-            
-//            cell.layoutCell(date: <#T##String#>, weight: <#T##String#>)
+            let date = Int(weights[indexPath.row].date).getDateString()
+            let weight = String(weights[indexPath.row].date)
+            cell.layoutCell(date: date, weight: weight)
             
             return cell
             

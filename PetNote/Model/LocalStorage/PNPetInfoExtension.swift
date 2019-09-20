@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class PetInfo {
+@objcMembers class PetInfo: NSObject {
     
     let info: PNPetInfo
     
@@ -18,10 +18,11 @@ class PetInfo {
     private var observation: NSKeyValueObservation!
     
     init(info: PNPetInfo) {
-        
         self.info = info
+        super.init()
         
         self.triggerObservation()
+        
     }
     
     func triggerObservation() {
