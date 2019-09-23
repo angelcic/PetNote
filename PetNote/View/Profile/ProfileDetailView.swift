@@ -24,17 +24,18 @@ class ProfileDetailView: UIView {
         case healthRecord = 2
     }
     
-    @IBOutlet weak var selectionViewLayer: UIView! {
-        didSet {
-            let selectionView = SelectionView(CGRect(x: 0, y: 0, width: selectionViewLayer.frame.width, height: selectionViewLayer.frame.height))
-            
-            selectionView.delegate = self
-            selectionView.dataSource = self
-
-            selectionView.backgroundColor = .white
-            selectionViewLayer.addSubview(selectionView)
-        }
-    }
+    @IBOutlet weak var selectionViewLayer: UIView!
+//    {
+//        didSet {
+//            let selectionView = SelectionView(CGRect(x: 0, y: 0, width: selectionViewLayer.frame.width, height: selectionViewLayer.frame.height))
+//
+//            selectionView.delegate = self
+//            selectionView.dataSource = self
+//
+//            selectionView.backgroundColor = .white
+//            selectionViewLayer.addSubview(selectionView)
+//        }
+//    }
     
 //    @IBOutlet weak var collectionView: UICollectionView! {
 //

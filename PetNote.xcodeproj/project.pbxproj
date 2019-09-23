@@ -348,15 +348,15 @@
 			isa = PBXGroup;
 			children = (
 				9166EFAC2338C05D0086C70E /* ProfileRootView.swift */,
+				9166EFCE2338C05D0086C70E /* ProfileDetailView.swift */,
 				9166EFAD2338C05D0086C70E /* WeightRecordTabelViewCell */,
 				9166EFB32338C05D0086C70E /* ProfileRootViewTableViewCell */,
 				9166EFB62338C05D0086C70E /* SectionHeaderView */,
 				9166EFBB2338C05D0086C70E /* AddPetView.swift */,
+				9166EFCF2338C05D0086C70E /* AddPetView.xib */,
 				9166EFBC2338C05D0086C70E /* BasicInfoTableViewCell */,
 				9166EFC62338C05D0086C70E /* ProtectTypeTableViewCell */,
 				9166EFCB2338C05D0086C70E /* NotifyTableViewCell */,
-				9166EFCE2338C05D0086C70E /* ProfileDetailView.swift */,
-				9166EFCF2338C05D0086C70E /* AddPetView.xib */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -626,11 +626,11 @@
 		9181BC3D23179FC9007BB7C6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9166EF5A2338BC360086C70E /* Basic */,
 				9166F0402338CBD10086C70E /* Other */,
 				9166EFAB2338C05D0086C70E /* Profile */,
 				9166EFA62338BEE40086C70E /* Notify */,
 				9166EF902338BE890086C70E /* Medical */,
-				9166EF5A2338BC360086C70E /* Basic */,
 				9181BC5B2317DE0A007BB7C6 /* UI */,
 				9166EF512338BC010086C70E /* Record */,
 				9181BC2A23177E1C007BB7C6 /* Main.storyboard */,

@@ -40,9 +40,9 @@ private enum Tab {
     
     func tabBarItem() -> UITabBarItem {
         
-        let image = UIImage(named: "Icons_64px_footprint01")
+//        let image = UIImage(named: "Icons_64px_footprint01")
 
-//        let image = UIImage(named: "Icon-foot-Small")
+        let image = UIImage(named: "Icon-foot-Small")
         
         switch self {
         case .profile:

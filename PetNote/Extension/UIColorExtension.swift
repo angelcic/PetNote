@@ -11,7 +11,7 @@ import UIKit
 
 private enum PNColor: String {
 
-    case lightCoral = "F08080"
+    case PNDarkPink
 
     case turkyBlue = "33e6cc"
 
@@ -35,7 +35,7 @@ private enum PNColor: String {
 
 extension UIColor {
     
-    static let lightCoral = PNColor(.lightCoral) // 珊瑚橘
+    static let lightCoral = PNColor(.PNDarkPink) // 珊瑚橘
     static let darkYellow = PNColor(.darkYellow) 
     
     static let turkyBlue = PNColor(.turkyBlue)
