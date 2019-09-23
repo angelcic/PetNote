@@ -70,7 +70,51 @@ class ProfileDetailView: UIView {
         setupCollectionView()
     }
     
+<<<<<<< Updated upstream
     private func setupCollectionView() {
+||||||| merged common ancestors
+    override func layoutSubviews() {
+        super.layoutSubviews()
+//        setupPetSwitchLayer()
+        setupSelectionView()
+    }
+    
+    // 更新切換頁面條介面大小
+    private func setupSelectionView() {
+        
+        let selectionView = SelectionView(
+            CGRect(x: 0,
+                   y: 0,
+                   width: selectionViewLayer.frame.width,
+                   height: selectionViewLayer.frame.height))
+        
+        selectionView.delegate = self
+        selectionView.dataSource = self
+        
+        selectionView.backgroundColor = .white
+        selectionViewLayer.addSubview(selectionView)
+=======
+    override func layoutSubviews() {
+        super.layoutSubviews()
+//        setupPetSwitchLayer()
+        setupSelectionView()
+    }
+    
+    // 更新切換頁面條介面大小
+    private func setupSelectionView() {
+        
+        let selectionView = SelectionView(
+            CGRect(x: 0,
+                   y: 0,
+                   width: selectionViewLayer.frame.width,
+                   height: selectionViewLayer.frame.height))
+        
+        selectionView.delegate = self
+        selectionView.dataSource = self
+        
+        selectionView.backgroundColor = .clear
+        selectionViewLayer.addSubview(selectionView)
+>>>>>>> Stashed changes
         
         collectionView.registerCellWithNib(
             identifier: String(describing: PetsCollectionViewCell.self),
@@ -114,15 +158,15 @@ extension ProfileDetailView: SelectionViewDelegate {
 extension ProfileDetailView: SelectionViewDataSource {
     
     func indicatorColor() -> UIColor {
-        return .gray
+        return (UIColor.pnBlueDark)!
     }
     
     func textColor() -> UIColor {
-        return .gray
+        return (UIColor.pnBlueDark)!
     }
     
     func buttonBackgroundColor() -> UIColor {
-        return .white
+        return .clear
     }
     
     func numberOfSelectBTN(_ selectView: SelectionView) -> Int {

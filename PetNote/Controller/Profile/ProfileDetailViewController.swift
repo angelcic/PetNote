@@ -8,11 +8,12 @@
 
 import UIKit
 
-class ProfileDetailViewController: UIViewController {
+class ProfileDetailViewController: BaseViewController {
 
     @IBOutlet var detailView: ProfileDetailView! {
         didSet {
             detailView.delegate = self
+            detailView.backgroundColor = .white
         }
     }
     
@@ -22,7 +23,24 @@ class ProfileDetailViewController: UIViewController {
         super.viewDidLoad()
 
         self.navigationItem.title = "毛孩資料"
+    
+//        setupContainerView()
+    }
+    
+    override func navigationBarSetting() {
+        super.navigationBarSetting()
         
+        let saveButton = UIBarButtonItem(title: "新增成員", style: .plain, target: self, action: #selector(addPetAction))
+        saveButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.pnWhite], for: .normal)
+        
+        self.navigationItem.rightBarButtonItem = saveButton
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+//        if let containerVC = segue.destination as? BaseContainerViewController {
+//            containerVCs.append(containerVC)
+//        }
     }
     
 }
