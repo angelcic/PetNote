@@ -12,9 +12,10 @@ import UIKit
 class SelectionView: UIView {
     var dataSource: SelectionViewDataSource? {
         didSet {
-            setUp() 
+            setUp()
         }
     }
+    
     weak var delegate: SelectionViewDelegate?
     
     // 使用者決定要幾個 BTN
@@ -23,7 +24,7 @@ class SelectionView: UIView {
     
     var currentSelectedIndex = 0 // 現在被選擇的 button
     
-    let indicatorView = UIView()
+    let IndicatorView = UIView()
     
     init(_ rect: CGRect) {
         super.init(frame: rect)
@@ -32,7 +33,7 @@ class SelectionView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-       
+    
     // datasource 被設定才會開始 setup
     func setUp() {
         // 設定要顯示的 button 數量、樣式
@@ -40,19 +41,15 @@ class SelectionView: UIView {
         
         // 設定 stackView 大小、樣式
         let stackView = UIStackView(arrangedSubviews: buttonArray)
-        
         stackView.distribution = .fillEqually
         stackView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
         stackView.axis = .horizontal
         
-        indicatorView.frame = CGRect(x: 0,
-                                     y: self.frame.height - 3,
-                                     width: self.frame.width / CGFloat(buttonNumber),
-                                     height: 3)
-        indicatorView.backgroundColor = dataSource?.indicatorColor()
+        IndicatorView.frame = CGRect(x: 0, y: self.frame.height, width: self.frame.width / CGFloat(buttonNumber), height: 3)
+        IndicatorView.backgroundColor = dataSource?.indicatorColor()
         
         self.addSubview(stackView)
-        self.addSubview(indicatorView)
+        self.addSubview(IndicatorView)
     }
     
     // 依據 datasource 創建 button
@@ -91,7 +88,7 @@ class SelectionView: UIView {
         if delegate.isEnableBeSelectAt(self, index: sender.tag) {
             
             UIView.animate(withDuration: 0.3) {
-                self.indicatorView.center.x = sender.center.x
+                self.IndicatorView.center.x = sender.center.x
             }
             
             delegate.didSelectAt(self, index: sender.tag)
