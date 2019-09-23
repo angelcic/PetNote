@@ -9,6 +9,7 @@
 import UIKit
 
 private enum Tab {
+    
     case profile
     
     case record
@@ -18,6 +19,7 @@ private enum Tab {
     case other
     
     func controller() -> UIViewController {
+        
         var controller: UIViewController
         
         switch self {
@@ -29,40 +31,48 @@ private enum Tab {
         
         controller.tabBarItem = tabBarItem()
         
-        controller.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)], for: .normal)
-        controller.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 15)
-        controller.tabBarItem.imageInsets = UIEdgeInsets(top: 5, left: 0, bottom: -5, right: 0)
+        controller.tabBarItem.setTitleTextAttributes(
+            [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)],
+            for: .normal)
+        controller.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 2)
+        controller.tabBarItem.imageInsets = UIEdgeInsets(top: 0, left: -2, bottom: 0, right: 2)
         
         return controller
     }
     
     func tabBarItem() -> UITabBarItem {
         
-        let image = UIImage(named: "Icons_64px_footprint01")
+        let image = UIImage(named: "Icon-foot-Small")
         
         switch self {
         case .profile:
             
-//            image.res
             return UITabBarItem(
                 title: "毛孩檔案",
                 image: image,
                 selectedImage: nil)
+            
         case .record:
+            
              return UITabBarItem(
                 title: "症狀記錄",
                 image: image,
                 selectedImage: nil)
+            
         case .medical:
+            
              return UITabBarItem(
                 title: "就診記錄",
                 image: image,
                 selectedImage: nil)
+            
         case .other:
+            
              return UITabBarItem(
                 title: "其它",
                 image: image,
                 selectedImage: nil)
+            
         }
        
     }
@@ -77,9 +87,11 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        viewControllers = tabs.map({ $0.controller()
-        })
+        viewControllers = tabs.map({ $0.controller() })
+        
         self.tabBar.tintColor = .darkGray
+        
+        StorageManager.shared.fetchPets()
         
         delegate = self
     }

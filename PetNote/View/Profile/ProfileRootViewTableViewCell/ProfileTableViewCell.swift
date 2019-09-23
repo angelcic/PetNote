@@ -46,7 +46,7 @@ class ProfileTableViewCell: UITableViewCell {
 //        petImageView.addBorder(borderColor: .lightGray, borderWidth: 2, cornerRadius: 50)
         
 //        self.addCorner(cornerRadius: 30)
-        self.addBorder(borderColor: .lightGray, borderWidth: 2, cornerRadius: 30)
+        self.addBorder(borderColor: .lightGray, borderWidth: 2, cornerRadius: 60)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
