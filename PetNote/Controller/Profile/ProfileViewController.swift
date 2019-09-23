@@ -26,8 +26,8 @@ class ProfileViewController: UIViewController {
         
         navigationBarSetting()
         
-        pets.append(Pet(name: "蘋果花", type: .cat, gender: nil, birth: nil))
-        pets.append(Pet(name: "琵琶", type: .cat, gender: nil, birth: nil))
+//        pets.append(Pet(name: "蘋果花", type: .cat, gender: nil, birth: nil))
+//        pets.append(Pet(name: "琵琶", type: .cat, gender: nil, birth: nil))
     }
     
     // 設定 navigationbar 文字顏色、按鈕
@@ -84,7 +84,7 @@ class ProfileViewController: UIViewController {
             return
         }
         detailViewController.view.backgroundColor = .white
-        detailViewController.pets = pets
+//        detailViewControlle br.pets = pets
         self.navigationController?.pushViewController(detailViewController, animated: true)
     }
 }

@@ -10,22 +10,10 @@ import UIKit
 
 class PetsCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var petImageView: UIImageView! {
-        didSet {
-            petImageView.backgroundColor = .lightCoral
-        }
-    }
-    @IBOutlet weak var nameLabel: UILabel! {
-           didSet {
-               nameLabel.textColor = .pnBlueDark
-           }
-       }
+    @IBOutlet weak var petImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
     
-    @IBOutlet weak var petImageBorderView: UIView! {
-        didSet {
-//            petImageBorderView.backgroundColor = .lightCoral
-        }
-    }
+    @IBOutlet weak var petImageBorderView: UIView!
     
     var petPhotoObserver: NSKeyValueObservation!
     

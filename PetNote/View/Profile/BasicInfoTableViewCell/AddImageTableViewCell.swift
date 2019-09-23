@@ -23,11 +23,6 @@ class AddImageTableViewCell: UITableViewCell {
         }
     }
     
-    @IBOutlet weak var addImageIcon: UIImageView! {
-        didSet {
-            addImageIcon.tintColor = .pnWhite
-        }
-    }
     @IBOutlet weak var addImageButton: UIButton!
     
     weak var delegate: AddImageTableViewCellDelegate?

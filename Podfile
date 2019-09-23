@@ -8,5 +8,7 @@ target 'PetNote' do
   # Pods for PetNote
   pod 'IQKeyboardManager'
   pod 'SwiftLint'
-
+  pod 'Charts'
+  pod 'ChartsRealm'
+  pod 'FSCalendar'
 end
