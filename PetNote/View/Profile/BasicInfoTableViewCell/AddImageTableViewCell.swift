@@ -24,6 +24,12 @@ class AddImageTableViewCell: UITableViewCell {
     }
     
     @IBOutlet weak var addImageButton: UIButton!
+    @IBOutlet weak var addImageView: UIView! {
+        didSet {
+            let tapAction =  UITapGestureRecognizer(target: self, action: #selector(addImageAction))
+            addImageView.addGestureRecognizer(tapAction)
+        }
+    }
     
     weak var delegate: AddImageTableViewCellDelegate?
     
@@ -42,7 +48,7 @@ class AddImageTableViewCell: UITableViewCell {
         petImageView.image = image
     }
     
-    @IBAction func addImageAction(_ sender: Any) {
+    @objc func addImageAction(_ sender: Any) {
         
         delegate?.pressAddImageButton()
         

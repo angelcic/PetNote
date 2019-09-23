@@ -28,7 +28,13 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
         didSet {
             calendar.dataSource = self
             calendar.delegate = self
-//            calendar.backgroundColor = .pnWhite            
+//            calendar.backgroundColor = .pnWhite
+            calendar.appearance.headerTitleColor = UIColor.pnBlueDark
+            calendar.appearance.weekdayTextColor = UIColor.pnBlueDark
+            calendar.appearance.todayColor = UIColor.pnDarkPink
+            calendar.appearance.selectionColor =  UIColor.pnBlueLight
+            calendar.appearance.borderRadius = 0
+
         }
     }
     
@@ -108,10 +114,23 @@ extension RecordViewController: UIGestureRecognizerDelegate {
 }
 
 extension RecordViewController: FSCalendarDelegate {
+    // 周顯示 / 月顯示
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
         self.calendarHeightConstraint.constant = bounds.height
         self.view.layoutIfNeeded()
     }
+    
+    // 事件圓點顯示
+    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+        return 0
+    }
+    
+    // 被點選的日期（好像都會往前一天？）
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        print(monthPosition)
+        print(date)
+    }
+    
 }
 
 extension RecordViewController: FSCalendarDataSource {

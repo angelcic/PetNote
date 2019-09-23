@@ -44,7 +44,7 @@ class SearchHospitalViewController: BaseViewController {
 
 extension SearchHospitalViewController: SearchHospitalViewDeleate {
     
-    func didChangeUserData(city: String, district: String) {
+    func didChangeAddressData(city: String, district: String) {
         guard
             !city.isBlank && !district.isBlank
         else {

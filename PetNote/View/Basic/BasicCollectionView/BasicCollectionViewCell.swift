@@ -14,8 +14,8 @@ class BasicCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     
-    var isSelectedBGColor: UIColor = .darkGray
-    var deSelectedBGColor: UIColor = .white
+    var isSelectedBGColor: UIColor = UIColor.pnBlueDark!
+    var deSelectedBGColor: UIColor = UIColor.pnWhite!
     
     override func awakeFromNib() {
         super.awakeFromNib()

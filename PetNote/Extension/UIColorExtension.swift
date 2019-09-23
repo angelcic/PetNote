@@ -35,7 +35,7 @@ private enum PNColor: String {
 
 extension UIColor {
     
-    static let lightCoral = PNColor(.PNDarkPink) // 珊瑚橘
+    static let pnDarkPink = PNColor(.PNDarkPink) // 珊瑚橘
     static let darkYellow = PNColor(.darkYellow) 
     
     static let turkyBlue = PNColor(.turkyBlue)

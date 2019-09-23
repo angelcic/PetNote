@@ -11,7 +11,7 @@ import UIKit
 protocol  SearchHospitalViewDeleate: AnyObject {
     func pressSearchButton()
     
-    func didChangeUserData(city: String, district: String)
+    func didChangeAddressData(city: String, district: String)
 }
 
 class SearchHospitalView: UIView {
@@ -29,6 +29,7 @@ class SearchHospitalView: UIView {
 
     @IBOutlet weak var searchButton: UIButton! {
         didSet {
+            searchButton.addCorner(cornerRadius: 8)
             searchButton.setTitleColor(.lightGray, for: .disabled)
         }
     }
@@ -54,7 +55,7 @@ extension SearchHospitalView: UITextFieldDelegate {
             return
         }
         
-        delegate?.didChangeUserData(city: city,
+        delegate?.didChangeAddressData(city: city,
                                     district: district)
     }
 }

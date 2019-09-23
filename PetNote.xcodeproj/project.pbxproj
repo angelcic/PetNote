@@ -410,8 +410,8 @@
 			isa = PBXGroup;
 			children = (
 				9166EFC72338C05D0086C70E /* ProtectTypeTableViewCell.swift */,
-				9166EFC82338C05D0086C70E /* ProtectPlanTableViewCell.swift */,
 				9166EFC92338C05D0086C70E /* ProtectTypeTableViewCell.xib */,
+				9166EFC82338C05D0086C70E /* ProtectPlanTableViewCell.swift */,
 				9166EFCA2338C05D0086C70E /* ProtectPlanTableViewCell.xib */,
 			);
 			path = ProtectTypeTableViewCell;
@@ -501,12 +501,12 @@
 		9166F0212338C2AA0086C70E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9166F0222338C2AA0086C70E /* LocalFileManager.swift */,
 				9166F0232338C2AA0086C70E /* HospitalProvider */,
 				9166F0272338C2AA0086C70E /* Profile */,
 				9166F02A2338C2AA0086C70E /* HTTP */,
 				9166F02C2338C2AA0086C70E /* Medical */,
-				9166F02E2338C2AA0086C70E /* LocalStorage */,
+				9166F02E2338C2AA0086C70E /* CoreDataStorage */,
+				9166F0222338C2AA0086C70E /* LocalFileManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -546,14 +546,14 @@
 			path = Medical;
 			sourceTree = "<group>";
 		};
-		9166F02E2338C2AA0086C70E /* LocalStorage */ = {
+		9166F02E2338C2AA0086C70E /* CoreDataStorage */ = {
 			isa = PBXGroup;
 			children = (
 				9166F02F2338C2AA0086C70E /* PetNote.xcdatamodeld */,
 				9166F0312338C2AA0086C70E /* PNPetInfoExtension.swift */,
 				9166F0322338C2AA0086C70E /* StorageManager.swift */,
 			);
-			path = LocalStorage;
+			path = CoreDataStorage;
 			sourceTree = "<group>";
 		};
 		9166F0402338CBD10086C70E /* Other */ = {
@@ -627,12 +627,12 @@
 			isa = PBXGroup;
 			children = (
 				9166EF5A2338BC360086C70E /* Basic */,
-				9166F0402338CBD10086C70E /* Other */,
 				9166EFAB2338C05D0086C70E /* Profile */,
-				9166EFA62338BEE40086C70E /* Notify */,
-				9166EF902338BE890086C70E /* Medical */,
-				9181BC5B2317DE0A007BB7C6 /* UI */,
 				9166EF512338BC010086C70E /* Record */,
+				9166EF902338BE890086C70E /* Medical */,
+				9166F0402338CBD10086C70E /* Other */,
+				9166EFA62338BEE40086C70E /* Notify */,
+				9181BC5B2317DE0A007BB7C6 /* UI */,
 				9181BC2A23177E1C007BB7C6 /* Main.storyboard */,
 				9166F03E2338CAFB0086C70E /* Notify.storyboard */,
 				9181BC3F2317A02F007BB7C6 /* Profile.storyboard */,
