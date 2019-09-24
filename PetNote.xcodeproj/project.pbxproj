@@ -106,6 +106,9 @@
 		9166F04E233A0B650086C70E /* EventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166F04C233A0B650086C70E /* EventCollectionViewCell.swift */; };
 		9166F04F233A0B650086C70E /* EventCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9166F04D233A0B650086C70E /* EventCollectionViewCell.xib */; };
 		9166F053233A28020086C70E /* DailyRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166F052233A28020086C70E /* DailyRecord.swift */; };
+		9166F09B233A4D1B0086C70E /* TaiwanArea.json in Resources */ = {isa = PBXBuildFile; fileRef = 9166F09A233A4D1B0086C70E /* TaiwanArea.json */; };
+		9166F09D233A4EF40086C70E /* TaiwanArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166F09C233A4EF40086C70E /* TaiwanArea.swift */; };
+		9166F09F233A4F3D0086C70E /* JSONReaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166F09E233A4F3D0086C70E /* JSONReaderManager.swift */; };
 		9181BC2723177E1C007BB7C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181BC2623177E1C007BB7C6 /* AppDelegate.swift */; };
 		9181BC2923177E1C007BB7C6 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181BC2823177E1C007BB7C6 /* TabBarViewController.swift */; };
 		9181BC2C23177E1C007BB7C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9181BC2A23177E1C007BB7C6 /* Main.storyboard */; };
@@ -228,6 +231,9 @@
 		9166F04C233A0B650086C70E /* EventCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCollectionViewCell.swift; sourceTree = "<group>"; };
 		9166F04D233A0B650086C70E /* EventCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventCollectionViewCell.xib; sourceTree = "<group>"; };
 		9166F052233A28020086C70E /* DailyRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyRecord.swift; sourceTree = "<group>"; };
+		9166F09A233A4D1B0086C70E /* TaiwanArea.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TaiwanArea.json; sourceTree = "<group>"; };
+		9166F09C233A4EF40086C70E /* TaiwanArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaiwanArea.swift; sourceTree = "<group>"; };
+		9166F09E233A4F3D0086C70E /* JSONReaderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONReaderManager.swift; sourceTree = "<group>"; };
 		9181BC2323177E1C007BB7C6 /* PetNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9181BC2623177E1C007BB7C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9181BC2823177E1C007BB7C6 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -529,6 +535,8 @@
 				9166F0242338C2AA0086C70E /* HospitalAPIManager.swift */,
 				9166F0252338C2AA0086C70E /* Hospital.swift */,
 				9166F0262338C2AA0086C70E /* HospitalRequest.swift */,
+				9166F09C233A4EF40086C70E /* TaiwanArea.swift */,
+				9166F09E233A4F3D0086C70E /* JSONReaderManager.swift */,
 			);
 			path = HospitalProvider;
 			sourceTree = "<group>";
@@ -670,6 +678,7 @@
 		9181BC3E23179FF1007BB7C6 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				9166F09A233A4D1B0086C70E /* TaiwanArea.json */,
 				9181BC3023177E1D007BB7C6 /* Assets.xcassets */,
 			);
 			path = Resource;
@@ -788,6 +797,7 @@
 				9166EFA12338BE890086C70E /* BasicMedicalRecordTableViewCell.xib in Resources */,
 				9166EFD12338C05D0086C70E /* ChartTableViewCell.xib in Resources */,
 				9166EF9F2338BE890086C70E /* TitleWithDateTableViewCell.xib in Resources */,
+				9166F09B233A4D1B0086C70E /* TaiwanArea.json in Resources */,
 				9166EFE92338C05D0086C70E /* ProtectPlanTableViewCell.xib in Resources */,
 				9181BC2C23177E1C007BB7C6 /* Main.storyboard in Resources */,
 				9166EFD32338C05D0086C70E /* WeightLabelTableViewCell.xib in Resources */,
@@ -893,6 +903,7 @@
 				9166EFA92338BEE40086C70E /* SettingNotifyTableViewCell.swift in Sources */,
 				9166EFA32338BE890086C70E /* MedicalRecordTableViewCell.swift in Sources */,
 				9181BC5D2317DE27007BB7C6 /* SelectionView.swift in Sources */,
+				9166F09D233A4EF40086C70E /* TaiwanArea.swift in Sources */,
 				9166EFEC2338C05D0086C70E /* ProfileDetailView.swift in Sources */,
 				9166F03C2338C2AA0086C70E /* PNPetInfoExtension.swift in Sources */,
 				9166F0052338C19D0086C70E /* ProfileViewController.swift in Sources */,
@@ -904,6 +915,7 @@
 				9166F00A2338C1C80086C70E /* RecordViewController.swift in Sources */,
 				9166F01D2338C1EE0086C70E /* SearchHospitalViewController.swift in Sources */,
 				9166F01E2338C1EE0086C70E /* NotificationManageViewController.swift in Sources */,
+				9166F09F233A4F3D0086C70E /* JSONReaderManager.swift in Sources */,
 				9166F0342338C2AA0086C70E /* HospitalAPIManager.swift in Sources */,
 				9181BC672319119D007BB7C6 /* UICollectionViewExtension.swift in Sources */,
 				9166EF9E2338BE890086C70E /* BasicMedicalRecordTableViewCell.swift in Sources */,

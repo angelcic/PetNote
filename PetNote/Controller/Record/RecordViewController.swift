@@ -284,7 +284,7 @@ extension RecordViewController: UITableViewDataSource {
         let date = Date(timeIntervalSince1970: record.date)
         let describe = record.describe
         let events = record.event
-        print(events)
+        
         cell.layoutCell(date: date, describe: describe, events: events)
         return cell
     }

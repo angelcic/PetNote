@@ -124,6 +124,8 @@
                                     <constraint firstItem="rKg-o5-gOX" firstAttribute="centerX" secondItem="DC8-nx-s4p" secondAttribute="centerX" id="VKv-FE-773"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="cityTextField" destination="BRC-5h-KAA" id="LPj-Gr-OGU"/>
+                                    <outlet property="districtTextField" destination="7pf-uf-7ih" id="OIQ-Zk-pvc"/>
                                     <outlet property="searchButton" destination="TeX-eD-m96" id="OKJ-he-EeT"/>
                                 </connections>
                             </view>

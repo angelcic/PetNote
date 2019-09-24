@@ -43,5 +43,6 @@ class HospitalAPIManager {
                     print(error)
             }
         }
-    }
+    }    
+    
 }
