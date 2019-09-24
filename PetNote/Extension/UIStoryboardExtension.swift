@@ -15,7 +15,7 @@ private struct StoryboardCategory {
     static let record = "Record"
     static let medical = "Medical"
     static let other = "Other"
-}
+    static let notify = "Notify"}
 
 extension UIStoryboard {
     static var main: UIStoryboard { return storyboard(name: StoryboardCategory.main) }
@@ -31,6 +31,9 @@ extension UIStoryboard {
     }
     static var other: UIStoryboard { return
         storyboard(name: StoryboardCategory.other)
+    }
+    static var notify: UIStoryboard { return
+        storyboard(name: StoryboardCategory.notify)
     }
         
     private static func storyboard(name: String) -> UIStoryboard {

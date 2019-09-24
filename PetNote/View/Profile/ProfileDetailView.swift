@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ProfileDetailViewDelegate: SwitchPetViewDelegate, NSObject {
+    
+}
+
 class ProfileDetailView: UIView {
     
     private enum PageType: Int {
@@ -19,27 +23,28 @@ class ProfileDetailView: UIView {
         case healthRecord = 2
     }
     
-    @IBOutlet weak var selectionViewLayer: UIView! {
-        didSet {
-            let selectionView = SelectionView(CGRect(x: 0, y: 0, width: selectionViewLayer.frame.width, height: selectionViewLayer.frame.height))
-            
-            selectionView.delegate = self
-            selectionView.dataSource = self
-
-            selectionView.backgroundColor = .white
-            selectionViewLayer.addSubview(selectionView)
-        }
-    }
+    @IBOutlet weak var selectionViewLayer: UIView!
+//    {
+//        didSet {
+//            let selectionView = SelectionView(CGRect(x: 0, y: 0, width: selectionViewLayer.frame.width, height: selectionViewLayer.frame.height))
+//
+//            selectionView.delegate = self
+//            selectionView.dataSource = self
+//
+//            selectionView.backgroundColor = .white
+//            selectionViewLayer.addSubview(selectionView)
+//        }
+//    }
     
-    @IBOutlet weak var collectionView: UICollectionView! {
-        
-        didSet {
-            
-            collectionView.dataSource = self.delegate
-            
-            collectionView.delegate = self.delegate
-        }
-    }
+//    @IBOutlet weak var collectionView: UICollectionView! {
+//
+//        didSet {
+//
+//            collectionView.dataSource = self.delegate
+//
+//            collectionView.delegate = self.delegate
+//        }
+//    }
     
     @IBOutlet weak var basicInfoContainerView: UIView!
     @IBOutlet weak var protectPlanContainerView: UIView!
@@ -50,32 +55,67 @@ class ProfileDetailView: UIView {
         return [basicInfoContainerView, protectPlanContainerView, healthRecordContainerView]
     }
     
-    weak var delegate: ProfileDetailViewDelegate? {
-        
-        didSet {
-            
-            guard let collectionView = collectionView else { return }
-            
-            collectionView.dataSource = self.delegate
-            
-            collectionView.delegate = self.delegate
-        }
-    }
+    weak var delegate: ProfileDetailViewDelegate?
+//        {
+//
+//        didSet {
+//
+//            guard let collectionView = collectionView else { return }
+//
+//            collectionView.dataSource = self.delegate
+//
+//            collectionView.delegate = self.delegate
+//        }
+//    }
     
-    let page = ["基本資料", "預防計畫", "健康記錄"]
+//    let page = ["基本資料", "預防計畫", "健康記錄"]
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        setupCollectionView()
+//        setupCollectionView()
+    }
+
+//    private func setupCollectionView() {
+//        let selectionView = SelectionView(
+//            CGRect(x: 0,
+//                   y: 0,
+//                   width: selectionViewLayer.frame.width,
+//                   height: selectionViewLayer.frame.height))
+//
+//        selectionView.delegate = self
+//        selectionView.dataSource = self
+//
+//        selectionView.backgroundColor = .white
+//        selectionViewLayer.addSubview(selectionView)
+//
+//    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+//        setupPetSwitchLayer()
+        setupSelectionView()
     }
     
-    private func setupCollectionView() {
+    // 更新切換頁面條介面大小
+    private func setupSelectionView() {
         
-        collectionView.registerCellWithNib(
-            identifier: String(describing: PetsCollectionViewCell.self),
-            bundle: nil
-        )
+        let selectionView = SelectionView(
+            CGRect(x: 0,
+                   y: 0,
+                   width: selectionViewLayer.frame.width,
+                   height: selectionViewLayer.frame.height))
+        
+        selectionView.delegate = self
+        selectionView.dataSource = self
+        
+        selectionView.backgroundColor = .clear
+        selectionViewLayer.addSubview(selectionView)
+        
+//        collectionView.registerCellWithNib(
+//            identifier: String(describing: PetsCollectionViewCell.self),
+//            bundle: nil
+//        )
     }
     
     private func updateContainer(type: PageType) {
@@ -97,10 +137,6 @@ class ProfileDetailView: UIView {
     }
 }
 
-protocol ProfileDetailViewDelegate: UICollectionViewDelegate, UICollectionViewDataSource, AnyObject {
-    
-}
-
 extension ProfileDetailView: SelectionViewDelegate {
     func didSelectAt(_ selectView: SelectionView, index: Int) {
         
@@ -109,20 +145,30 @@ extension ProfileDetailView: SelectionViewDelegate {
         }
         updateContainer(type: type)
     }
+    
+    func updateSwitchView() {
+    //        switchPetView.updatePetsData()
+    }
 }
 
 extension ProfileDetailView: SelectionViewDataSource {
     
+    var page: [String] {
+        
+        return ["基本資料", "預防計畫", "健康記錄"]
+        
+    }
+    
     func indicatorColor() -> UIColor {
-        return .gray
+        return (UIColor.pnBlueDark)!
     }
     
     func textColor() -> UIColor {
-        return .gray
+        return (UIColor.pnBlueDark)!
     }
     
     func buttonBackgroundColor() -> UIColor {
-        return .white
+        return .clear
     }
     
     func numberOfSelectBTN(_ selectView: SelectionView) -> Int {

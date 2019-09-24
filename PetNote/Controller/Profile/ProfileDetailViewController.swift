@@ -8,21 +8,72 @@
 
 import UIKit
 
-class ProfileDetailViewController: UIViewController {
+class ProfileDetailViewController: SwitchPetViewController, SwitchPetViewControllerProtocol {
 
     @IBOutlet var detailView: ProfileDetailView! {
         didSet {
             detailView.delegate = self
+            detailView.backgroundColor = .white
         }
     }
     
-    var pets: [Pet] = []
+    var containerVCs: [BaseContainerViewController] = []
+    var storageManger = StorageManager.shared
+    
+//    var pets: [Pet] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationItem.title = "毛孩資料"
+    
+        setupContainerView()
+    }
+    
+    override func navigationBarSetting() {
+        super.navigationBarSetting()
         
+        let saveButton = UIBarButtonItem(title: "新增成員", style: .plain, target: self, action: #selector(addPetAction))
+//        saveButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.pnWhite], for: .normal)
+        
+        self.navigationItem.rightBarButtonItem = saveButton
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let containerVC = segue.destination as? BaseContainerViewController {
+            containerVCs.append(containerVC)
+        }
+    }
+    
+    @objc func addPetAction() {
+        showAddPetVC()
+    }
+    
+    func setupContainerView() {
+        if storageManger.petsList.count > 0 {
+            containerVCs.forEach({
+                $0.currentPet = storageManger.petsList[0]
+            })
+        }
+    }
+    
+    // 切換寵物
+    func changePet(_ indexPath: IndexPath ) {
+        changePet(indexPath.row)
+    }
+    
+    func changePet(_ index: Int) {
+        if storageManger.petsList.count > 0 {
+            containerVCs.forEach({
+                $0.currentPet = storageManger.petsList[index]
+            })
+        }
+    }
+    
+    func updateSwitchView() {
+        detailView.updateSwitchView()
+        changePet(storageManger.currentPetIndex)
     }
     
 }
@@ -31,22 +82,18 @@ extension ProfileDetailViewController: ProfileDetailViewDelegate {
     
 }
 
-extension ProfileDetailViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PetsCollectionViewCell.identifier, for: indexPath) as? PetsCollectionViewCell
-        else {
-            return UICollectionViewCell()
-        }
-        
-        return cell
-    }
-        
-}
-
-extension ProfileDetailViewController: UICollectionViewDelegate {
-    
-}
+//extension ProfileDetailViewController: UICollectionViewDataSource {
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return 10
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PetsCollectionViewCell.identifier, for: indexPath) as? PetsCollectionViewCell
+//        else {
+//            return UICollectionViewCell()
+//        }
+//
+//        return cell
+//    }
+//
+//}

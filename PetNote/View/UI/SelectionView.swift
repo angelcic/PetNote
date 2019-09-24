@@ -45,7 +45,7 @@ class SelectionView: UIView {
         stackView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
         stackView.axis = .horizontal
         
-        IndicatorView.frame = CGRect(x: 0, y: self.frame.height, width: self.frame.width / CGFloat(buttonNumber), height: 3)
+        IndicatorView.frame = CGRect(x: 0, y: self.frame.height - 3, width: self.frame.width / CGFloat(buttonNumber), height: 2)
         IndicatorView.backgroundColor = dataSource?.indicatorColor()
         
         self.addSubview(stackView)

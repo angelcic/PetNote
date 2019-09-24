@@ -13,7 +13,7 @@ private enum Tab {
     
     case record
     
-    case medical
+//    case medical
     
     case other
     
@@ -23,22 +23,26 @@ private enum Tab {
         switch self {
         case .profile: controller = UIStoryboard.profile.instantiateInitialViewController()!
         case .record: controller = UIStoryboard.record.instantiateInitialViewController()!
-        case .medical: controller = UIStoryboard.medical.instantiateInitialViewController()!
+//        case .medical: controller = UIStoryboard.medical.instantiateInitialViewController()!
         case .other: controller = UIStoryboard.other.instantiateInitialViewController()!
         }
         
         controller.tabBarItem = tabBarItem()
-        
-        controller.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)], for: .normal)
-        controller.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 15)
-        controller.tabBarItem.imageInsets = UIEdgeInsets(top: 5, left: 0, bottom: -5, right: 0)
+       
+        controller.tabBarItem.setTitleTextAttributes(
+            [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)],
+            for: .normal)
+        controller.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -3)
+        controller.tabBarItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
         return controller
     }
     
     func tabBarItem() -> UITabBarItem {
         
-        let image = UIImage(named: "Icons_64px_footprint01")
+//        let image = UIImage(named: "Icons_64px_footprint01")
+
+        let image = UIImage(named: "Icon-foot-Small")
         
         switch self {
         case .profile:
@@ -53,14 +57,14 @@ private enum Tab {
                 title: "症狀記錄",
                 image: image,
                 selectedImage: nil)
-        case .medical:
-             return UITabBarItem(
-                title: "就診記錄",
-                image: image,
-                selectedImage: nil)
+//        case .medical:
+//             return UITabBarItem(
+//                title: "就診記錄",
+//                image: image,
+//                selectedImage: nil)
         case .other:
              return UITabBarItem(
-                title: "其它",
+                title: "搜尋醫院",
                 image: image,
                 selectedImage: nil)
         }
@@ -71,7 +75,8 @@ private enum Tab {
 
 class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     
-    private let tabs: [Tab] = [.profile, .record, .medical, .other]
+    private let tabs: [Tab] = [.profile, .record, .other]
+//        [.profile, .record, .medical, .other]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,7 +84,9 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         
         viewControllers = tabs.map({ $0.controller()
         })
-        self.tabBar.tintColor = .darkGray
+        self.tabBar.tintColor = UIColor.pnBlueDark
+//        self.tabBar.unselectedItemTintColor = UIColor.pnGray
+        StorageManager.shared.fetchPets()
         
         delegate = self
     }
