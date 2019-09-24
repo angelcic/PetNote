@@ -101,6 +101,11 @@
 		9166F0442338CBD10086C70E /* SearchHospitalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166F0412338CBD10086C70E /* SearchHospitalView.swift */; };
 		9166F0452338CBD10086C70E /* HospitalDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166F0422338CBD10086C70E /* HospitalDataTableViewCell.swift */; };
 		9166F0462338CBD10086C70E /* HospitalDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9166F0432338CBD10086C70E /* HospitalDataTableViewCell.xib */; };
+		9166F04A233A06620086C70E /* DailyRecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166F048233A06620086C70E /* DailyRecordTableViewCell.swift */; };
+		9166F04B233A06620086C70E /* DailyRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9166F049233A06620086C70E /* DailyRecordTableViewCell.xib */; };
+		9166F04E233A0B650086C70E /* EventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166F04C233A0B650086C70E /* EventCollectionViewCell.swift */; };
+		9166F04F233A0B650086C70E /* EventCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9166F04D233A0B650086C70E /* EventCollectionViewCell.xib */; };
+		9166F053233A28020086C70E /* DailyRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166F052233A28020086C70E /* DailyRecord.swift */; };
 		9181BC2723177E1C007BB7C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181BC2623177E1C007BB7C6 /* AppDelegate.swift */; };
 		9181BC2923177E1C007BB7C6 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181BC2823177E1C007BB7C6 /* TabBarViewController.swift */; };
 		9181BC2C23177E1C007BB7C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9181BC2A23177E1C007BB7C6 /* Main.storyboard */; };
@@ -218,6 +223,11 @@
 		9166F0412338CBD10086C70E /* SearchHospitalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchHospitalView.swift; sourceTree = "<group>"; };
 		9166F0422338CBD10086C70E /* HospitalDataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HospitalDataTableViewCell.swift; sourceTree = "<group>"; };
 		9166F0432338CBD10086C70E /* HospitalDataTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HospitalDataTableViewCell.xib; sourceTree = "<group>"; };
+		9166F048233A06620086C70E /* DailyRecordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyRecordTableViewCell.swift; sourceTree = "<group>"; };
+		9166F049233A06620086C70E /* DailyRecordTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyRecordTableViewCell.xib; sourceTree = "<group>"; };
+		9166F04C233A0B650086C70E /* EventCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCollectionViewCell.swift; sourceTree = "<group>"; };
+		9166F04D233A0B650086C70E /* EventCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventCollectionViewCell.xib; sourceTree = "<group>"; };
+		9166F052233A28020086C70E /* DailyRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyRecord.swift; sourceTree = "<group>"; };
 		9181BC2323177E1C007BB7C6 /* PetNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9181BC2623177E1C007BB7C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9181BC2823177E1C007BB7C6 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -264,10 +274,11 @@
 		9166EF512338BC010086C70E /* Record */ = {
 			isa = PBXGroup;
 			children = (
-				9166EF532338BC010086C70E /* DescriptionTableViewCell.swift */,
-				9166EF522338BC010086C70E /* DescriptionTableViewCell.xib */,
-				9166EF542338BC010086C70E /* DateSelectTableViewCell.swift */,
-				9166EF552338BC010086C70E /* DateSelectTableViewCell.xib */,
+				9166F047233A06380086C70E /* AddRecord */,
+				9166F048233A06620086C70E /* DailyRecordTableViewCell.swift */,
+				9166F049233A06620086C70E /* DailyRecordTableViewCell.xib */,
+				9166F04C233A0B650086C70E /* EventCollectionViewCell.swift */,
+				9166F04D233A0B650086C70E /* EventCollectionViewCell.xib */,
 			);
 			path = Record;
 			sourceTree = "<group>";
@@ -507,6 +518,7 @@
 				9166F02C2338C2AA0086C70E /* Medical */,
 				9166F02E2338C2AA0086C70E /* CoreDataStorage */,
 				9166F0222338C2AA0086C70E /* LocalFileManager.swift */,
+				9166F052233A28020086C70E /* DailyRecord.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -564,6 +576,17 @@
 				9166F0432338CBD10086C70E /* HospitalDataTableViewCell.xib */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		9166F047233A06380086C70E /* AddRecord */ = {
+			isa = PBXGroup;
+			children = (
+				9166EF532338BC010086C70E /* DescriptionTableViewCell.swift */,
+				9166EF522338BC010086C70E /* DescriptionTableViewCell.xib */,
+				9166EF542338BC010086C70E /* DateSelectTableViewCell.swift */,
+				9166EF552338BC010086C70E /* DateSelectTableViewCell.xib */,
+			);
+			path = AddRecord;
 			sourceTree = "<group>";
 		};
 		9181BC1A23177E1C007BB7C6 = {
@@ -769,6 +792,8 @@
 				9181BC2C23177E1C007BB7C6 /* Main.storyboard in Resources */,
 				9166EFD32338C05D0086C70E /* WeightLabelTableViewCell.xib in Resources */,
 				9166EF562338BC010086C70E /* DescriptionTableViewCell.xib in Resources */,
+				9166F04B233A06620086C70E /* DailyRecordTableViewCell.xib in Resources */,
+				9166F04F233A0B650086C70E /* EventCollectionViewCell.xib in Resources */,
 				9166EFD82338C05D0086C70E /* WithImageSectionHeaderView.xib in Resources */,
 				9166EFE22338C05D0086C70E /* ModifyBasicInfoTableViewCell.xib in Resources */,
 				9166EFD72338C05D0086C70E /* ProfileTableViewCell.xib in Resources */,
@@ -850,6 +875,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9166F04E233A0B650086C70E /* EventCollectionViewCell.swift in Sources */,
 				9166EFE72338C05D0086C70E /* ProtectPlanTableViewCell.swift in Sources */,
 				9181BC632318ED07007BB7C6 /* BaseNavigationController.swift in Sources */,
 				9166F0362338C2AA0086C70E /* HospitalRequest.swift in Sources */,
@@ -895,7 +921,9 @@
 				9166F0372338C2AA0086C70E /* ProtectPlan.swift in Sources */,
 				91B97F5423375805008B940F /* UIColorExtension.swift in Sources */,
 				9166F0042338C19D0086C70E /* AddingProtectPlanViewController.swift in Sources */,
+				9166F053233A28020086C70E /* DailyRecord.swift in Sources */,
 				9166EF8E2338BDBD0086C70E /* SwitchPetView.swift in Sources */,
+				9166F04A233A06620086C70E /* DailyRecordTableViewCell.swift in Sources */,
 				9166EFD22338C05D0086C70E /* WeightLabelTableViewCell.swift in Sources */,
 				9166F03D2338C2AA0086C70E /* StorageManager.swift in Sources */,
 				9166EFD02338C05D0086C70E /* ProfileRootView.swift in Sources */,

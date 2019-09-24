@@ -23,7 +23,8 @@ class AddRecordViewController: BaseViewController {
     var descriptionText: String = ""
     var events: [String] = []
     
-    let symptoms: [String] = ["嘔吐", "拉肚子", "流眼淚", "打噴嚏", "精神不佳", "食慾不佳", "外傷"]
+//    let symptoms: [String] = ["嘔吐", "拉肚子", "流眼淚", "打噴嚏", "精神不佳", "食慾不佳", "外傷"]
+    let symptoms: [Event] = [Event(title: "嘔吐"), Event(title: "拉肚子"), Event(title: "流眼淚"), Event(title: "打噴嚏"), Event(title: "精神不佳"), Event(title: "食慾不佳"), Event(title: "外傷")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,39 +52,62 @@ class AddRecordViewController: BaseViewController {
     }
     
     @objc func saveAction() {
-        if let dateCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0))
-            as? DateSelectTableViewCell {
+//        if let dateCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0))
+//            as? DateSelectTableViewCell {
+//            selecedDate = dateCell.getDate()
+//        }
+//
+//        if let describeCell = tableView.cellForRow(at: IndexPath(row: 1, section: 0))
+//            as? DescriptionTableViewCell {
+//            descriptionText = describeCell.getDescription()
+//        }
+        
+//        let cells = tableView.visibleCells
+//        cells.forEach { cell in
+//            if let dateCell = cell as? DateSelectTableViewCell {
+//                selecedDate = dateCell.getDate()
+//                return
+//            }
+//            if let describeCell = cell as? DescriptionTableViewCell {
+//                descriptionText = describeCell.getDescription()
+//                return
+//            }
+//            if let eventCell = cell as? ProtectTypeTableViewCell {
+//                if eventCell.isSelected == true {
+//                    events.append(eventCell.getTitle())
+//                }
+//            }
+//        }
+        
+        if let dateCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? DateSelectTableViewCell {
             selecedDate = dateCell.getDate()
+//            return
         }
-        
-        if let describeCell = tableView.cellForRow(at: IndexPath(row: 1, section: 0))
-            as? DescriptionTableViewCell {
+        if let describeCell = tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? DescriptionTableViewCell {
             descriptionText = describeCell.getDescription()
+//            return
+        }
+        events = []
+        symptoms.forEach {
+            if $0.isSelected {
+                events.append($0.title)
+            }
         }
         
-        let cells = tableView.visibleCells
-        cells.forEach { cell in
-            if let dateCell = cell as? DateSelectTableViewCell {
-                selecedDate = dateCell.getDate()
-                return
-            }
-            if let describeCell = cell as? DescriptionTableViewCell {
-                descriptionText = describeCell.getDescription()
-                return
-            }
-            if let eventCell = cell as? ProtectTypeTableViewCell {
-                if eventCell.isSelected == true {
-                    events.append(eventCell.getTitle())
-                }
-            }
-        }
-        saveDateEvent?(selecedDate, events, descriptionText)
         navigationController?.popToRootViewController(animated: false)
+        
+        saveDateEvent?(selecedDate, events, descriptionText)
     }
 }
 
 extension AddRecordViewController: ProtectTypeTableViewCellDelegate {
     func checkAction(cell: ProtectTypeTableViewCell) {
+        guard
+            let indexPath = tableView.indexPath(for: cell)
+        else {
+            return
+        }
+        symptoms[indexPath.row].changeSelectedStatus()
     }
 }
 
@@ -139,7 +163,7 @@ extension AddRecordViewController: UITableViewDataSource {
                     return UITableViewCell()
             }
             cell.delegate = self
-            cell.layoutCell(title: symptoms[indexPath.row], hideTextField: true)
+            cell.layoutCell(title: symptoms[indexPath.row].title, hideTextField: true)
             return cell
         }
     }

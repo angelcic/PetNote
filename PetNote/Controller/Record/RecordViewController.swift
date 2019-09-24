@@ -11,12 +11,12 @@ import FSCalendar
 
 class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProtocol {
     
-    @IBOutlet weak var tableView: UITableView!
-//    {
-//    didSet {tableView.delegate = self
-        //        tableView.dataSource = self}
-//
-//    }
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.delegate = self
+            tableView.dataSource = self
+        }
+    }
     
     @IBOutlet weak var addButton: UIButton! {
         didSet {
@@ -53,7 +53,7 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
             currentRecord = record
         }
     }
-    
+    // 目前寵物的所有 record
     var currentRecord: [PNDailyRecord]? {
         
         didSet {
@@ -62,9 +62,44 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
                 let date = Date(timeIntervalSince1970: $0.date)
                 eventDate.append(date)
             })
+            resetDateRecord()
         }
     }
     
+    // 目前寵物 + 被選擇日期的 record
+    var dateRecord: [PNDailyRecord] = []
+//    {
+//        didSet {
+//            tableView.reloadData()
+//        }
+//    }
+    
+    // 選擇的日期，預設是今天
+    var selectedDate: Date = Date() {
+        didSet {
+//            dateRecord = []
+//            currentRecord?.forEach({
+//                let date = Date(timeIntervalSince1970: $0.date)
+//                if date == selectedDate {
+//                    dateRecord.append($0)
+//                }
+//            })
+            resetDateRecord()
+        }
+    }
+    
+    func resetDateRecord() {
+        dateRecord = []
+        currentRecord?.forEach({
+            let date = Date(timeIntervalSince1970: $0.date)
+            if date == selectedDate {
+                dateRecord.append($0)
+            }
+        })
+        tableView.reloadData()
+    }
+    
+    // 有事件的日期，透過
     var eventDate: [Date] = [] {
         didSet {
             calendar.reloadData()
@@ -84,12 +119,20 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setCalendar()
         switchPetView.delegate = self
+        if storageManager.petsList.count > 0 {
+            currentPet = storageManager.petsList[0]
+        }
+        setCalendar()
+        setupTableView()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+    }
+    
+    func setupTableView() {
+        tableView.registerCellWithNib(identifier: DailyRecordTableViewCell.identifier, bundle: nil)
     }
     
     func setCalendar() {
@@ -161,6 +204,9 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
     
     @IBAction func addAction(_ sender: Any) {
         guard let day = calendar.selectedDate else {
+            // 若沒有選擇日期直接使用當天日期
+            let day = Date()
+            addDailyRecord(date: day)
             return
         }
         
@@ -206,7 +252,8 @@ extension RecordViewController: FSCalendarDelegate {
     
     // 被點選的日期（好像都會往前一天？）
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        
+        selectedDate = date
+        tableView.reloadData()
 //        currentRecord?.forEach() {
 //            if $0.isEqual(date)
 //        }
@@ -222,13 +269,24 @@ extension RecordViewController: UITableViewDelegate {
     
 }
 
-//extension RecordViewController: UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        <#code#>
-//    }
+extension RecordViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dateRecord.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: DailyRecordTableViewCell.identifier, for: indexPath)
+            as? DailyRecordTableViewCell
+        else {
+            return UITableViewCell()
+        }
+        let record = dateRecord[indexPath.row]
+        let date = Date(timeIntervalSince1970: record.date)
+        let describe = record.describe
+        let events = record.event
+        print(events)
+        cell.layoutCell(date: date, describe: describe, events: events)
+        return cell
+    }
     
-//}
+}
