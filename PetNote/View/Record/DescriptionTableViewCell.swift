@@ -12,6 +12,7 @@ class DescriptionTableViewCell: UITableViewCell {
 
     @IBOutlet weak var descriptionTextView: UITextView! {
         didSet {
+            descriptionTextView.delegate = self
             descriptionTextView.addBorder(borderColor: .white, borderWidth: 1, cornerRadius: 20)
         }
     }
@@ -35,4 +36,23 @@ class DescriptionTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func getDescription() -> String {
+        return descriptionTextView.text
+    }
+    
+}
+
+extension DescriptionTableViewCell: UITextViewDelegate {
+    func textViewDidEndEditing(_ textView: UITextView) {
+        guard let text = textView.text,
+            !text.isEmpty && !text.isBlank
+        else {
+            placeHolderLabel.isHidden = false
+            return
+        }
+        placeHolderLabel.isHidden = true    }
+        
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        placeHolderLabel.isHidden = true
+    }
 }

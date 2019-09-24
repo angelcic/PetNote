@@ -86,6 +86,7 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         })
         self.tabBar.tintColor = UIColor.pnBlueDark
 //        self.tabBar.unselectedItemTintColor = UIColor.pnGray
+        StorageManager.shared.fetchPets()
         
         delegate = self
     }

@@ -11,12 +11,12 @@ import FSCalendar
 
 class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProtocol {
     
-    @IBOutlet weak var switchPetLayer: UIView! {
-        didSet {
-            switchPetLayer.addSubview(switchPetView)
-        }
-    }
     @IBOutlet weak var tableView: UITableView!
+//    {
+//    didSet {tableView.delegate = self
+        //        tableView.dataSource = self}
+//
+//    }
     
     @IBOutlet weak var addButton: UIButton! {
         didSet {
@@ -29,18 +29,47 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
             calendar.dataSource = self
             calendar.delegate = self
 //            calendar.backgroundColor = .pnWhite
+            
             calendar.appearance.headerTitleColor = UIColor.pnBlueDark
             calendar.appearance.weekdayTextColor = UIColor.pnBlueDark
             calendar.appearance.todayColor = UIColor.pnDarkPink
             calendar.appearance.selectionColor =  UIColor.pnBlueLight
             calendar.appearance.borderRadius = 0
-
         }
     }
     
     @IBOutlet weak var calendarHeightConstraint: NSLayoutConstraint!
     
-//    var switchPetView = SwitchPetView()
+    var currentPet: PNPetInfo? {
+        didSet {
+            guard
+                let pet = currentPet,
+                let record = pet.dailyRecord?.sortedArray(
+                    using: [NSSortDescriptor(key: "date", ascending: false)])
+                    as? [PNDailyRecord]
+            else {
+                return
+            }
+            currentRecord = record
+        }
+    }
+    
+    var currentRecord: [PNDailyRecord]? {
+        
+        didSet {
+            eventDate = []
+            currentRecord?.forEach({
+                let date = Date(timeIntervalSince1970: $0.date)
+                eventDate.append(date)
+            })
+        }
+    }
+    
+    var eventDate: [Date] = [] {
+        didSet {
+            calendar.reloadData()
+        }
+    }
     
     fileprivate lazy var scopeGesture: UIPanGestureRecognizer = {
         [unowned self] in
@@ -54,13 +83,13 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setCalendar()
         switchPetView.delegate = self
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-//        setupSwitchPetView()
     }
     
     func setCalendar() {
@@ -69,31 +98,77 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
         self.tableView.panGestureRecognizer.require(toFail: self.scopeGesture)
     }
     
-    func setupSwitchPetView() {
-        switchPetView.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: switchPetLayer.frame.size)
-    }
-    
     func changePet(_ indexPath: IndexPath) {
-        // TODO:
+        currentPet = StorageManager.shared.petsList[indexPath.row]
     }
     
-    func updateSwitchView() {
-        switchPetView.updatePetsData()
+    func addDailyRecord(date: Date) {
+        showAddProtectPlanVC(date: date, dailyRecord: StorageManager.shared.getPNDailyRecord(),
+                             title: "添加紀錄") {[weak self] date, event, describe in
+                                
+            let record = StorageManager.shared.getPNDailyRecord()
+                                
+                                record.date = date.timeIntervalSince1970
+                                record.event = event
+                                record.describe = describe
+                                
+            self?.currentPet?.addToDailyRecord(record)
+            
+            StorageManager.shared.saveAll {[weak self] result in
+                switch result {
+                case .success:
+                    self?.currentRecord?.append(record)
+                    self?.tableView.reloadData()
+                    print("成功加入日期事件")
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
     }
     
-    @IBAction func addAction(_ sender: Any) {
+    func modifyDailyRecord(date: Date, dailyRecord: PNDailyRecord) {
+        showAddProtectPlanVC(date: date, dailyRecord: dailyRecord, title: "修改記錄") { date, event, describe in
+            
+            dailyRecord.date = date.timeIntervalSince1970
+            dailyRecord.event = event
+            dailyRecord.describe = describe
+            
+            StorageManager.shared.saveAll {[weak self] result in
+                switch result {
+                case .success:
+                    self?.tableView.reloadData()
+                    print("成功修改日期事件")
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
+    }
+    
+    func showAddProtectPlanVC(date: Date, dailyRecord: PNDailyRecord, title: String, handler: @escaping (Date, [String], String) -> Void) {
         guard let addRecordVC = UIStoryboard.record.instantiateViewController(
             withIdentifier: String(describing: AddRecordViewController.self))
             as? AddRecordViewController else { return }
+        
+        addRecordVC.selecedDate = date
+        addRecordVC.saveDateEvent = handler
+
+        addRecordVC.setupNavigationTitle(title: title)
+          
         show(addRecordVC, sender: nil)
     }
+    
+    @IBAction func addAction(_ sender: Any) {
+        guard let day = calendar.selectedDate else {
+            return
+        }
+        
+        print(day.getDateString())
+        addDailyRecord(date: day)
+        
+    }
 }
-
-//extension RecordViewController: SwitchPetViewDelegate {
-//    func changePet(_ indexPath: IndexPath) {
-//        
-//    }
-//}
 
 extension RecordViewController: UIGestureRecognizerDelegate {
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
@@ -122,13 +197,19 @@ extension RecordViewController: FSCalendarDelegate {
     
     // 事件圓點顯示
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-        return 0
+        if eventDate.contains(date) {
+           return 1
+        } else {
+            return 0
+        }
     }
     
     // 被點選的日期（好像都會往前一天？）
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        print(monthPosition)
-        print(date)
+        
+//        currentRecord?.forEach() {
+//            if $0.isEqual(date)
+//        }
     }
     
 }
@@ -136,3 +217,18 @@ extension RecordViewController: FSCalendarDelegate {
 extension RecordViewController: FSCalendarDataSource {
     
 }
+
+extension RecordViewController: UITableViewDelegate {
+    
+}
+
+//extension RecordViewController: UITableViewDataSource {
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        <#code#>
+//    }
+    
+//}

@@ -17,6 +17,12 @@ class AddRecordViewController: BaseViewController {
         }
     }
     
+    var selecedDate: Date = Date()
+    var saveDateEvent: ((Date, [String], String) -> Void)?
+    
+    var descriptionText: String = ""
+    var events: [String] = []
+    
     let symptoms: [String] = ["嘔吐", "拉肚子", "流眼淚", "打噴嚏", "精神不佳", "食慾不佳", "外傷"]
     
     override func viewDidLoad() {
@@ -40,8 +46,39 @@ class AddRecordViewController: BaseViewController {
         self.navigationItem.rightBarButtonItem = saveButton
     }
     
+    func setupNavigationTitle(title: String) {
+        self.navigationItem.title = title
+    }
+    
     @objc func saveAction() {
+        if let dateCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0))
+            as? DateSelectTableViewCell {
+            selecedDate = dateCell.getDate()
+        }
         
+        if let describeCell = tableView.cellForRow(at: IndexPath(row: 1, section: 0))
+            as? DescriptionTableViewCell {
+            descriptionText = describeCell.getDescription()
+        }
+        
+        let cells = tableView.visibleCells
+        cells.forEach { cell in
+            if let dateCell = cell as? DateSelectTableViewCell {
+                selecedDate = dateCell.getDate()
+                return
+            }
+            if let describeCell = cell as? DescriptionTableViewCell {
+                descriptionText = describeCell.getDescription()
+                return
+            }
+            if let eventCell = cell as? ProtectTypeTableViewCell {
+                if eventCell.isSelected == true {
+                    events.append(eventCell.getTitle())
+                }
+            }
+        }
+        saveDateEvent?(selecedDate, events, descriptionText)
+        navigationController?.popToRootViewController(animated: false)
     }
 }
 
@@ -79,6 +116,7 @@ extension AddRecordViewController: UITableViewDataSource {
                 else {
                     return UITableViewCell()
                 }
+                cell.layoutCell(eventDate: selecedDate)
                 return cell
             } else {
                 guard

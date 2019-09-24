@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 protocol ProfileDetailViewDelegate: SwitchPetViewDelegate, NSObject {
     
 }

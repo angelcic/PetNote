@@ -63,6 +63,10 @@ class ProtectTypeTableViewCell: UITableViewCell {
         }
     }
     
+    func getTitle() -> String {
+        return titleLabel.text ?? ""
+    }
+    
 }
 
 protocol ProtectTypeTableViewCellDelegate: AnyObject {

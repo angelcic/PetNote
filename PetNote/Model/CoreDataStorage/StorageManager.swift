@@ -146,4 +146,8 @@ import UIKit
     func getPNPNWeightRecord() -> PNWeightRecord {
         return PNWeightRecord.init(context: viewContext)
     }
+    
+    func getPNDailyRecord() -> PNDailyRecord {
+        return PNDailyRecord.init(context: viewContext)
+    }
 }

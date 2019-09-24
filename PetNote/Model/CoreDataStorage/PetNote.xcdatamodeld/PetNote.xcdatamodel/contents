@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="18G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="PNDailyRecord" representedClassName="PNDailyRecord" syncable="YES" codeGenerationType="class">
-        <attribute name="date" optional="YES"/>
-        <attribute name="discribe" optional="YES"/>
-        <attribute name="event" optional="YES"/>
+        <attribute name="date" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="describe" optional="YES" attributeType="String"/>
+        <attribute name="event" optional="YES" attributeType="Transformable" customClassName="[String]"/>
         <relationship name="petInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PNPetInfo" inverseName="dailyRecord" inverseEntity="PNPetInfo"/>
     </entity>
     <entity name="PNMedicalRecord" representedClassName="PNMedicalRecord" syncable="YES" codeGenerationType="class">

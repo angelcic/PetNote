@@ -496,7 +496,7 @@
         <!--Health Record View Controller-->
         <scene sceneID="GPK-d6-tOJ">
             <objects>
-                <viewController id="cJL-Ai-knf" customClass="HealthRecordViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HealthRecordViewController" id="cJL-Ai-knf" customClass="HealthRecordViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WpW-2v-g9Z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

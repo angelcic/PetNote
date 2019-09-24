@@ -10,7 +10,7 @@ import UIKit
 
 protocol SwitchPetViewControllerProtocol {
     func changePet(_ indexPath: IndexPath)
-    func updateSwitchView()
+//    func updateSwitchView()
 //    func updateSelectedStatus()
 }
 
@@ -33,6 +33,7 @@ class SwitchPetViewController: BaseViewController, SwitchPetViewDelegate {
         super.viewDidLoad()
         setupPetIndexObserver()
         setupPetArrayObserver()
+        
     }
     
     func setupPetIndexObserver() {

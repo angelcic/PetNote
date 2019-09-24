@@ -264,8 +264,8 @@
 		9166EF512338BC010086C70E /* Record */ = {
 			isa = PBXGroup;
 			children = (
-				9166EF522338BC010086C70E /* DescriptionTableViewCell.xib */,
 				9166EF532338BC010086C70E /* DescriptionTableViewCell.swift */,
+				9166EF522338BC010086C70E /* DescriptionTableViewCell.xib */,
 				9166EF542338BC010086C70E /* DateSelectTableViewCell.swift */,
 				9166EF552338BC010086C70E /* DateSelectTableViewCell.xib */,
 			);
@@ -396,12 +396,12 @@
 		9166EFBC2338C05D0086C70E /* BasicInfoTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				9166EFBE2338C05D0086C70E /* AddImageTableViewCell.xib */,
 				9166EFC02338C05D0086C70E /* AddImageTableViewCell.swift */,
+				9166EFBE2338C05D0086C70E /* AddImageTableViewCell.xib */,
+				9166EFC52338C05D0086C70E /* ModifyBasicInfoTableViewCell.swift */,
 				9166EFC22338C05D0086C70E /* ModifyBasicInfoTableViewCell.xib */,
 				9166EFC32338C05D0086C70E /* BasicInfoTableViewCell.swift */,
 				9166EFC42338C05D0086C70E /* BasicInfoTableViewCell.xib */,
-				9166EFC52338C05D0086C70E /* ModifyBasicInfoTableViewCell.swift */,
 			);
 			path = BasicInfoTableViewCell;
 			sourceTree = "<group>";
@@ -601,11 +601,11 @@
 		9181BC3B23179FB1007BB7C6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				9166F00E2338C1EE0086C70E /* Medical */,
-				9166F00C2338C1EE0086C70E /* Notify */,
-				9166F0122338C1EE0086C70E /* Other */,
-				9166F0072338C1C80086C70E /* Record */,
 				9166EFEE2338C19D0086C70E /* Profile */,
+				9166F00E2338C1EE0086C70E /* Medical */,
+				9166F0072338C1C80086C70E /* Record */,
+				9166F0122338C1EE0086C70E /* Other */,
+				9166F00C2338C1EE0086C70E /* Notify */,
 				9181BC3C23179FBF007BB7C6 /* Base */,
 			);
 			path = Controller;
