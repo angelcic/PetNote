@@ -192,6 +192,14 @@ extension SwitchPetViewController: UICollectionViewDataSource {
             
         }
         
+//        cell.petNameObserver = nil
+//        cell.petNameObserver =
+//            storageManager.petsList[indexPath.row].observe(\.name, options: [.new]) { (object, change) in
+//                
+//                cell.nameLabel.text = change.newValue
+//        }
+
+        
         return cell
     }
 }

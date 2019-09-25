@@ -55,7 +55,6 @@ extension BasicInfoViewController: AddImageTableViewCellDelegate {
         imagePicker.delegate = self
         
         self.present(imagePicker, animated: false, completion: nil)
-//        print("加入照片")
     }
 }
 
@@ -68,9 +67,6 @@ extension BasicInfoViewController: UIImagePickerControllerDelegate {
         
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             
-//            currentImage = image
-            
-//            petDidChange()
             guard let pet = currentPet else {return}
             let petId = "\(pet.petId)"
             
@@ -84,6 +80,7 @@ extension BasicInfoViewController: UIImagePickerControllerDelegate {
                     print(error)
                 }
             }
+            
             tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
         }
     }
@@ -106,6 +103,7 @@ extension BasicInfoViewController: BasicInfoTableViewCellDelegate {
             { result in
             switch result {
             case .success:
+                StorageManager.shared.currentPetIndex = 0
                 print("已移除成員")
             case .failure(let error):
                 print(error)

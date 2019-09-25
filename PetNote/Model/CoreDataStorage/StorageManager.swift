@@ -51,7 +51,7 @@ import UIKit
         return persistanceContainer.viewContext
     }
     
-    var petsList: [PNPetInfo] {
+    dynamic var petsList: [PNPetInfo] {
         
         return datas.map({ $0.info })
     }
