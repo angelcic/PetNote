@@ -177,28 +177,30 @@ extension SwitchPetViewController: UICollectionViewDataSource {
             let image =
                 LocalFileManager.shared.readImage(imagePath: storageManager.petsList[indexPath.row].photo)
             
+            // 觀察照片改變
             cell.petPhotoObserver = nil
             cell.petPhotoObserver =
                 storageManager.petsList[indexPath.row].observe(\.photo, options: [.new]) { (object, change) in
 
                 guard let newValue = change.newValue else { return }
-                //                print(change)
+                //
                 let image = LocalFileManager.shared.readImage(imagePath: newValue)
                     
                 cell.petImageView.image = image
+            }
+            
+            // 觀察名字改變
+            cell.petNameObserver = nil
+            cell.petNameObserver = storageManager.petsList[indexPath.row].observe(\.name, options: [NSKeyValueObservingOptions.new]) { object, change in
+                    
+                guard let newValue = change.newValue else { return }
+                
+                cell.nameLabel.text = newValue
             }
                 
             cell.layoutCell(image: image, name: storageManager.petsList[indexPath.row].name)
             
         }
-        
-//        cell.petNameObserver = nil
-//        cell.petNameObserver =
-//            storageManager.petsList[indexPath.row].observe(\.name, options: [.new]) { (object, change) in
-//                
-//                cell.nameLabel.text = change.newValue
-//        }
-
         
         return cell
     }

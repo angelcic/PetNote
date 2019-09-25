@@ -96,11 +96,7 @@ extension BasicInfoViewController: UINavigationControllerDelegate {
 
 extension BasicInfoViewController: BasicInfoTableViewCellDelegate {
     func pressDeleteButton() {
-//        StorageManager.shared.deletePet(at:)
-//        guard let pet = currentPet else { return }
-//        StorageManager.shared.deleteData(pet)
-        StorageManager.shared.deleteCurrentPet
-            { result in
+        StorageManager.shared.deleteCurrentPet { result in
             switch result {
             case .success:
                 StorageManager.shared.currentPetIndex = 0
