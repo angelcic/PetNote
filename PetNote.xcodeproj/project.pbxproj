@@ -38,14 +38,11 @@
 		9166EFA52338BE890086C70E /* MedicalRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9166EF9B2338BE890086C70E /* MedicalRecordTableViewCell.xib */; };
 		9166EFA92338BEE40086C70E /* SettingNotifyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EFA72338BEE40086C70E /* SettingNotifyTableViewCell.swift */; };
 		9166EFAA2338BEE40086C70E /* SettingNotifyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9166EFA82338BEE40086C70E /* SettingNotifyTableViewCell.xib */; };
-		9166EFD02338C05D0086C70E /* ProfileRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EFAC2338C05D0086C70E /* ProfileRootView.swift */; };
 		9166EFD12338C05D0086C70E /* ChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9166EFAE2338C05D0086C70E /* ChartTableViewCell.xib */; };
 		9166EFD22338C05D0086C70E /* WeightLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EFAF2338C05D0086C70E /* WeightLabelTableViewCell.swift */; };
 		9166EFD32338C05D0086C70E /* WeightLabelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9166EFB02338C05D0086C70E /* WeightLabelTableViewCell.xib */; };
 		9166EFD42338C05D0086C70E /* ChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EFB12338C05D0086C70E /* ChartTableViewCell.swift */; };
 		9166EFD52338C05D0086C70E /* __WeightLabelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9166EFB22338C05D0086C70E /* __WeightLabelTableViewCell.xib */; };
-		9166EFD62338C05D0086C70E /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EFB42338C05D0086C70E /* ProfileTableViewCell.swift */; };
-		9166EFD72338C05D0086C70E /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9166EFB52338C05D0086C70E /* ProfileTableViewCell.xib */; };
 		9166EFD82338C05D0086C70E /* WithImageSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9166EFB72338C05D0086C70E /* WithImageSectionHeaderView.xib */; };
 		9166EFD92338C05D0086C70E /* AddDataTableViewSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EFB82338C05D0086C70E /* AddDataTableViewSectionHeaderView.swift */; };
 		9166EFDA2338C05D0086C70E /* AddDataTableViewSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9166EFB92338C05D0086C70E /* AddDataTableViewSectionHeaderView.xib */; };
@@ -73,7 +70,6 @@
 		9166F0022338C19D0086C70E /* DeseasePreventionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EFF62338C19D0086C70E /* DeseasePreventionViewController.swift */; };
 		9166F0032338C19D0086C70E /* ProtectPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EFF82338C19D0086C70E /* ProtectPlanViewController.swift */; };
 		9166F0042338C19D0086C70E /* AddingProtectPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EFF92338C19D0086C70E /* AddingProtectPlanViewController.swift */; };
-		9166F0052338C19D0086C70E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EFFA2338C19D0086C70E /* ProfileViewController.swift */; };
 		9166F0062338C19D0086C70E /* HealthRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EFFB2338C19D0086C70E /* HealthRecordViewController.swift */; };
 		9166F00A2338C1C80086C70E /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166F0082338C1C80086C70E /* RecordViewController.swift */; };
 		9166F00B2338C1C80086C70E /* AddRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166F0092338C1C80086C70E /* AddRecordViewController.swift */; };
@@ -163,14 +159,11 @@
 		9166EF9B2338BE890086C70E /* MedicalRecordTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MedicalRecordTableViewCell.xib; sourceTree = "<group>"; };
 		9166EFA72338BEE40086C70E /* SettingNotifyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingNotifyTableViewCell.swift; sourceTree = "<group>"; };
 		9166EFA82338BEE40086C70E /* SettingNotifyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingNotifyTableViewCell.xib; sourceTree = "<group>"; };
-		9166EFAC2338C05D0086C70E /* ProfileRootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileRootView.swift; sourceTree = "<group>"; };
 		9166EFAE2338C05D0086C70E /* ChartTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChartTableViewCell.xib; sourceTree = "<group>"; };
 		9166EFAF2338C05D0086C70E /* WeightLabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightLabelTableViewCell.swift; sourceTree = "<group>"; };
 		9166EFB02338C05D0086C70E /* WeightLabelTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeightLabelTableViewCell.xib; sourceTree = "<group>"; };
 		9166EFB12338C05D0086C70E /* ChartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartTableViewCell.swift; sourceTree = "<group>"; };
 		9166EFB22338C05D0086C70E /* __WeightLabelTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = __WeightLabelTableViewCell.xib; sourceTree = "<group>"; };
-		9166EFB42338C05D0086C70E /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
-		9166EFB52338C05D0086C70E /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
 		9166EFB72338C05D0086C70E /* WithImageSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WithImageSectionHeaderView.xib; sourceTree = "<group>"; };
 		9166EFB82338C05D0086C70E /* AddDataTableViewSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDataTableViewSectionHeaderView.swift; sourceTree = "<group>"; };
 		9166EFB92338C05D0086C70E /* AddDataTableViewSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddDataTableViewSectionHeaderView.xib; sourceTree = "<group>"; };
@@ -198,7 +191,6 @@
 		9166EFF62338C19D0086C70E /* DeseasePreventionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeseasePreventionViewController.swift; sourceTree = "<group>"; };
 		9166EFF82338C19D0086C70E /* ProtectPlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtectPlanViewController.swift; sourceTree = "<group>"; };
 		9166EFF92338C19D0086C70E /* AddingProtectPlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddingProtectPlanViewController.swift; sourceTree = "<group>"; };
-		9166EFFA2338C19D0086C70E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		9166EFFB2338C19D0086C70E /* HealthRecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthRecordViewController.swift; sourceTree = "<group>"; };
 		9166F0082338C1C80086C70E /* RecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		9166F0092338C1C80086C70E /* AddRecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRecordViewController.swift; sourceTree = "<group>"; };
@@ -364,10 +356,8 @@
 		9166EFAB2338C05D0086C70E /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				9166EFAC2338C05D0086C70E /* ProfileRootView.swift */,
 				9166EFCE2338C05D0086C70E /* ProfileDetailView.swift */,
 				9166EFAD2338C05D0086C70E /* WeightRecordTabelViewCell */,
-				9166EFB32338C05D0086C70E /* ProfileRootViewTableViewCell */,
 				9166EFB62338C05D0086C70E /* SectionHeaderView */,
 				9166EFBB2338C05D0086C70E /* AddPetView.swift */,
 				9166EFCF2338C05D0086C70E /* AddPetView.xib */,
@@ -388,15 +378,6 @@
 				9166EFB22338C05D0086C70E /* __WeightLabelTableViewCell.xib */,
 			);
 			path = WeightRecordTabelViewCell;
-			sourceTree = "<group>";
-		};
-		9166EFB32338C05D0086C70E /* ProfileRootViewTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				9166EFB42338C05D0086C70E /* ProfileTableViewCell.swift */,
-				9166EFB52338C05D0086C70E /* ProfileTableViewCell.xib */,
-			);
-			path = ProfileRootViewTableViewCell;
 			sourceTree = "<group>";
 		};
 		9166EFB62338C05D0086C70E /* SectionHeaderView */ = {
@@ -452,7 +433,6 @@
 				9166EFF52338C19D0086C70E /* AddPetViewController.swift */,
 				9166EFF62338C19D0086C70E /* DeseasePreventionViewController.swift */,
 				9166EFF72338C19D0086C70E /* ProtectPlan */,
-				9166EFFA2338C19D0086C70E /* ProfileViewController.swift */,
 				9166EFFB2338C19D0086C70E /* HealthRecordViewController.swift */,
 			);
 			path = Profile;
@@ -664,12 +644,12 @@
 				9166F0402338CBD10086C70E /* Other */,
 				9166EFA62338BEE40086C70E /* Notify */,
 				9181BC5B2317DE0A007BB7C6 /* UI */,
-				9181BC2A23177E1C007BB7C6 /* Main.storyboard */,
-				9166F03E2338CAFB0086C70E /* Notify.storyboard */,
 				9181BC3F2317A02F007BB7C6 /* Profile.storyboard */,
+				9166F03E2338CAFB0086C70E /* Notify.storyboard */,
 				9181BC412317A03D007BB7C6 /* Record.storyboard */,
 				9181BC432317A050007BB7C6 /* Medical.storyboard */,
 				9181BC452317A067007BB7C6 /* Other.storyboard */,
+				9181BC2A23177E1C007BB7C6 /* Main.storyboard */,
 				9181BC3223177E1D007BB7C6 /* LaunchScreen.storyboard */,
 			);
 			path = View;
@@ -806,7 +786,6 @@
 				9166F04F233A0B650086C70E /* EventCollectionViewCell.xib in Resources */,
 				9166EFD82338C05D0086C70E /* WithImageSectionHeaderView.xib in Resources */,
 				9166EFE22338C05D0086C70E /* ModifyBasicInfoTableViewCell.xib in Resources */,
-				9166EFD72338C05D0086C70E /* ProfileTableViewCell.xib in Resources */,
 				9166EF8C2338BDBD0086C70E /* PetsCollectionViewCell.xib in Resources */,
 				9166EFA52338BE890086C70E /* MedicalRecordTableViewCell.xib in Resources */,
 				9166F03F2338CAFB0086C70E /* Notify.storyboard in Resources */,
@@ -906,7 +885,6 @@
 				9166F09D233A4EF40086C70E /* TaiwanArea.swift in Sources */,
 				9166EFEC2338C05D0086C70E /* ProfileDetailView.swift in Sources */,
 				9166F03C2338C2AA0086C70E /* PNPetInfoExtension.swift in Sources */,
-				9166F0052338C19D0086C70E /* ProfileViewController.swift in Sources */,
 				9166F01A2338C1EE0086C70E /* MedicalViewController.swift in Sources */,
 				9166EF382338B7FA0086C70E /* DateExtension.swift in Sources */,
 				9166F0022338C19D0086C70E /* DeseasePreventionViewController.swift in Sources */,
@@ -938,7 +916,6 @@
 				9166F04A233A06620086C70E /* DailyRecordTableViewCell.swift in Sources */,
 				9166EFD22338C05D0086C70E /* WeightLabelTableViewCell.swift in Sources */,
 				9166F03D2338C2AA0086C70E /* StorageManager.swift in Sources */,
-				9166EFD02338C05D0086C70E /* ProfileRootView.swift in Sources */,
 				9181BC2723177E1C007BB7C6 /* AppDelegate.swift in Sources */,
 				9166EFD42338C05D0086C70E /* ChartTableViewCell.swift in Sources */,
 				91D963FB233666B3003A48AD /* URLExtension.swift in Sources */,
@@ -959,7 +936,6 @@
 				9166F0452338CBD10086C70E /* HospitalDataTableViewCell.swift in Sources */,
 				9181BC492317AA3F007BB7C6 /* UIStoryboardExtension.swift in Sources */,
 				9166EFDC2338C05D0086C70E /* AddPetView.swift in Sources */,
-				9166EFD62338C05D0086C70E /* ProfileTableViewCell.swift in Sources */,
 				9166EF8A2338BDBD0086C70E /* BasicCollectionViewCell.swift in Sources */,
 				9166EFFE2338C19D0086C70E /* WeightRecordViewController.swift in Sources */,
 				9166F0182338C1EE0086C70E /* SettingNotifyViewController.swift in Sources */,

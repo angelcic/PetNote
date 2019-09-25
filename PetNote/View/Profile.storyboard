@@ -104,16 +104,36 @@
                                             <constraint firstAttribute="width" secondItem="yn9-uJ-9vw" secondAttribute="height" multiplier="335:53" id="tE7-CO-mnb"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AUT-rw-re6">
+                                        <rect key="frame" x="0.0" y="53" width="375" height="443.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="先新增一位成員吧！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgj-tc-pts">
+                                                <rect key="frame" x="20" y="100" width="335" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="rgj-tc-pts" firstAttribute="top" secondItem="AUT-rw-re6" secondAttribute="top" constant="100" id="Lwd-ur-D0e"/>
+                                            <constraint firstItem="rgj-tc-pts" firstAttribute="leading" secondItem="AUT-rw-re6" secondAttribute="leading" constant="20" id="TIM-bL-Xi6"/>
+                                            <constraint firstAttribute="trailing" secondItem="rgj-tc-pts" secondAttribute="trailing" constant="20" id="p7E-0D-rh0"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="AUT-rw-re6" firstAttribute="leading" secondItem="5if-ud-av2" secondAttribute="leading" id="3RV-KP-mIs"/>
                                     <constraint firstAttribute="trailing" secondItem="yn9-uJ-9vw" secondAttribute="trailing" constant="20" id="BjO-6b-WyU"/>
                                     <constraint firstAttribute="trailing" secondItem="cLO-Wo-hhy" secondAttribute="trailing" id="Jf9-7L-1L4"/>
                                     <constraint firstAttribute="bottom" secondItem="cLO-Wo-hhy" secondAttribute="bottom" id="MYE-yX-Jm1"/>
                                     <constraint firstItem="cLO-Wo-hhy" firstAttribute="top" secondItem="yn9-uJ-9vw" secondAttribute="bottom" id="NKj-Wp-HLW"/>
                                     <constraint firstAttribute="bottom" secondItem="fyP-Wy-agO" secondAttribute="bottom" id="Ngd-hT-FF7"/>
+                                    <constraint firstItem="AUT-rw-re6" firstAttribute="top" secondItem="yn9-uJ-9vw" secondAttribute="bottom" id="Oyl-op-qP9"/>
                                     <constraint firstItem="yn9-uJ-9vw" firstAttribute="leading" secondItem="5if-ud-av2" secondAttribute="leading" constant="20" id="VLS-o6-AQy"/>
                                     <constraint firstItem="oYu-9S-lDD" firstAttribute="leading" secondItem="5if-ud-av2" secondAttribute="leading" id="WW9-FJ-aef"/>
+                                    <constraint firstAttribute="bottom" secondItem="AUT-rw-re6" secondAttribute="bottom" id="fDU-lg-XN2"/>
                                     <constraint firstAttribute="trailing" secondItem="fyP-Wy-agO" secondAttribute="trailing" id="iAi-Ml-FXJ"/>
                                     <constraint firstItem="fyP-Wy-agO" firstAttribute="top" secondItem="yn9-uJ-9vw" secondAttribute="bottom" id="lZR-Kk-PDo"/>
                                     <constraint firstAttribute="bottom" secondItem="oYu-9S-lDD" secondAttribute="bottom" id="mFd-bR-Pke"/>
@@ -121,9 +141,11 @@
                                     <constraint firstAttribute="trailing" secondItem="oYu-9S-lDD" secondAttribute="trailing" id="tjA-x1-rgL"/>
                                     <constraint firstItem="yn9-uJ-9vw" firstAttribute="top" secondItem="5if-ud-av2" secondAttribute="top" id="v8B-Tk-D5U"/>
                                     <constraint firstItem="oYu-9S-lDD" firstAttribute="top" secondItem="yn9-uJ-9vw" secondAttribute="bottom" id="wI3-dv-nJE"/>
+                                    <constraint firstAttribute="trailing" secondItem="AUT-rw-re6" secondAttribute="trailing" id="yOY-sb-fC8"/>
                                     <constraint firstItem="cLO-Wo-hhy" firstAttribute="leading" secondItem="5if-ud-av2" secondAttribute="leading" id="z94-sB-QJV"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="addPetAlertLayer" destination="AUT-rw-re6" id="1ad-i4-3bc"/>
                                     <outlet property="basicInfoContainerView" destination="cLO-Wo-hhy" id="WYQ-yJ-zg6"/>
                                     <outlet property="healthRecordContainerView" destination="fyP-Wy-agO" id="8MO-5p-rHs"/>
                                     <outlet property="protectPlanContainerView" destination="oYu-9S-lDD" id="sLE-VI-aMk"/>
@@ -320,7 +342,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PZv-ZP-ibF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1692.753623188406" y="912.72321428571422"/>
+            <point key="canvasLocation" x="1692" y="912.14392803598207"/>
         </scene>
         <!--Modify Base Info View Controller-->
         <scene sceneID="HqT-b6-jRK">
@@ -491,7 +513,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UcQ-0v-5DW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2401" y="911"/>
+            <point key="canvasLocation" x="2400.8000000000002" y="910.34482758620697"/>
         </scene>
         <!--Health Record View Controller-->
         <scene sceneID="GPK-d6-tOJ">

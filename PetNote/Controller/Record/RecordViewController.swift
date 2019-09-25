@@ -24,6 +24,8 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
         }
     }
     
+    @IBOutlet weak var addButtonMask: UIView!
+    
     @IBOutlet weak var calendar: FSCalendar! {
         didSet {
             calendar.dataSource = self
@@ -86,6 +88,12 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
 //            })
             resetDateRecord()
         }
+    }
+    
+    func petsNumberChange(isEmpty: Bool) {
+//        TODO: NOOOOOOO PET
+//        addButton.isEnabled = !isEmpty
+        addButtonMask.isHidden = !isEmpty
     }
     
     func resetDateRecord() {

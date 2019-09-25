@@ -10,8 +10,7 @@ import UIKit
 
 protocol SwitchPetViewControllerProtocol {
     func changePet(_ indexPath: IndexPath)
-//    func updateSwitchView()
-//    func updateSelectedStatus()
+    func petsNumberChange(isEmpty: Bool)
 }
 
 typealias BaseSwitchPetViewController = SwitchPetViewController & SwitchPetViewControllerProtocol
@@ -63,10 +62,22 @@ class SwitchPetViewController: BaseViewController, SwitchPetViewDelegate {
     }
     
     func setupPetArrayObserver() {
-        petListObserver = storageManager.observe(\.datas, options: [.new]) {[weak self] (object, change) in
+        petListObserver = storageManager.observe(\.datas, options: [.initial, .new]) {[weak self] (object, change) in
             
-            guard let switchPetView = self?.switchPetView else { return }
-            switchPetView.updatePetsData()
+            guard
+                let switchPetView = self?.switchPetView
+            else { return }
+            switchPetView.updatePetsData()            
+            
+            guard
+                let controller = self as? BaseSwitchPetViewController
+            else { return }
+            
+            if self?.storageManager.datas.count == 0 {
+                controller.petsNumberChange(isEmpty: true)
+            } else {
+                controller.petsNumberChange(isEmpty: false)
+            }
         }
     }
     
@@ -93,13 +104,7 @@ extension SwitchPetViewController: AddPetViewControllerDelegate {
         switch result {
         case .success:
             print("新增success")
-//            switchPetView.updatePetsData()
-//            guard let controller = self as? BaseSwitchPetViewController else {
-//                return
-//            }
             storageManager.currentPetIndex = storageManager.petsList.count - 1
-//
-//            controller.updateSwitchView()
             
         case .failure(let error) :
             print(error)
@@ -116,24 +121,11 @@ extension SwitchPetViewController: UICollectionViewDelegate {
         default :
             
             storageManager.currentPetIndex = indexPath.row
-            
-//            guard let controller = self as? BaseSwitchPetViewController else {
-//                return
-//            }
-//
-//            controller.changePet(indexPath)
         }
         
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-//        guard
-//            let cell = collectionView.cellForItem(at: indexPath)
-//                as? PetsCollectionViewCell
-//            else {
-//                return
-//        }
-//        cell.changeSlectedStatus(false)
     }
     
 }

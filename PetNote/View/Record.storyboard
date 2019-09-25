@@ -33,7 +33,7 @@
                             </tableView>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DfO-OX-Qcp">
                                 <rect key="frame" x="334" y="782" width="60" height="60"/>
-                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" name="PNLightBlue"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="DfO-OX-Qcp" secondAttribute="height" multiplier="1:1" id="U6Z-OY-kFP"/>
                                     <constraint firstAttribute="width" constant="60" id="exZ-mH-vzG"/>
@@ -44,18 +44,26 @@
                                     <action selector="addAction:" destination="COB-81-Ioi" eventType="touchUpInside" id="jtm-Mj-PIB"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2vK-7z-RtI">
+                                <rect key="frame" x="334" y="782" width="60" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="0.73148544520547942" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="npB-9g-Xu2" firstAttribute="trailing" secondItem="XQE-pB-gzT" secondAttribute="trailing" constant="16" id="5qV-RF-TL6"/>
+                            <constraint firstItem="DfO-OX-Qcp" firstAttribute="trailing" secondItem="2vK-7z-RtI" secondAttribute="trailing" id="CD0-Nh-ANe"/>
                             <constraint firstItem="npB-9g-Xu2" firstAttribute="trailing" secondItem="6Hy-UW-u6v" secondAttribute="trailing" id="Iso-tp-SNp"/>
                             <constraint firstItem="npB-9g-Xu2" firstAttribute="bottom" secondItem="DfO-OX-Qcp" secondAttribute="bottom" constant="20" id="Kr1-mO-rVZ"/>
                             <constraint firstItem="6Hy-UW-u6v" firstAttribute="height" secondItem="y12-et-5qe" secondAttribute="height" multiplier="0.16" id="Mdt-sb-h77"/>
                             <constraint firstItem="iS9-4f-5Tg" firstAttribute="top" secondItem="XQE-pB-gzT" secondAttribute="bottom" constant="16" id="PQf-Pg-b24"/>
                             <constraint firstItem="6Hy-UW-u6v" firstAttribute="top" secondItem="npB-9g-Xu2" secondAttribute="top" constant="20" id="Qf2-BF-ok0"/>
                             <constraint firstItem="XQE-pB-gzT" firstAttribute="top" secondItem="6Hy-UW-u6v" secondAttribute="bottom" id="Qnq-XH-vsf"/>
+                            <constraint firstItem="2vK-7z-RtI" firstAttribute="leading" secondItem="DfO-OX-Qcp" secondAttribute="leading" id="UJK-rY-8oY"/>
                             <constraint firstItem="npB-9g-Xu2" firstAttribute="trailing" secondItem="DfO-OX-Qcp" secondAttribute="trailing" constant="20" id="VC5-mq-yQh"/>
+                            <constraint firstItem="2vK-7z-RtI" firstAttribute="top" secondItem="DfO-OX-Qcp" secondAttribute="top" id="bfl-Om-NZn"/>
                             <constraint firstItem="npB-9g-Xu2" firstAttribute="bottom" secondItem="iS9-4f-5Tg" secondAttribute="bottom" id="cfg-l8-FF4"/>
+                            <constraint firstItem="DfO-OX-Qcp" firstAttribute="bottom" secondItem="2vK-7z-RtI" secondAttribute="bottom" id="jRe-7c-oCv"/>
                             <constraint firstItem="iS9-4f-5Tg" firstAttribute="leading" secondItem="npB-9g-Xu2" secondAttribute="leading" constant="20" id="ujF-4L-FX8"/>
                             <constraint firstItem="6Hy-UW-u6v" firstAttribute="leading" secondItem="npB-9g-Xu2" secondAttribute="leading" id="vGp-Q1-NMy"/>
                             <constraint firstItem="npB-9g-Xu2" firstAttribute="trailing" secondItem="iS9-4f-5Tg" secondAttribute="trailing" constant="20" id="w3M-me-QMi"/>
@@ -66,6 +74,7 @@
                     <navigationItem key="navigationItem" title="症狀記錄" id="oER-TA-Xct"/>
                     <connections>
                         <outlet property="addButton" destination="DfO-OX-Qcp" id="KCR-xa-GMF"/>
+                        <outlet property="addButtonMask" destination="2vK-7z-RtI" id="ywA-z0-KY1"/>
                         <outlet property="calendar" destination="XQE-pB-gzT" id="QPy-FW-owd"/>
                         <outlet property="calendarHeightConstraint" destination="bxx-Vf-q5k" id="sTf-xw-zDx"/>
                         <outlet property="switchPetView" destination="6Hy-UW-u6v" id="TGx-dZ-mvs"/>
@@ -127,6 +136,9 @@
     </scenes>
     <resources>
         <image name="icons-50px_add" width="37" height="37"/>
+        <namedColor name="PNLightBlue">
+            <color red="0.40392156862745099" green="0.6470588235294118" blue="0.85490196078431369" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="PNWhite">
             <color red="0.99215686274509807" green="0.99215686274509807" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
