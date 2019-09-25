@@ -67,7 +67,6 @@
 		9166EFFF2338C19D0086C70E /* ModifyBaseInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EFF32338C19D0086C70E /* ModifyBaseInfoViewController.swift */; };
 		9166F0002338C19D0086C70E /* BasicInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EFF42338C19D0086C70E /* BasicInfoViewController.swift */; };
 		9166F0012338C19D0086C70E /* AddPetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EFF52338C19D0086C70E /* AddPetViewController.swift */; };
-		9166F0022338C19D0086C70E /* DeseasePreventionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EFF62338C19D0086C70E /* DeseasePreventionViewController.swift */; };
 		9166F0032338C19D0086C70E /* ProtectPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EFF82338C19D0086C70E /* ProtectPlanViewController.swift */; };
 		9166F0042338C19D0086C70E /* AddingProtectPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EFF92338C19D0086C70E /* AddingProtectPlanViewController.swift */; };
 		9166F0062338C19D0086C70E /* HealthRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EFFB2338C19D0086C70E /* HealthRecordViewController.swift */; };
@@ -188,7 +187,6 @@
 		9166EFF32338C19D0086C70E /* ModifyBaseInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyBaseInfoViewController.swift; sourceTree = "<group>"; };
 		9166EFF42338C19D0086C70E /* BasicInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicInfoViewController.swift; sourceTree = "<group>"; };
 		9166EFF52338C19D0086C70E /* AddPetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPetViewController.swift; sourceTree = "<group>"; };
-		9166EFF62338C19D0086C70E /* DeseasePreventionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeseasePreventionViewController.swift; sourceTree = "<group>"; };
 		9166EFF82338C19D0086C70E /* ProtectPlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtectPlanViewController.swift; sourceTree = "<group>"; };
 		9166EFF92338C19D0086C70E /* AddingProtectPlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddingProtectPlanViewController.swift; sourceTree = "<group>"; };
 		9166EFFB2338C19D0086C70E /* HealthRecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthRecordViewController.swift; sourceTree = "<group>"; };
@@ -428,12 +426,11 @@
 			isa = PBXGroup;
 			children = (
 				9166EFEF2338C19D0086C70E /* ProfileDetailViewController.swift */,
-				9166EFF12338C19D0086C70E /* WeightRecordViewController.swift */,
-				9166EFF22338C19D0086C70E /* BasicInfo */,
 				9166EFF52338C19D0086C70E /* AddPetViewController.swift */,
-				9166EFF62338C19D0086C70E /* DeseasePreventionViewController.swift */,
+				9166EFF22338C19D0086C70E /* BasicInfo */,
 				9166EFF72338C19D0086C70E /* ProtectPlan */,
 				9166EFFB2338C19D0086C70E /* HealthRecordViewController.swift */,
+				9166EFF12338C19D0086C70E /* WeightRecordViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -887,7 +884,6 @@
 				9166F03C2338C2AA0086C70E /* PNPetInfoExtension.swift in Sources */,
 				9166F01A2338C1EE0086C70E /* MedicalViewController.swift in Sources */,
 				9166EF382338B7FA0086C70E /* DateExtension.swift in Sources */,
-				9166F0022338C19D0086C70E /* DeseasePreventionViewController.swift in Sources */,
 				9166EF582338BC010086C70E /* DateSelectTableViewCell.swift in Sources */,
 				9166EFDB2338C05D0086C70E /* WithImageSectionHeaderView.swift in Sources */,
 				9166F00A2338C1C80086C70E /* RecordViewController.swift in Sources */,

@@ -121,6 +121,26 @@ import UIKit
     // MARK: 修改
     
     // MARK: 刪除
+    func deleteCurrentPet(completion: ((Result<Void, Error>) -> Void)? = nil) {
+        deletePet(at: currentPetIndex, completion: completion)
+    }
+    
+    func deletePet(at index: Int, completion: ((Result<Void, Error>) -> Void)? = nil) {
+            
+        do {
+            viewContext.delete(petsList[index])
+            datas.remove(at: index)
+            try viewContext.save()
+            
+            completion?(Result.success(()))
+            
+            //            fetchPets()
+            
+        } catch {
+            
+            completion?(Result.failure(error))
+        }
+    }
     
     // MARK: 儲存
     func saveAll(completion: ((Result<Void, Error>) -> Void)? = nil) {

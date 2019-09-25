@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="383" height="427"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="383" height="426.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="383" height="427"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名字：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTo-g0-PlL">
@@ -104,14 +103,26 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ojp-J9-WHE">
-                        <rect key="frame" x="301" y="20" width="62" height="30"/>
-                        <state key="normal" title="編輯資料"/>
+                        <rect key="frame" x="301" y="17" width="62" height="30"/>
+                        <state key="normal" title="編輯資料">
+                            <color key="titleColor" name="PNDarkBlue"/>
+                        </state>
                         <connections>
                             <action selector="pressModifyButton" destination="KGk-i7-Jjw" eventType="touchUpInside" id="6GC-Ef-j3h"/>
                         </connections>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zho-rt-CnW">
+                        <rect key="frame" x="80" y="368" width="223" height="32"/>
+                        <state key="normal" title="刪除成員記錄">
+                            <color key="titleColor" name="PNLightBlue"/>
+                        </state>
+                        <connections>
+                            <action selector="pressDeleteButton" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gUe-PK-RWb"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="Zho-rt-CnW" secondAttribute="trailing" constant="60" id="1T5-xo-N2k"/>
                     <constraint firstItem="VCD-Se-Bp8" firstAttribute="leading" secondItem="FGl-9u-CXW" secondAttribute="leading" id="1VJ-f7-o7R"/>
                     <constraint firstItem="Nck-dn-hCl" firstAttribute="leading" secondItem="FGl-9u-CXW" secondAttribute="leading" id="1cz-Xl-n6e"/>
                     <constraint firstItem="ovr-Wi-ejf" firstAttribute="top" secondItem="TFV-w7-Z5T" secondAttribute="top" id="1np-bF-xAe"/>
@@ -121,14 +132,16 @@
                     <constraint firstItem="QCp-GI-UTH" firstAttribute="leading" secondItem="Pgm-5g-h9h" secondAttribute="leading" id="6dw-UA-JFG"/>
                     <constraint firstItem="ovr-Wi-ejf" firstAttribute="leading" secondItem="FGl-9u-CXW" secondAttribute="leading" id="6lm-4U-xzO"/>
                     <constraint firstItem="Pgm-5g-h9h" firstAttribute="leading" secondItem="4mS-c8-grO" secondAttribute="leading" id="8ip-80-fNK"/>
-                    <constraint firstItem="Ojp-J9-WHE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="AJ4-uE-8Er"/>
+                    <constraint firstItem="Ojp-J9-WHE" firstAttribute="centerY" secondItem="FGl-9u-CXW" secondAttribute="centerY" id="F1s-v2-C7F"/>
                     <constraint firstItem="Nck-dn-hCl" firstAttribute="top" secondItem="Kel-ln-Xcd" secondAttribute="top" id="FtA-Kc-Okh"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Zho-rt-CnW" secondAttribute="bottom" constant="16" id="K65-mg-b89"/>
                     <constraint firstItem="Kel-ln-Xcd" firstAttribute="leading" secondItem="4mS-c8-grO" secondAttribute="leading" id="MIi-n6-4Mx"/>
                     <constraint firstItem="FGl-9u-CXW" firstAttribute="top" secondItem="CTo-g0-PlL" secondAttribute="top" id="Myb-8F-iKD"/>
                     <constraint firstItem="FU2-EB-tVF" firstAttribute="leading" secondItem="CTo-g0-PlL" secondAttribute="leading" id="OVf-su-Ah5"/>
                     <constraint firstItem="Pgm-5g-h9h" firstAttribute="top" secondItem="TFV-w7-Z5T" secondAttribute="bottom" constant="20" id="PJU-8T-ojt"/>
                     <constraint firstItem="TFV-w7-Z5T" firstAttribute="leading" secondItem="Kel-ln-Xcd" secondAttribute="leading" id="PLZ-sc-glr"/>
                     <constraint firstItem="4mS-c8-grO" firstAttribute="top" secondItem="CTo-g0-PlL" secondAttribute="bottom" constant="20" id="RXe-1D-pDB"/>
+                    <constraint firstItem="Zho-rt-CnW" firstAttribute="top" secondItem="QCp-GI-UTH" secondAttribute="bottom" constant="60" id="TRX-ld-nbU"/>
                     <constraint firstItem="TFV-w7-Z5T" firstAttribute="top" secondItem="Kel-ln-Xcd" secondAttribute="bottom" constant="20" id="WMm-Fg-rbj"/>
                     <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="3k1-s2-UGc" secondAttribute="trailing" constant="20" id="X38-Ny-NcQ"/>
                     <constraint firstItem="3k1-s2-UGc" firstAttribute="leading" secondItem="FGl-9u-CXW" secondAttribute="leading" id="ZGi-5l-kjb"/>
@@ -139,6 +152,7 @@
                     <constraint firstAttribute="trailing" secondItem="Ojp-J9-WHE" secondAttribute="trailing" constant="20" id="fK2-Fk-gVf"/>
                     <constraint firstItem="CTo-g0-PlL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="hI1-PN-xyS"/>
                     <constraint firstItem="QCp-GI-UTH" firstAttribute="top" secondItem="Pgm-5g-h9h" secondAttribute="bottom" constant="20" id="kTD-83-lnR"/>
+                    <constraint firstItem="Zho-rt-CnW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="60" id="mwE-8G-t9V"/>
                     <constraint firstItem="FU2-EB-tVF" firstAttribute="top" secondItem="4mS-c8-grO" secondAttribute="bottom" constant="20" id="rbO-b5-zue"/>
                     <constraint firstItem="VCD-Se-Bp8" firstAttribute="top" secondItem="4mS-c8-grO" secondAttribute="top" id="uFl-j4-wE2"/>
                     <constraint firstItem="3ev-QV-0fp" firstAttribute="leading" secondItem="FGl-9u-CXW" secondAttribute="leading" id="xYP-FD-Qaq"/>
@@ -151,6 +165,7 @@
                 <outlet property="birthLabel" destination="ovr-Wi-ejf" id="P9s-4h-Y3P"/>
                 <outlet property="breedLabel" destination="3ev-QV-0fp" id="IN0-QX-Leh"/>
                 <outlet property="colorLabel" destination="jMl-A3-QmT" id="fnT-6g-wQb"/>
+                <outlet property="deleteButton" destination="Zho-rt-CnW" id="Urx-Rn-Rjs"/>
                 <outlet property="genderLabel" destination="VCD-Se-Bp8" id="7VQ-Bw-Md5"/>
                 <outlet property="idLabel" destination="Nck-dn-hCl" id="VFZ-rr-AgW"/>
                 <outlet property="modifyButton" destination="Ojp-J9-WHE" id="qpG-HF-Ck8"/>
@@ -160,4 +175,12 @@
             <point key="canvasLocation" x="93.478260869565219" y="124.21875"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <namedColor name="PNDarkBlue">
+            <color red="0.0" green="0.396078431372549" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PNLightBlue">
+            <color red="0.40392156862745099" green="0.6470588235294118" blue="0.85490196078431369" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

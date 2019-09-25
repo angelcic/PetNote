@@ -70,29 +70,15 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
     
     // 目前寵物 + 被選擇日期的 record
     var dateRecord: [PNDailyRecord] = []
-//    {
-//        didSet {
-//            tableView.reloadData()
-//        }
-//    }
     
     // 選擇的日期，預設是今天
     var selectedDate: Date = Date() {
         didSet {
-//            dateRecord = []
-//            currentRecord?.forEach({
-//                let date = Date(timeIntervalSince1970: $0.date)
-//                if date == selectedDate {
-//                    dateRecord.append($0)
-//                }
-//            })
             resetDateRecord()
         }
     }
     
     func petsNumberChange(isEmpty: Bool) {
-//        TODO: NOOOOOOO PET
-//        addButton.isEnabled = !isEmpty
         addButtonMask.isHidden = !isEmpty
     }
     

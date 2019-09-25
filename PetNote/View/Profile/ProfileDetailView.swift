@@ -29,7 +29,6 @@ class ProfileDetailView: UIView {
     @IBOutlet weak var healthRecordContainerView: UIView!
     
     @IBOutlet weak var addPetAlertLayer: UIView!
-
     
     var containerViews: [UIView] {
         

@@ -28,7 +28,6 @@ class BasicInfoViewController: BaseContainerViewController {
             } else {
                 addPetAlertLayer.isHidden = false
             }
-//            tableView.reloadSections(IndexSet(arrayLiteral: 1), with: .none)
         }
     }
     
@@ -36,10 +35,6 @@ class BasicInfoViewController: BaseContainerViewController {
         super.viewDidLoad()
         
         setupTableView()
-//        
-//        if currentPet == nil {
-//            addPetAlertLayer.isHidden = false
-//        }
     }
     
     func setupTableView() {
@@ -105,6 +100,18 @@ extension BasicInfoViewController: UINavigationControllerDelegate {
 }
 
 extension BasicInfoViewController: BasicInfoTableViewCellDelegate {
+    func pressDeleteButton() {
+//        StorageManager.shared.deletePet(at:)
+        StorageManager.shared.deleteCurrentPet { result in
+            switch result {
+            case .success:
+                print("已移除成員")
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
     func pressModifyButton() {
         guard let modifyInfoVC = UIStoryboard.profile.instantiateViewController(
             withIdentifier: ModifyBaseInfoViewController.identifier)
@@ -165,6 +172,7 @@ extension BasicInfoViewController: UITableViewDataSource {
                 }
             }
             return cell
+       
         default:
             guard
                 let cell = tableView.dequeueReusableCell(

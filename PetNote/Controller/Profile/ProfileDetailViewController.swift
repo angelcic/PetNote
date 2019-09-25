@@ -85,4 +85,3 @@ class ProfileDetailViewController: SwitchPetViewController, SwitchPetViewControl
 extension ProfileDetailViewController: ProfileDetailViewDelegate {
     
 }
-
