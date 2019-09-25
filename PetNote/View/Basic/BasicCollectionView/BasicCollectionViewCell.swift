@@ -27,6 +27,16 @@ class BasicCollectionViewCell: UICollectionViewCell {
         titleLabel.text = title
     }
     
+    func layoutCell(title: String, textColor: UIColor) {
+        titleLabel.text = title
+        titleLabel.textColor = textColor
+    }
+    
+    func layoutBGLayerAppearence(bgColor: UIColor, borderWidth: CGFloat, borderColor: UIColor) {
+        backgroundLayer.backgroundColor = bgColor
+        backgroundLayer.addBorder(borderColor: bgColor, borderWidth: borderWidth, cornerRadius: 20)
+    }
+    
     func changeSelectedStatus() {
         if isSelected {
             setSelectedBG()

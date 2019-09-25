@@ -119,6 +119,9 @@
 		9181BC5D2317DE27007BB7C6 /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181BC5C2317DE27007BB7C6 /* SelectionView.swift */; };
 		9181BC632318ED07007BB7C6 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181BC622318ED07007BB7C6 /* BaseNavigationController.swift */; };
 		9181BC672319119D007BB7C6 /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181BC662319119C007BB7C6 /* UICollectionViewExtension.swift */; };
+		91A6A43B233B5DF000BAF23E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A6A43A233B5DF000BAF23E /* AboutViewController.swift */; };
+		91A6A43E233B5EF300BAF23E /* BasicWithRightButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A6A43C233B5EF300BAF23E /* BasicWithRightButtonTableViewCell.swift */; };
+		91A6A43F233B5EF300BAF23E /* BasicWithRightButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91A6A43D233B5EF300BAF23E /* BasicWithRightButtonTableViewCell.xib */; };
 		91B97F5423375805008B940F /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B97F5323375805008B940F /* UIColorExtension.swift */; };
 		91D963FB233666B3003A48AD /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D963FA233666B3003A48AD /* URLExtension.swift */; };
 		933214776B257E5501F30B83 /* Pods_PetNote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C36075D08FC74716301080A /* Pods_PetNote.framework */; };
@@ -241,6 +244,9 @@
 		9181BC5C2317DE27007BB7C6 /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
 		9181BC622318ED07007BB7C6 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		9181BC662319119C007BB7C6 /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
+		91A6A43A233B5DF000BAF23E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		91A6A43C233B5EF300BAF23E /* BasicWithRightButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicWithRightButtonTableViewCell.swift; sourceTree = "<group>"; };
+		91A6A43D233B5EF300BAF23E /* BasicWithRightButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasicWithRightButtonTableViewCell.xib; sourceTree = "<group>"; };
 		91B97F5323375805008B940F /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		91D963FA233666B3003A48AD /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
 		C1B26700EEE001AE14DFC34D /* Pods-PetNote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetNote.debug.xcconfig"; path = "Target Support Files/Pods-PetNote/Pods-PetNote.debug.xcconfig"; sourceTree = "<group>"; };
@@ -284,6 +290,8 @@
 			children = (
 				9166EF822338BDBC0086C70E /* BasicCollectionView */,
 				9166EF852338BDBC0086C70E /* PetSwitch */,
+				91A6A43C233B5EF300BAF23E /* BasicWithRightButtonTableViewCell.swift */,
+				91A6A43D233B5EF300BAF23E /* BasicWithRightButtonTableViewCell.xib */,
 			);
 			name = Basic;
 			sourceTree = "<group>";
@@ -488,6 +496,7 @@
 				9166F0152338C1EE0086C70E /* NotificationManageViewController.swift */,
 				9166F0162338C1EE0086C70E /* NotificatonViewController.swift */,
 				9166F0172338C1EE0086C70E /* SearchHospitalResultViewController.swift */,
+				91A6A43A233B5DF000BAF23E /* AboutViewController.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -785,6 +794,7 @@
 				9166EFE22338C05D0086C70E /* ModifyBasicInfoTableViewCell.xib in Resources */,
 				9166EF8C2338BDBD0086C70E /* PetsCollectionViewCell.xib in Resources */,
 				9166EFA52338BE890086C70E /* MedicalRecordTableViewCell.xib in Resources */,
+				91A6A43F233B5EF300BAF23E /* BasicWithRightButtonTableViewCell.xib in Resources */,
 				9166F03F2338CAFB0086C70E /* Notify.storyboard in Resources */,
 				9166EFAA2338BEE40086C70E /* SettingNotifyTableViewCell.xib in Resources */,
 				9166EFE42338C05D0086C70E /* BasicInfoTableViewCell.xib in Resources */,
@@ -872,6 +882,7 @@
 				9166F00B2338C1C80086C70E /* AddRecordViewController.swift in Sources */,
 				9166F0442338CBD10086C70E /* SearchHospitalView.swift in Sources */,
 				9166EF3A2338B7FA0086C70E /* UIScreenExtension.swift in Sources */,
+				91A6A43E233B5EF300BAF23E /* BasicWithRightButtonTableViewCell.swift in Sources */,
 				9166EF372338B7FA0086C70E /* StringExtension.swift in Sources */,
 				9181BC2923177E1C007BB7C6 /* TabBarViewController.swift in Sources */,
 				9166F0062338C19D0086C70E /* HealthRecordViewController.swift in Sources */,
@@ -927,6 +938,7 @@
 				9166EF3C2338B8900086C70E /* BaseContainerViewController.swift in Sources */,
 				9166EFE32338C05D0086C70E /* BasicInfoTableViewCell.swift in Sources */,
 				9166F0382338C2AA0086C70E /* Pet.swift in Sources */,
+				91A6A43B233B5DF000BAF23E /* AboutViewController.swift in Sources */,
 				9166EF502338BBDE0086C70E /* PNChartView.swift in Sources */,
 				9166EF362338B7FA0086C70E /* UITextFieldExtension.swift in Sources */,
 				9166F0452338CBD10086C70E /* HospitalDataTableViewCell.swift in Sources */,

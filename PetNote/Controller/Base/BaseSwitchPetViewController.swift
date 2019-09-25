@@ -173,9 +173,7 @@ extension SwitchPetViewController: UICollectionViewDataSource {
                 collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
 //                cell.petImageBorderView.isHidden = false
             }
-            
-            let image =
-                LocalFileManager.shared.readImage(imagePath: storageManager.petsList[indexPath.row].photo)
+           
             
             // 觀察照片改變
             cell.petPhotoObserver = nil
@@ -186,7 +184,7 @@ extension SwitchPetViewController: UICollectionViewDataSource {
                 //
                 let image = LocalFileManager.shared.readImage(imagePath: newValue)
                     
-                cell.petImageView.image = image
+                    cell.petImageView.image = image
             }
             
             // 觀察名字改變
@@ -197,6 +195,10 @@ extension SwitchPetViewController: UICollectionViewDataSource {
                 
                 cell.nameLabel.text = newValue
             }
+            
+            let image = storageManager.images[indexPath.row]
+                           
+            //LocalFileManager.shared.readImage(imagePath: storageManager.petsList[indexPath.row].photo)
                 
             cell.layoutCell(image: image, name: storageManager.petsList[indexPath.row].name)
             

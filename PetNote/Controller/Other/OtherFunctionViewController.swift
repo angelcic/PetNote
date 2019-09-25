@@ -19,7 +19,8 @@ class OtherFunctionViewController: BaseViewController {
     
     enum FunctionType: Int {
         case hospital = 0
-        case alert = 1
+        case setting = 1
+        case alert = 2
         
         func getFunctionVC() -> UIViewController? {
             switch self {
@@ -27,6 +28,10 @@ class OtherFunctionViewController: BaseViewController {
                 return UIStoryboard.other.instantiateViewController(
                     withIdentifier: String(describing: SearchHospitalViewController.self))
                     as? SearchHospitalViewController
+            case .setting:
+                return UIStoryboard.other.instantiateViewController(
+                withIdentifier: String(describing: AboutViewController.self))
+                as? AboutViewController
             case .alert:
                 return UIStoryboard.other.instantiateViewController(
                     withIdentifier: String(describing: NotificationManageViewController.self))
@@ -82,7 +87,7 @@ extension OtherFunctionViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellWidth = (collectionView.frame.width - spacing) / 2
-        return CGSize(width: cellWidth, height: cellWidth)
+        return CGSize(width: collectionView.frame.width, height: cellWidth)
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -94,13 +99,14 @@ extension OtherFunctionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 20
+        return 40
     }
 }
 
 extension OtherFunctionViewController: UICollectionViewDataSource {
     var functions: [String] {
-        return ["附近醫院", "通知管理", "保健知識", "設定", "計算機幫手", "備份"]
+//        return ["附近醫院", "通知管理", "保健知識", "設定", "計算機幫手", "備份"]
+        return ["附近醫院", "關於毛孩手帳"]
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -115,7 +121,8 @@ extension OtherFunctionViewController: UICollectionViewDataSource {
             else {
                 return BasicCollectionViewCell()
         }
-        cell.layoutCell(title: functions[indexPath.row])
+        cell.layoutCell(title: functions[indexPath.row], textColor: UIColor.pnWhite!)
+        cell.layoutBGLayerAppearence(bgColor: UIColor.pnBlueLight!, borderWidth: 0, borderColor: UIColor.pnBlueLight!)
         return cell
     }
     
