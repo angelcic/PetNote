@@ -52,32 +52,6 @@ class AddRecordViewController: BaseViewController {
     }
     
     @objc func saveAction() {
-//        if let dateCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0))
-//            as? DateSelectTableViewCell {
-//            selecedDate = dateCell.getDate()
-//        }
-//
-//        if let describeCell = tableView.cellForRow(at: IndexPath(row: 1, section: 0))
-//            as? DescriptionTableViewCell {
-//            descriptionText = describeCell.getDescription()
-//        }
-        
-//        let cells = tableView.visibleCells
-//        cells.forEach { cell in
-//            if let dateCell = cell as? DateSelectTableViewCell {
-//                selecedDate = dateCell.getDate()
-//                return
-//            }
-//            if let describeCell = cell as? DescriptionTableViewCell {
-//                descriptionText = describeCell.getDescription()
-//                return
-//            }
-//            if let eventCell = cell as? ProtectTypeTableViewCell {
-//                if eventCell.isSelected == true {
-//                    events.append(eventCell.getTitle())
-//                }
-//            }
-//        }
         
         if let dateCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? DateSelectTableViewCell {
             selecedDate = dateCell.getDate()
@@ -93,10 +67,10 @@ class AddRecordViewController: BaseViewController {
                 events.append($0.title)
             }
         }
+        saveDateEvent?(selecedDate, events, descriptionText)
         
         navigationController?.popToRootViewController(animated: false)
         
-        saveDateEvent?(selecedDate, events, descriptionText)
     }
 }
 

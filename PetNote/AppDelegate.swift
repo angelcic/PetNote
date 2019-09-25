@@ -16,6 +16,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let myUserDefaults = UserDefaults.standard
+        if !myUserDefaults.bool(forKey: "firstLaunchApp") {
+            StorageManager.shared.createDemoData { result in
+                switch result {
+                case .success:
+                    print("成功新增預設資料")
+                    myUserDefaults.set(
+                      true, forKey: "firstLaunchApp")
+                    myUserDefaults.synchronize()
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
         return true
     }
 

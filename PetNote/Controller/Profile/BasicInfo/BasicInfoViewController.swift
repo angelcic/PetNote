@@ -85,8 +85,6 @@ extension BasicInfoViewController: UIImagePickerControllerDelegate {
                 }
             }
             tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
-            StorageManager.shared.didChangeValue(for: \.currentPetIndex)
-            StorageManager.shared.didChangeValue(forKey: "currentPetIndex")
         }
     }
     
@@ -102,7 +100,10 @@ extension BasicInfoViewController: UINavigationControllerDelegate {
 extension BasicInfoViewController: BasicInfoTableViewCellDelegate {
     func pressDeleteButton() {
 //        StorageManager.shared.deletePet(at:)
-        StorageManager.shared.deleteCurrentPet { result in
+//        guard let pet = currentPet else { return }
+//        StorageManager.shared.deleteData(pet)
+        StorageManager.shared.deleteCurrentPet
+            { result in
             switch result {
             case .success:
                 print("已移除成員")

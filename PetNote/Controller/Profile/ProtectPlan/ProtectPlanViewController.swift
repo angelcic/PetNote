@@ -159,6 +159,26 @@ extension ProtectPlanViewController: UITableViewDelegate {
         
         modifyProtectPlan(protectPlan: protectPlans[indexPath.row])
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        print("刪除")
+        let plan = protectPlans[indexPath.row]
+        StorageManager.shared.deleteData(plan) {[weak self] result in
+            switch result {
+            case .success:
+                self?.protectPlans.remove(at: indexPath.row)
+                tableView.reloadData()
+            case .failure(let error):
+                print(error)
+                
+            }
+        }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "刪除"
+    }
 }
 
 extension ProtectPlanViewController: SectionHeaderDelegate {

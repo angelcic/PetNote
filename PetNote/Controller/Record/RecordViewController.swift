@@ -15,6 +15,9 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
         didSet {
             tableView.delegate = self
             tableView.dataSource = self
+            if dateRecord.count == 0 {
+                selectedDate = calendar.today ?? Date()
+            }
         }
     }
     
@@ -199,7 +202,7 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
     @IBAction func addAction(_ sender: Any) {
         guard let day = calendar.selectedDate else {
             // 若沒有選擇日期直接使用當天日期
-            let day = Date()
+            guard let day = calendar.today else { return }
             addDailyRecord(date: day)
             return
         }
@@ -260,7 +263,25 @@ extension RecordViewController: FSCalendarDataSource {
 }
 
 extension RecordViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        print("刪除")
+        let record = dateRecord[indexPath.row]
+        StorageManager.shared.deleteData(record) {[weak self] result in
+            switch result {
+            case .success:
+                self?.dateRecord.remove(at: indexPath.row)
+                tableView.reloadData()
+            case .failure(let error):
+                print(error)
+                
+            }
+        }
+        
+    }
     
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "刪除"
+    }
 }
 
 extension RecordViewController: UITableViewDataSource {
