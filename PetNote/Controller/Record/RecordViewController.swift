@@ -64,7 +64,7 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
         didSet {
             eventDate = []
             currentRecord?.forEach({
-                let date = Date(timeIntervalSince1970: $0.date)
+                let date = Date(timeIntervalSince1970: $0.date).getDateString(format: "yyyyMMdd")
                 eventDate.append(date)
             })
             resetDateRecord()
@@ -88,8 +88,8 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
     func resetDateRecord() {
         dateRecord = []
         currentRecord?.forEach({
-            let date = Date(timeIntervalSince1970: $0.date)
-            if date == selectedDate {
+            let date = Date(timeIntervalSince1970: $0.date).getDateString(format: "yyyyMMdd")
+            if date == selectedDate.getDateString(format: "yyyyMMdd") {
                 dateRecord.append($0)
             }
         })
@@ -97,7 +97,7 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
     }
     
     // 有事件的日期，透過
-    var eventDate: [Date] = [] {
+    var eventDate: [String] = [] {
         didSet {
             calendar.reloadData()
         }
@@ -240,7 +240,7 @@ extension RecordViewController: FSCalendarDelegate {
     
     // 事件圓點顯示
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-        if eventDate.contains(date) {
+        if eventDate.contains(date.getDateString(format: "yyyyMMdd")) {
            return 1
         } else {
             return 0
