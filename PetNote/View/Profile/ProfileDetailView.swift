@@ -24,31 +24,11 @@ class ProfileDetailView: UIView {
     }
     
     @IBOutlet weak var selectionViewLayer: UIView!
-//    {
-//        didSet {
-//            let selectionView = SelectionView(CGRect(x: 0, y: 0, width: selectionViewLayer.frame.width, height: selectionViewLayer.frame.height))
-//
-//            selectionView.delegate = self
-//            selectionView.dataSource = self
-//
-//            selectionView.backgroundColor = .white
-//            selectionViewLayer.addSubview(selectionView)
-//        }
-//    }
-    
-//    @IBOutlet weak var collectionView: UICollectionView! {
-//
-//        didSet {
-//
-//            collectionView.dataSource = self.delegate
-//
-//            collectionView.delegate = self.delegate
-//        }
-//    }
-    
     @IBOutlet weak var basicInfoContainerView: UIView!
     @IBOutlet weak var protectPlanContainerView: UIView!
     @IBOutlet weak var healthRecordContainerView: UIView!
+    
+    @IBOutlet weak var addPetAlertLayer: UIView!
     
     var containerViews: [UIView] {
         
@@ -56,40 +36,12 @@ class ProfileDetailView: UIView {
     }
     
     weak var delegate: ProfileDetailViewDelegate?
-//        {
-//
-//        didSet {
-//
-//            guard let collectionView = collectionView else { return }
-//
-//            collectionView.dataSource = self.delegate
-//
-//            collectionView.delegate = self.delegate
-//        }
-//    }
     
 //    let page = ["基本資料", "預防計畫", "健康記錄"]
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-//        setupCollectionView()
     }
-
-//    private func setupCollectionView() {
-//        let selectionView = SelectionView(
-//            CGRect(x: 0,
-//                   y: 0,
-//                   width: selectionViewLayer.frame.width,
-//                   height: selectionViewLayer.frame.height))
-//
-//        selectionView.delegate = self
-//        selectionView.dataSource = self
-//
-//        selectionView.backgroundColor = .white
-//        selectionViewLayer.addSubview(selectionView)
-//
-//    }
 
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -134,6 +86,12 @@ class ProfileDetailView: UIView {
             healthRecordContainerView.isHidden = false
             
         }
+    }
+    
+    func changeAddPetAlertStatus(isHidden: Bool) {
+        
+        addPetAlertLayer.isHidden = isHidden
+        
     }
 }
 

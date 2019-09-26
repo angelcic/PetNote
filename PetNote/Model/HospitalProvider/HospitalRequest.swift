@@ -43,7 +43,6 @@ enum HospitalRequest: Request {
             
         case .hospitalList(let city, let zip):
             return
-//            "&$filter=縣市+like+臺北市+and+機構地址+like+信義區"
         "縣市+like+\(city)+and+機構地址+like+\(zip)"
             
         }

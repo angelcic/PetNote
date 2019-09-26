@@ -10,11 +10,17 @@ import UIKit
 
 protocol BasicInfoTableViewCellDelegate: AnyObject {
     func pressModifyButton()
+    func pressDeleteButton()
 }
 
 class BasicInfoTableViewCell: UITableViewCell {
 
     @IBOutlet weak var modifyButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton! {
+        didSet {
+            deleteButton.addBorder(borderColor: UIColor.pnBlueLight!, borderWidth: 1, cornerRadius: 5)
+        }
+    }
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
@@ -54,5 +60,8 @@ class BasicInfoTableViewCell: UITableViewCell {
     @IBAction func pressModifyButton() {
         delegate?.pressModifyButton()
     }
-    
+        
+    @IBAction func pressDeleteButton() {
+        delegate?.pressDeleteButton()
+    }
 }

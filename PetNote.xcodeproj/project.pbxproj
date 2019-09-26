@@ -38,14 +38,11 @@
 		9166EFA52338BE890086C70E /* MedicalRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9166EF9B2338BE890086C70E /* MedicalRecordTableViewCell.xib */; };
 		9166EFA92338BEE40086C70E /* SettingNotifyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EFA72338BEE40086C70E /* SettingNotifyTableViewCell.swift */; };
 		9166EFAA2338BEE40086C70E /* SettingNotifyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9166EFA82338BEE40086C70E /* SettingNotifyTableViewCell.xib */; };
-		9166EFD02338C05D0086C70E /* ProfileRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EFAC2338C05D0086C70E /* ProfileRootView.swift */; };
 		9166EFD12338C05D0086C70E /* ChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9166EFAE2338C05D0086C70E /* ChartTableViewCell.xib */; };
 		9166EFD22338C05D0086C70E /* WeightLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EFAF2338C05D0086C70E /* WeightLabelTableViewCell.swift */; };
 		9166EFD32338C05D0086C70E /* WeightLabelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9166EFB02338C05D0086C70E /* WeightLabelTableViewCell.xib */; };
 		9166EFD42338C05D0086C70E /* ChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EFB12338C05D0086C70E /* ChartTableViewCell.swift */; };
 		9166EFD52338C05D0086C70E /* __WeightLabelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9166EFB22338C05D0086C70E /* __WeightLabelTableViewCell.xib */; };
-		9166EFD62338C05D0086C70E /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EFB42338C05D0086C70E /* ProfileTableViewCell.swift */; };
-		9166EFD72338C05D0086C70E /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9166EFB52338C05D0086C70E /* ProfileTableViewCell.xib */; };
 		9166EFD82338C05D0086C70E /* WithImageSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9166EFB72338C05D0086C70E /* WithImageSectionHeaderView.xib */; };
 		9166EFD92338C05D0086C70E /* AddDataTableViewSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EFB82338C05D0086C70E /* AddDataTableViewSectionHeaderView.swift */; };
 		9166EFDA2338C05D0086C70E /* AddDataTableViewSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9166EFB92338C05D0086C70E /* AddDataTableViewSectionHeaderView.xib */; };
@@ -70,10 +67,8 @@
 		9166EFFF2338C19D0086C70E /* ModifyBaseInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EFF32338C19D0086C70E /* ModifyBaseInfoViewController.swift */; };
 		9166F0002338C19D0086C70E /* BasicInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EFF42338C19D0086C70E /* BasicInfoViewController.swift */; };
 		9166F0012338C19D0086C70E /* AddPetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EFF52338C19D0086C70E /* AddPetViewController.swift */; };
-		9166F0022338C19D0086C70E /* DeseasePreventionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EFF62338C19D0086C70E /* DeseasePreventionViewController.swift */; };
 		9166F0032338C19D0086C70E /* ProtectPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EFF82338C19D0086C70E /* ProtectPlanViewController.swift */; };
 		9166F0042338C19D0086C70E /* AddingProtectPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EFF92338C19D0086C70E /* AddingProtectPlanViewController.swift */; };
-		9166F0052338C19D0086C70E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EFFA2338C19D0086C70E /* ProfileViewController.swift */; };
 		9166F0062338C19D0086C70E /* HealthRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EFFB2338C19D0086C70E /* HealthRecordViewController.swift */; };
 		9166F00A2338C1C80086C70E /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166F0082338C1C80086C70E /* RecordViewController.swift */; };
 		9166F00B2338C1C80086C70E /* AddRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166F0092338C1C80086C70E /* AddRecordViewController.swift */; };
@@ -106,6 +101,9 @@
 		9166F04E233A0B650086C70E /* EventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166F04C233A0B650086C70E /* EventCollectionViewCell.swift */; };
 		9166F04F233A0B650086C70E /* EventCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9166F04D233A0B650086C70E /* EventCollectionViewCell.xib */; };
 		9166F053233A28020086C70E /* DailyRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166F052233A28020086C70E /* DailyRecord.swift */; };
+		9166F09B233A4D1B0086C70E /* TaiwanArea.json in Resources */ = {isa = PBXBuildFile; fileRef = 9166F09A233A4D1B0086C70E /* TaiwanArea.json */; };
+		9166F09D233A4EF40086C70E /* TaiwanArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166F09C233A4EF40086C70E /* TaiwanArea.swift */; };
+		9166F09F233A4F3D0086C70E /* JSONReaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166F09E233A4F3D0086C70E /* JSONReaderManager.swift */; };
 		9181BC2723177E1C007BB7C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181BC2623177E1C007BB7C6 /* AppDelegate.swift */; };
 		9181BC2923177E1C007BB7C6 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181BC2823177E1C007BB7C6 /* TabBarViewController.swift */; };
 		9181BC2C23177E1C007BB7C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9181BC2A23177E1C007BB7C6 /* Main.storyboard */; };
@@ -121,6 +119,12 @@
 		9181BC5D2317DE27007BB7C6 /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181BC5C2317DE27007BB7C6 /* SelectionView.swift */; };
 		9181BC632318ED07007BB7C6 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181BC622318ED07007BB7C6 /* BaseNavigationController.swift */; };
 		9181BC672319119D007BB7C6 /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181BC662319119C007BB7C6 /* UICollectionViewExtension.swift */; };
+		91A6A43B233B5DF000BAF23E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A6A43A233B5DF000BAF23E /* AboutViewController.swift */; };
+		91A6A43E233B5EF300BAF23E /* BasicWithRightButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A6A43C233B5EF300BAF23E /* BasicWithRightButtonTableViewCell.swift */; };
+		91A6A43F233B5EF300BAF23E /* BasicWithRightButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91A6A43D233B5EF300BAF23E /* BasicWithRightButtonTableViewCell.xib */; };
+		91A6A441233C423300BAF23E /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A6A440233C423300BAF23E /* WebViewController.swift */; };
+		91A6A443233C4C6900BAF23E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91A6A442233C4C6900BAF23E /* WebKit.framework */; };
+		91A6A445233CBE7700BAF23E /* ThanksPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A6A444233CBE7700BAF23E /* ThanksPageViewController.swift */; };
 		91B97F5423375805008B940F /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B97F5323375805008B940F /* UIColorExtension.swift */; };
 		91D963FB233666B3003A48AD /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D963FA233666B3003A48AD /* URLExtension.swift */; };
 		933214776B257E5501F30B83 /* Pods_PetNote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C36075D08FC74716301080A /* Pods_PetNote.framework */; };
@@ -160,14 +164,11 @@
 		9166EF9B2338BE890086C70E /* MedicalRecordTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MedicalRecordTableViewCell.xib; sourceTree = "<group>"; };
 		9166EFA72338BEE40086C70E /* SettingNotifyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingNotifyTableViewCell.swift; sourceTree = "<group>"; };
 		9166EFA82338BEE40086C70E /* SettingNotifyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingNotifyTableViewCell.xib; sourceTree = "<group>"; };
-		9166EFAC2338C05D0086C70E /* ProfileRootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileRootView.swift; sourceTree = "<group>"; };
 		9166EFAE2338C05D0086C70E /* ChartTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChartTableViewCell.xib; sourceTree = "<group>"; };
 		9166EFAF2338C05D0086C70E /* WeightLabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightLabelTableViewCell.swift; sourceTree = "<group>"; };
 		9166EFB02338C05D0086C70E /* WeightLabelTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeightLabelTableViewCell.xib; sourceTree = "<group>"; };
 		9166EFB12338C05D0086C70E /* ChartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartTableViewCell.swift; sourceTree = "<group>"; };
 		9166EFB22338C05D0086C70E /* __WeightLabelTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = __WeightLabelTableViewCell.xib; sourceTree = "<group>"; };
-		9166EFB42338C05D0086C70E /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
-		9166EFB52338C05D0086C70E /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
 		9166EFB72338C05D0086C70E /* WithImageSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WithImageSectionHeaderView.xib; sourceTree = "<group>"; };
 		9166EFB82338C05D0086C70E /* AddDataTableViewSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDataTableViewSectionHeaderView.swift; sourceTree = "<group>"; };
 		9166EFB92338C05D0086C70E /* AddDataTableViewSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddDataTableViewSectionHeaderView.xib; sourceTree = "<group>"; };
@@ -192,10 +193,8 @@
 		9166EFF32338C19D0086C70E /* ModifyBaseInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyBaseInfoViewController.swift; sourceTree = "<group>"; };
 		9166EFF42338C19D0086C70E /* BasicInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicInfoViewController.swift; sourceTree = "<group>"; };
 		9166EFF52338C19D0086C70E /* AddPetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPetViewController.swift; sourceTree = "<group>"; };
-		9166EFF62338C19D0086C70E /* DeseasePreventionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeseasePreventionViewController.swift; sourceTree = "<group>"; };
 		9166EFF82338C19D0086C70E /* ProtectPlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtectPlanViewController.swift; sourceTree = "<group>"; };
 		9166EFF92338C19D0086C70E /* AddingProtectPlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddingProtectPlanViewController.swift; sourceTree = "<group>"; };
-		9166EFFA2338C19D0086C70E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		9166EFFB2338C19D0086C70E /* HealthRecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthRecordViewController.swift; sourceTree = "<group>"; };
 		9166F0082338C1C80086C70E /* RecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		9166F0092338C1C80086C70E /* AddRecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRecordViewController.swift; sourceTree = "<group>"; };
@@ -228,6 +227,9 @@
 		9166F04C233A0B650086C70E /* EventCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCollectionViewCell.swift; sourceTree = "<group>"; };
 		9166F04D233A0B650086C70E /* EventCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventCollectionViewCell.xib; sourceTree = "<group>"; };
 		9166F052233A28020086C70E /* DailyRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyRecord.swift; sourceTree = "<group>"; };
+		9166F09A233A4D1B0086C70E /* TaiwanArea.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TaiwanArea.json; sourceTree = "<group>"; };
+		9166F09C233A4EF40086C70E /* TaiwanArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaiwanArea.swift; sourceTree = "<group>"; };
+		9166F09E233A4F3D0086C70E /* JSONReaderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONReaderManager.swift; sourceTree = "<group>"; };
 		9181BC2323177E1C007BB7C6 /* PetNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9181BC2623177E1C007BB7C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9181BC2823177E1C007BB7C6 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -245,6 +247,12 @@
 		9181BC5C2317DE27007BB7C6 /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
 		9181BC622318ED07007BB7C6 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		9181BC662319119C007BB7C6 /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
+		91A6A43A233B5DF000BAF23E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		91A6A43C233B5EF300BAF23E /* BasicWithRightButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicWithRightButtonTableViewCell.swift; sourceTree = "<group>"; };
+		91A6A43D233B5EF300BAF23E /* BasicWithRightButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasicWithRightButtonTableViewCell.xib; sourceTree = "<group>"; };
+		91A6A440233C423300BAF23E /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		91A6A442233C4C6900BAF23E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		91A6A444233CBE7700BAF23E /* ThanksPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksPageViewController.swift; sourceTree = "<group>"; };
 		91B97F5323375805008B940F /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		91D963FA233666B3003A48AD /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
 		C1B26700EEE001AE14DFC34D /* Pods-PetNote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetNote.debug.xcconfig"; path = "Target Support Files/Pods-PetNote/Pods-PetNote.debug.xcconfig"; sourceTree = "<group>"; };
@@ -255,6 +263,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91A6A443233C4C6900BAF23E /* WebKit.framework in Frameworks */,
 				933214776B257E5501F30B83 /* Pods_PetNote.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,6 +297,8 @@
 			children = (
 				9166EF822338BDBC0086C70E /* BasicCollectionView */,
 				9166EF852338BDBC0086C70E /* PetSwitch */,
+				91A6A43C233B5EF300BAF23E /* BasicWithRightButtonTableViewCell.swift */,
+				91A6A43D233B5EF300BAF23E /* BasicWithRightButtonTableViewCell.xib */,
 			);
 			name = Basic;
 			sourceTree = "<group>";
@@ -358,10 +369,8 @@
 		9166EFAB2338C05D0086C70E /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				9166EFAC2338C05D0086C70E /* ProfileRootView.swift */,
 				9166EFCE2338C05D0086C70E /* ProfileDetailView.swift */,
 				9166EFAD2338C05D0086C70E /* WeightRecordTabelViewCell */,
-				9166EFB32338C05D0086C70E /* ProfileRootViewTableViewCell */,
 				9166EFB62338C05D0086C70E /* SectionHeaderView */,
 				9166EFBB2338C05D0086C70E /* AddPetView.swift */,
 				9166EFCF2338C05D0086C70E /* AddPetView.xib */,
@@ -375,22 +384,13 @@
 		9166EFAD2338C05D0086C70E /* WeightRecordTabelViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				9166EFB12338C05D0086C70E /* ChartTableViewCell.swift */,
 				9166EFAE2338C05D0086C70E /* ChartTableViewCell.xib */,
 				9166EFAF2338C05D0086C70E /* WeightLabelTableViewCell.swift */,
 				9166EFB02338C05D0086C70E /* WeightLabelTableViewCell.xib */,
-				9166EFB12338C05D0086C70E /* ChartTableViewCell.swift */,
 				9166EFB22338C05D0086C70E /* __WeightLabelTableViewCell.xib */,
 			);
 			path = WeightRecordTabelViewCell;
-			sourceTree = "<group>";
-		};
-		9166EFB32338C05D0086C70E /* ProfileRootViewTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				9166EFB42338C05D0086C70E /* ProfileTableViewCell.swift */,
-				9166EFB52338C05D0086C70E /* ProfileTableViewCell.xib */,
-			);
-			path = ProfileRootViewTableViewCell;
 			sourceTree = "<group>";
 		};
 		9166EFB62338C05D0086C70E /* SectionHeaderView */ = {
@@ -441,13 +441,11 @@
 			isa = PBXGroup;
 			children = (
 				9166EFEF2338C19D0086C70E /* ProfileDetailViewController.swift */,
-				9166EFF12338C19D0086C70E /* WeightRecordViewController.swift */,
-				9166EFF22338C19D0086C70E /* BasicInfo */,
 				9166EFF52338C19D0086C70E /* AddPetViewController.swift */,
-				9166EFF62338C19D0086C70E /* DeseasePreventionViewController.swift */,
+				9166EFF22338C19D0086C70E /* BasicInfo */,
 				9166EFF72338C19D0086C70E /* ProtectPlan */,
-				9166EFFA2338C19D0086C70E /* ProfileViewController.swift */,
 				9166EFFB2338C19D0086C70E /* HealthRecordViewController.swift */,
+				9166EFF12338C19D0086C70E /* WeightRecordViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -505,6 +503,9 @@
 				9166F0152338C1EE0086C70E /* NotificationManageViewController.swift */,
 				9166F0162338C1EE0086C70E /* NotificatonViewController.swift */,
 				9166F0172338C1EE0086C70E /* SearchHospitalResultViewController.swift */,
+				91A6A43A233B5DF000BAF23E /* AboutViewController.swift */,
+				91A6A440233C423300BAF23E /* WebViewController.swift */,
+				91A6A444233CBE7700BAF23E /* ThanksPageViewController.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -529,6 +530,8 @@
 				9166F0242338C2AA0086C70E /* HospitalAPIManager.swift */,
 				9166F0252338C2AA0086C70E /* Hospital.swift */,
 				9166F0262338C2AA0086C70E /* HospitalRequest.swift */,
+				9166F09C233A4EF40086C70E /* TaiwanArea.swift */,
+				9166F09E233A4F3D0086C70E /* JSONReaderManager.swift */,
 			);
 			path = HospitalProvider;
 			sourceTree = "<group>";
@@ -656,12 +659,12 @@
 				9166F0402338CBD10086C70E /* Other */,
 				9166EFA62338BEE40086C70E /* Notify */,
 				9181BC5B2317DE0A007BB7C6 /* UI */,
-				9181BC2A23177E1C007BB7C6 /* Main.storyboard */,
-				9166F03E2338CAFB0086C70E /* Notify.storyboard */,
 				9181BC3F2317A02F007BB7C6 /* Profile.storyboard */,
+				9166F03E2338CAFB0086C70E /* Notify.storyboard */,
 				9181BC412317A03D007BB7C6 /* Record.storyboard */,
 				9181BC432317A050007BB7C6 /* Medical.storyboard */,
 				9181BC452317A067007BB7C6 /* Other.storyboard */,
+				9181BC2A23177E1C007BB7C6 /* Main.storyboard */,
 				9181BC3223177E1D007BB7C6 /* LaunchScreen.storyboard */,
 			);
 			path = View;
@@ -670,6 +673,7 @@
 		9181BC3E23179FF1007BB7C6 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				9166F09A233A4D1B0086C70E /* TaiwanArea.json */,
 				9181BC3023177E1D007BB7C6 /* Assets.xcassets */,
 			);
 			path = Resource;
@@ -706,6 +710,7 @@
 		AC18D7B45FD28547649DADAA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				91A6A442233C4C6900BAF23E /* WebKit.framework */,
 				0C36075D08FC74716301080A /* Pods_PetNote.framework */,
 			);
 			name = Frameworks;
@@ -788,6 +793,7 @@
 				9166EFA12338BE890086C70E /* BasicMedicalRecordTableViewCell.xib in Resources */,
 				9166EFD12338C05D0086C70E /* ChartTableViewCell.xib in Resources */,
 				9166EF9F2338BE890086C70E /* TitleWithDateTableViewCell.xib in Resources */,
+				9166F09B233A4D1B0086C70E /* TaiwanArea.json in Resources */,
 				9166EFE92338C05D0086C70E /* ProtectPlanTableViewCell.xib in Resources */,
 				9181BC2C23177E1C007BB7C6 /* Main.storyboard in Resources */,
 				9166EFD32338C05D0086C70E /* WeightLabelTableViewCell.xib in Resources */,
@@ -796,9 +802,9 @@
 				9166F04F233A0B650086C70E /* EventCollectionViewCell.xib in Resources */,
 				9166EFD82338C05D0086C70E /* WithImageSectionHeaderView.xib in Resources */,
 				9166EFE22338C05D0086C70E /* ModifyBasicInfoTableViewCell.xib in Resources */,
-				9166EFD72338C05D0086C70E /* ProfileTableViewCell.xib in Resources */,
 				9166EF8C2338BDBD0086C70E /* PetsCollectionViewCell.xib in Resources */,
 				9166EFA52338BE890086C70E /* MedicalRecordTableViewCell.xib in Resources */,
+				91A6A43F233B5EF300BAF23E /* BasicWithRightButtonTableViewCell.xib in Resources */,
 				9166F03F2338CAFB0086C70E /* Notify.storyboard in Resources */,
 				9166EFAA2338BEE40086C70E /* SettingNotifyTableViewCell.xib in Resources */,
 				9166EFE42338C05D0086C70E /* BasicInfoTableViewCell.xib in Resources */,
@@ -886,6 +892,7 @@
 				9166F00B2338C1C80086C70E /* AddRecordViewController.swift in Sources */,
 				9166F0442338CBD10086C70E /* SearchHospitalView.swift in Sources */,
 				9166EF3A2338B7FA0086C70E /* UIScreenExtension.swift in Sources */,
+				91A6A43E233B5EF300BAF23E /* BasicWithRightButtonTableViewCell.swift in Sources */,
 				9166EF372338B7FA0086C70E /* StringExtension.swift in Sources */,
 				9181BC2923177E1C007BB7C6 /* TabBarViewController.swift in Sources */,
 				9166F0062338C19D0086C70E /* HealthRecordViewController.swift in Sources */,
@@ -893,17 +900,19 @@
 				9166EFA92338BEE40086C70E /* SettingNotifyTableViewCell.swift in Sources */,
 				9166EFA32338BE890086C70E /* MedicalRecordTableViewCell.swift in Sources */,
 				9181BC5D2317DE27007BB7C6 /* SelectionView.swift in Sources */,
+				9166F09D233A4EF40086C70E /* TaiwanArea.swift in Sources */,
 				9166EFEC2338C05D0086C70E /* ProfileDetailView.swift in Sources */,
 				9166F03C2338C2AA0086C70E /* PNPetInfoExtension.swift in Sources */,
-				9166F0052338C19D0086C70E /* ProfileViewController.swift in Sources */,
 				9166F01A2338C1EE0086C70E /* MedicalViewController.swift in Sources */,
 				9166EF382338B7FA0086C70E /* DateExtension.swift in Sources */,
-				9166F0022338C19D0086C70E /* DeseasePreventionViewController.swift in Sources */,
 				9166EF582338BC010086C70E /* DateSelectTableViewCell.swift in Sources */,
 				9166EFDB2338C05D0086C70E /* WithImageSectionHeaderView.swift in Sources */,
 				9166F00A2338C1C80086C70E /* RecordViewController.swift in Sources */,
 				9166F01D2338C1EE0086C70E /* SearchHospitalViewController.swift in Sources */,
+				91A6A441233C423300BAF23E /* WebViewController.swift in Sources */,
 				9166F01E2338C1EE0086C70E /* NotificationManageViewController.swift in Sources */,
+				91A6A445233CBE7700BAF23E /* ThanksPageViewController.swift in Sources */,
+				9166F09F233A4F3D0086C70E /* JSONReaderManager.swift in Sources */,
 				9166F0342338C2AA0086C70E /* HospitalAPIManager.swift in Sources */,
 				9181BC672319119D007BB7C6 /* UICollectionViewExtension.swift in Sources */,
 				9166EF9E2338BE890086C70E /* BasicMedicalRecordTableViewCell.swift in Sources */,
@@ -926,7 +935,6 @@
 				9166F04A233A06620086C70E /* DailyRecordTableViewCell.swift in Sources */,
 				9166EFD22338C05D0086C70E /* WeightLabelTableViewCell.swift in Sources */,
 				9166F03D2338C2AA0086C70E /* StorageManager.swift in Sources */,
-				9166EFD02338C05D0086C70E /* ProfileRootView.swift in Sources */,
 				9181BC2723177E1C007BB7C6 /* AppDelegate.swift in Sources */,
 				9166EFD42338C05D0086C70E /* ChartTableViewCell.swift in Sources */,
 				91D963FB233666B3003A48AD /* URLExtension.swift in Sources */,
@@ -942,12 +950,12 @@
 				9166EF3C2338B8900086C70E /* BaseContainerViewController.swift in Sources */,
 				9166EFE32338C05D0086C70E /* BasicInfoTableViewCell.swift in Sources */,
 				9166F0382338C2AA0086C70E /* Pet.swift in Sources */,
+				91A6A43B233B5DF000BAF23E /* AboutViewController.swift in Sources */,
 				9166EF502338BBDE0086C70E /* PNChartView.swift in Sources */,
 				9166EF362338B7FA0086C70E /* UITextFieldExtension.swift in Sources */,
 				9166F0452338CBD10086C70E /* HospitalDataTableViewCell.swift in Sources */,
 				9181BC492317AA3F007BB7C6 /* UIStoryboardExtension.swift in Sources */,
 				9166EFDC2338C05D0086C70E /* AddPetView.swift in Sources */,
-				9166EFD62338C05D0086C70E /* ProfileTableViewCell.swift in Sources */,
 				9166EF8A2338BDBD0086C70E /* BasicCollectionViewCell.swift in Sources */,
 				9166EFFE2338C19D0086C70E /* WeightRecordViewController.swift in Sources */,
 				9166F0182338C1EE0086C70E /* SettingNotifyViewController.swift in Sources */,
@@ -1033,7 +1041,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1088,7 +1096,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1104,7 +1112,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5XT523M7P4;
 				INFOPLIST_FILE = PetNote/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1112,7 +1122,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ichingChen.PetNote;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1122,7 +1132,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5XT523M7P4;
 				INFOPLIST_FILE = PetNote/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1130,7 +1142,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ichingChen.PetNote;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

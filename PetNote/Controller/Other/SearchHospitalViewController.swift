@@ -13,6 +13,7 @@ class SearchHospitalViewController: BaseViewController {
     @IBOutlet weak var searchView: SearchHospitalView! {
         didSet {
             searchView.backgroundColor = .pnBlueDark
+            searchView.addCorner(cornerRadius: 10)
 //            guard let searchView = searchView as? SearchHospitalView else { return }
             searchView.delegate = self
         }
@@ -25,16 +26,17 @@ class SearchHospitalViewController: BaseViewController {
     }
     
     func showSearchResultVC(hospitals: [Hospital]) {
-        
-        guard let searchResultVC = UIStoryboard.other.instantiateViewController(
-            withIdentifier: String(describing: SearchHospitalResultViewController.self))
-            as? SearchHospitalResultViewController
-            else {
-                return
-        }
-        searchResultVC.hospitalLists = hospitals
-        
+       
         DispatchQueue.main.async { [weak self] in
+
+            guard let searchResultVC = UIStoryboard.other.instantiateViewController(
+                withIdentifier: String(describing: SearchHospitalResultViewController.self))
+                as? SearchHospitalResultViewController
+                else {
+                    return
+            }
+            
+            searchResultVC.hospitalLists = hospitals
             self?.show(searchResultVC, sender: nil)
         }
         

@@ -15,6 +15,9 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
         didSet {
             tableView.delegate = self
             tableView.dataSource = self
+            if dateRecord.count == 0 {
+                selectedDate = calendar.today ?? Date()
+            }
         }
     }
     
@@ -23,6 +26,8 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
             addButton.addCorner(cornerRadius: 30)
         }
     }
+    
+    @IBOutlet weak var addButtonMask: UIView!
     
     @IBOutlet weak var calendar: FSCalendar! {
         didSet {
@@ -59,7 +64,7 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
         didSet {
             eventDate = []
             currentRecord?.forEach({
-                let date = Date(timeIntervalSince1970: $0.date)
+                let date = Date(timeIntervalSince1970: $0.date).getDateString(format: "yyyyMMdd")
                 eventDate.append(date)
             })
             resetDateRecord()
@@ -68,31 +73,23 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
     
     // 目前寵物 + 被選擇日期的 record
     var dateRecord: [PNDailyRecord] = []
-//    {
-//        didSet {
-//            tableView.reloadData()
-//        }
-//    }
     
     // 選擇的日期，預設是今天
     var selectedDate: Date = Date() {
         didSet {
-//            dateRecord = []
-//            currentRecord?.forEach({
-//                let date = Date(timeIntervalSince1970: $0.date)
-//                if date == selectedDate {
-//                    dateRecord.append($0)
-//                }
-//            })
             resetDateRecord()
         }
+    }
+    
+    func petsNumberChange(isEmpty: Bool) {
+        addButtonMask.isHidden = !isEmpty
     }
     
     func resetDateRecord() {
         dateRecord = []
         currentRecord?.forEach({
-            let date = Date(timeIntervalSince1970: $0.date)
-            if date == selectedDate {
+            let date = Date(timeIntervalSince1970: $0.date).getDateString(format: "yyyyMMdd")
+            if date == selectedDate.getDateString(format: "yyyyMMdd") {
                 dateRecord.append($0)
             }
         })
@@ -100,7 +97,7 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
     }
     
     // 有事件的日期，透過
-    var eventDate: [Date] = [] {
+    var eventDate: [String] = [] {
         didSet {
             calendar.reloadData()
         }
@@ -142,7 +139,10 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
     }
     
     func changePet(_ indexPath: IndexPath) {
-        currentPet = StorageManager.shared.petsList[indexPath.row]
+        let index = indexPath.row
+        if StorageManager.shared.petsList.count > index {
+            currentPet = StorageManager.shared.petsList[index]
+        }
     }
     
     func addDailyRecord(date: Date) {
@@ -205,7 +205,7 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
     @IBAction func addAction(_ sender: Any) {
         guard let day = calendar.selectedDate else {
             // 若沒有選擇日期直接使用當天日期
-            let day = Date()
+            guard let day = calendar.today else { return }
             addDailyRecord(date: day)
             return
         }
@@ -243,7 +243,7 @@ extension RecordViewController: FSCalendarDelegate {
     
     // 事件圓點顯示
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-        if eventDate.contains(date) {
+        if eventDate.contains(date.getDateString(format: "yyyyMMdd")) {
            return 1
         } else {
             return 0
@@ -266,7 +266,25 @@ extension RecordViewController: FSCalendarDataSource {
 }
 
 extension RecordViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        print("刪除")
+        let record = dateRecord[indexPath.row]
+        StorageManager.shared.deleteData(record) {[weak self] result in
+            switch result {
+            case .success:
+                self?.dateRecord.remove(at: indexPath.row)
+                tableView.reloadData()
+            case .failure(let error):
+                print(error)
+                
+            }
+        }
+        
+    }
     
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "刪除"
+    }
 }
 
 extension RecordViewController: UITableViewDataSource {
@@ -284,7 +302,7 @@ extension RecordViewController: UITableViewDataSource {
         let date = Date(timeIntervalSince1970: record.date)
         let describe = record.describe
         let events = record.event
-        print(events)
+        
         cell.layoutCell(date: date, describe: describe, events: events)
         return cell
     }

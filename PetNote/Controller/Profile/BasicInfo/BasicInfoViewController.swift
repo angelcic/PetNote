@@ -28,7 +28,6 @@ class BasicInfoViewController: BaseContainerViewController {
             } else {
                 addPetAlertLayer.isHidden = false
             }
-//            tableView.reloadSections(IndexSet(arrayLiteral: 1), with: .none)
         }
     }
     
@@ -36,10 +35,6 @@ class BasicInfoViewController: BaseContainerViewController {
         super.viewDidLoad()
         
         setupTableView()
-//        
-//        if currentPet == nil {
-//            addPetAlertLayer.isHidden = false
-//        }
     }
     
     func setupTableView() {
@@ -56,11 +51,10 @@ class BasicInfoViewController: BaseContainerViewController {
 extension BasicInfoViewController: AddImageTableViewCellDelegate {
     func pressAddImageButton() {
         let imagePicker = UIImagePickerController()
-        imagePicker.sourceType = .savedPhotosAlbum
+        imagePicker.sourceType = .photoLibrary
         imagePicker.delegate = self
         
         self.present(imagePicker, animated: false, completion: nil)
-//        print("加入照片")
     }
 }
 
@@ -73,9 +67,6 @@ extension BasicInfoViewController: UIImagePickerControllerDelegate {
         
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             
-//            currentImage = image
-            
-//            petDidChange()
             guard let pet = currentPet else {return}
             let petId = "\(pet.petId)"
             
@@ -89,9 +80,8 @@ extension BasicInfoViewController: UIImagePickerControllerDelegate {
                     print(error)
                 }
             }
+            
             tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
-            StorageManager.shared.didChangeValue(for: \.currentPetIndex)
-            StorageManager.shared.didChangeValue(forKey: "currentPetIndex")
         }
     }
     
@@ -105,6 +95,18 @@ extension BasicInfoViewController: UINavigationControllerDelegate {
 }
 
 extension BasicInfoViewController: BasicInfoTableViewCellDelegate {
+    func pressDeleteButton() {
+        StorageManager.shared.deleteCurrentPet { result in
+            switch result {
+            case .success:
+                StorageManager.shared.currentPetIndex = 0
+                print("已移除成員")
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
     func pressModifyButton() {
         guard let modifyInfoVC = UIStoryboard.profile.instantiateViewController(
             withIdentifier: ModifyBaseInfoViewController.identifier)
@@ -165,6 +167,7 @@ extension BasicInfoViewController: UITableViewDataSource {
                 }
             }
             return cell
+       
         default:
             guard
                 let cell = tableView.dequeueReusableCell(

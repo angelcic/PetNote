@@ -64,7 +64,7 @@ private enum Tab {
 //                selectedImage: nil)
         case .other:
              return UITabBarItem(
-                title: "搜尋醫院",
+                title: "其他功能",
                 image: image,
                 selectedImage: nil)
         }

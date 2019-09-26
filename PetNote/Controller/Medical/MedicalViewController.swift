@@ -55,6 +55,10 @@ class MedicalViewController: SwitchPetViewController, SwitchPetViewControllerPro
         }        
         show(addMedicalRecordVC, sender: nil)
     }
+    
+    func petsNumberChange(isEmpty: Bool) {
+        //        TODO: NOOOOOOO PET
+    }
 
     func changePet(_ indexPath: IndexPath) {
         // TODO:

@@ -34,7 +34,7 @@ class WeightRecordViewController: BaseContainerViewController {
     
     var weights: [PNWeightRecord] = [] {
         didSet {
-            weights.sort(by: >)
+            weights.sort(by: <)
             tableView.reloadData()
         }
     }
@@ -85,7 +85,25 @@ class WeightRecordViewController: BaseContainerViewController {
 }
 
 extension WeightRecordViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        print("刪除")
+        let weight = weights[indexPath.row]
+        StorageManager.shared.deleteData(weight) {[weak self] result in
+            switch result {
+            case .success:
+                self?.weights.remove(at: indexPath.row)
+                tableView.reloadData()
+            case .failure(let error):
+                print(error)
+                
+            }
+        }
+        
+    }
     
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "刪除"
+    }
 }
 
 extension WeightRecordViewController: UITableViewDataSource {

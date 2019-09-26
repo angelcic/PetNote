@@ -10,8 +10,7 @@ import UIKit
 
 protocol SwitchPetViewControllerProtocol {
     func changePet(_ indexPath: IndexPath)
-//    func updateSwitchView()
-//    func updateSelectedStatus()
+    func petsNumberChange(isEmpty: Bool)
 }
 
 typealias BaseSwitchPetViewController = SwitchPetViewController & SwitchPetViewControllerProtocol
@@ -53,7 +52,9 @@ class SwitchPetViewController: BaseViewController, SwitchPetViewDelegate {
                     let indexPath = IndexPath(row: newValue, section: 1)
                     switchPetView.updateSelectedStatus(indexPath: indexPath, isSelected: true)
 //                    guard let cell = switchPetView.collectionView.cellForItem(at: indexPath) else {return}
-                    switchPetView.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+                    if StorageManager.shared.petsList.count > indexPath.row {
+                        switchPetView.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+                    }
                     guard let controller = self as? BaseSwitchPetViewController else {
                         return
                     }
@@ -63,10 +64,22 @@ class SwitchPetViewController: BaseViewController, SwitchPetViewDelegate {
     }
     
     func setupPetArrayObserver() {
-        petListObserver = storageManager.observe(\.datas, options: [.new]) {[weak self] (object, change) in
+        petListObserver = storageManager.observe(\.datas, options: [.initial, .new]) {[weak self] (object, change) in
             
-            guard let switchPetView = self?.switchPetView else { return }
-            switchPetView.updatePetsData()
+            guard
+                let switchPetView = self?.switchPetView
+            else { return }
+            switchPetView.updatePetsData()            
+            
+            guard
+                let controller = self as? BaseSwitchPetViewController
+            else { return }
+            
+            if self?.storageManager.datas.count == 0 {
+                controller.petsNumberChange(isEmpty: true)
+            } else {
+                controller.petsNumberChange(isEmpty: false)
+            }
         }
     }
     
@@ -93,13 +106,7 @@ extension SwitchPetViewController: AddPetViewControllerDelegate {
         switch result {
         case .success:
             print("新增success")
-//            switchPetView.updatePetsData()
-//            guard let controller = self as? BaseSwitchPetViewController else {
-//                return
-//            }
             storageManager.currentPetIndex = storageManager.petsList.count - 1
-//
-//            controller.updateSwitchView()
             
         case .failure(let error) :
             print(error)
@@ -114,26 +121,15 @@ extension SwitchPetViewController: UICollectionViewDelegate {
         case 0:
             showAddPetVC()
         default :
-            
+//            guard let cell = collectionView.cellForItem(at: indexPath) as? PetsCollectionViewCell else { return }
+//            cell.petImageView.frame
+//            cell.petImageView.image.
             storageManager.currentPetIndex = indexPath.row
-            
-//            guard let controller = self as? BaseSwitchPetViewController else {
-//                return
-//            }
-//
-//            controller.changePet(indexPath)
         }
         
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-//        guard
-//            let cell = collectionView.cellForItem(at: indexPath)
-//                as? PetsCollectionViewCell
-//            else {
-//                return
-//        }
-//        cell.changeSlectedStatus(false)
     }
     
 }
@@ -156,11 +152,12 @@ extension SwitchPetViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: PetsCollectionViewCell.identifier,
-            for: indexPath)
-            as? PetsCollectionViewCell
-            else {
+            for: indexPath
+        ) as? PetsCollectionViewCell
+        else {
                 return UICollectionViewCell()
         }
         
@@ -168,11 +165,13 @@ extension SwitchPetViewController: UICollectionViewDataSource {
             cell.changeSlectedStatus(false)
             cell.layoutCell(image: UIImage(named: "Icons_24px_Add01"), name: "新增")
             cell.petImageView.contentMode = .center
-//            cell.petImageBorderView.isHidden = true
+            cell.petImageBorderView.isHidden = true
         } else {
             cell.changeSlectedStatus(false)
             cell.isSelected = false
             cell.changeSlectedStatus()
+            cell.petImageView.contentMode = .scaleAspectFill
+            cell.clipsToBounds = true
             
             if indexPath.row == storageManager.currentPetIndex {
 //            PNGlobalProperties.currentPetIndex {
@@ -180,21 +179,32 @@ extension SwitchPetViewController: UICollectionViewDataSource {
                 cell.changeSlectedStatus(true)
                 collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
 //                cell.petImageBorderView.isHidden = false
-            }
+            }           
             
-            let image =
-                LocalFileManager.shared.readImage(imagePath: storageManager.petsList[indexPath.row].photo)
-            
+            // 觀察照片改變
             cell.petPhotoObserver = nil
             cell.petPhotoObserver =
                 storageManager.petsList[indexPath.row].observe(\.photo, options: [.new]) { (object, change) in
 
                 guard let newValue = change.newValue else { return }
-                //                print(change)
+                //
                 let image = LocalFileManager.shared.readImage(imagePath: newValue)
                     
-                cell.petImageView.image = image
+                    cell.petImageView.image = image
             }
+            
+            // 觀察名字改變
+            cell.petNameObserver = nil
+            cell.petNameObserver = storageManager.petsList[indexPath.row].observe(\.name, options: [NSKeyValueObservingOptions.new]) { object, change in
+                    
+                guard let newValue = change.newValue else { return }
+                
+                cell.nameLabel.text = newValue
+            }
+            
+            let image = storageManager.images[indexPath.row]
+                           
+            //LocalFileManager.shared.readImage(imagePath: storageManager.petsList[indexPath.row].photo)
                 
             cell.layoutCell(image: image, name: storageManager.petsList[indexPath.row].name)
             

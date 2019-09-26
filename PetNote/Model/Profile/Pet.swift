@@ -47,60 +47,12 @@ enum PetType: String {
     case dog = "汪"
     case other = "其它"
     
-//    static func getPetType(with index: Int) -> PetType {
-//        switch index {
-//        case 0:
-//            return .cat
-//        case 1:
-//            return .dog
-//        case 2:
-//            return .other
-//        default:
-//            return .cat
-//        }
-//    }
-//    
-//    func getPetTypeIndex() -> Int {
-//        switch self {
-//        case .cat:
-//            return 0
-//        case .dog:
-//            return 1
-//        case .other:
-//            return 2
-//        }
-//    }
 }
 
 enum Gender: String {
     case girl = "女生"
     case boy = "男生"
     
-//    static func getGender(with text: String) -> Gender {
-//        let type = Gender(rawValue: text)
-//        return type ?? .girl
-//    }
-//
-//    static func getGender(with index: Int) -> Gender {
-//
-//        switch index {
-//        case 0:
-//            return .girl
-//        case 1:
-//            return .boy
-//        default:
-//            return .girl
-//        }
-//    }
-//
-//    func getGenderIndex() -> Int {
-//        switch self {
-//        case .girl:
-//            return 0
-//        case .boy:
-//            return 1
-//        }
-//    }
 }
 //swiftlint:disable identifier_name
 enum PetKey: String {
