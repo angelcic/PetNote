@@ -124,6 +124,7 @@
 		91A6A43F233B5EF300BAF23E /* BasicWithRightButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91A6A43D233B5EF300BAF23E /* BasicWithRightButtonTableViewCell.xib */; };
 		91A6A441233C423300BAF23E /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A6A440233C423300BAF23E /* WebViewController.swift */; };
 		91A6A443233C4C6900BAF23E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91A6A442233C4C6900BAF23E /* WebKit.framework */; };
+		91A6A445233CBE7700BAF23E /* ThanksPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A6A444233CBE7700BAF23E /* ThanksPageViewController.swift */; };
 		91B97F5423375805008B940F /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B97F5323375805008B940F /* UIColorExtension.swift */; };
 		91D963FB233666B3003A48AD /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D963FA233666B3003A48AD /* URLExtension.swift */; };
 		933214776B257E5501F30B83 /* Pods_PetNote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C36075D08FC74716301080A /* Pods_PetNote.framework */; };
@@ -251,6 +252,7 @@
 		91A6A43D233B5EF300BAF23E /* BasicWithRightButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasicWithRightButtonTableViewCell.xib; sourceTree = "<group>"; };
 		91A6A440233C423300BAF23E /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		91A6A442233C4C6900BAF23E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		91A6A444233CBE7700BAF23E /* ThanksPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksPageViewController.swift; sourceTree = "<group>"; };
 		91B97F5323375805008B940F /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		91D963FA233666B3003A48AD /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
 		C1B26700EEE001AE14DFC34D /* Pods-PetNote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetNote.debug.xcconfig"; path = "Target Support Files/Pods-PetNote/Pods-PetNote.debug.xcconfig"; sourceTree = "<group>"; };
@@ -503,6 +505,7 @@
 				9166F0172338C1EE0086C70E /* SearchHospitalResultViewController.swift */,
 				91A6A43A233B5DF000BAF23E /* AboutViewController.swift */,
 				91A6A440233C423300BAF23E /* WebViewController.swift */,
+				91A6A444233CBE7700BAF23E /* ThanksPageViewController.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -908,6 +911,7 @@
 				9166F01D2338C1EE0086C70E /* SearchHospitalViewController.swift in Sources */,
 				91A6A441233C423300BAF23E /* WebViewController.swift in Sources */,
 				9166F01E2338C1EE0086C70E /* NotificationManageViewController.swift in Sources */,
+				91A6A445233CBE7700BAF23E /* ThanksPageViewController.swift in Sources */,
 				9166F09F233A4F3D0086C70E /* JSONReaderManager.swift in Sources */,
 				9166F0342338C2AA0086C70E /* HospitalAPIManager.swift in Sources */,
 				9181BC672319119D007BB7C6 /* UICollectionViewExtension.swift in Sources */,

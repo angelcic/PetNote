@@ -17,8 +17,11 @@ class AboutViewController: BaseViewController {
         }
     }
     
+    let aboutTypes: [String] = ["特別感謝", "隱私權政策", "版本："]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "關於毛孩手帳"
         setupTableVew()
         // Do any additional setup after loading the view.
     }
@@ -30,33 +33,33 @@ class AboutViewController: BaseViewController {
 
 extension AboutViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        var url = ""
+
         switch indexPath.row {
         case 0:
-            url = "https://www.privacypolicies.com/privacy/view/50656c70516f8f1b1de670eb85c8c16c"
+            guard let thanksVC = storyboard?.instantiateViewController(
+                withIdentifier: ThanksPageViewController.identifier) as? ThanksPageViewController else { return }
+            
+            show(thanksVC, sender: self)
+            
+            return
+        case 1:
+            let url = "https://www.privacypolicies.com/privacy/view/50656c70516f8f1b1de670eb85c8c16c"
+            guard let aboutVC = storyboard?.instantiateViewController(
+                withIdentifier: WebViewController.identifier) as? WebViewController else { return }
+            aboutVC.urlString = url
+            
+            show(aboutVC, sender: self)
         default:
             return
         }
-        
-        guard let aboutVC = storyboard?.instantiateViewController(
-            withIdentifier: WebViewController.identifier) as? WebViewController else { return }
-//
-//        guard let type = StoreInfoType(rawValue: sender.tag) else { return }
-//
-//        setUrl(type: type)
-        
-        aboutVC.urlString = url
-        
-        show(aboutVC, sender: self)
-        
+
     }
     
 }
 
 extension AboutViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return aboutTypes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -67,6 +70,19 @@ extension AboutViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
+        cell.layoutCell(title: aboutTypes[indexPath.row])
+        
+        if indexPath.row == aboutTypes.count - 1 {
+            let infoDictionary = Bundle.main.infoDictionary
+            let shortVersion: String? = infoDictionary! ["CFBundleShortVersionString"] as? String
+            let majorVersion = (shortVersion != nil) ? shortVersion! : "0.0"
+            cell.layoutCell(title: "版本：\(majorVersion)")
+            cell.hideMoreButton(isHidden: true)
+        } else {
+            cell.layoutCell(title: aboutTypes[indexPath.row])
+            cell.hideMoreButton(isHidden: false)
+        }
+
         return cell
     }
     

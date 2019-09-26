@@ -22,9 +22,9 @@ class JSONReaderManager {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                 let decoder = JSONDecoder()
                 taiwanArea = try decoder.decode([TaiwanArea].self, from: data)
-                taiwanArea.forEach {
-                    print($0.city)
-                }
+//                taiwanArea.forEach {
+//                    print($0.city)
+//                }
                 
             } catch let error {
                 print(error)

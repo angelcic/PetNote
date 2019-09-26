@@ -8,9 +8,16 @@
 
 import UIKit
 
+protocol BasicWithRightButtonTableViewCellDelegate: AnyObject {
+    func pressMoreButton(cell: UITableViewCell)
+}
+
 class BasicWithRightButtonTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var rightButton: UIButton!
+    
+    weak var delegate: BasicWithRightButtonTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,7 +30,15 @@ class BasicWithRightButtonTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func layoutCell(title: String) {
+        titleLabel.text = title
+    }
+    
+    func hideMoreButton(isHidden: Bool) {
+        rightButton.isHidden = isHidden
+    }
+    
     @IBAction func pressMore() {
-        
+        delegate?.pressMoreButton(cell: self)
     }
 }

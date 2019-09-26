@@ -10,15 +10,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="53" id="KGk-i7-Jjw" customClass="BasicWithRightButtonTableViewCell" customModule="PetNote" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="53" id="KGk-i7-Jjw" customClass="BasicWithRightButtonTableViewCell" customModule="PetNote" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="329" height="53"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="329" height="53"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tqo-nt-YHG">
-                        <rect key="frame" x="293" y="16" width="20" height="20"/>
+                        <rect key="frame" x="293" y="17" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="OQY-SR-I8J"/>
                             <constraint firstAttribute="width" secondItem="Tqo-nt-YHG" secondAttribute="height" multiplier="1:1" id="QU3-eN-qso"/>
@@ -30,7 +30,7 @@
                         </connections>
                     </button>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-pet-commands-summon-50" translatesAutoresizingMaskIntoConstraints="NO" id="WjO-5u-875">
-                        <rect key="frame" x="20" y="16" width="20" height="20"/>
+                        <rect key="frame" x="20" y="17" width="20" height="20"/>
                         <color key="tintColor" white="0.3008347603" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="WjO-5u-875" secondAttribute="height" multiplier="1:1" id="A8Q-o3-AHN"/>
@@ -38,7 +38,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="隱私權政策" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IyB-eC-dkf">
-                        <rect key="frame" x="48" y="15.5" width="87" height="21"/>
+                        <rect key="frame" x="48" y="16" width="87" height="22"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" white="0.3008347603" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -47,16 +47,17 @@
                 <constraints>
                     <constraint firstItem="IyB-eC-dkf" firstAttribute="leading" secondItem="WjO-5u-875" secondAttribute="trailing" constant="8" id="4BN-TZ-fCn"/>
                     <constraint firstAttribute="bottom" secondItem="WjO-5u-875" secondAttribute="bottom" constant="16" id="7v4-WN-s7q"/>
-                    <constraint firstItem="WjO-5u-875" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="9n5-Y6-OJc"/>
                     <constraint firstItem="IyB-eC-dkf" firstAttribute="centerY" secondItem="WjO-5u-875" secondAttribute="centerY" id="AVS-i8-qXL"/>
                     <constraint firstItem="WjO-5u-875" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="E8a-HV-t3d"/>
                     <constraint firstItem="Tqo-nt-YHG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IyB-eC-dkf" secondAttribute="trailing" constant="20" id="XKO-AX-nvy"/>
                     <constraint firstAttribute="trailing" secondItem="Tqo-nt-YHG" secondAttribute="trailing" constant="16" id="ZMY-ND-vkA"/>
                     <constraint firstItem="Tqo-nt-YHG" firstAttribute="centerY" secondItem="WjO-5u-875" secondAttribute="centerY" id="bqk-b3-nwy"/>
+                    <constraint firstItem="IyB-eC-dkf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="xF8-ts-tGq"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="rightButton" destination="Tqo-nt-YHG" id="CB7-Nj-ltN"/>
                 <outlet property="titleLabel" destination="IyB-eC-dkf" id="oPv-lg-tlD"/>
             </connections>
             <point key="canvasLocation" x="142.75362318840581" y="86.049107142857139"/>

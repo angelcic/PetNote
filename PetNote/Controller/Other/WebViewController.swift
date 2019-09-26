@@ -23,6 +23,7 @@ class WebViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "隱私權政策"
         showInfo()
     }
    

@@ -150,7 +150,7 @@
         <!--About View Controller-->
         <scene sceneID="syV-Rb-zru">
             <objects>
-                <viewController storyboardIdentifier="AboutViewController" id="h7G-GW-Xmy" customClass="AboutViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AboutViewController" hidesBottomBarWhenPushed="YES" id="h7G-GW-Xmy" customClass="AboutViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5w9-1d-xvw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -175,7 +175,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YNQ-Hu-6Pa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1328" y="935"/>
+            <point key="canvasLocation" x="1555" y="935"/>
         </scene>
         <!--Notification Manage View Controller-->
         <scene sceneID="Cip-uR-z7f">
@@ -212,7 +212,37 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5gC-iT-wlz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2190" y="935"/>
+            <point key="canvasLocation" x="2635" y="935"/>
+        </scene>
+        <!--Thanks Page View Controller-->
+        <scene sceneID="oEe-3S-JbV">
+            <objects>
+                <viewController storyboardIdentifier="ThanksPageViewController" hidesBottomBarWhenPushed="YES" id="Bne-xV-c0R" customClass="ThanksPageViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uPx-iu-v5F">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LiH-fH-Y8Z">
+                                <rect key="frame" x="20" y="64" width="374" height="798"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="LiH-fH-Y8Z" firstAttribute="leading" secondItem="UQc-xr-Hk1" secondAttribute="leading" constant="20" id="1VM-B5-izf"/>
+                            <constraint firstItem="UQc-xr-Hk1" firstAttribute="trailing" secondItem="LiH-fH-Y8Z" secondAttribute="trailing" constant="20" id="6IH-ul-dNg"/>
+                            <constraint firstItem="LiH-fH-Y8Z" firstAttribute="top" secondItem="UQc-xr-Hk1" secondAttribute="top" constant="20" id="AM0-b1-nKk"/>
+                            <constraint firstItem="UQc-xr-Hk1" firstAttribute="bottom" secondItem="LiH-fH-Y8Z" secondAttribute="bottom" id="LKJ-d7-E7u"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="UQc-xr-Hk1"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="LiH-fH-Y8Z" id="OHz-gy-iLh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NQ0-ux-tah" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1883" y="1663"/>
         </scene>
         <!--Notificaton View Controller-->
         <scene sceneID="gSN-UF-ZAf">
@@ -242,7 +272,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c1J-Cq-eMK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2190" y="1664"/>
+            <point key="canvasLocation" x="2636" y="1663"/>
         </scene>
         <!--Search Hospital Result View Controller-->
         <scene sceneID="9Cl-EJ-kUX">
@@ -277,7 +307,7 @@
         <!--Web View Controller-->
         <scene sceneID="fpf-y2-zPC">
             <objects>
-                <viewController storyboardIdentifier="WebViewController" id="L9p-em-cru" customClass="WebViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WebViewController" hidesBottomBarWhenPushed="YES" id="L9p-em-cru" customClass="WebViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="z8Y-d1-R5m">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -312,7 +342,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MCw-vm-Gdz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1313" y="1661"/>
+            <point key="canvasLocation" x="1177" y="1663"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9j5-6v-cpe">

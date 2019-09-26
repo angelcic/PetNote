@@ -61,6 +61,8 @@ class OtherFunctionViewController: BaseViewController {
             return
         }
         
+//        functionVC.loadViewIfNeeded()
+        
         show(functionVC, sender: nil)
     }
     
