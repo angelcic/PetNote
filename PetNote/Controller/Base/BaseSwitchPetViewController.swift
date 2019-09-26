@@ -170,7 +170,8 @@ extension SwitchPetViewController: UICollectionViewDataSource {
             cell.changeSlectedStatus(false)
             cell.isSelected = false
             cell.changeSlectedStatus()
-            cell.petImageView.contentMode = .scaleAspectFit
+            cell.petImageView.contentMode = .scaleAspectFill
+            cell.clipsToBounds = true
             
             if indexPath.row == storageManager.currentPetIndex {
 //            PNGlobalProperties.currentPetIndex {
@@ -178,8 +179,7 @@ extension SwitchPetViewController: UICollectionViewDataSource {
                 cell.changeSlectedStatus(true)
                 collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
 //                cell.petImageBorderView.isHidden = false
-            }
-           
+            }           
             
             // 觀察照片改變
             cell.petPhotoObserver = nil
@@ -206,7 +206,7 @@ extension SwitchPetViewController: UICollectionViewDataSource {
                            
             //LocalFileManager.shared.readImage(imagePath: storageManager.petsList[indexPath.row].photo)
                 
-            cell.layoutCell(image: UIImage(named: "IMG_8903"), name: storageManager.petsList[indexPath.row].name)
+            cell.layoutCell(image: image, name: storageManager.petsList[indexPath.row].name)
             
         }
         

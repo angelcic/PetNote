@@ -70,6 +70,4 @@ extension AboutViewController: UITableViewDataSource {
         return cell
     }
     
-    
 }
-

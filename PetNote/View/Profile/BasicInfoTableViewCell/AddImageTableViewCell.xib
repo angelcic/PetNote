@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="330" height="187"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_8903" translatesAutoresizingMaskIntoConstraints="NO" id="AHa-Ww-xAl">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AHa-Ww-xAl">
                         <rect key="frame" x="30" y="16" width="270" height="171"/>
                         <color key="backgroundColor" red="0.0" green="0.39607843139999999" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -73,7 +73,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="IMG_8903" width="395" height="380"/>
         <image name="icons8-add-image-60" width="60" height="60"/>
         <namedColor name="PNWhite">
             <color red="0.99215686274509807" green="0.99215686274509807" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
