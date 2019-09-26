@@ -24,6 +24,8 @@ class ChartTableViewCell: UITableViewCell {
     }
     @IBOutlet weak var weightTextField: UITextField!
     
+    @IBOutlet weak var alertLabel: UILabel!
+    
     @IBOutlet weak var addButton: UIButton!
     
     weak var delegate: ChartTableViewCellDelegate?
@@ -58,8 +60,10 @@ class ChartTableViewCell: UITableViewCell {
         let weight = Double(weightText)
         else {
             print("請輸入體重")
+            alertLabel.isHidden = false
             return
         }
+        alertLabel.isHidden = true
         weightTextField.text = ""
         
         let date = Int(recordDate.timeIntervalSince1970)

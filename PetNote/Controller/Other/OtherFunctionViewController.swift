@@ -122,7 +122,7 @@ extension OtherFunctionViewController: UICollectionViewDataSource {
                 return BasicCollectionViewCell()
         }
         cell.layoutCell(title: functions[indexPath.row], textColor: UIColor.pnWhite!)
-        cell.layoutBGLayerAppearence(bgColor: UIColor.pnBlueLight!, borderWidth: 0, borderColor: UIColor.pnBlueLight!)
+        cell.layoutBGLayerAppearence(bgColor: UIColor.pnBlueDark!, borderWidth: 0, borderColor: UIColor.pnBlueLight!)
         return cell
     }
     

@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="100" height="118"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iw8-HM-GXR">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_8903" translatesAutoresizingMaskIntoConstraints="NO" id="iw8-HM-GXR">
                         <rect key="frame" x="14" y="8" width="71" height="71"/>
                         <color key="backgroundColor" name="PNDarkPink"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -64,6 +64,7 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="IMG_8903" width="395" height="380"/>
         <namedColor name="PNDarkBlue">
             <color red="0.0" green="0.396078431372549" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

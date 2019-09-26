@@ -33,7 +33,9 @@ class PetsCollectionViewCell: UICollectionViewCell {
     }
     
     func layoutCell(image: UIImage?, name: String?) {
+        
         petImageView.image = image
+        
         nameLabel.text = name
     }
     

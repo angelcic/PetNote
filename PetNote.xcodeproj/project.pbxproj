@@ -122,6 +122,8 @@
 		91A6A43B233B5DF000BAF23E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A6A43A233B5DF000BAF23E /* AboutViewController.swift */; };
 		91A6A43E233B5EF300BAF23E /* BasicWithRightButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A6A43C233B5EF300BAF23E /* BasicWithRightButtonTableViewCell.swift */; };
 		91A6A43F233B5EF300BAF23E /* BasicWithRightButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91A6A43D233B5EF300BAF23E /* BasicWithRightButtonTableViewCell.xib */; };
+		91A6A441233C423300BAF23E /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A6A440233C423300BAF23E /* WebViewController.swift */; };
+		91A6A443233C4C6900BAF23E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91A6A442233C4C6900BAF23E /* WebKit.framework */; };
 		91B97F5423375805008B940F /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B97F5323375805008B940F /* UIColorExtension.swift */; };
 		91D963FB233666B3003A48AD /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D963FA233666B3003A48AD /* URLExtension.swift */; };
 		933214776B257E5501F30B83 /* Pods_PetNote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C36075D08FC74716301080A /* Pods_PetNote.framework */; };
@@ -247,6 +249,8 @@
 		91A6A43A233B5DF000BAF23E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		91A6A43C233B5EF300BAF23E /* BasicWithRightButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicWithRightButtonTableViewCell.swift; sourceTree = "<group>"; };
 		91A6A43D233B5EF300BAF23E /* BasicWithRightButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasicWithRightButtonTableViewCell.xib; sourceTree = "<group>"; };
+		91A6A440233C423300BAF23E /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		91A6A442233C4C6900BAF23E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		91B97F5323375805008B940F /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		91D963FA233666B3003A48AD /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
 		C1B26700EEE001AE14DFC34D /* Pods-PetNote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetNote.debug.xcconfig"; path = "Target Support Files/Pods-PetNote/Pods-PetNote.debug.xcconfig"; sourceTree = "<group>"; };
@@ -257,6 +261,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91A6A443233C4C6900BAF23E /* WebKit.framework in Frameworks */,
 				933214776B257E5501F30B83 /* Pods_PetNote.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,10 +382,10 @@
 		9166EFAD2338C05D0086C70E /* WeightRecordTabelViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				9166EFB12338C05D0086C70E /* ChartTableViewCell.swift */,
 				9166EFAE2338C05D0086C70E /* ChartTableViewCell.xib */,
 				9166EFAF2338C05D0086C70E /* WeightLabelTableViewCell.swift */,
 				9166EFB02338C05D0086C70E /* WeightLabelTableViewCell.xib */,
-				9166EFB12338C05D0086C70E /* ChartTableViewCell.swift */,
 				9166EFB22338C05D0086C70E /* __WeightLabelTableViewCell.xib */,
 			);
 			path = WeightRecordTabelViewCell;
@@ -497,6 +502,7 @@
 				9166F0162338C1EE0086C70E /* NotificatonViewController.swift */,
 				9166F0172338C1EE0086C70E /* SearchHospitalResultViewController.swift */,
 				91A6A43A233B5DF000BAF23E /* AboutViewController.swift */,
+				91A6A440233C423300BAF23E /* WebViewController.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -701,6 +707,7 @@
 		AC18D7B45FD28547649DADAA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				91A6A442233C4C6900BAF23E /* WebKit.framework */,
 				0C36075D08FC74716301080A /* Pods_PetNote.framework */,
 			);
 			name = Frameworks;
@@ -899,6 +906,7 @@
 				9166EFDB2338C05D0086C70E /* WithImageSectionHeaderView.swift in Sources */,
 				9166F00A2338C1C80086C70E /* RecordViewController.swift in Sources */,
 				9166F01D2338C1EE0086C70E /* SearchHospitalViewController.swift in Sources */,
+				91A6A441233C423300BAF23E /* WebViewController.swift in Sources */,
 				9166F01E2338C1EE0086C70E /* NotificationManageViewController.swift in Sources */,
 				9166F09F233A4F3D0086C70E /* JSONReaderManager.swift in Sources */,
 				9166F0342338C2AA0086C70E /* HospitalAPIManager.swift in Sources */,
@@ -1029,7 +1037,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1084,7 +1092,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1100,7 +1108,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5XT523M7P4;
 				INFOPLIST_FILE = PetNote/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1108,7 +1118,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ichingChen.PetNote;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1118,7 +1128,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5XT523M7P4;
 				INFOPLIST_FILE = PetNote/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1126,7 +1138,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ichingChen.PetNote;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

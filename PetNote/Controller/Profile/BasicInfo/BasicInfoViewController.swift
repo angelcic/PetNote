@@ -51,7 +51,7 @@ class BasicInfoViewController: BaseContainerViewController {
 extension BasicInfoViewController: AddImageTableViewCellDelegate {
     func pressAddImageButton() {
         let imagePicker = UIImagePickerController()
-        imagePicker.sourceType = .savedPhotosAlbum
+        imagePicker.sourceType = .photoLibrary
         imagePicker.delegate = self
         
         self.present(imagePicker, animated: false, completion: nil)

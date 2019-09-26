@@ -139,7 +139,10 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
     }
     
     func changePet(_ indexPath: IndexPath) {
-        currentPet = StorageManager.shared.petsList[indexPath.row]
+        let index = indexPath.row
+        if StorageManager.shared.petsList.count > index {
+            currentPet = StorageManager.shared.petsList[index]
+        }
     }
     
     func addDailyRecord(date: Date) {

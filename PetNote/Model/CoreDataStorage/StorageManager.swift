@@ -130,8 +130,8 @@ import UIKit
         pet.id = "900000000000000"
         
         let protectPlan = getPNProtectPlan()
-        protectPlan.protectName = "疫苗"
-        protectPlan.protectType = "三合一"
+        protectPlan.protectName = "三合一"
+        protectPlan.protectType = "疫苗"
         pet.addToProtectPlan(protectPlan)
         
         let protectPlan2 = getPNProtectPlan()

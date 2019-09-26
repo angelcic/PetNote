@@ -52,7 +52,9 @@ class SwitchPetViewController: BaseViewController, SwitchPetViewDelegate {
                     let indexPath = IndexPath(row: newValue, section: 1)
                     switchPetView.updateSelectedStatus(indexPath: indexPath, isSelected: true)
 //                    guard let cell = switchPetView.collectionView.cellForItem(at: indexPath) else {return}
-                    switchPetView.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+                    if StorageManager.shared.petsList.count > indexPath.row {
+                        switchPetView.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+                    }
                     guard let controller = self as? BaseSwitchPetViewController else {
                         return
                     }
@@ -119,7 +121,9 @@ extension SwitchPetViewController: UICollectionViewDelegate {
         case 0:
             showAddPetVC()
         default :
-            
+//            guard let cell = collectionView.cellForItem(at: indexPath) as? PetsCollectionViewCell else { return }
+//            cell.petImageView.frame
+//            cell.petImageView.image.
             storageManager.currentPetIndex = indexPath.row
         }
         
@@ -148,11 +152,12 @@ extension SwitchPetViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: PetsCollectionViewCell.identifier,
-            for: indexPath)
-            as? PetsCollectionViewCell
-            else {
+            for: indexPath
+        ) as? PetsCollectionViewCell
+        else {
                 return UICollectionViewCell()
         }
         
@@ -165,6 +170,7 @@ extension SwitchPetViewController: UICollectionViewDataSource {
             cell.changeSlectedStatus(false)
             cell.isSelected = false
             cell.changeSlectedStatus()
+            cell.petImageView.contentMode = .scaleAspectFit
             
             if indexPath.row == storageManager.currentPetIndex {
 //            PNGlobalProperties.currentPetIndex {
@@ -200,7 +206,7 @@ extension SwitchPetViewController: UICollectionViewDataSource {
                            
             //LocalFileManager.shared.readImage(imagePath: storageManager.petsList[indexPath.row].photo)
                 
-            cell.layoutCell(image: image, name: storageManager.petsList[indexPath.row].name)
+            cell.layoutCell(image: UIImage(named: "IMG_8903"), name: storageManager.petsList[indexPath.row].name)
             
         }
         

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AboutViewController: UIViewController {
+class AboutViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -29,12 +29,34 @@ class AboutViewController: UIViewController {
 }
 
 extension AboutViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        var url = ""
+        switch indexPath.row {
+        case 0:
+            url = "https://www.privacypolicies.com/privacy/view/50656c70516f8f1b1de670eb85c8c16c"
+        default:
+            return
+        }
+        
+        guard let aboutVC = storyboard?.instantiateViewController(
+            withIdentifier: WebViewController.identifier) as? WebViewController else { return }
+//
+//        guard let type = StoreInfoType(rawValue: sender.tag) else { return }
+//
+//        setUrl(type: type)
+        
+        aboutVC.urlString = url
+        
+        show(aboutVC, sender: self)
+        
+    }
     
 }
 
 extension AboutViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -45,7 +45,9 @@ class AddImageTableViewCell: UITableViewCell {
     }
     
     func layoutCell(image: UIImage?) {
-        petImageView.image = image
+        if let image = image {
+            petImageView.image = image
+        }
     }
     
     @objc func addImageAction(_ sender: Any) {
