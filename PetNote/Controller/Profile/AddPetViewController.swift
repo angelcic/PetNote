@@ -55,12 +55,6 @@ extension AddPetViewController: AddPetViewDelegate {
             case .success(let index):
                 print("success")
                 self?.storageManager.currentPetIndex = index
-//                PNGlobalProperties.currentPetIndex = index
-//                guard let parentVC = self?.navigationController?.parent
-//                    as? ProfileDetailViewController
-//                else {
-//                    return
-//                }
             case .failure(let error):
                 print(error)
             }

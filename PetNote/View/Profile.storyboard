@@ -145,7 +145,7 @@
                                     <constraint firstItem="cLO-Wo-hhy" firstAttribute="leading" secondItem="5if-ud-av2" secondAttribute="leading" id="z94-sB-QJV"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="addPetAlertLayer" destination="AUT-rw-re6" id="1ad-i4-3bc"/>
+                                    <outlet property="addPetAlertLayer" destination="AUT-rw-re6" id="tgE-4X-5YT"/>
                                     <outlet property="basicInfoContainerView" destination="cLO-Wo-hhy" id="WYQ-yJ-zg6"/>
                                     <outlet property="healthRecordContainerView" destination="fyP-Wy-agO" id="8MO-5p-rHs"/>
                                     <outlet property="protectPlanContainerView" destination="oYu-9S-lDD" id="sLE-VI-aMk"/>
@@ -221,6 +221,88 @@
             </objects>
             <point key="canvasLocation" x="2485" y="175"/>
         </scene>
+        <!--Delete Pet View Controller-->
+        <scene sceneID="be4-zD-ljx">
+            <objects>
+                <viewController storyboardIdentifier="DeletePetViewController" id="c5E-bP-3Ga" customClass="DeletePetViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MFo-OD-MmU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P1h-FQ-wFK">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p7g-2U-ePk">
+                                        <rect key="frame" x="30" y="239" width="315" height="189"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="確定要刪除成員記錄嗎" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEI-FE-IzI">
+                                                <rect key="frame" x="70.5" y="44" width="174" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYL-t8-BX5">
+                                                <rect key="frame" x="167.5" y="139" width="127.5" height="30"/>
+                                                <state key="normal" title="確認">
+                                                    <color key="titleColor" name="PNDarkBlue"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="confirmDelete" destination="c5E-bP-3Ga" eventType="touchUpInside" id="ShH-0e-WWZ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tqe-4o-fyP">
+                                                <rect key="frame" x="20" y="139" width="127.5" height="30"/>
+                                                <color key="backgroundColor" red="0.0" green="0.39607843139999999" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="還是先不要">
+                                                    <color key="titleColor" red="0.99215686270000003" green="0.99215686270000003" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="cancel" destination="c5E-bP-3Ga" eventType="touchDragInside" id="DbQ-Hc-KCj"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="cYL-t8-BX5" firstAttribute="bottom" secondItem="Tqe-4o-fyP" secondAttribute="bottom" id="1Iz-HP-sq4"/>
+                                            <constraint firstItem="Tqe-4o-fyP" firstAttribute="leading" secondItem="p7g-2U-ePk" secondAttribute="leading" constant="20" id="6ip-Ab-ICk"/>
+                                            <constraint firstAttribute="bottom" secondItem="cYL-t8-BX5" secondAttribute="bottom" constant="20" id="Ae6-Fm-Is8"/>
+                                            <constraint firstItem="uEI-FE-IzI" firstAttribute="centerX" secondItem="p7g-2U-ePk" secondAttribute="centerX" id="Hse-IO-7Rm"/>
+                                            <constraint firstItem="cYL-t8-BX5" firstAttribute="width" secondItem="Tqe-4o-fyP" secondAttribute="width" id="JrD-FP-CMg"/>
+                                            <constraint firstAttribute="trailing" secondItem="cYL-t8-BX5" secondAttribute="trailing" constant="20" id="LUV-or-9Xg"/>
+                                            <constraint firstAttribute="width" secondItem="p7g-2U-ePk" secondAttribute="height" multiplier="5:3" id="X7H-bj-R24"/>
+                                            <constraint firstItem="cYL-t8-BX5" firstAttribute="top" secondItem="Tqe-4o-fyP" secondAttribute="top" id="b9G-at-t6X"/>
+                                            <constraint firstItem="cYL-t8-BX5" firstAttribute="leading" secondItem="Tqe-4o-fyP" secondAttribute="trailing" constant="20" id="c4p-Jg-e9E"/>
+                                            <constraint firstItem="uEI-FE-IzI" firstAttribute="centerY" secondItem="p7g-2U-ePk" secondAttribute="centerY" constant="-40" id="yIW-Ie-UCX"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.2470588235" green="0.2274509804" blue="0.2274509804" alpha="0.5839308647" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="p7g-2U-ePk" firstAttribute="leading" secondItem="P1h-FQ-wFK" secondAttribute="leading" constant="30" id="9we-iQ-ldv"/>
+                                    <constraint firstItem="p7g-2U-ePk" firstAttribute="centerX" secondItem="P1h-FQ-wFK" secondAttribute="centerX" id="UG4-yc-SPg"/>
+                                    <constraint firstItem="p7g-2U-ePk" firstAttribute="centerY" secondItem="P1h-FQ-wFK" secondAttribute="centerY" id="liB-zv-egF"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="P1h-FQ-wFK" firstAttribute="trailing" secondItem="2M1-NL-Uvk" secondAttribute="trailing" id="6s7-lZ-Odi"/>
+                            <constraint firstItem="P1h-FQ-wFK" firstAttribute="top" secondItem="2M1-NL-Uvk" secondAttribute="top" id="9Pj-Dq-I5S"/>
+                            <constraint firstItem="P1h-FQ-wFK" firstAttribute="bottom" secondItem="2M1-NL-Uvk" secondAttribute="bottom" id="dCv-Sb-Exl"/>
+                            <constraint firstItem="P1h-FQ-wFK" firstAttribute="leading" secondItem="2M1-NL-Uvk" secondAttribute="leading" id="lD0-Hw-xfA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2M1-NL-Uvk"/>
+                    </view>
+                    <connections>
+                        <outlet property="addPetView" destination="p7g-2U-ePk" id="9dC-9o-Fpa"/>
+                        <outlet property="cancelButton" destination="Tqe-4o-fyP" id="B52-iJ-Fka"/>
+                        <outlet property="confirmDeleteButton" destination="cYL-t8-BX5" id="nF6-px-566"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qqN-pr-Gv8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3200.8000000000002" y="174.96251874062969"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="W63-rn-YUV">
             <objects>
@@ -251,31 +333,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="443.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="imE-xK-Pku">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="443.5"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="先新增一位成員吧！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vda-I5-utX">
-                                        <rect key="frame" x="20" y="100" width="335" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="vda-I5-utX" secondAttribute="trailing" constant="20" id="KRe-03-xJY"/>
-                                    <constraint firstItem="vda-I5-utX" firstAttribute="top" secondItem="imE-xK-Pku" secondAttribute="top" constant="100" id="NuH-GX-6R2"/>
-                                    <constraint firstItem="vda-I5-utX" firstAttribute="leading" secondItem="imE-xK-Pku" secondAttribute="leading" constant="20" id="VaF-J8-qwk"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="imE-xK-Pku" firstAttribute="trailing" secondItem="4TO-ub-HZ5" secondAttribute="trailing" id="77m-8Z-nWZ"/>
-                            <constraint firstItem="4TO-ub-HZ5" firstAttribute="bottom" secondItem="imE-xK-Pku" secondAttribute="bottom" id="Ou6-LY-hj5"/>
-                            <constraint firstItem="imE-xK-Pku" firstAttribute="leading" secondItem="4TO-ub-HZ5" secondAttribute="leading" id="Sdr-V3-hts"/>
                             <constraint firstItem="g7v-IE-e7Z" firstAttribute="top" secondItem="rdr-CL-WQ4" secondAttribute="top" id="Y0X-kc-p9K"/>
-                            <constraint firstItem="imE-xK-Pku" firstAttribute="top" secondItem="4TO-ub-HZ5" secondAttribute="top" id="bbN-ye-XuT"/>
                             <constraint firstItem="4TO-ub-HZ5" firstAttribute="trailing" secondItem="g7v-IE-e7Z" secondAttribute="trailing" id="nl3-I7-X29"/>
                             <constraint firstItem="4TO-ub-HZ5" firstAttribute="bottom" secondItem="g7v-IE-e7Z" secondAttribute="bottom" id="wgX-cn-IWI"/>
                             <constraint firstItem="g7v-IE-e7Z" firstAttribute="leading" secondItem="4TO-ub-HZ5" secondAttribute="leading" id="zWr-tS-YcY"/>
@@ -283,7 +344,6 @@
                         <viewLayoutGuide key="safeArea" id="4TO-ub-HZ5"/>
                     </view>
                     <connections>
-                        <outlet property="addPetAlertLayer" destination="imE-xK-Pku" id="OkC-Le-dkl"/>
                         <outlet property="tableView" destination="g7v-IE-e7Z" id="rXl-xA-JtE"/>
                     </connections>
                 </viewController>
@@ -554,6 +614,9 @@
     </scenes>
     <resources>
         <image name="Icons_24px_Close" width="24" height="24"/>
+        <namedColor name="PNDarkBlue">
+            <color red="0.0" green="0.396078431372549" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="PNWhite">
             <color red="0.99215686274509807" green="0.99215686274509807" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

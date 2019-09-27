@@ -57,7 +57,7 @@ class ProfileDetailViewController: SwitchPetViewController, SwitchPetViewControl
             })
         }
     }
-
+    
     func petsNumberChange(isEmpty: Bool) {
         detailView.changeAddPetAlertStatus(isHidden: !isEmpty)
     }

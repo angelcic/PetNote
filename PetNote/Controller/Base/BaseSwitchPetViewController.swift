@@ -163,9 +163,9 @@ extension SwitchPetViewController: UICollectionViewDataSource {
         
         if indexPath.section == 0 {
             cell.changeSlectedStatus(false)
-            cell.layoutCell(image: UIImage(named: "Icons_24px_Add01"), name: "新增")
             cell.petImageView.contentMode = .center
             cell.petImageBorderView.isHidden = true
+            cell.layoutCell(image: UIImage(named: "Icons_24px_Add01"), name: "新增")
         } else {
             cell.changeSlectedStatus(false)
             cell.isSelected = false

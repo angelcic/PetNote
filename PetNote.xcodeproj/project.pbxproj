@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9142BBD9233DBE5E006418A5 /* DeletePetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142BBD8233DBE5E006418A5 /* DeletePetViewController.swift */; };
 		9166EF2C2338AF5F0086C70E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EF2B2338AF5F0086C70E /* BaseViewController.swift */; };
 		9166EF2E2338B0BF0086C70E /* BaseSwitchPetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EF2D2338B0BF0086C70E /* BaseSwitchPetViewController.swift */; };
 		9166EF302338B7D20086C70E /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EF2F2338B7D20086C70E /* UIImageExtension.swift */; };
@@ -134,6 +135,7 @@
 /* Begin PBXFileReference section */
 		0C36075D08FC74716301080A /* Pods_PetNote.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetNote.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B1361EE367C157E8D7CBCD6 /* Pods-PetNote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetNote.release.xcconfig"; path = "Target Support Files/Pods-PetNote/Pods-PetNote.release.xcconfig"; sourceTree = "<group>"; };
+		9142BBD8233DBE5E006418A5 /* DeletePetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletePetViewController.swift; sourceTree = "<group>"; };
 		9166EF2B2338AF5F0086C70E /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		9166EF2D2338B0BF0086C70E /* BaseSwitchPetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSwitchPetViewController.swift; sourceTree = "<group>"; };
 		9166EF2F2338B7D20086C70E /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
@@ -444,6 +446,7 @@
 			children = (
 				9166EFEF2338C19D0086C70E /* ProfileDetailViewController.swift */,
 				9166EFF52338C19D0086C70E /* AddPetViewController.swift */,
+				9142BBD8233DBE5E006418A5 /* DeletePetViewController.swift */,
 				9166EFF22338C19D0086C70E /* BasicInfo */,
 				9166EFF72338C19D0086C70E /* ProtectPlan */,
 				9166EFFB2338C19D0086C70E /* HealthRecordViewController.swift */,
@@ -919,6 +922,7 @@
 				9166F09F233A4F3D0086C70E /* JSONReaderManager.swift in Sources */,
 				9166F0342338C2AA0086C70E /* HospitalAPIManager.swift in Sources */,
 				9181BC672319119D007BB7C6 /* UICollectionViewExtension.swift in Sources */,
+				9142BBD9233DBE5E006418A5 /* DeletePetViewController.swift in Sources */,
 				9166EF9E2338BE890086C70E /* BasicMedicalRecordTableViewCell.swift in Sources */,
 				9166F0332338C2AA0086C70E /* LocalFileManager.swift in Sources */,
 				9166F0002338C19D0086C70E /* BasicInfoViewController.swift in Sources */,

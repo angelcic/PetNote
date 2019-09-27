@@ -17,20 +17,8 @@ class BasicInfoViewController: BaseContainerViewController {
         }
     }
     
-    @IBOutlet weak var addPetAlertLayer: UIView!
-    
     var currentImage: UIImage? 
-    
-    override var currentPet: PNPetInfo? {
-        didSet {
-            if currentPet != nil {
-                addPetAlertLayer.isHidden = true
-            } else {
-                addPetAlertLayer.isHidden = false
-            }
-        }
-    }
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,6 +33,36 @@ class BasicInfoViewController: BaseContainerViewController {
     func petDidChange() {
         tableView.reloadData()
 //        tableView.reloadSections(IndexSet(arrayLiteral: 1), with: .none) // 待研究
+    }
+    
+    func showDeletePetVC() {
+            guard let deletePetVC = UIStoryboard.profile.instantiateViewController(
+                withIdentifier: DeletePetViewController.identifier)
+                as? DeletePetViewController
+                else {return}
+            
+            deletePetVC.delegate = self
+            
+            // 顯示樣式
+            deletePetVC.modalPresentationStyle = UIModalPresentationStyle.custom
+            
+            self.present(deletePetVC, animated: false, completion: nil)
+            
+            deletePetVC.view.backgroundColor = UIColor.clear
+        }
+}
+
+extension BasicInfoViewController: DeletePetViewControllerDelegate {
+    func pressConfirmDeleteButton() {
+        StorageManager.shared.deleteCurrentPet { result in
+            switch result {
+            case .success:
+                StorageManager.shared.currentPetIndex = 0
+                print("已移除成員")
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }
 
@@ -96,15 +114,7 @@ extension BasicInfoViewController: UINavigationControllerDelegate {
 
 extension BasicInfoViewController: BasicInfoTableViewCellDelegate {
     func pressDeleteButton() {
-        StorageManager.shared.deleteCurrentPet { result in
-            switch result {
-            case .success:
-                StorageManager.shared.currentPetIndex = 0
-                print("已移除成員")
-            case .failure(let error):
-                print(error)
-            }
-        }
+        showDeletePetVC()
     }
     
     func pressModifyButton() {
