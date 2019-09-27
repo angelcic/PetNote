@@ -505,9 +505,9 @@
 			children = (
 				9166F0132338C1EE0086C70E /* OtherFunctionViewController.swift */,
 				9166F0142338C1EE0086C70E /* SearchHospitalViewController.swift */,
+				9166F0172338C1EE0086C70E /* SearchHospitalResultViewController.swift */,
 				9166F0152338C1EE0086C70E /* NotificationManageViewController.swift */,
 				9166F0162338C1EE0086C70E /* NotificatonViewController.swift */,
-				9166F0172338C1EE0086C70E /* SearchHospitalResultViewController.swift */,
 				91A6A43A233B5DF000BAF23E /* AboutViewController.swift */,
 				91A6A440233C423300BAF23E /* WebViewController.swift */,
 				91A6A444233CBE7700BAF23E /* ThanksPageViewController.swift */,
