@@ -44,7 +44,8 @@ class OtherFunctionViewController: BaseViewController {
         super.viewDidLoad()
         setupCollectionView()
         // Do any additional setup after loading the view.
-    }
+    
+        }
     
     func setupCollectionView() {
         collectionView.registerCellWithNib(identifier: String(describing: BasicCollectionViewCell.self), bundle: nil)

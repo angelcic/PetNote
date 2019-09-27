@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CLSFirebaseMode</key>
+	<true/>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>設定成員大頭照需開啟相簿讀取權限，否則無法讀取相簿照片</string>
 	<key>CFBundleDevelopmentRegion</key>

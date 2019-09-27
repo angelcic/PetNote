@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9142BBD9233DBE5E006418A5 /* DeletePetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142BBD8233DBE5E006418A5 /* DeletePetViewController.swift */; };
 		9166EF2C2338AF5F0086C70E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EF2B2338AF5F0086C70E /* BaseViewController.swift */; };
 		9166EF2E2338B0BF0086C70E /* BaseSwitchPetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EF2D2338B0BF0086C70E /* BaseSwitchPetViewController.swift */; };
 		9166EF302338B7D20086C70E /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EF2F2338B7D20086C70E /* UIImageExtension.swift */; };
@@ -125,6 +126,7 @@
 		91A6A441233C423300BAF23E /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A6A440233C423300BAF23E /* WebViewController.swift */; };
 		91A6A443233C4C6900BAF23E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91A6A442233C4C6900BAF23E /* WebKit.framework */; };
 		91A6A445233CBE7700BAF23E /* ThanksPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A6A444233CBE7700BAF23E /* ThanksPageViewController.swift */; };
+		91A6A447233CCE1100BAF23E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91A6A446233CCE1100BAF23E /* GoogleService-Info.plist */; };
 		91B97F5423375805008B940F /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B97F5323375805008B940F /* UIColorExtension.swift */; };
 		91D963FB233666B3003A48AD /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D963FA233666B3003A48AD /* URLExtension.swift */; };
 		933214776B257E5501F30B83 /* Pods_PetNote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C36075D08FC74716301080A /* Pods_PetNote.framework */; };
@@ -133,6 +135,7 @@
 /* Begin PBXFileReference section */
 		0C36075D08FC74716301080A /* Pods_PetNote.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetNote.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B1361EE367C157E8D7CBCD6 /* Pods-PetNote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetNote.release.xcconfig"; path = "Target Support Files/Pods-PetNote/Pods-PetNote.release.xcconfig"; sourceTree = "<group>"; };
+		9142BBD8233DBE5E006418A5 /* DeletePetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletePetViewController.swift; sourceTree = "<group>"; };
 		9166EF2B2338AF5F0086C70E /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		9166EF2D2338B0BF0086C70E /* BaseSwitchPetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSwitchPetViewController.swift; sourceTree = "<group>"; };
 		9166EF2F2338B7D20086C70E /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
@@ -253,6 +256,7 @@
 		91A6A440233C423300BAF23E /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		91A6A442233C4C6900BAF23E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		91A6A444233CBE7700BAF23E /* ThanksPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksPageViewController.swift; sourceTree = "<group>"; };
+		91A6A446233CCE1100BAF23E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		91B97F5323375805008B940F /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		91D963FA233666B3003A48AD /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
 		C1B26700EEE001AE14DFC34D /* Pods-PetNote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetNote.debug.xcconfig"; path = "Target Support Files/Pods-PetNote/Pods-PetNote.debug.xcconfig"; sourceTree = "<group>"; };
@@ -442,6 +446,7 @@
 			children = (
 				9166EFEF2338C19D0086C70E /* ProfileDetailViewController.swift */,
 				9166EFF52338C19D0086C70E /* AddPetViewController.swift */,
+				9142BBD8233DBE5E006418A5 /* DeletePetViewController.swift */,
 				9166EFF22338C19D0086C70E /* BasicInfo */,
 				9166EFF72338C19D0086C70E /* ProtectPlan */,
 				9166EFFB2338C19D0086C70E /* HealthRecordViewController.swift */,
@@ -613,6 +618,7 @@
 		9181BC2523177E1C007BB7C6 /* PetNote */ = {
 			isa = PBXGroup;
 			children = (
+				91A6A446233CCE1100BAF23E /* GoogleService-Info.plist */,
 				9166F0212338C2AA0086C70E /* Model */,
 				9181BC472317AA0A007BB7C6 /* Extension */,
 				9181BC3B23179FB1007BB7C6 /* Controller */,
@@ -806,6 +812,7 @@
 				9166EFA52338BE890086C70E /* MedicalRecordTableViewCell.xib in Resources */,
 				91A6A43F233B5EF300BAF23E /* BasicWithRightButtonTableViewCell.xib in Resources */,
 				9166F03F2338CAFB0086C70E /* Notify.storyboard in Resources */,
+				91A6A447233CCE1100BAF23E /* GoogleService-Info.plist in Resources */,
 				9166EFAA2338BEE40086C70E /* SettingNotifyTableViewCell.xib in Resources */,
 				9166EFE42338C05D0086C70E /* BasicInfoTableViewCell.xib in Resources */,
 				9166EF9D2338BE890086C70E /* TitleWithButtonTableViewCell.xib in Resources */,
@@ -833,7 +840,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n\n";
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n\"${PODS_ROOT}/Fabric/run\"\n\n";
 		};
 		DDF1F1DDFC6F4BF17240BFCE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -915,6 +922,7 @@
 				9166F09F233A4F3D0086C70E /* JSONReaderManager.swift in Sources */,
 				9166F0342338C2AA0086C70E /* HospitalAPIManager.swift in Sources */,
 				9181BC672319119D007BB7C6 /* UICollectionViewExtension.swift in Sources */,
+				9142BBD9233DBE5E006418A5 /* DeletePetViewController.swift in Sources */,
 				9166EF9E2338BE890086C70E /* BasicMedicalRecordTableViewCell.swift in Sources */,
 				9166F0332338C2AA0086C70E /* LocalFileManager.swift in Sources */,
 				9166F0002338C19D0086C70E /* BasicInfoViewController.swift in Sources */,
@@ -1112,6 +1120,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 5XT523M7P4;
 				INFOPLIST_FILE = PetNote/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -1132,6 +1141,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 5XT523M7P4;
 				INFOPLIST_FILE = PetNote/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
