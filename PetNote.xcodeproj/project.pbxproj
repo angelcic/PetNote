@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9142BBD9233DBE5E006418A5 /* DeletePetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142BBD8233DBE5E006418A5 /* DeletePetViewController.swift */; };
+		9142BBDD234242CC006418A5 /* NotifyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142BBDC234242CC006418A5 /* NotifyManager.swift */; };
 		9166EF2C2338AF5F0086C70E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EF2B2338AF5F0086C70E /* BaseViewController.swift */; };
 		9166EF2E2338B0BF0086C70E /* BaseSwitchPetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EF2D2338B0BF0086C70E /* BaseSwitchPetViewController.swift */; };
 		9166EF302338B7D20086C70E /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EF2F2338B7D20086C70E /* UIImageExtension.swift */; };
@@ -136,6 +137,7 @@
 		0C36075D08FC74716301080A /* Pods_PetNote.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetNote.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B1361EE367C157E8D7CBCD6 /* Pods-PetNote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetNote.release.xcconfig"; path = "Target Support Files/Pods-PetNote/Pods-PetNote.release.xcconfig"; sourceTree = "<group>"; };
 		9142BBD8233DBE5E006418A5 /* DeletePetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletePetViewController.swift; sourceTree = "<group>"; };
+		9142BBDC234242CC006418A5 /* NotifyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyManager.swift; sourceTree = "<group>"; };
 		9166EF2B2338AF5F0086C70E /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		9166EF2D2338B0BF0086C70E /* BaseSwitchPetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSwitchPetViewController.swift; sourceTree = "<group>"; };
 		9166EF2F2338B7D20086C70E /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
@@ -282,6 +284,25 @@
 				8B1361EE367C157E8D7CBCD6 /* Pods-PetNote.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		9142BBDA233E29D3006418A5 /* Search Hospital */ = {
+			isa = PBXGroup;
+			children = (
+				9166F0142338C1EE0086C70E /* SearchHospitalViewController.swift */,
+				9166F0172338C1EE0086C70E /* SearchHospitalResultViewController.swift */,
+			);
+			path = "Search Hospital";
+			sourceTree = "<group>";
+		};
+		9142BBDB233E29F1006418A5 /* About Pet Note */ = {
+			isa = PBXGroup;
+			children = (
+				91A6A43A233B5DF000BAF23E /* AboutViewController.swift */,
+				91A6A440233C423300BAF23E /* WebViewController.swift */,
+				91A6A444233CBE7700BAF23E /* ThanksPageViewController.swift */,
+			);
+			path = "About Pet Note";
 			sourceTree = "<group>";
 		};
 		9166EF512338BC010086C70E /* Record */ = {
@@ -504,13 +525,10 @@
 			isa = PBXGroup;
 			children = (
 				9166F0132338C1EE0086C70E /* OtherFunctionViewController.swift */,
-				9166F0142338C1EE0086C70E /* SearchHospitalViewController.swift */,
-				9166F0172338C1EE0086C70E /* SearchHospitalResultViewController.swift */,
+				9142BBDA233E29D3006418A5 /* Search Hospital */,
 				9166F0152338C1EE0086C70E /* NotificationManageViewController.swift */,
 				9166F0162338C1EE0086C70E /* NotificatonViewController.swift */,
-				91A6A43A233B5DF000BAF23E /* AboutViewController.swift */,
-				91A6A440233C423300BAF23E /* WebViewController.swift */,
-				91A6A444233CBE7700BAF23E /* ThanksPageViewController.swift */,
+				9142BBDB233E29F1006418A5 /* About Pet Note */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -525,6 +543,7 @@
 				9166F02E2338C2AA0086C70E /* CoreDataStorage */,
 				9166F0222338C2AA0086C70E /* LocalFileManager.swift */,
 				9166F052233A28020086C70E /* DailyRecord.swift */,
+				9142BBDC234242CC006418A5 /* NotifyManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -902,6 +921,7 @@
 				91A6A43E233B5EF300BAF23E /* BasicWithRightButtonTableViewCell.swift in Sources */,
 				9166EF372338B7FA0086C70E /* StringExtension.swift in Sources */,
 				9181BC2923177E1C007BB7C6 /* TabBarViewController.swift in Sources */,
+				9142BBDD234242CC006418A5 /* NotifyManager.swift in Sources */,
 				9166F0062338C19D0086C70E /* HealthRecordViewController.swift in Sources */,
 				9166EF392338B7FA0086C70E /* IntExtension.swift in Sources */,
 				9166EFA92338BEE40086C70E /* SettingNotifyTableViewCell.swift in Sources */,

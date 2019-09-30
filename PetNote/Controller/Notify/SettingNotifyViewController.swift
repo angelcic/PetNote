@@ -36,7 +36,12 @@ class SettingNotifyViewController: BaseViewController {
     }
     
     @objc func saveAction() {
-        
+        guard let settingNotifyCell = tableView.visibleCells[0]
+            as? SettingNotifyTableViewCell
+        else {
+            return
+        }
+        settingNotifyCell.getNotifySetting()
     }
 
 }

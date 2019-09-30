@@ -43,7 +43,6 @@ class ProtectPlanViewController: BaseContainerViewController {
         setTableView()
         
         protectPlans = currentPet?.protectPlan?.allObjects as? [PNProtectPlan] ?? []
-        // Do any additional setup after loading the view.
     }
     
     func setTableView() {
@@ -54,7 +53,10 @@ class ProtectPlanViewController: BaseContainerViewController {
     }
     
     func addProtectPlan() {
-        showAddProtectPlanVC(protectPlan: StorageManager.shared.getPNProtectPlan(),
+        let protectPlan = StorageManager.shared.getPNProtectPlan()
+        let notification = StorageManager.shared.getPNNotifyInfo()
+        protectPlan.addToNotifyInfo(notification)
+        showAddProtectPlanVC(protectPlan: protectPlan,
                              title: "添加預防計畫") {[weak self] protectPlan in
             self?.currentPet?.addToProtectPlan(protectPlan)
             

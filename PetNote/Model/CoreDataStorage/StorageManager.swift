@@ -134,10 +134,16 @@ import UIKit
         protectPlan.protectType = "疫苗"
         pet.addToProtectPlan(protectPlan)
         
+        var notify = getPNNotifyInfo()
+        protectPlan.addToNotifyInfo(notify)
+        
         let protectPlan2 = getPNProtectPlan()
         protectPlan2.protectName = "寵愛"
         protectPlan2.protectType = "體外驅蟲"
         pet.addToProtectPlan(protectPlan2)
+        
+        notify = getPNNotifyInfo()
+        protectPlan2.addToNotifyInfo(notify)
         
         for index in 0...4 {
             let weightRecord = getPNPNWeightRecord()
@@ -234,5 +240,9 @@ import UIKit
     
     func getPNDailyRecord() -> PNDailyRecord {
         return PNDailyRecord.init(context: viewContext)
+    }
+    
+    func getPNNotifyInfo() -> PNNotifyInfo {
+        return PNNotifyInfo.init(context: viewContext)
     }
 }
