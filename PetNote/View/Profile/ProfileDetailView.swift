@@ -41,13 +41,13 @@ class ProfileDetailView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupSelectionView()
+//        setupSelectionView()
     }
 
     override func layoutSubviews() {
         super.layoutSubviews()
 //        setupPetSwitchLayer()
-//        setupSelectionView()
+        setupSelectionView()
     }
     
     // 更新切換頁面條介面大小

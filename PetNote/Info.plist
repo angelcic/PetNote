@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CLSFirebaseMode</key>
-	<true/>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>設定成員大頭照需開啟相簿讀取權限，否則無法讀取相簿照片</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -19,9 +15,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>CLSFirebaseMode</key>
+	<true/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -29,6 +27,8 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>設定成員大頭照需開啟相簿讀取權限，否則無法讀取相簿照片</string>
 	<key>PNHospitalBaseURL</key>
 	<string>http://data.coa.gov.tw/Service/OpenData/DataFileService.aspx?UnitId=078&amp;$top=1000&amp;$skip=0</string>
 	<key>UILaunchStoryboardName</key>
