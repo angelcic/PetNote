@@ -153,7 +153,7 @@ import UIKit
         }
         let dailyRecord = getPNDailyRecord()
         dailyRecord.date = Date().timeIntervalSince1970
-        dailyRecord.describe = "一餐吃了十罐罐頭"
+        dailyRecord.describe = "一餐吃了十個罐罐"
         dailyRecord.event = ["打噴嚏", "食慾不佳"]
         pet.addToDailyRecord(dailyRecord)
         
