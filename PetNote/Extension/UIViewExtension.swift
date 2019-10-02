@@ -21,3 +21,18 @@ extension UIView {
         self.layer.cornerRadius = cornerRadius
     }
 }
+
+extension UIView {
+    func takeSnapshot() -> UIImage {
+        
+        UIGraphicsBeginImageContextWithOptions(bounds.size, false, UIScreen.main.scale)
+        
+        layer.render(in: UIGraphicsGetCurrentContext()!)
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
+        
+        return image!
+    }
+}

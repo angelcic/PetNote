@@ -36,7 +36,7 @@
     <entity name="PNProtectPlan" representedClassName="PNProtectPlan" syncable="YES" codeGenerationType="class">
         <attribute name="protectName" optional="YES" attributeType="String"/>
         <attribute name="protectType" optional="YES" attributeType="String"/>
-        <relationship name="notifyInfo" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PNNotifyInfo" inverseName="protectPlan" inverseEntity="PNNotifyInfo"/>
+        <relationship name="notifyInfo" toMany="YES" deletionRule="Nullify" destinationEntity="PNNotifyInfo" inverseName="protectPlan" inverseEntity="PNNotifyInfo"/>
         <relationship name="petInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PNPetInfo" inverseName="protectPlan" inverseEntity="PNPetInfo"/>
     </entity>
     <entity name="PNWeightRecord" representedClassName="PNWeightRecord" syncable="YES" codeGenerationType="class">
@@ -49,7 +49,7 @@
         <element name="PNMedicalRecord" positionX="-4.83203125" positionY="67.47265625" width="128" height="60"/>
         <element name="PNNotifyInfo" positionX="-99" positionY="108" width="128" height="148"/>
         <element name="PNPetInfo" positionX="-191.4296875" positionY="-20.28515625" width="128" height="240"/>
-        <element name="PNProtectPlan" positionX="-5.66796875" positionY="139.140625" width="128" height="105"/>
+        <element name="PNProtectPlan" positionX="-5.66796875" positionY="139.140625" width="128" height="103"/>
         <element name="PNWeightRecord" positionX="-16.0546875" positionY="210.6171875" width="128" height="90"/>
     </elements>
 </model>
