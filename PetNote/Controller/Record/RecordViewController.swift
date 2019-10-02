@@ -39,7 +39,7 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
             calendar.appearance.weekdayTextColor = UIColor.pnBlueDark
             calendar.appearance.todayColor = UIColor.pnDarkPink
             calendar.appearance.selectionColor =  UIColor.pnBlueLight
-            calendar.appearance.borderRadius = 0
+            calendar.appearance.borderRadius = 0.5
         }
     }
     

@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol AddingProtectPlanVCDelegate: AnyObject {
-    func pressAddProtectPlan(_ protectPlan: PNProtectPlan)
-}
-
 class AddingProtectPlanViewController: BaseViewController {
     
     // protectPlan & notifySetting
@@ -35,9 +31,7 @@ class AddingProtectPlanViewController: BaseViewController {
     
     lazy var protectTypes: [ProtectType] =
         [.vaccines(type: currentPetType), .entozoa, .externalParasites(type: currentPetType), .other]
-    
-    weak var delegate: AddingProtectPlanVCDelegate?
-    
+   
     var protectPlan: PNProtectPlan = PNProtectPlan() {
         didSet {
             if let protectType = protectPlan.protectType {
@@ -52,7 +46,7 @@ class AddingProtectPlanViewController: BaseViewController {
             }
             
             if let notify = protectPlan.notifyInfo?.allObjects[0] as? PNNotifyInfo {
-                notification = notify
+                petNotifyInfo = notify
             }
         }
     }
@@ -67,7 +61,7 @@ class AddingProtectPlanViewController: BaseViewController {
     var petPlanNameString = ""
 
     // 預防計畫的通知
-    var notification: PNNotifyInfo?
+    var petNotifyInfo: PNNotifyInfo?
     
     // 目前的寵物類型
     var currentPetType: PetType = .cat
@@ -108,8 +102,6 @@ class AddingProtectPlanViewController: BaseViewController {
     func setTableView() {
         
         tableView.registerCellWithNib(identifier: String(describing: ProtectTypeTableViewCell.self), bundle: nil)
-//        tableView.registerCellWithNib(identifier: String(describing: NotifyTableViewCell.self), bundle: nil)
-//        tableView.registerCellWithNib(identifier: String(describing: TitleWithButtonTableViewCell.self), bundle: nil)
         // section header
         tableView.registerHeaderWithNib(identifier: String(describing: WithImageSectionHeaderView.self), bundle: nil)
         // 通知
@@ -121,6 +113,7 @@ class AddingProtectPlanViewController: BaseViewController {
         
         protectPlan.protectType = currentPreventType.protectTypeName
         
+        // 取得預防計畫
         if let cell =
             tableView.cellForRow(at: IndexPath(row: currentProtectPlanIndex, section: 0))
         as? ProtectTypeTableViewCell {
@@ -130,24 +123,41 @@ class AddingProtectPlanViewController: BaseViewController {
                 protectPlan.protectName = cell.titleLabel.text
             }
         }
-        // TODO:
-        if let cell =
+        // 取得通知設定
+        guard let cell =
             tableView.cellForRow(at: IndexPath(row: 0, section: 1))
-        as? SettingNotifyTableViewCell {
-            let notify = cell.getNotifySetting()
-
-            notification?.isOpen = notify.isSwitchOn
-            notification?.identifier
-            notification?.date
-            notification?.time
-            notification?.repeatType
-            notification?.title
-            
-            
-            self.dismiss(animated: false, completion: nil)
-            delegate?.pressAddProtectPlan(protectPlan)
+                as? SettingNotifyTableViewCell
+        else {
+            navigationController?.popToRootViewController(animated: false)
+            return
         }
-        handler?(protectPlan)
+        
+        let notify = cell.getNotifySetting()
+        
+        NotifyManager.shared.createNotification(by: notify,
+                                                with: petNotifyInfo?.identifier) {[weak self] result in
+            guard
+                let protectPlan = self?.protectPlan,
+                let petNotifyInfo = self?.petNotifyInfo
+            else { return }
+                                                    
+            switch result {
+            case .success(let identifier, let notificationObject):
+                print("petNotifyInfo 的 id 為: \(identifier)")
+                petNotifyInfo.identifier = identifier
+                petNotifyInfo.date = notificationObject.nextDate.timeIntervalSince1970
+                petNotifyInfo.time = notificationObject.alertTime.timeIntervalSince1970
+                petNotifyInfo.isOpen = notificationObject.isSwitchOn
+                petNotifyInfo.repeatType = notificationObject.frequencyTypes
+                petNotifyInfo.title = notificationObject.alertText
+                
+                self?.handler?(protectPlan)
+            case .failure(let error):
+                print(error)
+                self?.handler?(protectPlan)
+            }
+        }
+        
         navigationController?.popToRootViewController(animated: false)
         
     }
@@ -305,21 +315,31 @@ extension AddingProtectPlanViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             
-            guard let notifyObject = notification else {
+            guard let notifyInfo = petNotifyInfo else {
                 return cell
             }
             
-            let notificationObject = NotificationObject(
-                isSwitchOn: notifyObject.isOpen,
-                frequencyTypes: notifyObject.repeatType ?? RepeatType.once.rawValue,
-                nextDate: Date(timeIntervalSince1970: TimeInterval(notifyObject.date)),
-                alertTime: Date(timeIntervalSince1970: TimeInterval(notifyObject.time)),
-                alertText: notifyObject.title ?? "")
+            let notificationObject = createNotificationObject(by: notifyInfo)
             
             cell.layoutCell(notification: notificationObject)
             return cell
         }
         
+    }
+    
+    func createNotificationObject(by pnNotifyInfo: PNNotifyInfo) -> NotificationObject {
+        
+        let nextDate = Date(timeIntervalSince1970: TimeInterval(pnNotifyInfo.date))
+        let alertTime = Date(timeIntervalSince1970: TimeInterval(pnNotifyInfo.time))
+        
+        let notificationObject = NotificationObject(
+            isSwitchOn: pnNotifyInfo.isOpen,
+            frequencyTypes: pnNotifyInfo.repeatType ?? RepeatType.once.rawValue,
+            nextDate: nextDate,
+            alertTime: alertTime,
+            alertText: pnNotifyInfo.title ?? "")
+        
+        return notificationObject
     }
     
     func getprotectNameCell(_ tableView: UITableView,

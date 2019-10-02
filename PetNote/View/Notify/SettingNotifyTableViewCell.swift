@@ -9,11 +9,35 @@
 import UIKit
 
 enum RepeatType: String {
-    case once = "單次"
+    case once = "不重複"
     case day = "每日"
     case week = "每週"
     case month = "每月"
     case year = "每年"
+    
+    var componentSet: Set<Calendar.Component> {
+        switch self {
+        case .once:
+            return [.hour, .minute]
+        case .day:
+            return [.hour, .minute]
+        case .week:
+            return [.weekday, .hour, .minute]
+        case .month:
+            return [.month, .hour, .minute]
+        case .year:
+            return [.year, .hour, .minute]
+        }
+    }
+    
+    var isRepeat: Bool {
+        switch self {
+        case .once:
+            return false
+        default:
+            return true
+        }
+    }
     
     static func getTypesCount() -> Int {
         return 5
@@ -101,7 +125,7 @@ class SettingNotifyTableViewCell: UITableViewCell {
         nextNotifyDatePicker.addTarget(self, action: #selector(modifyDate), for: .valueChanged)
         
         notifyTimePicker.datePickerMode = .time
-        notifyTimePicker.minuteInterval = 30
+        notifyTimePicker.minuteInterval = 1
         notifyTimePicker.locale = Locale(
             identifier: "zh_TW")
         notifyTimePicker.addTarget(self, action: #selector(modifyDate), for: .valueChanged)
@@ -132,12 +156,14 @@ class SettingNotifyTableViewCell: UITableViewCell {
         switch datePicker {
         case nextNotifyDatePicker:
             let nextDate = nextNotifyDatePicker.date
+            print("日期： \(nextDate.timeIntervalSince1970)")
             notificationObject.nextDate = nextDate
             nextNotifyDateTextField.text = nextDate.getDateString()
             nextNotifyDateTextField.resignFirstResponder()
             
         case notifyTimePicker:
             let notifyTime = notifyTimePicker.date
+            print("時間： \(notifyTime.timeIntervalSince1970)")
             notificationObject.alertTime = notifyTime
             let notifyTimeText = notifyTime.getDateString(format: "HH:mm")
             
