@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PXc-lR-k88">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
@@ -14,14 +14,14 @@
             <objects>
                 <viewController storyboardIdentifier="ProfileViewController" id="qJw-Mi-sVk" customClass="ProfileViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UYd-0k-FY7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l2a-Eu-AEy" customClass="ProfileRootView" customModule="PetNote" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="H92-14-vGK">
-                                        <rect key="frame" x="20" y="20" width="335" height="647"/>
+                                        <rect key="frame" x="20" y="20" width="280" height="548"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableView>
                                 </subviews>
@@ -68,47 +68,47 @@
             <objects>
                 <viewController storyboardIdentifier="PetDetailPage" id="l6C-k2-hdA" customClass="ProfileDetailViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2Fi-b7-VLg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NsO-Yu-Nol" customClass="SwitchPetView" customModule="PetNote" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="375" height="106.5"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="91"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5if-ud-av2" customClass="ProfileDetailView" customModule="PetNote" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="170.5" width="375" height="496.5"/>
+                                <rect key="frame" x="0.0" y="155" width="320" height="413"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fyP-Wy-agO">
-                                        <rect key="frame" x="0.0" y="53" width="375" height="443.5"/>
+                                        <rect key="frame" x="0.0" y="44" width="320" height="369"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <segue destination="Bs4-6o-zwK" kind="embed" id="o0c-ZP-jXu"/>
                                         </connections>
                                     </containerView>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oYu-9S-lDD">
-                                        <rect key="frame" x="0.0" y="53" width="375" height="443.5"/>
+                                        <rect key="frame" x="0.0" y="44" width="320" height="369"/>
                                         <connections>
                                             <segue destination="YtW-9m-rRu" kind="embed" id="HE8-Ue-8F4"/>
                                         </connections>
                                     </containerView>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cLO-Wo-hhy">
-                                        <rect key="frame" x="0.0" y="53" width="375" height="443.5"/>
+                                        <rect key="frame" x="0.0" y="44" width="320" height="369"/>
                                         <connections>
                                             <segue destination="cHO-qj-MuJ" kind="embed" id="79T-Q0-SZc"/>
                                         </connections>
                                     </containerView>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yn9-uJ-9vw">
-                                        <rect key="frame" x="20" y="0.0" width="335" height="53"/>
+                                        <rect key="frame" x="20" y="0.0" width="280" height="44"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="yn9-uJ-9vw" secondAttribute="height" multiplier="335:53" id="tE7-CO-mnb"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AUT-rw-re6">
-                                        <rect key="frame" x="0.0" y="53" width="375" height="443.5"/>
+                                        <rect key="frame" x="0.0" y="44" width="320" height="369"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="先新增一位成員吧！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgj-tc-pts">
-                                                <rect key="frame" x="20" y="100" width="335" height="24"/>
+                                                <rect key="frame" x="20" y="100" width="280" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -181,14 +181,14 @@
             <objects>
                 <viewController storyboardIdentifier="AddPetViewController" id="cAz-4e-Znd" customClass="AddPetViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yvo-tC-h1e">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZFe-E4-XbI">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ohu-cn-dgB">
-                                        <rect key="frame" x="30" y="239" width="315" height="189"/>
+                                        <rect key="frame" x="30" y="206" width="260" height="156"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ohu-cn-dgB" secondAttribute="height" multiplier="5:3" id="kom-U6-pvi"/>
@@ -226,23 +226,23 @@
             <objects>
                 <viewController storyboardIdentifier="DeletePetViewController" id="c5E-bP-3Ga" customClass="DeletePetViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MFo-OD-MmU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P1h-FQ-wFK">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p7g-2U-ePk">
-                                        <rect key="frame" x="30" y="239" width="315" height="189"/>
+                                        <rect key="frame" x="30" y="206" width="260" height="156"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="確定要刪除成員記錄嗎" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEI-FE-IzI">
-                                                <rect key="frame" x="70.5" y="44" width="174" height="21"/>
+                                                <rect key="frame" x="43" y="27.5" width="174" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYL-t8-BX5">
-                                                <rect key="frame" x="167.5" y="139" width="127.5" height="30"/>
+                                                <rect key="frame" x="140" y="106" width="100" height="30"/>
                                                 <state key="normal" title="確認">
                                                     <color key="titleColor" name="PNDarkBlue"/>
                                                 </state>
@@ -251,13 +251,13 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tqe-4o-fyP">
-                                                <rect key="frame" x="20" y="139" width="127.5" height="30"/>
+                                                <rect key="frame" x="20" y="106" width="100" height="30"/>
                                                 <color key="backgroundColor" red="0.0" green="0.39607843139999999" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="還是先不要">
                                                     <color key="titleColor" red="0.99215686270000003" green="0.99215686270000003" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="cancel" destination="c5E-bP-3Ga" eventType="touchDragInside" id="DbQ-Hc-KCj"/>
+                                                    <action selector="cancel" destination="c5E-bP-3Ga" eventType="touchUpInside" id="GuE-pL-8Z8"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -309,7 +309,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PXc-lR-k88" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BeD-4I-GcW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -326,12 +326,13 @@
             <objects>
                 <viewController id="cHO-qj-MuJ" customClass="BasicInfoViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rdr-CL-WQ4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="443.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="369"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g7v-IE-e7Z">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="443.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="369"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -356,19 +357,19 @@
             <objects>
                 <viewController id="YtW-9m-rRu" customClass="ProtectPlanViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k3K-IL-q3k">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="443.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="369"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="cw4-KC-X6U">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="443.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="369"/>
                                 <color key="backgroundColor" name="PNWhite"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9D-Ti-aZo">
-                                <rect key="frame" x="20" y="100" width="335" height="50.5"/>
+                                <rect key="frame" x="20" y="100" width="280" height="50.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請點選上方＋號新增預防計畫!!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kDf-ej-pgv">
-                                        <rect key="frame" x="20" y="15" width="295" height="20.5"/>
+                                        <rect key="frame" x="20" y="15" width="240" height="20.5"/>
                                         <color key="backgroundColor" name="PNWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -409,19 +410,19 @@
             <objects>
                 <viewController storyboardIdentifier="ModifyBaseInfoViewController" id="knI-jw-qAM" customClass="ModifyBaseInfoViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="020-jo-NL3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EpM-6m-YCW">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" red="0.2470588235" green="0.2274509804" blue="0.2274509804" alpha="0.5839308647" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="E33-2d-9Tx">
-                                <rect key="frame" x="20" y="133.5" width="335" height="400"/>
+                                <rect key="frame" x="20" y="113.5" width="280" height="341"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lky-ge-zaI">
-                                <rect key="frame" x="309" y="87.5" width="30" height="30"/>
+                                <rect key="frame" x="254" y="67.5" width="30" height="30"/>
                                 <color key="backgroundColor" red="0.2470588235" green="0.2274509804" blue="0.2274509804" alpha="0.59607769691780821" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Lky-ge-zaI" secondAttribute="height" multiplier="1:1" id="Hfa-ZH-8zx"/>
@@ -434,7 +435,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Heh-66-Ups">
-                                <rect key="frame" x="20" y="533.5" width="335" height="50"/>
+                                <rect key="frame" x="20" y="454.5" width="280" height="50"/>
                                 <color key="backgroundColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="tGa-MJ-nQa"/>
@@ -479,14 +480,14 @@
             <objects>
                 <viewController storyboardIdentifier="AddPreventionPage" hidesBottomBarWhenPushed="YES" id="JS9-mk-Zt3" customClass="AddingProtectPlanViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bzw-1M-KVj">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nqu-Cv-gog">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="112.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="96"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="edO-jj-WDS">
-                                        <rect key="frame" x="16" y="20" width="343" height="92.5"/>
+                                        <rect key="frame" x="16" y="20" width="288" height="76"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Owr-8f-fB9">
                                             <size key="itemSize" width="50" height="50"/>
@@ -505,10 +506,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="inQ-mI-WsM">
-                                <rect key="frame" x="0.0" y="112.5" width="375" height="554.5"/>
+                                <rect key="frame" x="0.0" y="96" width="320" height="472"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wFE-vR-HUe">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="554.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="472"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="separatorColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
@@ -550,11 +551,11 @@
             <objects>
                 <viewController storyboardIdentifier="WeightRecordViewController" hidesBottomBarWhenPushed="YES" id="Bs4-6o-zwK" customClass="WeightRecordViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mbq-oD-ucc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="443.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="369"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kQS-gq-KVZ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="443.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="369"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -580,11 +581,11 @@
             <objects>
                 <viewController storyboardIdentifier="HealthRecordViewController" id="cJL-Ai-knf" customClass="HealthRecordViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WpW-2v-g9Z">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PJk-KD-idV">
-                                <rect key="frame" x="40" y="20" width="295" height="647"/>
+                                <rect key="frame" x="40" y="20" width="240" height="548"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="12" id="03H-Ui-ogW">
                                     <size key="itemSize" width="50" height="50"/>

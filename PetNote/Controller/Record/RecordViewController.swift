@@ -39,7 +39,7 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
             calendar.appearance.weekdayTextColor = UIColor.pnBlueDark
             calendar.appearance.todayColor = UIColor.pnDarkPink
             calendar.appearance.selectionColor =  UIColor.pnBlueLight
-            calendar.appearance.borderRadius = 0
+            calendar.appearance.borderRadius = 0.5
         }
     }
     
@@ -47,15 +47,16 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
     
     var currentPet: PNPetInfo? {
         didSet {
-            guard
-                let pet = currentPet,
-                let record = pet.dailyRecord?.sortedArray(
-                    using: [NSSortDescriptor(key: "date", ascending: false)])
-                    as? [PNDailyRecord]
-            else {
-                return
-            }
-            currentRecord = record
+            resetCurrentRecord()
+//            guard
+//                let pet = currentPet,
+//                let record = pet.dailyRecord?.sortedArray(
+//                    using: [NSSortDescriptor(key: "date", ascending: false)])
+//                    as? [PNDailyRecord]
+//            else {
+//                return
+//            }
+//            currentRecord = record
         }
     }
     // 目前寵物的所有 record
@@ -83,6 +84,18 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
     
     func petsNumberChange(isEmpty: Bool) {
         addButtonMask.isHidden = !isEmpty
+    }
+    
+    func resetCurrentRecord() {
+        guard
+            let pet = currentPet,
+            let record = pet.dailyRecord?.sortedArray(
+                using: [NSSortDescriptor(key: "date", ascending: false)])
+                as? [PNDailyRecord]
+        else {
+            return
+        }
+        currentRecord = record
     }
     
     func resetDateRecord() {
@@ -272,7 +285,11 @@ extension RecordViewController: UITableViewDelegate {
         StorageManager.shared.deleteData(record) {[weak self] result in
             switch result {
             case .success:
-                self?.dateRecord.remove(at: indexPath.row)
+                self?.resetCurrentRecord()
+//                self?.dateRecord.remove(at: indexPath.row)
+//                if self?.dateRecord.count == 0 {
+//                    self?.calendar.reloadData()
+//                }
                 tableView.reloadData()
             case .failure(let error):
                 print(error)

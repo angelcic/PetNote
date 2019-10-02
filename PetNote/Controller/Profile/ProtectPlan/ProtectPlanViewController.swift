@@ -43,7 +43,6 @@ class ProtectPlanViewController: BaseContainerViewController {
         setTableView()
         
         protectPlans = currentPet?.protectPlan?.allObjects as? [PNProtectPlan] ?? []
-        // Do any additional setup after loading the view.
     }
     
     func setTableView() {
@@ -54,8 +53,13 @@ class ProtectPlanViewController: BaseContainerViewController {
     }
     
     func addProtectPlan() {
-        showAddProtectPlanVC(protectPlan: StorageManager.shared.getPNProtectPlan(),
+        let protectPlan = StorageManager.shared.getPNProtectPlan()
+        let notification = StorageManager.shared.getPNNotifyInfo()
+        protectPlan.addToNotifyInfo(notification)
+        showAddProtectPlanVC(protectPlan: protectPlan,
                              title: "添加預防計畫") {[weak self] protectPlan in
+                              
+            // 更新 core data 中通知資料
             self?.currentPet?.addToProtectPlan(protectPlan)
             
             StorageManager.shared.saveAll {[weak self] result in
@@ -73,10 +77,14 @@ class ProtectPlanViewController: BaseContainerViewController {
     
     func modifyProtectPlan(protectPlan: PNProtectPlan) {
         showAddProtectPlanVC(protectPlan: protectPlan, title: "編輯預防計畫") { protectPlan in
+            
+            // 更新 core data 中通知資料
             StorageManager.shared.saveAll {[weak self] result in
                 switch result {
                 case .success:
-                    self?.tableView.reloadData()
+                    DispatchQueue.main.async {
+                        self?.tableView.reloadData()
+                    }
                     print("成功修改預防計畫")
                 case .failure(let error):
                     print(error)
@@ -96,12 +104,16 @@ class ProtectPlanViewController: BaseContainerViewController {
             addPlanViewController.currentPetType = petType
         }
         addPlanViewController.handler = handler
-        addPlanViewController.delegate = self
+//        addPlanViewController.delegate = self
         addPlanViewController.protectPlan = protectPlan
         addPlanViewController.setupNavigationTitle(title: title)
         
         show(addPlanViewController, sender: nil)
     }
+    
+    func getNotification(by identifier: String) {
+        UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [identifier])
+    }    
     
 }
 
@@ -186,22 +198,4 @@ extension ProtectPlanViewController: SectionHeaderDelegate {
     func pressAddButton() {
         addProtectPlan()
     }
-}
-
-extension ProtectPlanViewController: AddingProtectPlanVCDelegate {
-    func pressAddProtectPlan(_ protectPlan: PNProtectPlan) {
-        currentPet?.addToProtectPlan(protectPlan)
-        
-        StorageManager.shared.saveAll {[weak self] result in
-            switch result {
-            case .success:
-                self?.protectPlans.append(protectPlan)
-                self?.tableView.reloadData()
-                print("成功加入預防計畫")
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-    
 }

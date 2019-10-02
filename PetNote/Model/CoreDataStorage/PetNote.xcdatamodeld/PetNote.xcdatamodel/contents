@@ -10,13 +10,12 @@
         <relationship name="petInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PNPetInfo" inverseName="medicalRecord" inverseEntity="PNPetInfo"/>
     </entity>
     <entity name="PNNotifyInfo" representedClassName="PNNotifyInfo" syncable="YES" codeGenerationType="class">
-        <attribute name="body" optional="YES" attributeType="String"/>
-        <attribute name="date" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="date" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="identifier" optional="YES" attributeType="String"/>
-        <attribute name="repeats" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="subtitle" optional="YES" attributeType="String"/>
-        <attribute name="time" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="isOpen" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="repeatType" attributeType="String" defaultValueString="once"/>
+        <attribute name="time" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="title" attributeType="String" defaultValueString="預防計畫預定的日期到囉"/>
         <relationship name="protectPlan" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PNProtectPlan" inverseName="notifyInfo" inverseEntity="PNProtectPlan"/>
     </entity>
     <entity name="PNPetInfo" representedClassName="PNPetInfo" syncable="YES" codeGenerationType="class">
@@ -37,7 +36,7 @@
     <entity name="PNProtectPlan" representedClassName="PNProtectPlan" syncable="YES" codeGenerationType="class">
         <attribute name="protectName" optional="YES" attributeType="String"/>
         <attribute name="protectType" optional="YES" attributeType="String"/>
-        <relationship name="notifyInfo" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PNNotifyInfo" inverseName="protectPlan" inverseEntity="PNNotifyInfo"/>
+        <relationship name="notifyInfo" toMany="YES" deletionRule="Nullify" destinationEntity="PNNotifyInfo" inverseName="protectPlan" inverseEntity="PNNotifyInfo"/>
         <relationship name="petInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PNPetInfo" inverseName="protectPlan" inverseEntity="PNPetInfo"/>
     </entity>
     <entity name="PNWeightRecord" representedClassName="PNWeightRecord" syncable="YES" codeGenerationType="class">
@@ -48,9 +47,9 @@
     <elements>
         <element name="PNDailyRecord" positionX="-12.12109375" positionY="-0.26171875" width="128" height="103"/>
         <element name="PNMedicalRecord" positionX="-4.83203125" positionY="67.47265625" width="128" height="60"/>
-        <element name="PNNotifyInfo" positionX="-99" positionY="108" width="128" height="165"/>
+        <element name="PNNotifyInfo" positionX="-99" positionY="108" width="128" height="148"/>
         <element name="PNPetInfo" positionX="-191.4296875" positionY="-20.28515625" width="128" height="240"/>
-        <element name="PNProtectPlan" positionX="-5.66796875" positionY="139.140625" width="128" height="105"/>
+        <element name="PNProtectPlan" positionX="-5.66796875" positionY="139.140625" width="128" height="103"/>
         <element name="PNWeightRecord" positionX="-16.0546875" positionY="210.6171875" width="128" height="90"/>
     </elements>
 </model>

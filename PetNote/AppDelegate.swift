@@ -34,6 +34,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
+        // 開啟通知權限
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: [.alert, .sound, .badge, .carPlay],
+            completionHandler: { (granted, error) in
+            if granted {
+                print("允許")
+            } else {
+                print("不允許")
+            }
+        })
+        
         // 連線 firebase 以便回傳 crash 資訊
         FirebaseApp.configure()
         return true

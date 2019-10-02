@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol AddingProtectPlanVCDelegate: AnyObject {
-    func pressAddProtectPlan(_ protectPlan: PNProtectPlan)
-}
-
 class AddingProtectPlanViewController: BaseViewController {
     
     // protectPlan & notifySetting
@@ -25,7 +21,6 @@ class AddingProtectPlanViewController: BaseViewController {
     
     // protectType
     @IBOutlet weak var collectionView: UICollectionView! {
-        
         didSet {
             collectionView.delegate = self
             collectionView.dataSource = self
@@ -36,9 +31,7 @@ class AddingProtectPlanViewController: BaseViewController {
     
     lazy var protectTypes: [ProtectType] =
         [.vaccines(type: currentPetType), .entozoa, .externalParasites(type: currentPetType), .other]
-    
-    weak var delegate: AddingProtectPlanVCDelegate?
-    
+   
     var protectPlan: PNProtectPlan = PNProtectPlan() {
         didSet {
             if let protectType = protectPlan.protectType {
@@ -47,17 +40,28 @@ class AddingProtectPlanViewController: BaseViewController {
                 
                 petPreventType = currentPreventType
             }
+            
             if let protectPlan = protectPlan.protectName {
                 petPlanNameString = protectPlan
+            }
+            
+            if let notify = protectPlan.notifyInfo?.allObjects[0] as? PNNotifyInfo {
+                petNotifyInfo = notify
             }
         }
     }
     
+    // 由前頁傳入按下儲存後要執行的 closure （新增或修改）
     var handler: ((PNProtectPlan) -> Void)?
     
-    var petPlanNameString = ""
-    // 
+    // 預防計畫類型
     var petPreventType: ProtectType?
+    
+    // 預防計畫細項
+    var petPlanNameString = ""
+
+    // 預防計畫的通知
+    var petNotifyInfo: PNNotifyInfo?
     
     // 目前的寵物類型
     var currentPetType: PetType = .cat
@@ -71,7 +75,6 @@ class AddingProtectPlanViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        self.view.backgroundColor = .white
         self.navigationItem.title = "添加預防計畫"
         
         setCollectionView()
@@ -97,12 +100,12 @@ class AddingProtectPlanViewController: BaseViewController {
     }
     
     func setTableView() {
+        
         tableView.registerCellWithNib(identifier: String(describing: ProtectTypeTableViewCell.self), bundle: nil)
-        tableView.registerCellWithNib(identifier: String(describing: NotifyTableViewCell.self), bundle: nil)
-        tableView.registerCellWithNib(identifier: String(describing: TitleWithButtonTableViewCell.self), bundle: nil)
-        
+        // section header
         tableView.registerHeaderWithNib(identifier: String(describing: WithImageSectionHeaderView.self), bundle: nil)
-        
+        // 通知
+        tableView.registerCellWithNib(identifier: String(describing: SettingNotifyTableViewCell.self), bundle: nil)
     }
     
     @objc func saveAction() {
@@ -110,6 +113,7 @@ class AddingProtectPlanViewController: BaseViewController {
         
         protectPlan.protectType = currentPreventType.protectTypeName
         
+        // 取得預防計畫
         if let cell =
             tableView.cellForRow(at: IndexPath(row: currentProtectPlanIndex, section: 0))
         as? ProtectTypeTableViewCell {
@@ -119,18 +123,41 @@ class AddingProtectPlanViewController: BaseViewController {
                 protectPlan.protectName = cell.titleLabel.text
             }
         }
-        // TODO:
-
-//        let notifyInfo = PNNotifyInfo()
-//        notifyInfo.repeats = false
-//        notifyInfo.date = 0
-//
-//        protectPlan.addToNotifyInfo(notifyInfo)
-//        currentPet?.addToProtectPlan(protectPlan)
+        // 取得通知設定
+        guard let cell =
+            tableView.cellForRow(at: IndexPath(row: 0, section: 1))
+                as? SettingNotifyTableViewCell
+        else {
+            navigationController?.popToRootViewController(animated: false)
+            return
+        }
         
-//        self.dismiss(animated: false, completion: nil)
-//        delegate?.pressAddProtectPlan(protectPlan)
-        handler?(protectPlan)
+        let notify = cell.getNotifySetting()
+        
+        NotifyManager.shared.createNotification(by: notify,
+                                                with: petNotifyInfo?.identifier) {[weak self] result in
+            guard
+                let protectPlan = self?.protectPlan,
+                let petNotifyInfo = self?.petNotifyInfo
+            else { return }
+                                                    
+            switch result {
+            case .success(let identifier, let notificationObject):
+                print("petNotifyInfo 的 id 為: \(identifier)")
+                petNotifyInfo.identifier = identifier
+                petNotifyInfo.date = notificationObject.nextDate.timeIntervalSince1970
+                petNotifyInfo.time = notificationObject.alertTime.timeIntervalSince1970
+                petNotifyInfo.isOpen = notificationObject.isSwitchOn
+                petNotifyInfo.repeatType = notificationObject.frequencyTypes
+                petNotifyInfo.title = notificationObject.alertText
+                
+                self?.handler?(protectPlan)
+            case .failure(let error):
+                print(error)
+                self?.handler?(protectPlan)
+            }
+        }
+        
         navigationController?.popToRootViewController(animated: false)
         
     }
@@ -206,7 +233,7 @@ extension AddingProtectPlanViewController: UICollectionViewDelegateFlowLayout {
     
 }
 
-// TableView
+// MARK: TableView setting
 
 extension AddingProtectPlanViewController: ProtectTypeTableViewCellDelegate {
     func checkAction(cell: ProtectTypeTableViewCell) {
@@ -224,29 +251,6 @@ extension AddingProtectPlanViewController: ProtectTypeTableViewCellDelegate {
 }
 
 extension AddingProtectPlanViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView,
-                   didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 1 {
-            guard let notifySettingVC = UIStoryboard.notify.instantiateViewController(
-                withIdentifier: String(describing: SettingNotifyViewController.self))
-                as? SettingNotifyViewController
-                else {
-                    return
-            }
-            
-            show(notifySettingVC, sender: nil)
-            
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        
-    }
-    
-}
-
-extension AddingProtectPlanViewController: UITableViewDataSource {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == tableView {
             let sectionHeaderHeight = CGFloat(50)
@@ -255,11 +259,14 @@ extension AddingProtectPlanViewController: UITableViewDataSource {
             } else if scrollView.contentOffset.y >= sectionHeaderHeight {
                 scrollView.contentInset = UIEdgeInsets(top: -sectionHeaderHeight, left: 0, bottom: 0, right: 0)
             }
-        }        
+        }
     }
-    
+}
+
+extension AddingProtectPlanViewController: UITableViewDataSource {
+        
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -299,18 +306,40 @@ extension AddingProtectPlanViewController: UITableViewDataSource {
             
         } else {
             // 通知提醒
-            guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: String(describing: TitleWithButtonTableViewCell.self),
-                for: indexPath)
-                as? TitleWithButtonTableViewCell
-                else {
-                    return UITableViewCell()
+            guard
+                let cell = tableView.dequeueReusableCell(
+                    withIdentifier: SettingNotifyTableViewCell.identifier,
+                    for: indexPath)
+                    as? SettingNotifyTableViewCell
+            else {
+                return UITableViewCell()
             }
-            cell.delegate = self
-            cell.layoutCell(title: "通知管理", buttonTitle: "管理")
+            
+            guard let notifyInfo = petNotifyInfo else {
+                return cell
+            }
+            
+            let notificationObject = createNotificationObject(by: notifyInfo)
+            
+            cell.layoutCell(notification: notificationObject)
             return cell
         }
         
+    }
+    
+    func createNotificationObject(by pnNotifyInfo: PNNotifyInfo) -> NotificationObject {
+        
+        let nextDate = Date(timeIntervalSince1970: TimeInterval(pnNotifyInfo.date))
+        let alertTime = Date(timeIntervalSince1970: TimeInterval(pnNotifyInfo.time))
+        
+        let notificationObject = NotificationObject(
+            isSwitchOn: pnNotifyInfo.isOpen,
+            frequencyTypes: pnNotifyInfo.repeatType ?? RepeatType.once.rawValue,
+            nextDate: nextDate,
+            alertTime: alertTime,
+            alertText: pnNotifyInfo.title ?? "")
+        
+        return notificationObject
     }
     
     func getprotectNameCell(_ tableView: UITableView,
@@ -352,7 +381,7 @@ extension AddingProtectPlanViewController: UITableViewDataSource {
                 } else {
                     cell.changeSelectedStatus(false)
                 }
-                //                    cell.layoutTextField(title: petPlanNameString)
+                //  cell.layoutTextField(title: petPlanNameString)
             } else {
                 if indexPath.row == 0 {
                     cell.changeSelectedStatus(true)
@@ -366,14 +395,14 @@ extension AddingProtectPlanViewController: UITableViewDataSource {
     
 }
 
-extension AddingProtectPlanViewController: TitleWithButtonTableViewCellDelegate {
-    func pressRightButton() {
-        guard let notifySettingVC = UIStoryboard.notify.instantiateViewController(
-            withIdentifier: String(describing: SettingNotifyViewController.self))
-            as? SettingNotifyViewController
-            else {
-                return
-        }
-        show(notifySettingVC, sender: nil)
-    }
-}
+//extension AddingProtectPlanViewController: TitleWithButtonTableViewCellDelegate {
+//    func pressRightButton() {
+//        guard let notifySettingVC = UIStoryboard.notify.instantiateViewController(
+//            withIdentifier: String(describing: SettingNotifyViewController.self))
+//            as? SettingNotifyViewController
+//            else {
+//                return
+//        }
+//        show(notifySettingVC, sender: nil)
+//    }
+//}

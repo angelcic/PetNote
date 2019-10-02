@@ -132,12 +132,14 @@ import UIKit
         let protectPlan = getPNProtectPlan()
         protectPlan.protectName = "三合一"
         protectPlan.protectType = "疫苗"
-        pet.addToProtectPlan(protectPlan)
+        protectPlan.addToNotifyInfo(getPNNotifyInfo())
+        pet.addToProtectPlan(protectPlan)        
         
         let protectPlan2 = getPNProtectPlan()
         protectPlan2.protectName = "寵愛"
         protectPlan2.protectType = "體外驅蟲"
-        pet.addToProtectPlan(protectPlan2)
+        protectPlan2.addToNotifyInfo(getPNNotifyInfo())
+        pet.addToProtectPlan(protectPlan2)        
         
         for index in 0...4 {
             let weightRecord = getPNPNWeightRecord()
@@ -147,7 +149,7 @@ import UIKit
         }
         let dailyRecord = getPNDailyRecord()
         dailyRecord.date = Date().timeIntervalSince1970
-        dailyRecord.describe = "一餐吃了十罐罐頭"
+        dailyRecord.describe = "一餐吃了十個罐罐"
         dailyRecord.event = ["打噴嚏", "食慾不佳"]
         pet.addToDailyRecord(dailyRecord)
         
@@ -234,5 +236,16 @@ import UIKit
     
     func getPNDailyRecord() -> PNDailyRecord {
         return PNDailyRecord.init(context: viewContext)
+    }
+    
+    func getPNNotifyInfo() -> PNNotifyInfo {
+        let notifyInfo = PNNotifyInfo.init(context: viewContext)
+        notifyInfo.isOpen = false
+        notifyInfo.identifier = nil
+        notifyInfo.date = Date().timeIntervalSince1970
+        notifyInfo.time = Date().timeIntervalSince1970
+        notifyInfo.repeatType = "不重複"
+        notifyInfo.title = "預防計畫預定的日期到囉"
+        return notifyInfo
     }
 }

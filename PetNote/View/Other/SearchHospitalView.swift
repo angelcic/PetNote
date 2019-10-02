@@ -20,12 +20,14 @@ class SearchHospitalView: UIView {
         didSet {
             cityTextField.delegate = self
             cityTextField.inputView = cityPicker
+            cityTextField.text = currentArea?.city
         }
     }
     @IBOutlet weak var districtTextField: UITextField! {
         didSet {
             districtTextField.delegate = self
             districtTextField.inputView = districtPicker
+            districtTextField.text = currentArea?.district.first
         }
     }
 
@@ -41,8 +43,9 @@ class SearchHospitalView: UIView {
     
     var cityPicker = UIPickerView()
     var districtPicker = UIPickerView()
-    var curretIndex: Int = 0
+    var curretCityIndex: Int = 0
     var taiwanArea = JSONReaderManager.shared.taiwanArea
+    var currentArea = JSONReaderManager.shared.taiwanArea.first
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -81,13 +84,13 @@ extension SearchHospitalView: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch pickerView {
         case cityPicker:
-            curretIndex = row
+            curretCityIndex = row
             if cityTextField.text != taiwanArea[row].city {
                 cityTextField.text = taiwanArea[row].city
-                districtTextField.text = ""
+                districtTextField.text = taiwanArea[row].district.first
             }
         case districtPicker:
-            districtTextField.text = taiwanArea[curretIndex].district[row]
+            districtTextField.text = taiwanArea[curretCityIndex].district[row]
         default:
             return
         }
@@ -104,7 +107,7 @@ extension SearchHospitalView: UIPickerViewDataSource {
         case cityPicker:
             return taiwanArea.count
         case districtPicker:
-            return taiwanArea[curretIndex].district.count
+            return taiwanArea[curretCityIndex].district.count
         default:
             return 0
         }
@@ -114,7 +117,7 @@ extension SearchHospitalView: UIPickerViewDataSource {
         case cityPicker:
             return taiwanArea[row].city
         case districtPicker:
-            return taiwanArea[curretIndex].district[row]
+            return taiwanArea[curretCityIndex].district[row]
         default:
             return ""
         }

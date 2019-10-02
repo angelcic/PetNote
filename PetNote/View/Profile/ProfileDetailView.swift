@@ -41,6 +41,7 @@ class ProfileDetailView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+//        setupSelectionView()
     }
 
     override func layoutSubviews() {
