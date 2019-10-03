@@ -235,8 +235,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p7g-2U-ePk">
                                         <rect key="frame" x="30" y="206" width="260" height="156"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="確定要刪除成員記錄嗎" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEI-FE-IzI">
-                                                <rect key="frame" x="43" y="27.5" width="174" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="確定要刪除成員記錄嗎?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEI-FE-IzI">
+                                                <rect key="frame" x="39" y="27.5" width="182" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -414,7 +414,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZhF-Pf-v6O">
-                                <rect key="frame" x="85" y="30" width="150" height="150"/>
+                                <rect key="frame" x="60" y="184" width="200" height="200"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4wO-eA-s7n">
                                         <rect key="frame" x="-45" y="11" width="240" height="128"/>
@@ -426,11 +426,10 @@
                                 <color key="backgroundColor" red="0.4039215686" green="0.64705882349999999" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ZhF-Pf-v6O" secondAttribute="height" multiplier="1:1" id="n2N-Ig-iay"/>
-                                    <constraint firstAttribute="width" constant="150" id="oH3-OM-a2c"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="拖動照片來調整尺寸吧！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmp-xQ-QDz">
-                                <rect key="frame" x="20" y="240" width="280" height="24"/>
+                                <rect key="frame" x="20" y="414" width="280" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -438,11 +437,13 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="ZhF-Pf-v6O" firstAttribute="top" secondItem="hPo-I4-U1R" secondAttribute="top" constant="30" id="412-5Y-g2K"/>
                             <constraint firstItem="cmp-xQ-QDz" firstAttribute="leading" secondItem="hPo-I4-U1R" secondAttribute="leading" constant="20" id="5Gb-Iw-Le5"/>
+                            <constraint firstItem="ZhF-Pf-v6O" firstAttribute="leading" secondItem="hPo-I4-U1R" secondAttribute="leading" constant="60" id="6I7-zr-LsN"/>
+                            <constraint firstItem="hPo-I4-U1R" firstAttribute="trailing" secondItem="ZhF-Pf-v6O" secondAttribute="trailing" constant="60" id="NVn-jP-UB4"/>
                             <constraint firstItem="hPo-I4-U1R" firstAttribute="trailing" secondItem="cmp-xQ-QDz" secondAttribute="trailing" constant="20" id="RaI-Vl-rbv"/>
-                            <constraint firstItem="cmp-xQ-QDz" firstAttribute="top" secondItem="ZhF-Pf-v6O" secondAttribute="bottom" constant="60" id="bI7-9Q-DED"/>
+                            <constraint firstItem="cmp-xQ-QDz" firstAttribute="top" secondItem="ZhF-Pf-v6O" secondAttribute="bottom" constant="30" id="bI7-9Q-DED"/>
                             <constraint firstItem="cmp-xQ-QDz" firstAttribute="centerX" secondItem="Uog-oS-gaP" secondAttribute="centerX" id="epk-PZ-97D"/>
+                            <constraint firstItem="ZhF-Pf-v6O" firstAttribute="centerY" secondItem="Uog-oS-gaP" secondAttribute="centerY" id="y07-Cy-LJg"/>
                             <constraint firstItem="ZhF-Pf-v6O" firstAttribute="centerX" secondItem="Uog-oS-gaP" secondAttribute="centerX" id="y94-d2-0Rl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hPo-I4-U1R"/>
