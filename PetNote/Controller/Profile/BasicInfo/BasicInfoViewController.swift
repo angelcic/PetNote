@@ -83,9 +83,17 @@ extension BasicInfoViewController: UIImagePickerControllerDelegate {
         
         picker.dismiss(animated: false, completion: nil)
         
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+        guard
+            let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage,
+            let adjustImageVC = UIStoryboard.profile.instantiateViewController(withIdentifier: AdjustPhotoViewController.identifier)
+                as? AdjustPhotoViewController
+        else {
+            return
+        }
+        
+        adjustImageVC.initAdjustPhotoVC(image: image) {[weak self] image in
             
-            guard let pet = currentPet else {return}
+            guard let pet = self?.currentPet else {return}
             let petId = "\(pet.petId)"
             
             // 把照片存入 app 下的資料夾
@@ -99,8 +107,10 @@ extension BasicInfoViewController: UIImagePickerControllerDelegate {
                 }
             }
             
-            tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
+            self?.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
         }
+        show(adjustImageVC, sender: nil)
+        
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -166,15 +176,8 @@ extension BasicInfoViewController: UITableViewDataSource {
             cell.layoutCell(image: currentImage)
             
             if let imagePath = currentPet?.photo {
-                LocalFileManager.shared.readImage(imagePath: imagePath) { result in
-                switch result {
-                case .success(let image):
-                    cell.layoutCell(image: image)
-                case .failure(let error):
-                    print(error)
-                }
-                
-                }
+                let image = LocalFileManager.shared.readImage(fileName: imagePath)
+                cell.layoutCell(image: image)
             }
             return cell
        
@@ -184,21 +187,27 @@ extension BasicInfoViewController: UITableViewDataSource {
                     withIdentifier: BasicInfoTableViewCell.identifier,
                     for: indexPath)
                     as? BasicInfoTableViewCell
-                else {
-                    return UITableViewCell()
+            else {
+                return UITableViewCell()
             }
+            
             cell.delegate = self
+            
             if let pet = currentPet {
                 
                 let birth = pet.getBirth()
-                cell.layoutCell(name: pet.name,
-                                gender: pet.gender,
-                                petType: pet.petType,
-                                petId: pet.id,
-                                birth: birth,
-                                breed: pet.breed,
-                                color: pet.color)
+                
+                cell.layoutCell(
+                    name: pet.name,
+                    gender: pet.gender,
+                    petType: pet.petType,
+                    petId: pet.id,
+                    birth: birth,
+                    breed: pet.breed,
+                    color: pet.color
+                )
             }
+            
             return cell
         }
         

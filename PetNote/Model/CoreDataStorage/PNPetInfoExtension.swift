@@ -31,7 +31,7 @@ import UIKit
             
             guard let newValue = change.newValue else { return }
             //                print(change)
-            self?.image = LocalFileManager.shared.readImage(imagePath: newValue)
+            self?.image = LocalFileManager.shared.readImage(fileName: newValue)
         }
     }
 }

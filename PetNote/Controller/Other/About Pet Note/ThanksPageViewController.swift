@@ -18,7 +18,7 @@ class ThanksPageViewController: BaseViewController {
         }
     }
     
-    var thanksList: [String] = ["Asta Wu Illustration", "Icons8", "NSCalendar", "Charts"]
+    var thanksList: [String] = ["Asta Wu Illustration", "Icons8", "NSCalendar", "Charts", "freepik"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +45,8 @@ extension ThanksPageViewController: UITableViewDelegate {
             urlString = "https://github.com/WenchaoD/FSCalendar"
             case 3:
             urlString = "https://github.com/danielgindi/Charts"
+        case 4:
+            urlString = "https://www.freepik.com/free-photos-vectors/background"
         default:
             return
         }

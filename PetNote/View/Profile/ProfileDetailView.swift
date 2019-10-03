@@ -30,6 +30,8 @@ class ProfileDetailView: UIView {
     
     @IBOutlet weak var addPetAlertLayer: UIView!
     
+    let selectionView = SelectionView(CGRect.zero)
+    
     var containerViews: [UIView] {
         
         return [basicInfoContainerView, protectPlanContainerView, healthRecordContainerView]
@@ -37,27 +39,19 @@ class ProfileDetailView: UIView {
     
     weak var delegate: ProfileDetailViewDelegate?
     
-//    let page = ["基本資料", "預防計畫", "健康記錄"]
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-//        setupSelectionView()
+        setupSelectionView()
+        
     }
 
     override func layoutSubviews() {
         super.layoutSubviews()
 //        setupPetSwitchLayer()
-        setupSelectionView()
+        resetSelectionViewFrame()
     }
     
-    // 更新切換頁面條介面大小
     private func setupSelectionView() {
-        
-        let selectionView = SelectionView(
-            CGRect(x: 0,
-                   y: 0,
-                   width: selectionViewLayer.frame.width,
-                   height: selectionViewLayer.frame.height))
         
         selectionView.delegate = self
         selectionView.dataSource = self
@@ -65,6 +59,17 @@ class ProfileDetailView: UIView {
         selectionView.backgroundColor = .clear
         selectionViewLayer.addSubview(selectionView)
         
+    }
+    
+    // 更新切換頁面條介面大小
+    private func resetSelectionViewFrame() {
+        
+        selectionView.setupFrame(
+            CGRect(x: 0,
+                   y: 0,
+                   width: selectionViewLayer.frame.width,
+                   height: selectionViewLayer.frame.height)
+        )
 //        collectionView.registerCellWithNib(
 //            identifier: String(describing: PetsCollectionViewCell.self),
 //            bundle: nil

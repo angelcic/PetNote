@@ -216,8 +216,11 @@ extension AddingProtectPlanViewController: UICollectionViewDelegateFlowLayout {
         sizeForItemAt indexPath: IndexPath
         ) -> CGSize {
         
-        return CGSize(width: UIScreen.width / 5.0 - 6,
-                      height: UIScreen.width / 5.0 - 6)
+        let padding: CGFloat = 6
+        let numbersInRow: CGFloat = 5.0
+        let itemWidth = UIScreen.width / numbersInRow - padding
+        
+        return CGSize(width: itemWidth, height: itemWidth)
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -349,8 +352,8 @@ extension AddingProtectPlanViewController: UITableViewDataSource {
                 withIdentifier: String(describing: ProtectTypeTableViewCell.self),
                 for: indexPath)
                 as?  ProtectTypeTableViewCell
-            else {
-                return  UITableViewCell()
+        else {
+            return  UITableViewCell()
         }
         cell.delegate = self
         

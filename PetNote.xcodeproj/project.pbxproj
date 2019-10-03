@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9142BBD9233DBE5E006418A5 /* DeletePetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142BBD8233DBE5E006418A5 /* DeletePetViewController.swift */; };
 		9142BBDD234242CC006418A5 /* NotifyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142BBDC234242CC006418A5 /* NotifyManager.swift */; };
+		9142BBFF2344566D006418A5 /* AdjustPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142BBFE2344566D006418A5 /* AdjustPhotoViewController.swift */; };
 		9166EF2C2338AF5F0086C70E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EF2B2338AF5F0086C70E /* BaseViewController.swift */; };
 		9166EF2E2338B0BF0086C70E /* BaseSwitchPetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EF2D2338B0BF0086C70E /* BaseSwitchPetViewController.swift */; };
 		9166EF302338B7D20086C70E /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166EF2F2338B7D20086C70E /* UIImageExtension.swift */; };
@@ -138,6 +139,7 @@
 		8B1361EE367C157E8D7CBCD6 /* Pods-PetNote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetNote.release.xcconfig"; path = "Target Support Files/Pods-PetNote/Pods-PetNote.release.xcconfig"; sourceTree = "<group>"; };
 		9142BBD8233DBE5E006418A5 /* DeletePetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletePetViewController.swift; sourceTree = "<group>"; };
 		9142BBDC234242CC006418A5 /* NotifyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyManager.swift; sourceTree = "<group>"; };
+		9142BBFE2344566D006418A5 /* AdjustPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustPhotoViewController.swift; sourceTree = "<group>"; };
 		9166EF2B2338AF5F0086C70E /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		9166EF2D2338B0BF0086C70E /* BaseSwitchPetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSwitchPetViewController.swift; sourceTree = "<group>"; };
 		9166EF2F2338B7D20086C70E /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
@@ -235,7 +237,7 @@
 		9166F09A233A4D1B0086C70E /* TaiwanArea.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TaiwanArea.json; sourceTree = "<group>"; };
 		9166F09C233A4EF40086C70E /* TaiwanArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaiwanArea.swift; sourceTree = "<group>"; };
 		9166F09E233A4F3D0086C70E /* JSONReaderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONReaderManager.swift; sourceTree = "<group>"; };
-		9181BC2323177E1C007BB7C6 /* PetNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9181BC2323177E1C007BB7C6 /* 毛孩手帳.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "毛孩手帳.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9181BC2623177E1C007BB7C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9181BC2823177E1C007BB7C6 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		9181BC2B23177E1C007BB7C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -481,6 +483,7 @@
 			children = (
 				9166EFF32338C19D0086C70E /* ModifyBaseInfoViewController.swift */,
 				9166EFF42338C19D0086C70E /* BasicInfoViewController.swift */,
+				9142BBFE2344566D006418A5 /* AdjustPhotoViewController.swift */,
 			);
 			path = BasicInfo;
 			sourceTree = "<group>";
@@ -629,7 +632,7 @@
 		9181BC2423177E1C007BB7C6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9181BC2323177E1C007BB7C6 /* PetNote.app */,
+				9181BC2323177E1C007BB7C6 /* 毛孩手帳.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -638,8 +641,8 @@
 			isa = PBXGroup;
 			children = (
 				91A6A446233CCE1100BAF23E /* GoogleService-Info.plist */,
-				9166F0212338C2AA0086C70E /* Model */,
 				9181BC472317AA0A007BB7C6 /* Extension */,
+				9166F0212338C2AA0086C70E /* Model */,
 				9181BC3B23179FB1007BB7C6 /* Controller */,
 				9181BC3D23179FC9007BB7C6 /* View */,
 				9181BC3E23179FF1007BB7C6 /* Resource */,
@@ -761,7 +764,7 @@
 			);
 			name = PetNote;
 			productName = PetNote;
-			productReference = 9181BC2323177E1C007BB7C6 /* PetNote.app */;
+			productReference = 9181BC2323177E1C007BB7C6 /* 毛孩手帳.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -982,6 +985,7 @@
 				9166EF502338BBDE0086C70E /* PNChartView.swift in Sources */,
 				9166EF362338B7FA0086C70E /* UITextFieldExtension.swift in Sources */,
 				9166F0452338CBD10086C70E /* HospitalDataTableViewCell.swift in Sources */,
+				9142BBFF2344566D006418A5 /* AdjustPhotoViewController.swift in Sources */,
 				9181BC492317AA3F007BB7C6 /* UIStoryboardExtension.swift in Sources */,
 				9166EFDC2338C05D0086C70E /* AddPetView.swift in Sources */,
 				9166EF8A2338BDBD0086C70E /* BasicCollectionViewCell.swift in Sources */,
@@ -1150,7 +1154,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ichingChen.PetNote;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "毛孩手帳";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1172,7 +1176,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ichingChen.PetNote;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "毛孩手帳";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
