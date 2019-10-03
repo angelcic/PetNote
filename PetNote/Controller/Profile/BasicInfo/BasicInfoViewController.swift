@@ -83,9 +83,14 @@ extension BasicInfoViewController: UIImagePickerControllerDelegate {
         
         picker.dismiss(animated: false, completion: nil)
         
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            
-            guard let pet = currentPet else {return}
+        guard
+            let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage,
+            let adjustImageVC = UIStoryboard.profile.instantiateViewController(withIdentifier: AdjustPhotoViewController.identifier)
+                as? AdjustPhotoViewController
+        else { return }
+        
+        adjustImageVC.initAdjustPhotoVC(image: image) {[weak self] image in
+            guard let pet = self?.currentPet else {return}
             let petId = "\(pet.petId)"
             
             // 把照片存入 app 下的資料夾
@@ -99,8 +104,28 @@ extension BasicInfoViewController: UIImagePickerControllerDelegate {
                 }
             }
             
-            tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
+            self?.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
         }
+        show(adjustImageVC, sender: nil)
+        
+//        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+//
+//            guard let pet = currentPet else {return}
+//            let petId = "\(pet.petId)"
+//
+//            // 把照片存入 app 下的資料夾
+//            LocalFileManager.shared.saveImage(petId: petId, image: image) { [weak self] result in
+//                switch result {
+//                case .success(let path):
+//                    self?.currentPet?.photo = path
+//                    StorageManager.shared.saveAll()
+//                case .failure(let error):
+//                    print(error)
+//                }
+//            }
+//
+//            tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
+//        }
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

@@ -28,8 +28,9 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iS9-4f-5Tg">
-                                <rect key="frame" x="20" y="622.5" width="374" height="239.5"/>
+                                <rect key="frame" x="16" y="622.5" width="382" height="239.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="10" minY="0.0" maxX="20" maxY="0.0"/>
                             </tableView>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DfO-OX-Qcp">
                                 <rect key="frame" x="334" y="782" width="60" height="60"/>
@@ -64,9 +65,9 @@
                             <constraint firstItem="2vK-7z-RtI" firstAttribute="top" secondItem="DfO-OX-Qcp" secondAttribute="top" id="bfl-Om-NZn"/>
                             <constraint firstItem="npB-9g-Xu2" firstAttribute="bottom" secondItem="iS9-4f-5Tg" secondAttribute="bottom" id="cfg-l8-FF4"/>
                             <constraint firstItem="DfO-OX-Qcp" firstAttribute="bottom" secondItem="2vK-7z-RtI" secondAttribute="bottom" id="jRe-7c-oCv"/>
-                            <constraint firstItem="iS9-4f-5Tg" firstAttribute="leading" secondItem="npB-9g-Xu2" secondAttribute="leading" constant="20" id="ujF-4L-FX8"/>
+                            <constraint firstItem="iS9-4f-5Tg" firstAttribute="leading" secondItem="npB-9g-Xu2" secondAttribute="leading" constant="16" id="ujF-4L-FX8"/>
                             <constraint firstItem="6Hy-UW-u6v" firstAttribute="leading" secondItem="npB-9g-Xu2" secondAttribute="leading" id="vGp-Q1-NMy"/>
-                            <constraint firstItem="npB-9g-Xu2" firstAttribute="trailing" secondItem="iS9-4f-5Tg" secondAttribute="trailing" constant="20" id="w3M-me-QMi"/>
+                            <constraint firstItem="npB-9g-Xu2" firstAttribute="trailing" secondItem="iS9-4f-5Tg" secondAttribute="trailing" constant="16" id="w3M-me-QMi"/>
                             <constraint firstItem="XQE-pB-gzT" firstAttribute="leading" secondItem="npB-9g-Xu2" secondAttribute="leading" constant="16" id="w5y-fb-Myc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="npB-9g-Xu2"/>
