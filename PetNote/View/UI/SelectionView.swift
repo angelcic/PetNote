@@ -24,6 +24,7 @@ class SelectionView: UIView {
     
     var currentSelectedIndex = 0 // 現在被選擇的 button
     
+    let stackView = UIStackView()
     let IndicatorView = UIView()
     
     init(_ rect: CGRect) {
@@ -40,7 +41,10 @@ class SelectionView: UIView {
         buttonArray = initSelectBTN()
         
         // 設定 stackView 大小、樣式
-        let stackView = UIStackView(arrangedSubviews: buttonArray)
+//        let stackView = UIStackView(arrangedSubviews: buttonArray)
+        buttonArray.forEach {
+            stackView.addArrangedSubview($0)
+        }
         stackView.distribution = .fillEqually
         stackView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
         stackView.axis = .horizontal
@@ -50,6 +54,12 @@ class SelectionView: UIView {
         
         self.addSubview(stackView)
         self.addSubview(IndicatorView)
+    }
+    
+    func setupFrame(_ rect: CGRect) {
+        self.frame = rect
+        stackView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
+        IndicatorView.frame = CGRect(x: 0, y: self.frame.height - 3, width: self.frame.width / CGFloat(buttonNumber), height: 2)
     }
     
     // 依據 datasource 創建 button

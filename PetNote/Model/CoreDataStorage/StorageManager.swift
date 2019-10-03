@@ -120,7 +120,7 @@ import UIKit
     
     func createDemoData(completion: ((Result<Void, Error>) -> Void)? = nil) {
         let pet = getPNPetInfo()
-        pet.name = "卯咪"
+        pet.name = "卯咪（預設）"
         pet.petType = "喵"
         pet.gender = "女生"
         pet.birth = Int64(Date().timeIntervalSince1970)
