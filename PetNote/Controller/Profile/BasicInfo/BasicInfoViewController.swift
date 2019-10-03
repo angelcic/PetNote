@@ -87,9 +87,12 @@ extension BasicInfoViewController: UIImagePickerControllerDelegate {
             let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage,
             let adjustImageVC = UIStoryboard.profile.instantiateViewController(withIdentifier: AdjustPhotoViewController.identifier)
                 as? AdjustPhotoViewController
-        else { return }
+        else {
+            return
+        }
         
         adjustImageVC.initAdjustPhotoVC(image: image) {[weak self] image in
+            
             guard let pet = self?.currentPet else {return}
             let petId = "\(pet.petId)"
             
