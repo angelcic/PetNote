@@ -17,9 +17,21 @@ class AddImageTableViewCell: UITableViewCell {
     @IBOutlet weak var petImageView: UIImageView! {
         didSet {
 //            petImageView.backgroundColor = .orange
-            petImageView.layer.cornerRadius = 30
+            petImageView.layer.cornerRadius = 75
             petImageView.clipsToBounds = true
             petImageView.contentMode = .scaleAspectFill
+        }
+    }
+    
+    @IBOutlet weak var backgroundLayer: UIView! {
+        didSet {
+            backgroundLayer.addCorner(cornerRadius: 20)
+        }
+    }
+    
+    @IBOutlet weak var backgroundImageView: UIImageView! {
+        didSet {
+            backgroundImageView.addCorner(cornerRadius: 20)
         }
     }
     

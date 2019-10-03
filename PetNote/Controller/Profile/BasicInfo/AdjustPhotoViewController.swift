@@ -97,6 +97,7 @@ class AdjustPhotoViewController: BaseViewController {
         let image = visibleView.takeSnapshot()
         completeAdjustPhotoHandler?(image)
         
+        navigationController?.popToRootViewController(animated: false)
     }
 }
 

@@ -111,24 +111,6 @@ extension BasicInfoViewController: UIImagePickerControllerDelegate {
         }
         show(adjustImageVC, sender: nil)
         
-//        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-//
-//            guard let pet = currentPet else {return}
-//            let petId = "\(pet.petId)"
-//
-//            // 把照片存入 app 下的資料夾
-//            LocalFileManager.shared.saveImage(petId: petId, image: image) { [weak self] result in
-//                switch result {
-//                case .success(let path):
-//                    self?.currentPet?.photo = path
-//                    StorageManager.shared.saveAll()
-//                case .failure(let error):
-//                    print(error)
-//                }
-//            }
-//
-//            tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
-//        }
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -194,15 +176,8 @@ extension BasicInfoViewController: UITableViewDataSource {
             cell.layoutCell(image: currentImage)
             
             if let imagePath = currentPet?.photo {
-                LocalFileManager.shared.readImage(imagePath: imagePath) { result in
-                switch result {
-                case .success(let image):
-                    cell.layoutCell(image: image)
-                case .failure(let error):
-                    print(error)
-                }
-                
-                }
+                let image = LocalFileManager.shared.readImage(imagePath: imagePath)
+                cell.layoutCell(image: image)
             }
             return cell
        
@@ -212,21 +187,27 @@ extension BasicInfoViewController: UITableViewDataSource {
                     withIdentifier: BasicInfoTableViewCell.identifier,
                     for: indexPath)
                     as? BasicInfoTableViewCell
-                else {
-                    return UITableViewCell()
+            else {
+                return UITableViewCell()
             }
+            
             cell.delegate = self
+            
             if let pet = currentPet {
                 
                 let birth = pet.getBirth()
-                cell.layoutCell(name: pet.name,
-                                gender: pet.gender,
-                                petType: pet.petType,
-                                petId: pet.id,
-                                birth: birth,
-                                breed: pet.breed,
-                                color: pet.color)
+                
+                cell.layoutCell(
+                    name: pet.name,
+                    gender: pet.gender,
+                    petType: pet.petType,
+                    petId: pet.id,
+                    birth: birth,
+                    breed: pet.breed,
+                    color: pet.color
+                )
             }
+            
             return cell
         }
         
