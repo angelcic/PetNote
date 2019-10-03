@@ -188,7 +188,7 @@ extension SwitchPetViewController: UICollectionViewDataSource {
 
                 guard let newValue = change.newValue else { return }
                 //
-                let image = LocalFileManager.shared.readImage(imagePath: newValue)
+                let image = LocalFileManager.shared.readImage(fileName: newValue)
                     
                     cell.petImageView.image = image
             }

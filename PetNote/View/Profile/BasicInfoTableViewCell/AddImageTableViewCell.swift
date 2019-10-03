@@ -16,16 +16,9 @@ class AddImageTableViewCell: UITableViewCell {
 
     @IBOutlet weak var petImageView: UIImageView! {
         didSet {
-//            petImageView.backgroundColor = .orange
             petImageView.layer.cornerRadius = 75
             petImageView.clipsToBounds = true
             petImageView.contentMode = .scaleAspectFill
-        }
-    }
-    
-    @IBOutlet weak var backgroundLayer: UIView! {
-        didSet {
-            backgroundLayer.addCorner(cornerRadius: 20)
         }
     }
     
@@ -35,9 +28,9 @@ class AddImageTableViewCell: UITableViewCell {
         }
     }
     
-    @IBOutlet weak var addImageButton: UIButton!
     @IBOutlet weak var addImageView: UIView! {
         didSet {
+            addImageView.addCorner(cornerRadius: 5)
             let tapAction =  UITapGestureRecognizer(target: self, action: #selector(addImageAction))
             addImageView.addGestureRecognizer(tapAction)
         }

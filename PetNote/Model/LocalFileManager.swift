@@ -33,11 +33,11 @@ class LocalFileManager {
         // 判斷存圖片的資料夾是否存在
         
         let isExist = FileManager.default.fileExists(atPath: imageDirectoryURL.absoluteString)
-        
+        let photoName = "\(petId).jpg"
         if isExist {
             //        若有則進行存檔
             let filePath = imageDirectoryURL.appendingPathComponent(
-                "\(petId).jpg",
+                photoName,
                 isDirectory: false
             ).absoluteString
             
@@ -51,7 +51,7 @@ class LocalFileManager {
             )
             
             if result {
-                completion?(Result.success(filePath))
+                completion?(Result.success(photoName))
             } else {
                 completion?(Result.failure(LocalFileIOError.saveFileError))
             }
@@ -77,11 +77,16 @@ class LocalFileManager {
         }
     }
     
-    func readImage(imagePath: String?, completion: ((Result<UIImage, Error>) -> Void)? = nil) -> UIImage? {
-        
-        guard let imagePath = imagePath else {
+    func readImage(fileName: String?, completion: ((Result<UIImage, Error>) -> Void)? = nil) -> UIImage? {
+                
+        guard let fileName = fileName else {
             return nil
         }
+        
+        let imagePath = imageDirectoryURL.appendingPathComponent(
+            fileName,
+            isDirectory: false
+        ).absoluteString
         
         if FileManager.default.fileExists(atPath: imagePath) {
             

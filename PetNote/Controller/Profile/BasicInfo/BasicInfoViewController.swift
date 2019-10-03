@@ -176,7 +176,7 @@ extension BasicInfoViewController: UITableViewDataSource {
             cell.layoutCell(image: currentImage)
             
             if let imagePath = currentPet?.photo {
-                let image = LocalFileManager.shared.readImage(imagePath: imagePath)
+                let image = LocalFileManager.shared.readImage(fileName: imagePath)
                 cell.layoutCell(image: image)
             }
             return cell
