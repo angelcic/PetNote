@@ -30,7 +30,7 @@ class HospitalAPIManager {
                     decoder.keyDecodingStrategy = .convertFromSnakeCase
                     do {
                         let hospitals = try decoder.decode([Hospital].self, from: data)
-                        print(hospitals)
+                        
                         resultHandler(Result.success(hospitals))
                         
                     } catch let error {

@@ -11,7 +11,7 @@
         <!--其他功能-->
         <scene sceneID="cqz-Qi-ojP">
             <objects>
-                <viewController id="kuj-Eb-pMY" customClass="OtherFunctionViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="kuj-Eb-pMY" customClass="OtherFunctionViewController" customModule="毛孩手帳" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gXc-We-Kd4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -47,17 +47,17 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uzr-0C-JlM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1176.8115942028987" y="61.607142857142854"/>
+            <point key="canvasLocation" x="1307" y="62"/>
         </scene>
         <!--Search Hospital View Controller-->
         <scene sceneID="R8r-hi-kqc">
             <objects>
-                <viewController storyboardIdentifier="SearchHospitalViewController" hidesBottomBarWhenPushed="YES" id="xOx-rG-DjU" customClass="SearchHospitalViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchHospitalViewController" hidesBottomBarWhenPushed="YES" id="xOx-rG-DjU" customClass="SearchHospitalViewController" customModule="毛孩手帳" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kc7-kl-TO4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DC8-nx-s4p" customClass="SearchHospitalView" customModule="PetNote" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DC8-nx-s4p" customClass="SearchHospitalView" customModule="毛孩手帳" customModuleProvider="target">
                                 <rect key="frame" x="16" y="64" width="382" height="778"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rKg-o5-gOX">
@@ -145,12 +145,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r0z-tr-gXH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="461" y="936"/>
+            <point key="canvasLocation" x="-39.130434782608695" y="934.82142857142856"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="syV-Rb-zru">
             <objects>
-                <viewController storyboardIdentifier="AboutViewController" hidesBottomBarWhenPushed="YES" id="h7G-GW-Xmy" customClass="AboutViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AboutViewController" hidesBottomBarWhenPushed="YES" id="h7G-GW-Xmy" customClass="AboutViewController" customModule="毛孩手帳" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5w9-1d-xvw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -180,7 +180,7 @@
         <!--Notification Manage View Controller-->
         <scene sceneID="Cip-uR-z7f">
             <objects>
-                <viewController storyboardIdentifier="NotificationManageViewController" hidesBottomBarWhenPushed="YES" id="gls-nt-98I" customClass="NotificationManageViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NotificationManageViewController" hidesBottomBarWhenPushed="YES" id="gls-nt-98I" customClass="NotificationManageViewController" customModule="毛孩手帳" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rA2-pV-Gaz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -212,12 +212,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5gC-iT-wlz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2635" y="935"/>
+            <point key="canvasLocation" x="3184" y="935"/>
         </scene>
         <!--Thanks Page View Controller-->
         <scene sceneID="oEe-3S-JbV">
             <objects>
-                <viewController storyboardIdentifier="ThanksPageViewController" hidesBottomBarWhenPushed="YES" id="Bne-xV-c0R" customClass="ThanksPageViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ThanksPageViewController" hidesBottomBarWhenPushed="YES" id="Bne-xV-c0R" customClass="ThanksPageViewController" customModule="毛孩手帳" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uPx-iu-v5F">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -247,7 +247,7 @@
         <!--Notificaton View Controller-->
         <scene sceneID="gSN-UF-ZAf">
             <objects>
-                <viewController storyboardIdentifier="NotificatonViewController" hidesBottomBarWhenPushed="YES" id="rpr-4Y-J09" customClass="NotificatonViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NotificatonViewController" hidesBottomBarWhenPushed="YES" id="rpr-4Y-J09" customClass="NotificatonViewController" customModule="毛孩手帳" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hI9-vu-Vyf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -272,12 +272,42 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c1J-Cq-eMK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2636" y="1663"/>
+            <point key="canvasLocation" x="3183" y="1663"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="75H-92-Ngc">
+            <objects>
+                <viewController storyboardIdentifier="MapViewController" id="r6o-ws-eDv" customClass="MapViewController" customModule="毛孩手帳" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="B4y-Fv-w2C">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gX5-Ak-Zuk" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="gX5-Ak-Zuk" firstAttribute="leading" secondItem="YZG-dq-FSI" secondAttribute="leading" id="O4Y-72-Zh5"/>
+                            <constraint firstItem="gX5-Ak-Zuk" firstAttribute="top" secondItem="YZG-dq-FSI" secondAttribute="top" id="VGU-lB-Zud"/>
+                            <constraint firstItem="YZG-dq-FSI" firstAttribute="trailing" secondItem="gX5-Ak-Zuk" secondAttribute="trailing" id="bU2-Yw-U0R"/>
+                            <constraint firstItem="YZG-dq-FSI" firstAttribute="bottom" secondItem="gX5-Ak-Zuk" secondAttribute="bottom" id="qHX-o4-DOA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YZG-dq-FSI"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="gX5-Ak-Zuk" id="cyZ-Zt-XBz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cYc-dE-AqV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-878" y="1663"/>
         </scene>
         <!--Search Hospital Result View Controller-->
         <scene sceneID="9Cl-EJ-kUX">
             <objects>
-                <viewController storyboardIdentifier="SearchHospitalResultViewController" hidesBottomBarWhenPushed="YES" id="SGl-1s-yZ0" customClass="SearchHospitalResultViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchHospitalResultViewController" hidesBottomBarWhenPushed="YES" id="SGl-1s-yZ0" customClass="SearchHospitalResultViewController" customModule="毛孩手帳" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DUO-OF-TgS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -302,12 +332,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ve2-jm-LjF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="461" y="1663"/>
+            <point key="canvasLocation" x="-39" y="1663"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="fpf-y2-zPC">
             <objects>
-                <viewController storyboardIdentifier="WebViewController" hidesBottomBarWhenPushed="YES" id="L9p-em-cru" customClass="WebViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WebViewController" hidesBottomBarWhenPushed="YES" id="L9p-em-cru" customClass="WebViewController" customModule="毛孩手帳" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="z8Y-d1-R5m">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -360,7 +390,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T9Z-g3-wrI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="266.66666666666669" y="61.607142857142854"/>
+            <point key="canvasLocation" x="461" y="62"/>
         </scene>
     </scenes>
 </document>

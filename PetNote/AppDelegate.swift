@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import Firebase
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -47,6 +48,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // 連線 firebase 以便回傳 crash 資訊
         FirebaseApp.configure()
+        
+       // google map
+        GMSServices.provideAPIKey("AIzaSyAblJZIIKlXqDdHlL3c0StAM9mKRO_-_rM")
+
         return true
     }
 

@@ -23,6 +23,8 @@ import UIKit
         case medicalRecord = "PNMedicalRecord"
         
         case dailyRecord = "PNDailyRecord"
+        
+        case hospital = "PNHospital"
     }
     
     static let shared = StorageManager()
@@ -154,16 +156,6 @@ import UIKit
         pet.addToDailyRecord(dailyRecord)
         
         saveAll(completion: completion)
-            
-//            { result in
-//            switch result {
-//            case .success:
-//                print("成功新增預設資料")
-//            case .failure(let error):
-//                print(error)
-//            }
-            
-//        }
     }
     
     // MARK: 修改
@@ -248,4 +240,37 @@ import UIKit
         notifyInfo.title = "預防計畫預定的日期到囉"
         return notifyInfo
     }
+}
+
+// MARK: Fetch hospital with same address
+extension StorageManager {
+    
+    func featchHospitals(address: String, completion: ((Result<[PNHospital], Error>) -> Void)? = nil) {
+        let request = NSFetchRequest<PNHospital>(entityName: Entity.hospital.rawValue)
+        request.predicate = NSPredicate(format: "address == %@", address)
+        
+        do {
+            
+            let pnHospitalList = try viewContext.fetch(request)
+                      
+            if pnHospitalList.count > 0 {
+                completion?(Result.success(pnHospitalList))
+            } else {
+                completion?(Result.failure(StorageError.emptyResult))
+            }
+            
+        } catch {
+            
+            completion?(Result.failure(error))
+        }
+    }
+    
+    func getPNHospital() -> PNHospital {
+        return PNHospital.init(context: viewContext)
+    }
+    
+}
+
+enum StorageError: Error {
+    case emptyResult
 }
