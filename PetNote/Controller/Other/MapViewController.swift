@@ -158,7 +158,7 @@ class MapViewController: BaseViewController {
             longitude: pnHospital.longitude
         )
         marker.title = pnHospital.name
-//        marker.snippet = "AppWorksSchool"
+        marker.snippet = pnHospital.address
         marker.map = mapView
         return marker
     }
@@ -217,7 +217,19 @@ extension MapViewController: GMSMapViewDelegate {
     }
     
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-        print(marker.position)
+        // 跳轉至 google map
+        if let url = URL(string: "comgooglemaps://?saddr=&daddr=\(marker.position.latitude),\(marker.position.longitude)&directionsmode=driving"),
+            UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            
+        // 跳轉至 apple map
+        } else if let url = URL(string: "http://maps.apple.com/?saddr=&daddr=\(marker.position.latitude),\(marker.position.longitude)"),
+            UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            
+        } else {
+            // 沒有可跳轉的地圖
+        }
     }
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
