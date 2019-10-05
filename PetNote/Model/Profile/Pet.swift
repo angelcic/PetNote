@@ -47,6 +47,17 @@ enum PetType: String {
     case dog = "汪"
     case other = "其它"
     
+    var defaultImage: UIImage? {
+        switch self {
+        case .cat:
+            return UIImage(named: "default_cat")
+        case .dog:
+            return UIImage(named: "default_dog")
+        case .other:
+            return UIImage(named: "default_other")
+        }
+    }
+    
 }
 
 enum Gender: String {

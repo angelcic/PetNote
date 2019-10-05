@@ -129,9 +129,8 @@ class MapViewController: BaseViewController {
         geocoder.geocodeAddressString(address) { placemarks, error in
             
             if let error = error {
-                
                 completionHandler(Result.failure(error))
-                
+                return
             }
             
             guard

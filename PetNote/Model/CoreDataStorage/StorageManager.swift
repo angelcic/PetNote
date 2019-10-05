@@ -107,6 +107,18 @@ import UIKit
 //        pet.setValue(name, forKey: PetKey.name.rawValue)
 //        pet.setValue(type.rawValue, forKey: PetKey.petType.rawValue)
         
+        if let image = type.defaultImage {
+        // 把照片存入 app 下的資料夾
+            LocalFileManager.shared.saveImage(petId: "\(petId)", image: image) { result in
+                switch result {
+                case .success(let path):
+                    pet.photo = path
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
+        
         do {
             
             try viewContext.save()
@@ -122,14 +134,26 @@ import UIKit
     
     func createDemoData(completion: ((Result<Void, Error>) -> Void)? = nil) {
         let pet = getPNPetInfo()
+        let currentTimeStamp = Int64(Date().timeIntervalSince1970)
         pet.name = "卯咪（預設）"
         pet.petType = "喵"
         pet.gender = "女生"
-        pet.birth = Int64(Date().timeIntervalSince1970)
-        pet.petId = Int64(Date().timeIntervalSince1970)
+        pet.birth = currentTimeStamp
+        pet.petId = currentTimeStamp
         pet.breed = "米克斯"
         pet.color = "賓士"
         pet.id = "900000000000000"
+        if let image = PetType.cat.defaultImage {
+        // 把照片存入 app 下的資料夾
+            LocalFileManager.shared.saveImage(petId: "\(currentTimeStamp)", image: image) { result in
+                switch result {
+                case .success(let path):
+                    pet.photo = path
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
         
         let protectPlan = getPNProtectPlan()
         protectPlan.protectName = "三合一"
