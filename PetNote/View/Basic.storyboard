@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Alert View Controller-->
+        <scene sceneID="G5r-wB-W1f">
+            <objects>
+                <viewController storyboardIdentifier="AlertViewController" id="lkf-g0-iUI" customClass="AlertViewController" customModule="毛孩手帳" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jWW-FQ-SP1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6B3-XI-Ihc">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HdH-bx-KQB">
+                                        <rect key="frame" x="30" y="342" width="354" height="212"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App 通知已被關閉，需開啟通知設定才能啟用提醒功能" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bDC-Yg-UrX">
+                                                <rect key="frame" x="20" y="55.5" width="314" height="41"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GOW-LG-43E">
+                                                <rect key="frame" x="187" y="162" width="147" height="30"/>
+                                                <state key="normal" title="知道了">
+                                                    <color key="titleColor" name="PNDarkBlue"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="pressRightButtonAction" destination="lkf-g0-iUI" eventType="touchUpInside" id="Ago-ea-Rqs"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bls-KB-XVO">
+                                                <rect key="frame" x="20" y="162" width="147" height="30"/>
+                                                <color key="backgroundColor" red="0.0" green="0.39607843139999999" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="前往設定">
+                                                    <color key="titleColor" red="0.99215686270000003" green="0.99215686270000003" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="pressLeftButtonAction" destination="lkf-g0-iUI" eventType="touchUpInside" id="Zsr-22-70J"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="GOW-LG-43E" secondAttribute="trailing" constant="20" id="24q-Nh-aS5"/>
+                                            <constraint firstItem="GOW-LG-43E" firstAttribute="leading" secondItem="bls-KB-XVO" secondAttribute="trailing" constant="20" id="2y1-Gv-Y4o"/>
+                                            <constraint firstItem="bDC-Yg-UrX" firstAttribute="centerX" secondItem="HdH-bx-KQB" secondAttribute="centerX" id="65B-Zu-iwL"/>
+                                            <constraint firstAttribute="bottom" secondItem="GOW-LG-43E" secondAttribute="bottom" constant="20" id="8Xy-Cy-yKW"/>
+                                            <constraint firstItem="bDC-Yg-UrX" firstAttribute="leading" secondItem="HdH-bx-KQB" secondAttribute="leading" constant="20" id="HIf-on-ru1"/>
+                                            <constraint firstAttribute="width" secondItem="HdH-bx-KQB" secondAttribute="height" multiplier="5:3" id="RlA-m0-6RV"/>
+                                            <constraint firstItem="GOW-LG-43E" firstAttribute="bottom" secondItem="bls-KB-XVO" secondAttribute="bottom" id="VrF-PF-awP"/>
+                                            <constraint firstItem="GOW-LG-43E" firstAttribute="width" secondItem="bls-KB-XVO" secondAttribute="width" id="ZOP-S3-RhJ"/>
+                                            <constraint firstItem="bls-KB-XVO" firstAttribute="leading" secondItem="HdH-bx-KQB" secondAttribute="leading" constant="20" id="awx-p2-hn3"/>
+                                            <constraint firstAttribute="trailing" secondItem="bDC-Yg-UrX" secondAttribute="trailing" constant="20" id="fEo-aI-EHP"/>
+                                            <constraint firstItem="GOW-LG-43E" firstAttribute="top" secondItem="bls-KB-XVO" secondAttribute="top" id="fGQ-zJ-OKn"/>
+                                            <constraint firstItem="bDC-Yg-UrX" firstAttribute="centerY" secondItem="HdH-bx-KQB" secondAttribute="centerY" constant="-30" id="nAK-Gd-BIC"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.2470588235" green="0.2274509804" blue="0.2274509804" alpha="0.5839308647" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="HdH-bx-KQB" firstAttribute="centerY" secondItem="6B3-XI-Ihc" secondAttribute="centerY" id="p1I-Ho-sa7"/>
+                                    <constraint firstItem="HdH-bx-KQB" firstAttribute="centerX" secondItem="6B3-XI-Ihc" secondAttribute="centerX" id="pvy-1k-nWP"/>
+                                    <constraint firstItem="HdH-bx-KQB" firstAttribute="leading" secondItem="6B3-XI-Ihc" secondAttribute="leading" constant="30" id="sDL-Ws-pQP"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="6B3-XI-Ihc" secondAttribute="bottom" id="Lbl-GS-GoL"/>
+                            <constraint firstAttribute="trailing" secondItem="6B3-XI-Ihc" secondAttribute="trailing" id="dby-PS-u1T"/>
+                            <constraint firstItem="6B3-XI-Ihc" firstAttribute="leading" secondItem="jWW-FQ-SP1" secondAttribute="leading" id="qXK-za-7qY"/>
+                            <constraint firstItem="6B3-XI-Ihc" firstAttribute="top" secondItem="jWW-FQ-SP1" secondAttribute="top" id="qgm-O8-fe9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ut1-c8-zcc"/>
+                    </view>
+                    <connections>
+                        <outlet property="alertTextLabel" destination="bDC-Yg-UrX" id="Rnp-Qi-6wU"/>
+                        <outlet property="alertView" destination="HdH-bx-KQB" id="MXP-aO-7Ix"/>
+                        <outlet property="leftButton" destination="bls-KB-XVO" id="XVL-dv-Ysr"/>
+                        <outlet property="rightButton" destination="GOW-LG-43E" id="Kh1-Od-qZh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GKm-5a-jSG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="74" y="-6"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="PNDarkBlue">
+            <color red="0.0" green="0.396078431372549" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

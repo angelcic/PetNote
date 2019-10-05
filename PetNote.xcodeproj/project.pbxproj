@@ -124,6 +124,8 @@
 		9181BC5D2317DE27007BB7C6 /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181BC5C2317DE27007BB7C6 /* SelectionView.swift */; };
 		9181BC632318ED07007BB7C6 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181BC622318ED07007BB7C6 /* BaseNavigationController.swift */; };
 		9181BC672319119D007BB7C6 /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181BC662319119C007BB7C6 /* UICollectionViewExtension.swift */; };
+		91A609CE2348AE35008CA9D8 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A609CD2348AE35008CA9D8 /* AlertViewController.swift */; };
+		91A609D02348B261008CA9D8 /* Basic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91A609CF2348B261008CA9D8 /* Basic.storyboard */; };
 		91A6A43B233B5DF000BAF23E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A6A43A233B5DF000BAF23E /* AboutViewController.swift */; };
 		91A6A43E233B5EF300BAF23E /* BasicWithRightButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A6A43C233B5EF300BAF23E /* BasicWithRightButtonTableViewCell.swift */; };
 		91A6A43F233B5EF300BAF23E /* BasicWithRightButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91A6A43D233B5EF300BAF23E /* BasicWithRightButtonTableViewCell.xib */; };
@@ -258,6 +260,8 @@
 		9181BC5C2317DE27007BB7C6 /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
 		9181BC622318ED07007BB7C6 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		9181BC662319119C007BB7C6 /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
+		91A609CD2348AE35008CA9D8 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		91A609CF2348B261008CA9D8 /* Basic.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Basic.storyboard; sourceTree = "<group>"; };
 		91A6A43A233B5DF000BAF23E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		91A6A43C233B5EF300BAF23E /* BasicWithRightButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicWithRightButtonTableViewCell.swift; sourceTree = "<group>"; };
 		91A6A43D233B5EF300BAF23E /* BasicWithRightButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasicWithRightButtonTableViewCell.xib; sourceTree = "<group>"; };
@@ -674,6 +678,7 @@
 		9181BC3C23179FBF007BB7C6 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				91A609CD2348AE35008CA9D8 /* AlertViewController.swift */,
 				9181BC2823177E1C007BB7C6 /* TabBarViewController.swift */,
 				9166EF2D2338B0BF0086C70E /* BaseSwitchPetViewController.swift */,
 				9166EF3B2338B8900086C70E /* BaseContainerViewController.swift */,
@@ -693,6 +698,7 @@
 				9166F0402338CBD10086C70E /* Other */,
 				9166EFA62338BEE40086C70E /* Notify */,
 				9181BC5B2317DE0A007BB7C6 /* UI */,
+				91A609CF2348B261008CA9D8 /* Basic.storyboard */,
 				9181BC3F2317A02F007BB7C6 /* Profile.storyboard */,
 				9166F03E2338CAFB0086C70E /* Notify.storyboard */,
 				9181BC412317A03D007BB7C6 /* Record.storyboard */,
@@ -818,6 +824,7 @@
 				9166EFEB2338C05D0086C70E /* NotifyTableViewCell.xib in Resources */,
 				9181BC442317A050007BB7C6 /* Medical.storyboard in Resources */,
 				9166EFA22338BE890086C70E /* MedicalBasicTableViewCell.xib in Resources */,
+				91A609D02348B261008CA9D8 /* Basic.storyboard in Resources */,
 				9166EF8B2338BDBD0086C70E /* BasicCollectionViewCell.xib in Resources */,
 				9166EFE82338C05D0086C70E /* ProtectTypeTableViewCell.xib in Resources */,
 				9166EFED2338C05D0086C70E /* AddPetView.xib in Resources */,
@@ -999,6 +1006,7 @@
 				9166EF302338B7D20086C70E /* UIImageExtension.swift in Sources */,
 				9166F0032338C19D0086C70E /* ProtectPlanViewController.swift in Sources */,
 				9166EFE02338C05D0086C70E /* AddImageTableViewCell.swift in Sources */,
+				91A609CE2348AE35008CA9D8 /* AlertViewController.swift in Sources */,
 				9166EFE52338C05D0086C70E /* ModifyBasicInfoTableViewCell.swift in Sources */,
 				9181BC592317CC4B007BB7C6 /* UIViewExtension.swift in Sources */,
 				9166EFA02338BE890086C70E /* TitleWithButtonTableViewCell.swift in Sources */,

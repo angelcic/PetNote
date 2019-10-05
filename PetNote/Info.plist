@@ -27,6 +27,8 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>設定成員大頭照需開啟相簿讀取權限，否則無法讀取相簿照片</string>
 	<key>PNHospitalBaseURL</key>
@@ -54,10 +56,10 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-      <string>googlechromes</string>
-      <string>comgooglemaps</string>
-    </array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>googlechromes</string>
+		<string>comgooglemaps</string>
+	</array>
 </dict>
 </plist>

@@ -35,6 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
+        // 設定前景通知
+        UNUserNotificationCenter.current().delegate = self
         // 開啟通知權限
         UNUserNotificationCenter.current().requestAuthorization(
             options: [.alert, .sound, .badge, .carPlay],
@@ -120,4 +122,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+ 
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.badge, .sound, .alert])
+    }
 }
