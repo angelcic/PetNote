@@ -122,8 +122,9 @@ class ModifyBasicInfoTableViewCell: UITableViewCell {
         if let petType = petType,
             let currentPetType = PetType.init(rawValue: petType) {
             self.currentPetType = currentPetType
+            
             petTypeButtons.forEach {
-                if $0.titleLabel?.text == gender {
+                if $0.titleLabel?.text == petType {
                     changePetTypeStatus(sender: $0)
                 }
             }

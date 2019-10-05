@@ -24,9 +24,6 @@ class MapViewController: BaseViewController {
     
     var markers: [GMSMarker] = []
     
-//    let infoMarker = GMSMarker()
-//    var geocoder = CLGeocoder()
-    
     let getLocationTask = DispatchQueue(label: "getLocationTask")
     let createLandMarker = DispatchQueue(label: "createLandMarker")
     let group = DispatchGroup()
@@ -38,7 +35,6 @@ class MapViewController: BaseViewController {
     
     // 設定起始畫面
     func setGMSCamera() {
-//        let camera = GMSCameraPosition.camera(withLatitude: position.latitude, longitude: position.longitude, zoom: 16.0)
         let camera = GMSCameraPosition.camera(
             withLatitude: 23.7,
             longitude: 121,
@@ -140,8 +136,7 @@ class MapViewController: BaseViewController {
             
             guard
                 let placemarks = placemarks,
-                let placemark = placemarks.first,
-                let location = placemark.location
+                let placemark = placemarks.first
             else {                completionHandler(Result.failure(MapError.noPlacemarkReturn))
                 return
             }
@@ -217,14 +212,26 @@ extension MapViewController: GMSMapViewDelegate {
     }
     
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+        
+        let latitude = marker.position.latitude
+        let longitude = marker.position.longitude
+        
         // 跳轉至 google map
-        if let url = URL(string: "comgooglemaps://?saddr=&daddr=\(marker.position.latitude),\(marker.position.longitude)&directionsmode=driving"),
+        if let url =
+            URL(string: MapNavigation.google(
+                latitude: latitude,
+                longitude: longitude).url),
             UIApplication.shared.canOpenURL(url) {
+            
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
             
         // 跳轉至 apple map
-        } else if let url = URL(string: "http://maps.apple.com/?saddr=&daddr=\(marker.position.latitude),\(marker.position.longitude)"),
+        } else if let url =
+            URL(string: MapNavigation.apple(
+                latitude: latitude,
+                longitude: longitude).url),
             UIApplication.shared.canOpenURL(url) {
+            
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
             
         } else {
@@ -239,4 +246,18 @@ extension MapViewController: GMSMapViewDelegate {
 
 enum MapError: Error {
     case noPlacemarkReturn
+}
+
+enum MapNavigation {
+    case google(latitude: Double, longitude: Double)
+    case apple(latitude: Double, longitude: Double)
+    
+    var url: String {
+        switch self {
+        case .google(let latitude, let longitude):
+            return "comgooglemaps://?saddr=&daddr=\(latitude),\(longitude)&directionsmode=driving"
+        case .apple(let latitude, let longitude):
+            return "http://maps.apple.com/?saddr=&daddr=\(latitude),\(longitude)"
+        }
+    }
 }
