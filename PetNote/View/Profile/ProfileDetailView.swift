@@ -119,7 +119,7 @@ extension ProfileDetailView: SelectionViewDataSource {
     
     var page: [String] {
         
-        return ["基本資料", "預防計畫", "健康記錄"]
+        return ["基本資料", "預防計畫", "體重記錄"]
         
     }
     

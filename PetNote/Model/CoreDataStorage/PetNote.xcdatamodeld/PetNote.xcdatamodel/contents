@@ -53,11 +53,11 @@
     </entity>
     <elements>
         <element name="PNDailyRecord" positionX="-12.12109375" positionY="-0.26171875" width="128" height="103"/>
+        <element name="PNHospital" positionX="-99" positionY="126" width="128" height="118"/>
         <element name="PNMedicalRecord" positionX="-4.83203125" positionY="67.47265625" width="128" height="60"/>
         <element name="PNNotifyInfo" positionX="-99" positionY="108" width="128" height="148"/>
         <element name="PNPetInfo" positionX="-191.4296875" positionY="-20.28515625" width="128" height="240"/>
         <element name="PNProtectPlan" positionX="-5.66796875" positionY="139.140625" width="128" height="103"/>
         <element name="PNWeightRecord" positionX="-16.0546875" positionY="210.6171875" width="128" height="90"/>
-        <element name="PNHospital" positionX="-99" positionY="126" width="128" height="118"/>
     </elements>
 </model>
