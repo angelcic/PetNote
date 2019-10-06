@@ -65,7 +65,6 @@ class SwitchPetView: UIView {
         super.init(coder: aDecoder)
         setupCollectionView()
         setupCollectionViewCell()
-//        fatalError("init(coder:) has not been implemented")
     }
     
     private func setupCollectionViewCell() {

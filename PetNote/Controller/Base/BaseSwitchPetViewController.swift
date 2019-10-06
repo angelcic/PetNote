@@ -187,7 +187,7 @@ extension SwitchPetViewController: UICollectionViewDataSource {
                 storageManager.petsList[indexPath.row].observe(\.photo, options: [.new]) { (object, change) in
 
                 guard let newValue = change.newValue else { return }
-                //
+                    
                 let image = LocalFileManager.shared.readImage(fileName: newValue)
                     
                     cell.petImageView.image = image
@@ -203,8 +203,6 @@ extension SwitchPetViewController: UICollectionViewDataSource {
             }
             
             let image = storageManager.images[indexPath.row]
-                           
-            //LocalFileManager.shared.readImage(imagePath: storageManager.petsList[indexPath.row].photo)
                 
             cell.layoutCell(image: image, name: storageManager.petsList[indexPath.row].name)
             

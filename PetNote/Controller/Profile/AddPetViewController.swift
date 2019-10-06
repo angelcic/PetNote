@@ -20,7 +20,8 @@ class AddPetViewController: BaseViewController {
             addPetView.addBorder(borderColor: .gray,
                                  borderWidth: 1,
                                  cornerRadius: 20)
-            if let petView = Bundle(for: AddPetView.self).loadNibNamed("\(AddPetView.self)",
+            if let petView = Bundle(for: AddPetView.self).loadNibNamed(
+                "\(AddPetView.self)",
                 owner: nil,
                 options: nil)?.first as? AddPetView {
                 addPetView.addSubview(petView)
