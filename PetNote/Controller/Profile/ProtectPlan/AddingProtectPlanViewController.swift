@@ -161,6 +161,37 @@ class AddingProtectPlanViewController: BaseViewController {
         navigationController?.popToRootViewController(animated: false)
         
     }
+    
+    func showOpenAlertVC() {
+        guard let alertVC = UIStoryboard.basic.instantiateViewController(
+            withIdentifier: AlertViewController.identifier)
+            as? AlertViewController
+            else {return}
+        
+        alertVC.delegate = self
+        
+        // 顯示樣式
+        alertVC.modalPresentationStyle = UIModalPresentationStyle.custom
+        
+        self.present(alertVC, animated: false, completion: nil)
+        
+    }
+}
+
+// MARK: 處理通知設定
+extension AddingProtectPlanViewController: AlertViewDelegate {
+       
+    func pressLeftButton() {
+        if let bundleID = Bundle.main.bundleIdentifier,
+            let url = URL(string: UIApplication.openSettingsURLString + bundleID) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+    
+    func pressRightButton() {
+        
+    }
+
 }
 
 // MARK: colloectionView setting
@@ -324,6 +355,7 @@ extension AddingProtectPlanViewController: UITableViewDataSource {
             
             let notificationObject = createNotificationObject(by: notifyInfo)
             
+            cell.delegate = self
             cell.layoutCell(notification: notificationObject)
             return cell
         }
@@ -398,14 +430,8 @@ extension AddingProtectPlanViewController: UITableViewDataSource {
     
 }
 
-//extension AddingProtectPlanViewController: TitleWithButtonTableViewCellDelegate {
-//    func pressRightButton() {
-//        guard let notifySettingVC = UIStoryboard.notify.instantiateViewController(
-//            withIdentifier: String(describing: SettingNotifyViewController.self))
-//            as? SettingNotifyViewController
-//            else {
-//                return
-//        }
-//        show(notifySettingVC, sender: nil)
-//    }
-//}
+extension AddingProtectPlanViewController: SettingNotifyTableViewCellDelegate {
+    func alertUserOpenNotification() {
+        showOpenAlertVC()
+    }
+}

@@ -6,6 +6,13 @@
         <attribute name="event" optional="YES" attributeType="Transformable" customClassName="[String]"/>
         <relationship name="petInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PNPetInfo" inverseName="dailyRecord" inverseEntity="PNPetInfo"/>
     </entity>
+    <entity name="PNHospital" representedClassName="PNHospital" syncable="YES" codeGenerationType="class">
+        <attribute name="address" optional="YES" attributeType="String"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" usesScalarValueType="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="phone" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="PNMedicalRecord" representedClassName="PNMedicalRecord" syncable="YES" codeGenerationType="class">
         <relationship name="petInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PNPetInfo" inverseName="medicalRecord" inverseEntity="PNPetInfo"/>
     </entity>
@@ -25,6 +32,7 @@
         <attribute name="gender" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="neuter" attributeType="String" defaultValueString="未結紮"/>
         <attribute name="petId" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="petType" optional="YES" attributeType="String"/>
         <attribute name="photo" optional="YES" attributeType="String"/>
@@ -46,9 +54,10 @@
     </entity>
     <elements>
         <element name="PNDailyRecord" positionX="-12.12109375" positionY="-0.26171875" width="128" height="103"/>
+        <element name="PNHospital" positionX="-99" positionY="126" width="128" height="118"/>
         <element name="PNMedicalRecord" positionX="-4.83203125" positionY="67.47265625" width="128" height="60"/>
         <element name="PNNotifyInfo" positionX="-99" positionY="108" width="128" height="148"/>
-        <element name="PNPetInfo" positionX="-191.4296875" positionY="-20.28515625" width="128" height="240"/>
+        <element name="PNPetInfo" positionX="-191.4296875" positionY="-20.28515625" width="128" height="253"/>
         <element name="PNProtectPlan" positionX="-5.66796875" positionY="139.140625" width="128" height="103"/>
         <element name="PNWeightRecord" positionX="-16.0546875" positionY="210.6171875" width="128" height="90"/>
     </elements>

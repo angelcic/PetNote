@@ -12,12 +12,12 @@
         <!--症狀記錄-->
         <scene sceneID="lxK-GV-XJe">
             <objects>
-                <viewController id="COB-81-Ioi" customClass="RecordViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="COB-81-Ioi" customClass="RecordViewController" customModule="毛孩手帳" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y12-et-5qe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Hy-UW-u6v" customClass="SwitchPetView" customModule="PetNote" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Hy-UW-u6v" customClass="SwitchPetView" customModule="毛孩手帳" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="108" width="414" height="143.5"/>
                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -28,9 +28,26 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iS9-4f-5Tg">
-                                <rect key="frame" x="16" y="622.5" width="382" height="239.5"/>
+                                <rect key="frame" x="16" y="606.5" width="382" height="255.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="10" minY="0.0" maxX="20" maxY="0.0"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="efJ-gB-bM5">
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-Small" translatesAutoresizingMaskIntoConstraints="NO" id="Mec-MM-ZeH">
+                                            <rect key="frame" x="162" y="3" width="58" height="38"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="Mec-MM-ZeH" firstAttribute="centerX" secondItem="efJ-gB-bM5" secondAttribute="centerX" id="1fk-jg-7c5"/>
+                                        <constraint firstItem="Mec-MM-ZeH" firstAttribute="top" secondItem="efJ-gB-bM5" secondAttribute="top" constant="3" id="YgD-Ft-gYF"/>
+                                        <constraint firstAttribute="bottom" secondItem="Mec-MM-ZeH" secondAttribute="bottom" constant="3" id="tYC-sh-efr"/>
+                                    </constraints>
+                                </view>
                             </tableView>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DfO-OX-Qcp">
                                 <rect key="frame" x="334" y="782" width="60" height="60"/>
@@ -57,7 +74,7 @@
                             <constraint firstItem="npB-9g-Xu2" firstAttribute="trailing" secondItem="6Hy-UW-u6v" secondAttribute="trailing" id="Iso-tp-SNp"/>
                             <constraint firstItem="npB-9g-Xu2" firstAttribute="bottom" secondItem="DfO-OX-Qcp" secondAttribute="bottom" constant="20" id="Kr1-mO-rVZ"/>
                             <constraint firstItem="6Hy-UW-u6v" firstAttribute="height" secondItem="y12-et-5qe" secondAttribute="height" multiplier="0.16" id="Mdt-sb-h77"/>
-                            <constraint firstItem="iS9-4f-5Tg" firstAttribute="top" secondItem="XQE-pB-gzT" secondAttribute="bottom" constant="16" id="PQf-Pg-b24"/>
+                            <constraint firstItem="iS9-4f-5Tg" firstAttribute="top" secondItem="XQE-pB-gzT" secondAttribute="bottom" id="PQf-Pg-b24"/>
                             <constraint firstItem="6Hy-UW-u6v" firstAttribute="top" secondItem="npB-9g-Xu2" secondAttribute="top" constant="20" id="Qf2-BF-ok0"/>
                             <constraint firstItem="XQE-pB-gzT" firstAttribute="top" secondItem="6Hy-UW-u6v" secondAttribute="bottom" id="Qnq-XH-vsf"/>
                             <constraint firstItem="2vK-7z-RtI" firstAttribute="leading" secondItem="DfO-OX-Qcp" secondAttribute="leading" id="UJK-rY-8oY"/>
@@ -89,7 +106,7 @@
         <!--Add Record View Controller-->
         <scene sceneID="7tf-a4-fCO">
             <objects>
-                <viewController storyboardIdentifier="AddRecordViewController" hidesBottomBarWhenPushed="YES" id="iPu-Yn-EOi" customClass="AddRecordViewController" customModule="PetNote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddRecordViewController" hidesBottomBarWhenPushed="YES" id="iPu-Yn-EOi" customClass="AddRecordViewController" customModule="毛孩手帳" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Usd-jU-RoE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -136,6 +153,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Icon-Small" width="29" height="29"/>
         <image name="icons-50px_add" width="37" height="37"/>
         <namedColor name="PNLightBlue">
             <color red="0.40392156862745099" green="0.6470588235294118" blue="0.85490196078431369" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -34,8 +34,9 @@ class PNChartView: UIView {
     
     func setupAxis(xValues: [String]?, yValues: [String]? = nil) {
         
-        chartView.xAxis.drawGridLinesEnabled = false // 不繪製Ｘ軸延伸格線
-        chartView.leftAxis.drawGridLinesEnabled = false //不繪製Y軸延伸格線
+        chartView.xAxis.drawGridLinesEnabled = false // 不繪製 Ｘ 軸延伸格線
+        chartView.xAxis.avoidFirstLastClippingEnabled = true // X 軸文字起始不貼齊 Y 軸
+        chartView.leftAxis.drawGridLinesEnabled = false //不繪製 Y 軸延伸格線
         chartView.rightAxis.enabled = false //禁用右侧的Y轴
         
         chartView.xAxis.labelPosition = .bottom // x 軸文字顯示位置
@@ -56,12 +57,12 @@ class PNChartView: UIView {
     }
  
     func setupData(entries: [ChartDataEntry]?, label: String?) {
-        // 隨機數據
+        // 若無 entries 則使用預設的隨機數據
         var dataEntries = [ChartDataEntry]()
         for index in 0..<5 {
 //            let y = arc4random()%100
             let yyy = Double.random(in: 0...6)
-            let entry = ChartDataEntry.init(x: Double(index), y: Double(yyy))
+            let entry = ChartDataEntry.init(x: Double(index) + 0.2, y: Double(yyy))
             dataEntries.append(entry)
         }
         //这50条数据作为1根折线里的所有数据

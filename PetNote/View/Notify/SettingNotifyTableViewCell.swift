@@ -62,10 +62,15 @@ enum RepeatType: String {
     }
 }
 
+protocol SettingNotifyTableViewCellDelegate: AnyObject {
+    func alertUserOpenNotification()
+}
+
 class SettingNotifyTableViewCell: UITableViewCell {
     
     @IBOutlet weak var notifySwitch: UISwitch! {
         didSet {
+            
             notifySwitch.addTarget(self, action: #selector(switchAction), for: .valueChanged)
         }
     }
@@ -103,6 +108,8 @@ class SettingNotifyTableViewCell: UITableViewCell {
     let notifyTimePicker = UIDatePicker()
     
     var notificationObject: NotificationObject = NotificationObject()
+    
+    weak var delegate: SettingNotifyTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -176,7 +183,20 @@ class SettingNotifyTableViewCell: UITableViewCell {
     }
     
     @objc func switchAction(sender: UISwitch) {
-        notificationObject.isSwitchOn = sender.isOn
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: [.alert, .sound, .badge, .carPlay],
+            completionHandler: {[weak self] (granted, error) in
+            if granted {
+                self?.notificationObject.isSwitchOn = sender.isOn
+            } else {
+                print("使用者沒開通知")
+                self?.delegate?.alertUserOpenNotification()
+                DispatchQueue.main.async {
+                    sender.isOn = false
+                }
+            }
+        })
+        
     }
     
 }

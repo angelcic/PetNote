@@ -201,11 +201,13 @@ extension BasicInfoViewController: UITableViewDataSource {
                     name: pet.name,
                     gender: pet.gender,
                     petType: pet.petType,
+                    neuter: pet.neuter,
                     petId: pet.id,
                     birth: birth,
                     breed: pet.breed,
                     color: pet.color
                 )
+            
             }
             
             return cell

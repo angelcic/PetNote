@@ -19,6 +19,19 @@ class SearchHospitalViewController: BaseViewController {
         }
     }
     
+    @IBOutlet weak var loadingView: UIActivityIndicatorView! {
+        didSet {
+            loadingView.isHidden = true
+        }
+    }
+    
+    var isSearchingFlag: Bool = false
+//    {
+//        didSet {
+//            searchButtonMaskLayer.isHidden = !isSearchingFlag
+//        }
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,14 +70,31 @@ extension SearchHospitalViewController: SearchHospitalViewDeleate {
     }
     
     func pressSearchButton() {
+        if isSearchingFlag == true { return }
+        
+        isSearchingFlag = true
+        loadingView.isHidden = false
+        loadingView.startAnimating()
+        
         let city = searchView.cityTextField.text
         let district = searchView.districtTextField.text
+        
         HospitalAPIManager.shared.fetchHospitals(city: city!, zip: district!) {[weak self] result in
-
+            
+            DispatchQueue.main.async {
+                self?.loadingView.isHidden = true
+                self?.loadingView.stopAnimating()
+            }
+            
+            self?.isSearchingFlag = false
+            
             switch result {
             case .success(let hospitals):
+                
                 self?.showSearchResultVC(hospitals: hospitals)
+                
             case .failure(let error):
+                
                 print(error)
             }
         }

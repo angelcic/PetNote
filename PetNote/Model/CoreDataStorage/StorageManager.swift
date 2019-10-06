@@ -23,6 +23,8 @@ import UIKit
         case medicalRecord = "PNMedicalRecord"
         
         case dailyRecord = "PNDailyRecord"
+        
+        case hospital = "PNHospital"
     }
     
     static let shared = StorageManager()
@@ -105,6 +107,18 @@ import UIKit
 //        pet.setValue(name, forKey: PetKey.name.rawValue)
 //        pet.setValue(type.rawValue, forKey: PetKey.petType.rawValue)
         
+        if let image = type.defaultImage {
+        // 把照片存入 app 下的資料夾
+            LocalFileManager.shared.saveImage(petId: "\(petId)", image: image) { result in
+                switch result {
+                case .success(let path):
+                    pet.photo = path
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
+        
         do {
             
             try viewContext.save()
@@ -120,14 +134,26 @@ import UIKit
     
     func createDemoData(completion: ((Result<Void, Error>) -> Void)? = nil) {
         let pet = getPNPetInfo()
+        let currentTimeStamp = Int64(Date().timeIntervalSince1970)
         pet.name = "卯咪（預設）"
         pet.petType = "喵"
         pet.gender = "女生"
-        pet.birth = Int64(Date().timeIntervalSince1970)
-        pet.petId = Int64(Date().timeIntervalSince1970)
+        pet.birth = currentTimeStamp
+        pet.petId = currentTimeStamp
         pet.breed = "米克斯"
         pet.color = "賓士"
         pet.id = "900000000000000"
+        if let image = PetType.cat.defaultImage {
+        // 把照片存入 app 下的資料夾
+            LocalFileManager.shared.saveImage(petId: "\(currentTimeStamp)", image: image) { result in
+                switch result {
+                case .success(let path):
+                    pet.photo = path
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
         
         let protectPlan = getPNProtectPlan()
         protectPlan.protectName = "三合一"
@@ -154,16 +180,6 @@ import UIKit
         pet.addToDailyRecord(dailyRecord)
         
         saveAll(completion: completion)
-            
-//            { result in
-//            switch result {
-//            case .success:
-//                print("成功新增預設資料")
-//            case .failure(let error):
-//                print(error)
-//            }
-            
-//        }
     }
     
     // MARK: 修改
@@ -248,4 +264,37 @@ import UIKit
         notifyInfo.title = "預防計畫預定的日期到囉"
         return notifyInfo
     }
+}
+
+// MARK: Fetch hospital with same address
+extension StorageManager {
+    
+    func featchHospitals(address: String, completion: ((Result<[PNHospital], Error>) -> Void)? = nil) {
+        let request = NSFetchRequest<PNHospital>(entityName: Entity.hospital.rawValue)
+        request.predicate = NSPredicate(format: "address == %@", address)
+        
+        do {
+            
+            let pnHospitalList = try viewContext.fetch(request)
+                      
+            if pnHospitalList.count > 0 {
+                completion?(Result.success(pnHospitalList))
+            } else {
+                completion?(Result.failure(StorageError.emptyResult))
+            }
+            
+        } catch {
+            
+            completion?(Result.failure(error))
+        }
+    }
+    
+    func getPNHospital() -> PNHospital {
+        return PNHospital.init(context: viewContext)
+    }
+    
+}
+
+enum StorageError: Error {
+    case emptyResult
 }

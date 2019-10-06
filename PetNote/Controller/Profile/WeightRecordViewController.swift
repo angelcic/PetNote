@@ -71,8 +71,9 @@ class WeightRecordViewController: BaseContainerViewController {
             let date = Int(weightRecord.date).getDateString(format: "MM/dd")
             recordDates.append(date)
             let weight = weightRecord.weight
+            let entryOffset: Double = 0.2
             let entry =
-                ChartDataEntry.init(x: Double(index), y: weight)
+                ChartDataEntry.init(x: Double(index) + entryOffset, y: weight)
             dataEntries.append(entry)
             index += 1
             if index == 6 {
@@ -134,8 +135,7 @@ extension WeightRecordViewController: UITableViewDataSource {
                                         width: cell.chartLayer.frame.width,
                                         height: cell.chartLayer.frame.height)
             let chartView = PNChartView(chartViewFrame)
-            chartView.setup()
-            
+            chartView.setup()            
             chartView.setupData(entries: getWeightDataEntry(), label: "")
             chartView.setupAxis(xValues: recordDates)
             

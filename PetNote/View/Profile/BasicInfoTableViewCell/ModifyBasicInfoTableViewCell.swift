@@ -16,6 +16,9 @@ class ModifyBasicInfoTableViewCell: UITableViewCell {
     @IBOutlet weak var typeDogButton: UIButton!
     @IBOutlet weak var typeOtherButton: UIButton!
     
+    @IBOutlet weak var isNeuterButton: UIButton!
+    @IBOutlet weak var unNeuterButton: UIButton!
+    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var birthTextField: UITextField! {
@@ -30,12 +33,13 @@ class ModifyBasicInfoTableViewCell: UITableViewCell {
     
     lazy var petTypeButtons: [UIButton] =  [typeCatButton, typeDogButton, typeOtherButton]
     
-    var currentGender: Gender = .girl {
-        didSet {
-            
-        }
-    }
+    lazy var neuterButtons: [UIButton] = [isNeuterButton, unNeuterButton]
+    
+    var currentGender: Gender = .girl
+    
     var currentPetType: PetType = .cat
+    
+    var currentNeuterType: String = Neuter.unNeuter.rawValue
     
     var currentDate: Date = Date()
     
@@ -46,6 +50,7 @@ class ModifyBasicInfoTableViewCell: UITableViewCell {
         // Initialization code
         setupGenderButton()
         setupTypeButton()
+        setupNeuterButton()
         
     }
     
@@ -105,9 +110,24 @@ class ModifyBasicInfoTableViewCell: UITableViewCell {
         }
     }
     
+    func setupNeuterButton() {
+        for button in neuterButtons {
+            
+            button.setTitleColor(.lightGray, for: .normal)
+            button.setTitleColor(.black, for: .selected)
+            button.addBorder(borderColor: .lightGray, borderWidth: 1, cornerRadius: 8)
+            button.addTarget(self, action: #selector(changeNeuterStatus), for: .touchUpInside)
+            
+            if button.titleLabel?.text == currentNeuterType {
+                button.isSelected = true
+                button.addBorder(borderColor: .black, borderWidth: 1, cornerRadius: 8)
+            }
+        }
+    }
+    
     //swiftlint:disable function_parameter_count
     func layoutCell(name: String?, gender: String?,
-                    petType: String?, petId: String?,
+                    petType: String?, neuter: String?, petId: String?,
                     birth: Int?, breed: String?, color: String?) {
         nameTextField.text = name
         if let gender = gender,
@@ -122,12 +142,23 @@ class ModifyBasicInfoTableViewCell: UITableViewCell {
         if let petType = petType,
             let currentPetType = PetType.init(rawValue: petType) {
             self.currentPetType = currentPetType
+            
             petTypeButtons.forEach {
-                if $0.titleLabel?.text == gender {
+                if $0.titleLabel?.text == petType {
                     changePetTypeStatus(sender: $0)
                 }
             }
         }
+        
+        if let neuter = neuter {
+            currentNeuterType = neuter
+            neuterButtons.forEach {
+                if $0.titleLabel?.text == currentNeuterType {
+                    changeNeuterStatus(sender: $0)
+                }
+            }
+        }
+        
         idTextField.text = petId
         if let birth = birth, birth != 0 {
             birthDay = birth.getDate()
@@ -162,8 +193,8 @@ class ModifyBasicInfoTableViewCell: UITableViewCell {
     
     @objc func changePetTypeStatus(sender: UIButton) {
         guard
-            let gender = sender.titleLabel?.text,
-            let currentPetType = PetType.init(rawValue: gender)
+            let petType = sender.titleLabel?.text,
+            let currentPetType = PetType.init(rawValue: petType)
             else {
                 return
         }
@@ -178,5 +209,23 @@ class ModifyBasicInfoTableViewCell: UITableViewCell {
         sender.isSelected = true
         sender.addBorder(borderColor: .black, borderWidth: 1, cornerRadius: 8)
     }
+    
+    @objc func changeNeuterStatus(sender: UIButton) {
+           guard
+               let neuter = sender.titleLabel?.text
+            else {
+                return
+           }
+           
+           self.currentNeuterType = neuter
+           
+           for button in neuterButtons {
+               button.isSelected = false
+               button.addBorder(borderColor: .lightGray, borderWidth: 1, cornerRadius: 8)
+           }
+           
+           sender.isSelected = true
+           sender.addBorder(borderColor: .black, borderWidth: 1, cornerRadius: 8)
+       }
     
 }

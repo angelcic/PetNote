@@ -15,4 +15,6 @@ target 'PetNote' do
   pod 'Crashlytics', '~> 3.14.0'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
 end

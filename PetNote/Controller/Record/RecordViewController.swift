@@ -15,6 +15,7 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
         didSet {
             tableView.delegate = self
             tableView.dataSource = self
+//            tableView.tableHeaderView?.bounds.height = 20
             if dateRecord.count == 0 {
                 selectedDate = calendar.today ?? Date()
             }
@@ -279,6 +280,7 @@ extension RecordViewController: FSCalendarDataSource {
 }
 
 extension RecordViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         print("刪除")
         let record = dateRecord[indexPath.row]

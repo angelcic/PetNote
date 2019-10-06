@@ -33,12 +33,20 @@ class SearchHospitalResultViewController: BaseViewController {
     
     override func navigationBarSetting() {
         super.navigationBarSetting()
-//        let saveButton = UIBarButtonItem(title: "MAP", style: .plain, target: self, action: #selector(showMap))
-//        self.navigationItem.rightBarButtonItem = saveButton
+        let saveButton = UIBarButtonItem(title: "MAP", style: .plain, target: self, action: #selector(showMap))
+        self.navigationItem.rightBarButtonItem = saveButton
     }
     
     @objc func showMap() {
-        
+        guard let mapVC = UIStoryboard.other.instantiateViewController(withIdentifier: MapViewController.identifier)
+            as? MapViewController
+        else {
+           return
+        }
+        if let hospitals = hospitalLists {
+            mapVC.hospitals = hospitals
+        }
+        show(mapVC, sender: nil)
     }
 }
 

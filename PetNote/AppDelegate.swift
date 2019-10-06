@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import Firebase
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -34,6 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
+        // 設定前景通知
+        UNUserNotificationCenter.current().delegate = self
         // 開啟通知權限
         UNUserNotificationCenter.current().requestAuthorization(
             options: [.alert, .sound, .badge, .carPlay],
@@ -47,6 +50,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // 連線 firebase 以便回傳 crash 資訊
         FirebaseApp.configure()
+        
+       // google map
+        GMSServices.provideAPIKey("AIzaSyAblJZIIKlXqDdHlL3c0StAM9mKRO_-_rM")
+
         return true
     }
 
@@ -115,4 +122,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+ 
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.badge, .sound, .alert])
+    }
 }
