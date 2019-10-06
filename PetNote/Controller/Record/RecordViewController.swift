@@ -34,7 +34,6 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
         didSet {
             calendar.dataSource = self
             calendar.delegate = self
-//            calendar.backgroundColor = .pnWhite
             
             calendar.appearance.headerTitleColor = UIColor.pnBlueDark
             calendar.appearance.weekdayTextColor = UIColor.pnBlueDark
@@ -49,17 +48,9 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
     var currentPet: PNPetInfo? {
         didSet {
             resetCurrentRecord()
-//            guard
-//                let pet = currentPet,
-//                let record = pet.dailyRecord?.sortedArray(
-//                    using: [NSSortDescriptor(key: "date", ascending: false)])
-//                    as? [PNDailyRecord]
-//            else {
-//                return
-//            }
-//            currentRecord = record
         }
     }
+    
     // 目前寵物的所有 record
     var currentRecord: [PNDailyRecord]? {
         
@@ -131,8 +122,10 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
         super.viewDidLoad()
         
         switchPetView.delegate = self
-        if storageManager.petsList.count > 0 {
-            currentPet = storageManager.petsList[0]
+        let index = storageManager.currentPetIndex
+        if storageManager.petsList.count > index {
+            
+            currentPet = storageManager.petsList[index]
         }
         setCalendar()
         setupTableView()
