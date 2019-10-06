@@ -117,11 +117,16 @@
                                             <constraint firstItem="7pf-uf-7ih" firstAttribute="top" secondItem="jvu-ym-QPg" secondAttribute="bottom" constant="16" id="v7l-ve-U6w"/>
                                         </constraints>
                                     </view>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="8tu-ah-dmb">
+                                        <rect key="frame" x="172.5" y="20" width="37" height="37"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="rKg-o5-gOX" firstAttribute="centerY" secondItem="DC8-nx-s4p" secondAttribute="centerY" id="Q39-8Q-mYO"/>
                                     <constraint firstItem="rKg-o5-gOX" firstAttribute="centerX" secondItem="DC8-nx-s4p" secondAttribute="centerX" id="VKv-FE-773"/>
+                                    <constraint firstItem="8tu-ah-dmb" firstAttribute="centerX" secondItem="DC8-nx-s4p" secondAttribute="centerX" id="x28-1R-917"/>
+                                    <constraint firstItem="8tu-ah-dmb" firstAttribute="top" secondItem="DC8-nx-s4p" secondAttribute="top" constant="20" id="zsT-2C-vEH"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="cityTextField" destination="BRC-5h-KAA" id="LPj-Gr-OGU"/>
@@ -140,6 +145,7 @@
                         <viewLayoutGuide key="safeArea" id="mnW-eZ-bC6"/>
                     </view>
                     <connections>
+                        <outlet property="loadingView" destination="8tu-ah-dmb" id="rky-Ws-8wS"/>
                         <outlet property="searchView" destination="DC8-nx-s4p" id="NUi-MF-sis"/>
                     </connections>
                 </viewController>

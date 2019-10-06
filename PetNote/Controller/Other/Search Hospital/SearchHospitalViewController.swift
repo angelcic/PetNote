@@ -19,7 +19,11 @@ class SearchHospitalViewController: BaseViewController {
         }
     }
     
-    @IBOutlet weak var searchButtonMaskLayer: UIView!
+    @IBOutlet weak var loadingView: UIActivityIndicatorView! {
+        didSet {
+            loadingView.isHidden = true
+        }
+    }
     
     var isSearchingFlag: Bool = false
 //    {
@@ -69,11 +73,18 @@ extension SearchHospitalViewController: SearchHospitalViewDeleate {
         if isSearchingFlag == true { return }
         
         isSearchingFlag = true
+        loadingView.isHidden = false
+        loadingView.startAnimating()
         
         let city = searchView.cityTextField.text
         let district = searchView.districtTextField.text
         
         HospitalAPIManager.shared.fetchHospitals(city: city!, zip: district!) {[weak self] result in
+            
+            DispatchQueue.main.async {
+                self?.loadingView.isHidden = true
+                self?.loadingView.stopAnimating()
+            }
             
             self?.isSearchingFlag = false
             

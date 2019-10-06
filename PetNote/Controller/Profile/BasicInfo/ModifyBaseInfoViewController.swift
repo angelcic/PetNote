@@ -66,6 +66,7 @@ class ModifyBaseInfoViewController: BaseViewController {
         currentPet?.name = infoCell.nameTextField.text
         currentPet?.gender = infoCell.currentGender.rawValue
         currentPet?.petType = infoCell.currentPetType.rawValue
+        currentPet?.neuter = infoCell.currentNeuterType
         currentPet?.id = infoCell.idTextField.text
         currentPet?.birth = Int64(infoCell.birthDay.timeIntervalSince1970)
         currentPet?.breed = infoCell.breedTextField.text
@@ -102,6 +103,7 @@ extension ModifyBaseInfoViewController: UITableViewDataSource {
         infoCell.layoutCell(name: currentPet.name,
                         gender: currentPet.gender,
                         petType: currentPet.getPetType().rawValue,
+                        neuter: currentPet.neuter,
                         petId: currentPet.id,
                         birth: Int(currentPet.birth),
                         breed: currentPet.breed,
