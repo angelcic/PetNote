@@ -27,7 +27,6 @@ class HealthRecordViewController: BaseContainerViewController {
         super.viewDidLoad()
         
         setCollectionView()
-        // Do any additional setup after loading the view.
     }
     
     func setCollectionView() {

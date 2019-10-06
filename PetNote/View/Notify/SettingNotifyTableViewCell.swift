@@ -163,14 +163,13 @@ class SettingNotifyTableViewCell: UITableViewCell {
         switch datePicker {
         case nextNotifyDatePicker:
             let nextDate = nextNotifyDatePicker.date
-            print("日期： \(nextDate.timeIntervalSince1970)")
+            
             notificationObject.nextDate = nextDate
             nextNotifyDateTextField.text = nextDate.getDateString()
             nextNotifyDateTextField.resignFirstResponder()
             
         case notifyTimePicker:
             let notifyTime = notifyTimePicker.date
-            print("時間： \(notifyTime.timeIntervalSince1970)")
             notificationObject.alertTime = notifyTime
             let notifyTimeText = notifyTime.getDateString(format: "HH:mm")
             
@@ -189,7 +188,7 @@ class SettingNotifyTableViewCell: UITableViewCell {
             if granted {
                 self?.notificationObject.isSwitchOn = sender.isOn
             } else {
-                print("使用者沒開通知")
+                
                 self?.delegate?.alertUserOpenNotification()
                 DispatchQueue.main.async {
                     sender.isOn = false

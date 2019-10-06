@@ -42,9 +42,6 @@ class MapViewController: BaseViewController {
             zoom: 7.3
         )
         mapView.camera = camera
-        // 顯示使用者位置按鈕
-//        mapView.settings.myLocationButton = true
-//        mapView.isMyLocationEnabled = true // 開啟我的位置(藍色小點)
         mapView.delegate = self
     }
     
@@ -137,7 +134,8 @@ class MapViewController: BaseViewController {
             guard
                 let placemarks = placemarks,
                 let placemark = placemarks.first
-            else {                completionHandler(Result.failure(MapError.noPlacemarkReturn))
+            else {
+                completionHandler(Result.failure(MapError.noPlacemarkReturn))
                 return
             }
             
@@ -177,7 +175,7 @@ extension MapViewController: GMSMapViewDelegate {
     // 回傳點擊後要顯示的 View
     func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
         
-        // prepar markerInfo view
+        // MARK: prepar markerInfo view
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 250, height: 100))
         view.backgroundColor = UIColor.pnBlueDark
         view.addCorner(cornerRadius: 3)
@@ -235,7 +233,13 @@ extension MapViewController: GMSMapViewDelegate {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
             
         } else {
-            // 沒有可跳轉的地圖
+            // TODO: 沒有可跳轉的地圖
+            guard
+                let appStoreGoogleMapURL = URL(string: MapNavigation.downloadGoogleMap.url)
+            else {
+                 return
+            }
+            UIApplication.shared.open(appStoreGoogleMapURL, options: [:], completionHandler: nil)
         }
     }
     
@@ -251,6 +255,7 @@ enum MapError: Error {
 enum MapNavigation {
     case google(latitude: Double, longitude: Double)
     case apple(latitude: Double, longitude: Double)
+    case downloadGoogleMap
     
     var url: String {
         switch self {
@@ -258,6 +263,8 @@ enum MapNavigation {
             return "comgooglemaps://?saddr=&daddr=\(latitude),\(longitude)&directionsmode=driving"
         case .apple(let latitude, let longitude):
             return "http://maps.apple.com/?saddr=&daddr=\(latitude),\(longitude)"
+        case .downloadGoogleMap:
+            return "itms-apps://itunes.apple.com/app/id585027354"
         }
     }
 }

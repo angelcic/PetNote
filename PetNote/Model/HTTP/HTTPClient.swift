@@ -101,10 +101,6 @@ extension Request {
     
     func makeRequest() -> URLRequest {
         
-//        let urlString = Bundle.main.infoDictionary!["PNHospitalBaseURL"] as! String + endPoint
-//        print(urlString)
-//        let url = URL(string: urlString)!
-        
         var urlComponent = URLComponents()
         urlComponent.scheme = "http"
         urlComponent.host = "data.coa.gov.tw"

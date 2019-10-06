@@ -18,42 +18,30 @@ class ThanksPageViewController: BaseViewController {
         }
     }
     
-    var thanksList: [String] = ["Asta Wu Illustration", "Icons8", "NSCalendar", "Charts", "freepik"]
-    
+    var thanksList: [ThanksList] = [.asta, .icons8, .calendar, .charts, .freepik]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "特別感謝"
         setupTableVew()
-            // Do any additional setup after loading the view.
-        }
-        
-        func setupTableVew() {
-            tableView.registerCellWithNib(identifier: BasicWithRightButtonTableViewCell.identifier, bundle: nil)
-        }
+    }
+    
+    func setupTableVew() {
+        tableView.registerCellWithNib(
+            identifier: BasicWithRightButtonTableViewCell.identifier,
+            bundle: nil
+        )
+    }
     
 }
 
 extension ThanksPageViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var urlString = ""
-        switch indexPath.row {
-        case 0:
-            urlString = "https://dribbble.com/Astawu?fbclid=IwAR0gDw0oFt_sPVU9RdG07t0xDbWHZK3_aCEPB84ZQRsKRv7tUCk_CILF2oE"
-            case 1:
-            urlString = "https://icons8.com"
-            case 2:
-            urlString = "https://github.com/WenchaoD/FSCalendar"
-            case 3:
-            urlString = "https://github.com/danielgindi/Charts"
-        case 4:
-            urlString = "https://www.freepik.com/free-photos-vectors/background"
-        default:
-            return
-        }
+        let urlString = thanksList[indexPath.row].urlString
         guard let url = URL(string: urlString) else {return}
+        
         let safariVC = SFSafariViewController(url: url)
         present(safariVC, animated: true, completion: nil)
-//        UIApplication.shared.open(url)
     }
 }
 
@@ -71,9 +59,37 @@ extension ThanksPageViewController: UITableViewDataSource {
         }
         
         cell.hideMoreButton(isHidden: true)
-        cell.layoutCell(title: thanksList[indexPath.row])
+        cell.layoutCell(title: thanksList[indexPath.row].title)
         
         return cell
     }
         
+}
+
+enum ThanksList {
+    case asta
+    case icons8
+    case calendar
+    case charts
+    case freepik
+    
+    var title: String {
+        switch self {
+        case .asta: return "Asta Wu Illustration"
+        case .icons8: return "Icons8"
+        case .calendar: return "NSCalendar"
+        case .charts: return "Charts"
+        case .freepik: return "freepik"
+        }
+    }
+    
+    var urlString: String {
+        switch self {
+        case .asta: return "https://dribbble.com/Astawu?fbclid=IwAR0gDw0oFt_sPVU9RdG07t0xDbWHZK3_aCEPB84ZQRsKRv7tUCk_CILF2oE"
+        case .icons8: return "https://icons8.com"
+        case .calendar: return "https://github.com/WenchaoD/FSCalendar"
+        case .charts: return "https://github.com/danielgindi/Charts"
+        case .freepik: return "https://www.freepik.com/free-photos-vectors/background"
+        }
+    }
 }

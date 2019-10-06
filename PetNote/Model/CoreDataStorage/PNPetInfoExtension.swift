@@ -30,7 +30,7 @@ import UIKit
         observation = info.observe(\.photo, options: [.initial, .new]) { [weak self] (object, change) in
             
             guard let newValue = change.newValue else { return }
-            //                print(change)
+            
             self?.image = LocalFileManager.shared.readImage(fileName: newValue)
         }
     }

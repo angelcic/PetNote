@@ -80,7 +80,7 @@ extension NotificatonViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         cell.delegate = self
-        cell.layoutCell(title: "某某疫苗", buttonTitle: "管理")
+        cell.layoutCell(title: "", buttonTitle: "管理")
         return cell
     }
     

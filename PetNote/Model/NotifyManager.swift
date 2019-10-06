@@ -19,12 +19,12 @@ class NotifyManager {
         // 查看是否有通知 identifer，若有則刪除之前通知
         if let identifier = identifier {
             UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [identifier])
-            UNUserNotificationCenter.current().getPendingNotificationRequests { notifyArray in
-                
-                notifyArray.forEach {
-                    print($0.identifier)
-                }
-            }
+//            UNUserNotificationCenter.current().getPendingNotificationRequests { notifyArray in
+//                
+//                notifyArray.forEach {
+//                    print($0.identifier)
+//                }
+//            }
         }
         
         // 通知為關閉狀態，不創建新通知

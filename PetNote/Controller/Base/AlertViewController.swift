@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol AlertViewDelegate: AnyObject{
+protocol AlertViewDelegate: AnyObject {
     func pressRightButton()
     func pressLeftButton()
 }

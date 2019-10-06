@@ -23,15 +23,21 @@ class AddRecordViewController: BaseViewController {
     var descriptionText: String = ""
     var events: [String] = []
     
-//    let symptoms: [String] = ["嘔吐", "拉肚子", "流眼淚", "打噴嚏", "精神不佳", "食慾不佳", "外傷"]
-    let symptoms: [Event] = [Event(title: "嘔吐"), Event(title: "拉肚子"), Event(title: "流眼淚"), Event(title: "打噴嚏"), Event(title: "精神不佳"), Event(title: "食慾不佳"), Event(title: "外傷")]
+    let symptoms: [Event] = [
+        Event(title: "嘔吐"),
+        Event(title: "拉肚子"),
+        Event(title: "流眼淚"),
+        Event(title: "打噴嚏"),
+        Event(title: "精神不佳"),
+        Event(title: "食慾不佳"),
+        Event(title: "外傷")
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "添加症狀記錄"
         
-        setupTableView() 
-        // Do any additional setup after loading the view.
+        setupTableView()
     }
     
     func setupTableView() {
@@ -55,11 +61,9 @@ class AddRecordViewController: BaseViewController {
         
         if let dateCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? DateSelectTableViewCell {
             selecedDate = dateCell.getDate()
-//            return
         }
         if let describeCell = tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? DescriptionTableViewCell {
             descriptionText = describeCell.getDescription()
-//            return
         }
         events = []
         symptoms.forEach {
@@ -133,11 +137,16 @@ extension AddRecordViewController: UITableViewDataSource {
                     withIdentifier: String(describing: ProtectTypeTableViewCell.self),
                     for: indexPath)
                 as? ProtectTypeTableViewCell
-                else {
-                    return UITableViewCell()
+            else {
+                return UITableViewCell()
             }
             cell.delegate = self
-            cell.layoutCell(title: symptoms[indexPath.row].title, hideTextField: true)
+            
+            cell.layoutCell(
+                title: symptoms[indexPath.row].title,
+                hideTextField: true
+            )
+            
             return cell
         }
     }

@@ -22,13 +22,18 @@ class PNChartView: UIView {
         super.init(frame: frame)
     }
     
-    func setup() {
+    func setupChartView(entries: [ChartDataEntry], xValues: [String]? = nil, yValues: [String]? = nil) {
+        
         chartView = LineChartView()
-        chartView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
+        chartView.frame = CGRect(x: 0,
+                                 y: 0,
+                                 width: self.frame.width,
+                                 height: self.frame.height)
+        
         self.addSubview(chartView)
         chartView.legend.form = .none // 左下折線圖名稱前的圖形
-        setupAxis(xValues: nil, yValues: nil)
-        setupData(entries: nil, label: nil)
+        setupAxis(xValues: xValues, yValues: yValues)
+        setupData(entries: entries)
         notifyDataChanged()
     }
     
@@ -46,7 +51,6 @@ class PNChartView: UIView {
         chartView.leftAxis.granularity = 1 // 最小間隔
         chartView.leftAxis.axisMaximum = 6 // 最大刻度
         chartView.leftAxis.axisMinimum = 0 // 最小刻度
-//        chartView.leftAxis.entryCount = 4
         
         // 自定義刻度文字
         let defaultXValues =  ["1", "2", "3", "4", "5", "6"]
@@ -55,44 +59,31 @@ class PNChartView: UIView {
             chartView.leftAxis.valueFormatter = IndexAxisValueFormatter(values: yValues)
         }
     }
- 
-    func setupData(entries: [ChartDataEntry]?, label: String?) {
-        // 若無 entries 則使用預設的隨機數據
-        var dataEntries = [ChartDataEntry]()
-        for index in 0..<5 {
-//            let y = arc4random()%100
-            let yyy = Double.random(in: 0...6)
-            let entry = ChartDataEntry.init(x: Double(index) + 0.2, y: Double(yyy))
-            dataEntries.append(entry)
-        }
-        //这50条数据作为1根折线里的所有数据
-        let chartDataSet = LineChartDataSet(entries: entries ?? dataEntries, label: label ?? "八月")
+     
+    func setupData(entries: [ChartDataEntry]?, label: String = "") {
+       
+        //設定數據資料來源
+        let chartDataSet = LineChartDataSet(entries: entries ?? [], label: label )
         
         chartDataSet.colors = [.orange] // 折線顏色
-//        chartDataSet.colors = ChartColorTemplates.colorful()
         chartDataSet.circleColors = [.orange] // 折點外圓顏色
         chartDataSet.circleHoleColor = .white //折點內圓顏色
-        //        chartDataSet.circleRadius = 6 // 外圓半徑
-        //        chartDataSet.circleHoleRadius = 2 // 內圓半徑
         
         chartDataSet.mode = .horizontalBezier //折線圖樣式
-        //        chartDataSet.drawCirclesEnabled = false // 是否顯示折點
-        //        chartDataSet.drawCircleHoleEnabled = false // 不繪製折點內圓
         
         chartDataSet.valueColors = [.brown] // 折點文字顏色
         chartDataSet.valueFont = .systemFont(ofSize: 9) // 折點文字樣式大小
         
         chartDataSet.drawFilledEnabled = true //填充顏色
-        //渐变颜色数组
+        //漸層色
         let gradientColors = [UIColor.orange.cgColor, UIColor.white.cgColor] as CFArray
-        //每组颜色所在位置（范围0~1)
+        //每組顏色所在位置（範圍0~1)
         let colorLocations: [CGFloat] = [1.0, 0.0]
-        //生成渐变色
+        //產生漸層色
         let gradient = CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(),
                                        colors: gradientColors, locations: colorLocations)
-        //将渐变色作为填充对象s
+        //設定漸層色為填充色
         chartDataSet.fill = Fill.fillWithLinearGradient(gradient!, angle: 90.0)
-        //        chartDataSet.fillColor = .orange  //設置填充色
         chartDataSet.fillAlpha = 0.5 //填充色透明度
         
         chartDataSet.highlightEnabled = false  // 不顯示十字線
@@ -100,7 +91,7 @@ class PNChartView: UIView {
         let chartData = LineChartData(dataSets: [chartDataSet])
         
         chartData.setValueFormatter(MyFormatter())
-        //设置折现图数据
+        //設置折線圖數據
         chartView.data = chartData
     }
     
@@ -116,7 +107,7 @@ class MyFormatter: NSObject, IValueFormatter {
                         dataSetIndex: Int, viewPortHandler: ViewPortHandler?) -> String {
         let formatter = NumberFormatter()
         formatter.maximumFractionDigits = 2
-        let string = "\(formatter.string(from: NSNumber(value: value)) ?? "") kg"
+        let string = "\(formatter.string(from: NSNumber(value: value * 10)) ?? "") kg"
         
         return string
     }

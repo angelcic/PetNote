@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9131C128234A0FDB00BC4D87 /* PNProtectPlanExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9131C127234A0FDB00BC4D87 /* PNProtectPlanExtension.swift */; };
 		9142BBD9233DBE5E006418A5 /* DeletePetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142BBD8233DBE5E006418A5 /* DeletePetViewController.swift */; };
 		9142BBDD234242CC006418A5 /* NotifyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142BBDC234242CC006418A5 /* NotifyManager.swift */; };
 		9142BBFF2344566D006418A5 /* AdjustPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142BBFE2344566D006418A5 /* AdjustPhotoViewController.swift */; };
@@ -141,6 +142,7 @@
 /* Begin PBXFileReference section */
 		0C36075D08FC74716301080A /* Pods_PetNote.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetNote.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B1361EE367C157E8D7CBCD6 /* Pods-PetNote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetNote.release.xcconfig"; path = "Target Support Files/Pods-PetNote/Pods-PetNote.release.xcconfig"; sourceTree = "<group>"; };
+		9131C127234A0FDB00BC4D87 /* PNProtectPlanExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNProtectPlanExtension.swift; sourceTree = "<group>"; };
 		9142BBD8233DBE5E006418A5 /* DeletePetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletePetViewController.swift; sourceTree = "<group>"; };
 		9142BBDC234242CC006418A5 /* NotifyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyManager.swift; sourceTree = "<group>"; };
 		9142BBFE2344566D006418A5 /* AdjustPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustPhotoViewController.swift; sourceTree = "<group>"; };
@@ -602,8 +604,9 @@
 			children = (
 				9166F02F2338C2AA0086C70E /* PetNote.xcdatamodeld */,
 				9166F0312338C2AA0086C70E /* PNPetInfoExtension.swift */,
-				9166F0322338C2AA0086C70E /* StorageManager.swift */,
 				9142BC6823473E89006418A5 /* PNHospitalExtension.swift */,
+				9131C127234A0FDB00BC4D87 /* PNProtectPlanExtension.swift */,
+				9166F0322338C2AA0086C70E /* StorageManager.swift */,
 			);
 			path = CoreDataStorage;
 			sourceTree = "<group>";
@@ -978,6 +981,7 @@
 				9181BC672319119D007BB7C6 /* UICollectionViewExtension.swift in Sources */,
 				9142BBD9233DBE5E006418A5 /* DeletePetViewController.swift in Sources */,
 				9166EF9E2338BE890086C70E /* BasicMedicalRecordTableViewCell.swift in Sources */,
+				9131C128234A0FDB00BC4D87 /* PNProtectPlanExtension.swift in Sources */,
 				9166F0332338C2AA0086C70E /* LocalFileManager.swift in Sources */,
 				9166F0002338C19D0086C70E /* BasicInfoViewController.swift in Sources */,
 				9166EFD92338C05D0086C70E /* AddDataTableViewSectionHeaderView.swift in Sources */,

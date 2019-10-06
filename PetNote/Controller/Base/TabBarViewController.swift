@@ -39,15 +39,11 @@ private enum Tab {
     }
     
     func tabBarItem() -> UITabBarItem {
-        
-//        let image = UIImage(named: "Icons_64px_footprint01")
-
+   
         let image = UIImage(named: "Icon-foot-Small")
         
         switch self {
         case .profile:
-            
-//            image.res
             return UITabBarItem(
                 title: "毛孩檔案",
                 image: image,
@@ -76,8 +72,7 @@ private enum Tab {
 class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     
     private let tabs: [Tab] = [.profile, .record, .other]
-//        [.profile, .record, .medical, .other]
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -85,7 +80,7 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         viewControllers = tabs.map({ $0.controller()
         })
         self.tabBar.tintColor = UIColor.pnBlueDark
-//        self.tabBar.unselectedItemTintColor = UIColor.pnGray
+        
         StorageManager.shared.fetchPets()
         
         delegate = self

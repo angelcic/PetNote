@@ -21,7 +21,7 @@ class LocalFileManager {
         let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         let docURL = URL(string: documentDirectory)!
         let imageFolderURL = docURL.appendingPathComponent("Resources", isDirectory: true)
-        print("照片檔案夾路徑： \(imageFolderURL.absoluteString)")
+        
         return imageFolderURL
     }()
     
@@ -41,7 +41,6 @@ class LocalFileManager {
                 isDirectory: false
             ).absoluteString
             
-            print("=======filePath = \(filePath)")
             let imageData = image.fixedOrientation()!.jpegData(compressionQuality: 1)
             
             let result = FileManager.default.createFile(
@@ -120,7 +119,7 @@ class LocalFileManager {
             )
             completion?(Result.success(()))
         } catch let error {
-            print("創建檔案夾失敗")
+            
             print(error.localizedDescription)
             completion?(Result.failure(LocalFileIOError.createFolderError))
             

@@ -31,27 +31,12 @@ class AdjustPhotoViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "選擇照片顯示範圍"
-        scrollView.addSubview(imageView)
-        imageView.backgroundColor = .gray
-        imageView.contentMode = .scaleAspectFit
-        imageView.clipsToBounds = true
+        setupVisibleImageView()
     }
     
     override func viewDidLayoutSubviews() {
         setupScrollViewContentView()
         updateMinZoomScaleForSize(view.bounds.size)
-    }
-    
-    func setupScrollViewContentView() {
-        scrollView.frame = CGRect(
-            origin: CGPoint(x: 0, y: 0),
-            size: visibleView.frame.size
-        )
-        
-        imageView.frame = CGRect(
-            origin: CGPoint(x: 0, y: 0),
-            size: visibleView.frame.size
-        )
     }
     
     override func navigationBarSetting() {
@@ -65,6 +50,25 @@ class AdjustPhotoViewController: BaseViewController {
         )
         
         self.navigationItem.rightBarButtonItem = saveButton
+    }
+    
+    func setupVisibleImageView() {
+        scrollView.addSubview(imageView)
+        imageView.backgroundColor = .gray
+        imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
+    }
+    
+    func setupScrollViewContentView() {
+        scrollView.frame = CGRect(
+            origin: CGPoint(x: 0, y: 0),
+            size: visibleView.frame.size
+        )
+        
+        imageView.frame = CGRect(
+            origin: CGPoint(x: 0, y: 0),
+            size: visibleView.frame.size
+        )
     }
     
     func updateMinZoomScaleForSize(_ size: CGSize) {

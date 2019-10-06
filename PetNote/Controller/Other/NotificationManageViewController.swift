@@ -33,18 +33,22 @@ class NotificationManageViewController: UIViewController {
 }
 
 extension NotificationManageViewController: UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let notificationVC = UIStoryboard.other.instantiateViewController(
+        
+        guard
+            let notificationVC = UIStoryboard.other.instantiateViewController(
             withIdentifier: String(describing: NotificatonViewController.self))
-        as? NotificatonViewController
-            else {
-                return
+                as? NotificatonViewController
+        else {
+            return
         }
         show(notificationVC, sender: nil)
     }
 }
 
 extension NotificationManageViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -57,13 +61,17 @@ extension NotificationManageViewController: UICollectionViewDataSource, UICollec
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: String(describing: BasicCollectionViewCell.self), for: indexPath)
+        guard
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: String(describing: BasicCollectionViewCell.self),
+                for: indexPath)
             as? BasicCollectionViewCell
-            else {
-                return UICollectionViewCell ()
+        else {
+            return UICollectionViewCell ()
         }
+        
         cell.layoutCell(title: notificationTypes[indexPath.row])
+        
         return cell
     }
 }

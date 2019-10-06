@@ -294,9 +294,9 @@
                         <viewLayoutGuide key="safeArea" id="2M1-NL-Uvk"/>
                     </view>
                     <connections>
-                        <outlet property="addPetView" destination="p7g-2U-ePk" id="9dC-9o-Fpa"/>
                         <outlet property="cancelButton" destination="Tqe-4o-fyP" id="B52-iJ-Fka"/>
                         <outlet property="confirmDeleteButton" destination="cYL-t8-BX5" id="nF6-px-566"/>
+                        <outlet property="deletePetView" destination="p7g-2U-ePk" id="8m6-UP-0bC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qqN-pr-Gv8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

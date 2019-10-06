@@ -25,9 +25,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             StorageManager.shared.createDemoData { result in
                 switch result {
                 case .success:
-                    print("成功新增預設資料")
+                    
                     myUserDefaults.set(
-                      true, forKey: "firstLaunchApp")
+                      true,
+                      forKey: "firstLaunchApp"
+                    )
                     myUserDefaults.synchronize()
                 case .failure(let error):
                     print(error)
@@ -40,12 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 開啟通知權限
         UNUserNotificationCenter.current().requestAuthorization(
             options: [.alert, .sound, .badge, .carPlay],
-            completionHandler: { (granted, error) in
-            if granted {
-                print("允許")
-            } else {
-                print("不允許")
-            }
+            completionHandler: { (granted, error) in            
         })
         
         // 連線 firebase 以便回傳 crash 資訊

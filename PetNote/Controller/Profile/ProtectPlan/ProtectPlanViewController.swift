@@ -9,25 +9,12 @@
 import UIKit
 
 class ProtectPlanViewController: BaseContainerViewController {
-    func petDidChange() {
-        guard
-            let pet = currentPet,
-            let protectPlan = pet.protectPlan?.sortedArray(
-                using: [NSSortDescriptor(key: "protectType", ascending: false)])
-                as? [PNProtectPlan]
-        else {
-            return
-        }
-        self.protectPlans = protectPlan
-    }
-
+    
     @IBOutlet weak var tableView: UITableView! {
-        
         didSet {
             tableView.delegate = self
             tableView.dataSource = self
         }
-        
     }
     
     var protectPlans: [PNProtectPlan] = [] {
@@ -42,20 +29,43 @@ class ProtectPlanViewController: BaseContainerViewController {
         super.viewDidLoad()
         setTableView()
         
-        protectPlans = currentPet?.protectPlan?.allObjects as? [PNProtectPlan] ?? []
     }
     
+    override func currentPetWasSet() {
+        super.currentPetWasSet()
+        protectPlans = currentPet?.protectPlan?.allObjects as? [PNProtectPlan] ?? []
+    }
+
     func setTableView() {
         tableView.registerHeaderWithNib(
             identifier: String(describing: AddDataTableViewSectionHeaderView.self),
-            bundle: nil)
-        tableView.registerCellWithNib(identifier: ProtectPlanTableViewCell.identifier, bundle: nil)
+            bundle: nil
+        )
+        
+        tableView.registerCellWithNib(
+            identifier: ProtectPlanTableViewCell.identifier,
+            bundle: nil
+        )
+    }
+    
+    func petDidChange() {
+        guard
+            let pet = currentPet,
+            let protectPlan = pet.protectPlan?.sortedArray(
+                using: [NSSortDescriptor(key: PNProtectPlan.protectType, ascending: false)])
+                as? [PNProtectPlan]
+        else {
+            return
+        }
+        self.protectPlans = protectPlan
     }
     
     func addProtectPlan() {
+        
         let protectPlan = StorageManager.shared.getPNProtectPlan()
         let notification = StorageManager.shared.getPNNotifyInfo()
         protectPlan.addToNotifyInfo(notification)
+        
         showAddProtectPlanVC(protectPlan: protectPlan,
                              title: "添加預防計畫") {[weak self] protectPlan in
                               
@@ -67,7 +77,6 @@ class ProtectPlanViewController: BaseContainerViewController {
                 case .success:
                     self?.protectPlans.append(protectPlan)
                     self?.tableView.reloadData()
-                    print("成功加入預防計畫")
                 case .failure(let error):
                     print(error)
                 }
@@ -85,7 +94,6 @@ class ProtectPlanViewController: BaseContainerViewController {
                     DispatchQueue.main.async {
                         self?.tableView.reloadData()
                     }
-                    print("成功修改預防計畫")
                 case .failure(let error):
                     print(error)
                 }
@@ -94,17 +102,20 @@ class ProtectPlanViewController: BaseContainerViewController {
     }
     
     func showAddProtectPlanVC(protectPlan: PNProtectPlan, title: String, handler: @escaping (PNProtectPlan) -> Void) {
-        guard let addPlanViewController = UIStoryboard.profile.instantiateViewController(
-            withIdentifier: "AddPreventionPage")
+        guard
+            let addPlanViewController = UIStoryboard.profile.instantiateViewController(
+                withIdentifier: "AddPreventionPage"
+                )
             as? AddingProtectPlanViewController
-            else {
-                return
+        else {
+            return
         }
+        
         if let petType = currentPet?.getPetType() {
             addPlanViewController.currentPetType = petType
         }
+        
         addPlanViewController.handler = handler
-//        addPlanViewController.delegate = self
         addPlanViewController.protectPlan = protectPlan
         addPlanViewController.setupNavigationTitle(title: title)
         
@@ -132,10 +143,11 @@ extension ProtectPlanViewController: UITableViewDataSource {
         guard
             let cell = tableView.dequeueReusableCell(
                 withIdentifier: ProtectPlanTableViewCell.identifier,
-                for: indexPath)
+                for: indexPath
+                )
                 as? ProtectPlanTableViewCell
-            else {
-                return UITableViewCell()
+        else {
+            return UITableViewCell()
         }
         let type = protectPlans[indexPath.row].protectType
         let name = protectPlans[indexPath.row].protectName
@@ -152,15 +164,17 @@ extension ProtectPlanViewController: UITableViewDataSource {
 
 extension ProtectPlanViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 60
+        let headerViewHeight: CGFloat = 60
+        return headerViewHeight
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let headerView = tableView.dequeueReusableHeaderFooterView(
+        guard
+            let headerView = tableView.dequeueReusableHeaderFooterView(
             withIdentifier: AddDataTableViewSectionHeaderView.identifier)
             as? AddDataTableViewSectionHeaderView
         else {
-                return UIView()
+            return UIView()
         }
         headerView.delegate = self
         return headerView
@@ -168,12 +182,10 @@ extension ProtectPlanViewController: UITableViewDelegate {
     
     // MARK: 修改預防計畫
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         modifyProtectPlan(protectPlan: protectPlans[indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        print("刪除")
         let plan = protectPlans[indexPath.row]
         StorageManager.shared.deleteData(plan) {[weak self] result in
             switch result {
@@ -185,7 +197,6 @@ extension ProtectPlanViewController: UITableViewDelegate {
                 
             }
         }
-        
     }
     
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
