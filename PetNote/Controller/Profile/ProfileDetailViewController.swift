@@ -8,19 +8,12 @@
 
 import UIKit
 
-class ProfileDetailViewController: SwitchPetViewController, SwitchPetViewControllerProtocol {
+class ProfileDetailViewController: SwitchPetViewController {
 
-    @IBOutlet var detailView: ProfileDetailView! {
-        didSet {
-            detailView.delegate = self
-            detailView.backgroundColor = .white
-        }
-    }
+    @IBOutlet var detailView: ProfileDetailView!
     
     var containerVCs: [BaseContainerViewController] = []
     var storageManger = StorageManager.shared
-    
-//    var pets: [Pet] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +27,7 @@ class ProfileDetailViewController: SwitchPetViewController, SwitchPetViewControl
         super.navigationBarSetting()
         
         let saveButton = UIBarButtonItem(title: "新增成員", style: .plain, target: self, action: #selector(addPetAction))
-//        saveButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.pnWhite], for: .normal)
-        
+   
         self.navigationItem.rightBarButtonItem = saveButton
     }
     
@@ -58,6 +50,9 @@ class ProfileDetailViewController: SwitchPetViewController, SwitchPetViewControl
         }
     }
     
+}
+
+extension ProfileDetailViewController: SwitchPetViewControllerProtocol {
     func petsNumberChange(isEmpty: Bool) {
         detailView.changeAddPetAlertStatus(isHidden: !isEmpty)
     }
@@ -74,14 +69,4 @@ class ProfileDetailViewController: SwitchPetViewController, SwitchPetViewControl
             })
         }
     }
-    
-    func updateSwitchView() {
-        detailView.updateSwitchView()
-        changePet(storageManger.currentPetIndex)
-    }
-    
-}
-
-extension ProfileDetailViewController: ProfileDetailViewDelegate {
-    
 }

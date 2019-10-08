@@ -8,46 +8,55 @@
 
 import UIKit
 
-protocol ProfileDetailViewDelegate: SwitchPetViewDelegate, NSObject {
+enum PageType: Int {
     
+    case basicInfo = 0
+    
+    case protectPlan = 1
+    
+    case healthRecord = 2
+    
+    var pageTitle: String {
+        switch self {
+        case .basicInfo:
+            return "基本資料"
+        case .protectPlan:
+            return "預防計畫"
+        case .healthRecord:
+            return "體重記錄"
+        }
+    }
 }
 
 class ProfileDetailView: UIView {
     
-    private enum PageType: Int {
-        
-        case basicInfo = 0
-        
-        case protectPlan = 1
-        
-        case healthRecord = 2
-    }
-    
+    //  container view 切換條
     @IBOutlet weak var selectionViewLayer: UIView!
+    
     @IBOutlet weak var basicInfoContainerView: UIView!
     @IBOutlet weak var protectPlanContainerView: UIView!
     @IBOutlet weak var healthRecordContainerView: UIView!
     
+    // 無寵物成員提示，無成員時阻擋其他操作
     @IBOutlet weak var addPetAlertLayer: UIView!
     
     let selectionView = SelectionView(CGRect.zero)
     
     var containerViews: [UIView] {
         
-        return [basicInfoContainerView, protectPlanContainerView, healthRecordContainerView]
+        return [basicInfoContainerView,
+                protectPlanContainerView,
+                healthRecordContainerView]
     }
-    
-    weak var delegate: ProfileDetailViewDelegate?
-    
+        
     override func awakeFromNib() {
         super.awakeFromNib()
         setupSelectionView()
-        
+        self.backgroundColor = .white
     }
 
     override func layoutSubviews() {
         super.layoutSubviews()
-//        setupPetSwitchLayer()
         resetSelectionViewFrame()
     }
     
@@ -70,10 +79,6 @@ class ProfileDetailView: UIView {
                    width: selectionViewLayer.frame.width,
                    height: selectionViewLayer.frame.height)
         )
-//        collectionView.registerCellWithNib(
-//            identifier: String(describing: PetsCollectionViewCell.self),
-//            bundle: nil
-//        )
     }
     
     private func updateContainer(type: PageType) {
@@ -109,18 +114,14 @@ extension ProfileDetailView: SelectionViewDelegate {
         }
         updateContainer(type: type)
     }
-    
-    func updateSwitchView() {
-    //        switchPetView.updatePetsData()
-    }
 }
 
 extension ProfileDetailView: SelectionViewDataSource {
     
-    var page: [String] {
-        
-        return ["基本資料", "預防計畫", "體重記錄"]
-        
+    var page: [PageType] {
+
+        return [.basicInfo, .protectPlan, .healthRecord]
+
     }
     
     func indicatorColor() -> UIColor {
@@ -140,6 +141,6 @@ extension ProfileDetailView: SelectionViewDataSource {
     }
     
     func buttonForRowAt(_ selectView: SelectionView, index: Int, button: UIButton) {
-        button.setTitle(page[index], for: .normal)
+        button.setTitle(page[index].pageTitle, for: .normal)
     }
 }

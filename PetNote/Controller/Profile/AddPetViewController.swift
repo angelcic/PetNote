@@ -26,6 +26,7 @@ class AddPetViewController: BaseViewController {
             else {
                 return
             }
+            
             addPetView.addSubview(petView)
             petView.frame = addPetView.bounds
             petView.delegate = self
