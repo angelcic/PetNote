@@ -32,24 +32,26 @@ class BasicInfoViewController: BaseContainerViewController {
     
     func petDidChange() {
         tableView.reloadData()
-//        tableView.reloadSections(IndexSet(arrayLiteral: 1), with: .none) // 待研究
     }
     
     func showDeletePetVC() {
-            guard let deletePetVC = UIStoryboard.profile.instantiateViewController(
-                withIdentifier: DeletePetViewController.identifier)
-                as? DeletePetViewController
-                else {return}
-            
-            deletePetVC.delegate = self
-            
-            // 顯示樣式
-            deletePetVC.modalPresentationStyle = UIModalPresentationStyle.custom
-            
-            self.present(deletePetVC, animated: false, completion: nil)
-            
-            deletePetVC.view.backgroundColor = UIColor.clear
+        guard
+            let deletePetVC = UIStoryboard.profile.instantiateViewController(
+            withIdentifier: DeletePetViewController.identifier)
+            as? DeletePetViewController
+        else {
+            return
         }
+        
+        deletePetVC.delegate = self
+        
+        // 顯示樣式
+        deletePetVC.modalPresentationStyle = UIModalPresentationStyle.custom
+        deletePetVC.view.backgroundColor = UIColor.clear
+
+        self.present(deletePetVC, animated: false, completion: nil)
+        
+    }
 }
 
 extension BasicInfoViewController: DeletePetViewControllerDelegate {
@@ -58,7 +60,6 @@ extension BasicInfoViewController: DeletePetViewControllerDelegate {
             switch result {
             case .success:
                 StorageManager.shared.currentPetIndex = 0
-                print("已移除成員")
             case .failure(let error):
                 print(error)
             }
@@ -85,7 +86,9 @@ extension BasicInfoViewController: UIImagePickerControllerDelegate {
         
         guard
             let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage,
-            let adjustImageVC = UIStoryboard.profile.instantiateViewController(withIdentifier: AdjustPhotoViewController.identifier)
+            let adjustImageVC = UIStoryboard.profile.instantiateViewController(
+                withIdentifier: AdjustPhotoViewController.identifier
+                )
                 as? AdjustPhotoViewController
         else {
             return
@@ -97,7 +100,8 @@ extension BasicInfoViewController: UIImagePickerControllerDelegate {
             let petId = "\(pet.petId)"
             
             // 把照片存入 app 下的資料夾
-            LocalFileManager.shared.saveImage(petId: petId, image: image) { [weak self] result in
+            LocalFileManager.shared.saveImage(petId: petId,
+                                              image: image) { [weak self] result in
                 switch result {
                 case .success(let path):
                     self?.currentPet?.photo = path
@@ -128,20 +132,22 @@ extension BasicInfoViewController: BasicInfoTableViewCellDelegate {
     }
     
     func pressModifyButton() {
-        guard let modifyInfoVC = UIStoryboard.profile.instantiateViewController(
+        guard
+            let modifyInfoVC = UIStoryboard.profile.instantiateViewController(
             withIdentifier: ModifyBaseInfoViewController.identifier)
             as? ModifyBaseInfoViewController
-            else {return}
-        
-        // 顯示樣式
-        modifyInfoVC.modalPresentationStyle = UIModalPresentationStyle.custom
+        else {
+            return
+        }
         
         modifyInfoVC.currentPet = currentPet
         modifyInfoVC.delegate = self
         
-        self.present(modifyInfoVC, animated: false, completion: nil)
+        // 顯示樣式
+        modifyInfoVC.modalPresentationStyle = UIModalPresentationStyle.custom
+        modifyInfoVC.view.backgroundColor = UIColor.clear        
         
-        modifyInfoVC.view.backgroundColor = UIColor.clear
+        self.present(modifyInfoVC, animated: false, completion: nil)
 
     }
 }
@@ -169,8 +175,8 @@ extension BasicInfoViewController: UITableViewDataSource {
                     withIdentifier: AddImageTableViewCell.identifier,
                     for: indexPath)
                     as? AddImageTableViewCell
-                else {
-                    return UITableViewCell()
+            else {
+                return UITableViewCell()
             }
             cell.delegate = self
             cell.layoutCell(image: currentImage)

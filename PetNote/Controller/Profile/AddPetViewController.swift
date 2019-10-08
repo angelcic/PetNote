@@ -20,14 +20,17 @@ class AddPetViewController: BaseViewController {
             addPetView.addBorder(borderColor: .gray,
                                  borderWidth: 1,
                                  cornerRadius: 20)
-            if let petView = Bundle(for: AddPetView.self).loadNibNamed(
-                "\(AddPetView.self)",
-                owner: nil,
-                options: nil)?.first as? AddPetView {
-                addPetView.addSubview(petView)
-                petView.frame = addPetView.bounds
-                petView.delegate = self
+            
+            guard let petView = Bundle(for: AddPetView.self).loadNibNamed("\(AddPetView.self)", owner: nil, options: nil)?.first
+                as? AddPetView
+            else {
+                return
             }
+            
+            addPetView.addSubview(petView)
+            petView.frame = addPetView.bounds
+            petView.delegate = self
+            
         }
     }
     weak var delegate: AddPetViewControllerDelegate?
@@ -37,7 +40,6 @@ class AddPetViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 }
 
@@ -54,8 +56,8 @@ extension AddPetViewController: AddPetViewDelegate {
             switch result {
                 
             case .success(let index):
-                print("success")
                 self?.storageManager.currentPetIndex = index
+                
             case .failure(let error):
                 print(error)
             }

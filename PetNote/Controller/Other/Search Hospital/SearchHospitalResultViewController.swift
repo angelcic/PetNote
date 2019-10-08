@@ -24,7 +24,6 @@ class SearchHospitalResultViewController: BaseViewController {
 
         self.navigationItem.title = "附近醫院"
         setupTableView()
-        // Do any additional setup after loading the view.
     }
         
     func setupTableView() {
@@ -60,17 +59,25 @@ extension SearchHospitalResultViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(
+        guard
+            let cell = tableView.dequeueReusableCell(
             withIdentifier: String(describing: HospitalDataTableViewCell.self), for: indexPath)
             as? HospitalDataTableViewCell
         else {
             return UITableViewCell()
         }
-        guard let hospital = hospitalLists?[indexPath.row]
-            else {
-                return cell
+        
+        guard
+            let hospital = hospitalLists?[indexPath.row]
+        else {
+            return cell
         }
-        cell.layoutCell(name: hospital.name, address: hospital.address, phone: hospital.phone)
+        cell.layoutCell(
+            name: hospital.name,
+            address: hospital.address,
+            phone: hospital.phone
+        )
+        
         return cell
     }
     

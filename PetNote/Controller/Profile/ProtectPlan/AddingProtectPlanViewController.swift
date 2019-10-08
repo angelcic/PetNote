@@ -15,7 +15,6 @@ class AddingProtectPlanViewController: BaseViewController {
         didSet {
             tableView.delegate = self
             tableView.dataSource = self
-            
         }
     }
     
@@ -29,14 +28,19 @@ class AddingProtectPlanViewController: BaseViewController {
     
     let protectPlans: [String] = ["疫苗", "體內驅蟲", "體外驅蟲", "其他"]
     
-    lazy var protectTypes: [ProtectType] =
-        [.vaccines(type: currentPetType), .entozoa, .externalParasites(type: currentPetType), .other]
+    lazy var protectTypes: [ProtectType] = [
+        .vaccines(type: currentPetType),
+        .entozoa,
+        .externalParasites(type: currentPetType),
+        .other
+    ]
    
     var protectPlan: PNProtectPlan = PNProtectPlan() {
         didSet {
             if let protectType = protectPlan.protectType {
                 
-                currentPreventType = ProtectType.getProtectType(name: protectType, petType: currentPetType)
+                currentPreventType = ProtectType.getProtectType(name: protectType,
+                                                                petType: currentPetType)
                 
                 petPreventType = currentPreventType
             }
@@ -134,8 +138,10 @@ class AddingProtectPlanViewController: BaseViewController {
         
         let notify = cell.getNotifySetting()
         
-        NotifyManager.shared.createNotification(by: notify,
-                                                with: petNotifyInfo?.identifier) {[weak self] result in
+        NotifyManager.shared.createNotification(
+            by: notify,
+            with: petNotifyInfo?.identifier
+        ) {[weak self] result in
             guard
                 let protectPlan = self?.protectPlan,
                 let petNotifyInfo = self?.petNotifyInfo
@@ -143,7 +149,6 @@ class AddingProtectPlanViewController: BaseViewController {
                                                     
             switch result {
             case .success(let identifier, let notificationObject):
-                print("petNotifyInfo 的 id 為: \(identifier)")
                 petNotifyInfo.identifier = identifier
                 petNotifyInfo.date = notificationObject.nextDate.timeIntervalSince1970
                 petNotifyInfo.time = notificationObject.alertTime.timeIntervalSince1970
@@ -163,10 +168,11 @@ class AddingProtectPlanViewController: BaseViewController {
     }
     
     func showOpenAlertVC() {
-        guard let alertVC = UIStoryboard.basic.instantiateViewController(
+        guard
+            let alertVC = UIStoryboard.basic.instantiateViewController(
             withIdentifier: AlertViewController.identifier)
             as? AlertViewController
-            else {return}
+        else {return}
         
         alertVC.delegate = self
         
@@ -287,11 +293,22 @@ extension AddingProtectPlanViewController: ProtectTypeTableViewCellDelegate {
 extension AddingProtectPlanViewController: UITableViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == tableView {
+            
             let sectionHeaderHeight = CGFloat(50)
+            
             if scrollView.contentOffset.y <= sectionHeaderHeight && scrollView.contentOffset.y >= 0 {
-                scrollView.contentInset = UIEdgeInsets(top: -scrollView.contentOffset.y, left: 0, bottom: 0, right: 0)
+                
+                scrollView.contentInset = UIEdgeInsets(top: -scrollView.contentOffset.y,
+                                                       left: 0,
+                                                       bottom: 0,
+                                                       right: 0)
+                
             } else if scrollView.contentOffset.y >= sectionHeaderHeight {
-                scrollView.contentInset = UIEdgeInsets(top: -sectionHeaderHeight, left: 0, bottom: 0, right: 0)
+                
+                scrollView.contentInset = UIEdgeInsets(top: -sectionHeaderHeight,
+                                                       left: 0,
+                                                       bottom: 0,
+                                                       right: 0)
             }
         }
     }
@@ -372,7 +389,8 @@ extension AddingProtectPlanViewController: UITableViewDataSource {
             frequencyTypes: pnNotifyInfo.repeatType ?? RepeatType.once.rawValue,
             nextDate: nextDate,
             alertTime: alertTime,
-            alertText: pnNotifyInfo.title ?? "")
+            alertText: pnNotifyInfo.title ?? ""
+        )
         
         return notificationObject
     }
@@ -392,7 +410,8 @@ extension AddingProtectPlanViewController: UITableViewDataSource {
         switch currentPreventType {
         case .other:
             
-            cell.layoutCell(title: currentPreventType.protectFuntions[indexPath.row], hideTextField: false)
+            cell.layoutCell(title: currentPreventType.protectFuntions[indexPath.row],
+                            hideTextField: false)
             
             if let petPreventType = petPreventType,
                 petPreventType == currentPreventType {
@@ -404,19 +423,28 @@ extension AddingProtectPlanViewController: UITableViewDataSource {
         default:
             
             if indexPath.row == currentPreventType.protectFuntions.count - 1 {
-                cell.layoutCell(title: currentPreventType.protectFuntions[indexPath.row], hideTextField: false)
+                
+                cell.layoutCell(title: currentPreventType.protectFuntions[indexPath.row],
+                                hideTextField: false
+                )
+                
             } else {
-                cell.layoutCell(title: currentPreventType.protectFuntions[indexPath.row], hideTextField: true)
+                
+                cell.layoutCell(title: currentPreventType.protectFuntions[indexPath.row],
+                                hideTextField: true
+                )
+                
             }
             
             if let petPreventType = petPreventType,
                 petPreventType == currentPreventType {
+                
                 if petPlanNameString == currentPreventType.protectFuntions[indexPath.row] {
                     cell.changeSelectedStatus(true)
                 } else {
                     cell.changeSelectedStatus(false)
                 }
-                //  cell.layoutTextField(title: petPlanNameString)
+                
             } else {
                 if indexPath.row == 0 {
                     cell.changeSelectedStatus(true)

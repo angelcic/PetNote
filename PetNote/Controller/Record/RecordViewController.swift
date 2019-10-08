@@ -15,7 +15,6 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
         didSet {
             tableView.delegate = self
             tableView.dataSource = self
-//            tableView.tableHeaderView?.bounds.height = 20
             if dateRecord.count == 0 {
                 selectedDate = calendar.today ?? Date()
             }
@@ -34,7 +33,6 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
         didSet {
             calendar.dataSource = self
             calendar.delegate = self
-//            calendar.backgroundColor = .pnWhite
             
             calendar.appearance.headerTitleColor = UIColor.pnBlueDark
             calendar.appearance.weekdayTextColor = UIColor.pnBlueDark
@@ -49,17 +47,9 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
     var currentPet: PNPetInfo? {
         didSet {
             resetCurrentRecord()
-//            guard
-//                let pet = currentPet,
-//                let record = pet.dailyRecord?.sortedArray(
-//                    using: [NSSortDescriptor(key: "date", ascending: false)])
-//                    as? [PNDailyRecord]
-//            else {
-//                return
-//            }
-//            currentRecord = record
         }
     }
+    
     // 目前寵物的所有 record
     var currentRecord: [PNDailyRecord]? {
         
@@ -83,6 +73,61 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
         }
     }
     
+    // 有事件的日期
+    var eventDate: [String] = [] {
+        didSet {
+            calendar.reloadData()
+        }
+    }
+    
+    fileprivate lazy var scopeGesture: UIPanGestureRecognizer = { [unowned self] in
+        let panGesture = UIPanGestureRecognizer(
+            target: self.calendar,
+            action: #selector(self.calendar.handleScopeGesture(_:))
+        )
+        
+        panGesture.delegate = self
+        panGesture.minimumNumberOfTouches = 1
+        panGesture.maximumNumberOfTouches = 2
+        return panGesture
+        
+        }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        switchPetView.delegate = self
+        let index = storageManager.currentPetIndex
+        if storageManager.petsList.count > index {
+            
+            currentPet = storageManager.petsList[index]
+        }
+        setCalendar()
+        setupTableView()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+    }
+    
+    func setupTableView() {
+        tableView.registerCellWithNib(identifier: DailyRecordTableViewCell.identifier, bundle: nil)
+    }
+    
+    func setCalendar() {
+// 加入上滑月曆縮小功能
+        self.view.addGestureRecognizer(self.scopeGesture)
+        self.tableView.panGestureRecognizer.require(toFail: self.scopeGesture)
+    }
+    
+    func changePet(_ indexPath: IndexPath) {
+        let index = indexPath.row
+        if StorageManager.shared.petsList.count > index {
+            currentPet = StorageManager.shared.petsList[index]
+        }
+    }
+    
+    // 若無成員需阻擋加入紀錄操作
     func petsNumberChange(isEmpty: Bool) {
         addButtonMask.isHidden = !isEmpty
     }
@@ -110,55 +155,6 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
         tableView.reloadData()
     }
     
-    // 有事件的日期，透過
-    var eventDate: [String] = [] {
-        didSet {
-            calendar.reloadData()
-        }
-    }
-    
-    fileprivate lazy var scopeGesture: UIPanGestureRecognizer = {
-        [unowned self] in
-        let panGesture = UIPanGestureRecognizer(target: self.calendar,
-                                                action: #selector(self.calendar.handleScopeGesture(_:)))
-        panGesture.delegate = self
-        panGesture.minimumNumberOfTouches = 1
-        panGesture.maximumNumberOfTouches = 2
-        return panGesture
-        }()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        switchPetView.delegate = self
-        if storageManager.petsList.count > 0 {
-            currentPet = storageManager.petsList[0]
-        }
-        setCalendar()
-        setupTableView()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-    }
-    
-    func setupTableView() {
-        tableView.registerCellWithNib(identifier: DailyRecordTableViewCell.identifier, bundle: nil)
-    }
-    
-    func setCalendar() {
-// 加入上滑月曆縮小功能
-        self.view.addGestureRecognizer(self.scopeGesture)
-        self.tableView.panGestureRecognizer.require(toFail: self.scopeGesture)
-    }
-    
-    func changePet(_ indexPath: IndexPath) {
-        let index = indexPath.row
-        if StorageManager.shared.petsList.count > index {
-            currentPet = StorageManager.shared.petsList[index]
-        }
-    }
-    
     func addDailyRecord(date: Date) {
         showAddProtectPlanVC(date: date, dailyRecord: StorageManager.shared.getPNDailyRecord(),
                              title: "添加紀錄") {[weak self] date, event, describe in
@@ -176,7 +172,6 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
                 case .success:
                     self?.currentRecord?.append(record)
                     self?.tableView.reloadData()
-                    print("成功加入日期事件")
                 case .failure(let error):
                     print(error)
                 }
@@ -195,7 +190,6 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
                 switch result {
                 case .success:
                     self?.tableView.reloadData()
-                    print("成功修改日期事件")
                 case .failure(let error):
                     print(error)
                 }
@@ -204,9 +198,13 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
     }
     
     func showAddProtectPlanVC(date: Date, dailyRecord: PNDailyRecord, title: String, handler: @escaping (Date, [String], String) -> Void) {
-        guard let addRecordVC = UIStoryboard.record.instantiateViewController(
+        guard
+            let addRecordVC = UIStoryboard.record.instantiateViewController(
             withIdentifier: String(describing: AddRecordViewController.self))
-            as? AddRecordViewController else { return }
+            as? AddRecordViewController
+        else {
+            return
+        }
         
         addRecordVC.selecedDate = date
         addRecordVC.saveDateEvent = handler
@@ -219,14 +217,14 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
     @IBAction func addAction(_ sender: Any) {
         guard let day = calendar.selectedDate else {
             // 若沒有選擇日期直接使用當天日期
-            guard let day = calendar.today else { return }
+            guard
+                let day = calendar.today
+            else { return }
+            
             addDailyRecord(date: day)
             return
         }
-        
-        print(day.getDateString())
         addDailyRecord(date: day)
-        
     }
 }
 
@@ -258,19 +256,16 @@ extension RecordViewController: FSCalendarDelegate {
     // 事件圓點顯示
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         if eventDate.contains(date.getDateString(format: "yyyyMMdd")) {
-           return 1
+            return 1
         } else {
             return 0
         }
     }
     
-    // 被點選的日期（好像都會往前一天？）
+    // 被點選的日期
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         selectedDate = date
         tableView.reloadData()
-//        currentRecord?.forEach() {
-//            if $0.isEqual(date)
-//        }
     }
     
 }
@@ -282,23 +277,20 @@ extension RecordViewController: FSCalendarDataSource {
 extension RecordViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        print("刪除")
+        
         let record = dateRecord[indexPath.row]
+        
         StorageManager.shared.deleteData(record) {[weak self] result in
             switch result {
             case .success:
                 self?.resetCurrentRecord()
-//                self?.dateRecord.remove(at: indexPath.row)
-//                if self?.dateRecord.count == 0 {
-//                    self?.calendar.reloadData()
-//                }
                 tableView.reloadData()
+                
             case .failure(let error):
                 print(error)
                 
             }
         }
-        
     }
     
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
@@ -312,11 +304,16 @@ extension RecordViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: DailyRecordTableViewCell.identifier, for: indexPath)
+        
+        guard
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: DailyRecordTableViewCell.identifier,
+                for: indexPath)
             as? DailyRecordTableViewCell
         else {
             return UITableViewCell()
         }
+        
         let record = dateRecord[indexPath.row]
         let date = Date(timeIntervalSince1970: record.date)
         let describe = record.describe

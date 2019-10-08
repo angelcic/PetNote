@@ -59,7 +59,6 @@ class ChartTableViewCell: UITableViewCell {
             let weightText = weightTextField.text, !weightText.isBlank,
         let weight = Double(weightText)
         else {
-            print("請輸入體重")
             alertLabel.isHidden = false
             return
         }

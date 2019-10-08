@@ -53,16 +53,11 @@ class OtherFunctionViewController: BaseViewController {
     
     func showfunctionPage(_ type: FunctionType) {
         
-//        guard  let functionVC = UIStoryboard.other.instantiateViewController(
-//        withIdentifier: String(
-//        describing: SearchHospitalViewController.self)) as? SearchHospitalViewController
         guard
             let functionVC = type.getFunctionVC()
         else {
             return
         }
-        
-//        functionVC.loadViewIfNeeded()
         
         show(functionVC, sender: nil)
     }
@@ -89,8 +84,10 @@ extension OtherFunctionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
         let cellWidth = (collectionView.frame.width - spacing) / 2
         return CGSize(width: collectionView.frame.width, height: cellWidth)
+        
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -108,7 +105,6 @@ extension OtherFunctionViewController: UICollectionViewDelegateFlowLayout {
 
 extension OtherFunctionViewController: UICollectionViewDataSource {
     var functions: [String] {
-//        return ["附近醫院", "通知管理", "保健知識", "設定", "計算機幫手", "備份"]
         return ["附近醫院", "關於毛孩手帳"]
     }
     
@@ -118,14 +114,26 @@ extension OtherFunctionViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: String(describing: BasicCollectionViewCell.self), for: indexPath)
-        as? BasicCollectionViewCell
-            else {
-                return BasicCollectionViewCell()
+        guard
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: String(describing: BasicCollectionViewCell.self),
+                for: indexPath)
+                as? BasicCollectionViewCell
+        else {
+            return BasicCollectionViewCell()
         }
-        cell.layoutCell(title: functions[indexPath.row], textColor: UIColor.pnWhite!)
-        cell.layoutBGLayerAppearence(bgColor: UIColor.pnBlueDark!, borderWidth: 0, borderColor: UIColor.pnBlueLight!)
+        
+        cell.layoutCell(
+            title: functions[indexPath.row],
+            textColor: UIColor.pnWhite!
+        )
+        
+        cell.layoutBGLayerAppearence(
+            bgColor: UIColor.pnBlueDark!,
+            borderWidth: 0,
+            borderColor: UIColor.pnBlueLight!
+        )
+        
         return cell
     }
     

@@ -14,7 +14,6 @@ class SearchHospitalViewController: BaseViewController {
         didSet {
             searchView.backgroundColor = .pnBlueDark
             searchView.addCorner(cornerRadius: 10)
-//            guard let searchView = searchView as? SearchHospitalView else { return }
             searchView.delegate = self
         }
     }
@@ -26,11 +25,6 @@ class SearchHospitalViewController: BaseViewController {
     }
     
     var isSearchingFlag: Bool = false
-//    {
-//        didSet {
-//            searchButtonMaskLayer.isHidden = !isSearchingFlag
-//        }
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,8 +39,8 @@ class SearchHospitalViewController: BaseViewController {
             guard let searchResultVC = UIStoryboard.other.instantiateViewController(
                 withIdentifier: String(describing: SearchHospitalResultViewController.self))
                 as? SearchHospitalResultViewController
-                else {
-                    return
+            else {
+                return
             }
             
             searchResultVC.hospitalLists = hospitals
@@ -79,7 +73,8 @@ extension SearchHospitalViewController: SearchHospitalViewDeleate {
         let city = searchView.cityTextField.text
         let district = searchView.districtTextField.text
         
-        HospitalAPIManager.shared.fetchHospitals(city: city!, zip: district!) {[weak self] result in
+        HospitalAPIManager.shared.fetchHospitals(city: city!,
+                                                 zip: district!) {[weak self] result in
             
             DispatchQueue.main.async {
                 self?.loadingView.isHidden = true

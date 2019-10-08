@@ -17,7 +17,6 @@ class ModifyBaseInfoViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
-            tableView.delegate = self
             tableView.addCorner(cornerRadius: 30)
             tableView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         }
@@ -32,6 +31,7 @@ class ModifyBaseInfoViewController: BaseViewController {
             
         }
     }
+    
     weak var delegate: ModifyBaseInfoViewControllerDelegate?
     
     var currentPet: PNPetInfo?
@@ -40,7 +40,8 @@ class ModifyBaseInfoViewController: BaseViewController {
         if let cell = Bundle(for: ModifyBasicInfoTableViewCell.self).loadNibNamed(
             ModifyBasicInfoTableViewCell.identifier,
             owner: nil,
-            options: nil)?.first as? ModifyBasicInfoTableViewCell {
+            options: nil)?.first
+            as? ModifyBasicInfoTableViewCell {
             return cell
         } else {
             return ModifyBasicInfoTableViewCell()
@@ -83,10 +84,6 @@ class ModifyBaseInfoViewController: BaseViewController {
         
         self.dismiss(animated: false, completion: nil)
     }
-}
-
-extension ModifyBaseInfoViewController: UITableViewDelegate {
-    
 }
 
 extension ModifyBaseInfoViewController: UITableViewDataSource {

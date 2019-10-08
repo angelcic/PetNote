@@ -18,7 +18,6 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationBarSetting()
-//        self.view.backgroundColor = .pnWhite
         // Do any additional setup after loading the view.
     }
     

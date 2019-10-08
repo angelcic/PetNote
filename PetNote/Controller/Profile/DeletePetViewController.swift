@@ -13,13 +13,14 @@ protocol DeletePetViewControllerDelegate: AnyObject {
 }
 
 class DeletePetViewController: BaseViewController {
-    @IBOutlet weak var addPetLayer: UIView!
-    
-    @IBOutlet weak var addPetView: UIView! {
-    didSet {
-        addPetView.addBorder(borderColor: .gray,
-                             borderWidth: 1,
-                             cornerRadius: 20)
+        
+    @IBOutlet weak var deletePetView: UIView! {
+        didSet {
+            deletePetView.addBorder(
+                borderColor: .gray,
+                borderWidth: 1,
+                cornerRadius: 20
+            )
         }
     }
     
@@ -31,9 +32,10 @@ class DeletePetViewController: BaseViewController {
     
     @IBOutlet weak var confirmDeleteButton: UIButton! {
         didSet {
-            confirmDeleteButton.addBorder(borderColor: .gray,
-            borderWidth: 1,
-            cornerRadius: 5)
+            confirmDeleteButton.addBorder(
+                borderColor: .gray,
+                borderWidth: 1,
+                cornerRadius: 5)
         }
     }
     
@@ -41,8 +43,6 @@ class DeletePetViewController: BaseViewController {
      
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }    
     
     @IBAction func cancel() {

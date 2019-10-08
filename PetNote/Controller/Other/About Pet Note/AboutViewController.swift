@@ -36,16 +36,27 @@ extension AboutViewController: UITableViewDelegate {
 
         switch indexPath.row {
         case 0:
-            guard let thanksVC = storyboard?.instantiateViewController(
-                withIdentifier: ThanksPageViewController.identifier) as? ThanksPageViewController else { return }
+            guard
+                let thanksVC = storyboard?.instantiateViewController(
+                withIdentifier: ThanksPageViewController.identifier)
+                    as? ThanksPageViewController
+            else {
+                return
+            }
             
             show(thanksVC, sender: self)
             
             return
         case 1:
             let url = "https://www.privacypolicies.com/privacy/view/50656c70516f8f1b1de670eb85c8c16c"
-            guard let aboutVC = storyboard?.instantiateViewController(
-                withIdentifier: WebViewController.identifier) as? WebViewController else { return }
+            guard
+                let aboutVC = storyboard?.instantiateViewController(
+                withIdentifier: WebViewController.identifier)
+                    as? WebViewController
+            else {
+                return
+                
+            }
             aboutVC.urlString = url
             
             show(aboutVC, sender: self)
