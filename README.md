@@ -16,7 +16,7 @@
 1. 用 containerView 顯示不同功能的畫面
 2. 用自定義的 SelectionView 控制子功能畫面的切換
 3. 設計 BaseContainerViewController 讓子功能 VC 繼承，方便傳遞寵物切換的資訊
-4. 用 singleton 模式設計 StorageManager 管理 Coredata 的存取刪除
+4. 用 Singleton 模式設計 StorageManager 管理 Core Data 的存取刪除
 5. 拆分寵物的相關資料諸如基本資料、預防計畫、體重紀錄、症狀紀錄於不同的 entities 並利用 relationship 關聯彼此
 
 #### 基本資料 BasicInfoViewController / ModifyBaseInfoViewController / AdjustPhotoViewController
@@ -26,7 +26,7 @@
 <img src="https://github.com/angelcic/PetNote/blob/develop/petnote_screenshot/photo_resize.gif" width="200" alt="照片調整"/>
 
 2. 提供大頭照的選取，並透過擷取使用者調整後的照片在 view 上顯示的範圍完成照片調整的功能
-3. 透過 FileManager 將大頭照檔案存在 app 所在的資料夾下，core data 只儲存該照片的路徑
+3. 透過 FileManager 將大頭照檔案存在 app 所在的資料夾下，Core Data 只儲存該照片的路徑
 
 #### 添加預防計畫 ProtectPlanViewController / AddingProtectPlanViewController
 
@@ -40,7 +40,7 @@
 <img src="https://github.com/angelcic/PetNote/blob/develop/petnote_screenshot/weight_record.png" width="200" alt="照片調整"/>
 
 1. 藉由 Charts 套件列出視覺化的體重曲線
-2. 用 sortedArray function 排列 core data 取出的資料
+2. 用 sortedArray function 排列 Core Data 取出的資料
 
 ### 症狀記錄 RecordViewController / AddRecordViewController
 
