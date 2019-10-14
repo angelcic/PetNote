@@ -52,6 +52,39 @@ class BasicInfoViewController: BaseContainerViewController {
         self.present(deletePetVC, animated: false, completion: nil)
         
     }
+    
+    func showAdjustImageVC(image: UIImage?) {
+        guard
+            let image = image,
+            let adjustImageVC = UIStoryboard.profile.instantiateViewController(
+                withIdentifier: AdjustPhotoViewController.identifier
+                )
+                as? AdjustPhotoViewController
+        else {
+            return
+        }
+        
+        adjustImageVC.initAdjustPhotoVC(image: image) {[weak self] image in
+            
+            guard let pet = self?.currentPet else {return}
+            let petId = "\(pet.petId)"
+            
+            // 把照片存入 app 下的資料夾
+            LocalFileManager.shared.saveImage(petId: petId,
+                                              image: image) { [weak self] result in
+                switch result {
+                case .success(let path):
+                    self?.currentPet?.photo = path
+                    StorageManager.shared.saveAll()
+                case .failure(let error):
+                    print(error)
+                }
+            }
+            
+            self?.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
+        }
+        show(adjustImageVC, sender: nil)
+    }
 }
 
 extension BasicInfoViewController: DeletePetViewControllerDelegate {
@@ -82,38 +115,11 @@ extension BasicInfoViewController: UIImagePickerControllerDelegate {
         _ picker: UIImagePickerController,
         didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         
-        picker.dismiss(animated: false, completion: nil)
-        
-        guard
-            let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage,
-            let adjustImageVC = UIStoryboard.profile.instantiateViewController(
-                withIdentifier: AdjustPhotoViewController.identifier
-                )
-                as? AdjustPhotoViewController
-        else {
-            return
+        picker.dismiss(animated: false) { [weak self] in
+            let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+            self?.showAdjustImageVC(image: image)
+            
         }
-        
-        adjustImageVC.initAdjustPhotoVC(image: image) {[weak self] image in
-            
-            guard let pet = self?.currentPet else {return}
-            let petId = "\(pet.petId)"
-            
-            // 把照片存入 app 下的資料夾
-            LocalFileManager.shared.saveImage(petId: petId,
-                                              image: image) { [weak self] result in
-                switch result {
-                case .success(let path):
-                    self?.currentPet?.photo = path
-                    StorageManager.shared.saveAll()
-                case .failure(let error):
-                    print(error)
-                }
-            }
-            
-            self?.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
-        }
-        show(adjustImageVC, sender: nil)
         
     }
     

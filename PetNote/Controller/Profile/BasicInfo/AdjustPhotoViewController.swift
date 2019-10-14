@@ -31,7 +31,16 @@ class AdjustPhotoViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "選擇照片顯示範圍"
+        
+        self.tabBarController?.tabBar.isHidden = true
         setupVisibleImageView()
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+
     }
     
     override func viewDidLayoutSubviews() {

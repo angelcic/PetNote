@@ -28,13 +28,11 @@ class ProtectTypeTableViewCell: UITableViewCell {
         super.awakeFromNib()
         checkButton.setImage(isDeSelectedImage, for: .normal)
         checkButton.setImage(isSelectedImage, for: .selected)
-//        checkButton.imageView?.image = isDeSelectedImage
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
     
     func layoutCell(title: String, hideTextField: Bool) {
@@ -54,12 +52,8 @@ class ProtectTypeTableViewCell: UITableViewCell {
     func changeSelectedStatus(_ isSelected: Bool) {
         if isSelected {
             checkButton.isSelected = true
-//            checkButton.setImage(isSelectedImage, for: .normal)
-//            checkButton.imageView?.image = isSelectedImage
         } else {
             checkButton.isSelected = false
-//            checkButton.setImage(isDeSelectedImage, for: .normal)
-//            checkButton.imageView?.image = isDeSelectedImage
         }
     }
     

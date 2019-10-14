@@ -48,9 +48,25 @@ class ModifyBasicInfoTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        setupGenderButton()
-        setupTypeButton()
-        setupNeuterButton()
+//        setupGenderButton()
+//        setupTypeButton()
+//        setupNeuterButton()
+        
+        setupButtonGroup(
+            group: genderButtons,
+            currentTitle: currentGender.rawValue,
+            selector: #selector(changeGenderStatus)
+        )
+        setupButtonGroup(
+            group: petTypeButtons,
+            currentTitle: currentPetType.rawValue,
+            selector: #selector(changePetTypeStatus)
+        )
+        setupButtonGroup(
+            group: neuterButtons,
+            currentTitle: currentNeuterType,
+            selector: #selector(changeNeuterStatus)
+        )
         
     }
     
@@ -80,50 +96,64 @@ class ModifyBasicInfoTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setupGenderButton() {
-        for button in genderButtons {
-            
+    func setupButtonGroup(group: [UIButton], currentTitle: String, selector: Selector) {
+        for button in group {
             button.setTitleColor(.lightGray, for: .normal)
             button.setTitleColor(.black, for: .selected)
             button.addBorder(borderColor: .lightGray, borderWidth: 1, cornerRadius: 8)
-            button.addTarget(self, action: #selector(changeGenderStatus), for: .touchUpInside)
+            button.addTarget(self, action: selector, for: .touchUpInside)
             
-            if button.titleLabel?.text == currentGender.rawValue {
-                button.isSelected = true
-                button.addBorder(borderColor: .black, borderWidth: 1, cornerRadius: 8)
-            }
-        }
-    }
-
-    func setupTypeButton() {
-        for button in petTypeButtons {
-            
-            button.setTitleColor(.lightGray, for: .normal)
-            button.setTitleColor(.black, for: .selected)
-            button.addBorder(borderColor: .lightGray, borderWidth: 1, cornerRadius: 8)
-            button.addTarget(self, action: #selector(changePetTypeStatus), for: .touchUpInside)
-            
-            if button.titleLabel?.text == currentPetType.rawValue {
+            if button.titleLabel?.text == currentTitle {
                 button.isSelected = true
                 button.addBorder(borderColor: .black, borderWidth: 1, cornerRadius: 8)
             }
         }
     }
     
-    func setupNeuterButton() {
-        for button in neuterButtons {
-            
-            button.setTitleColor(.lightGray, for: .normal)
-            button.setTitleColor(.black, for: .selected)
-            button.addBorder(borderColor: .lightGray, borderWidth: 1, cornerRadius: 8)
-            button.addTarget(self, action: #selector(changeNeuterStatus), for: .touchUpInside)
-            
-            if button.titleLabel?.text == currentNeuterType {
-                button.isSelected = true
-                button.addBorder(borderColor: .black, borderWidth: 1, cornerRadius: 8)
-            }
-        }
-    }
+//    func setupGenderButton() {
+//        for button in genderButtons {
+//
+//            button.setTitleColor(.lightGray, for: .normal)
+//            button.setTitleColor(.black, for: .selected)
+//            button.addBorder(borderColor: .lightGray, borderWidth: 1, cornerRadius: 8)
+//            button.addTarget(self, action: #selector(changeGenderStatus), for: .touchUpInside)
+//
+//            if button.titleLabel?.text == currentGender.rawValue {
+//                button.isSelected = true
+//                button.addBorder(borderColor: .black, borderWidth: 1, cornerRadius: 8)
+//            }
+//        }
+//    }
+//
+//    func setupTypeButton() {
+//        for button in petTypeButtons {
+//
+//            button.setTitleColor(.lightGray, for: .normal)
+//            button.setTitleColor(.black, for: .selected)
+//            button.addBorder(borderColor: .lightGray, borderWidth: 1, cornerRadius: 8)
+//            button.addTarget(self, action: #selector(changePetTypeStatus), for: .touchUpInside)
+//
+//            if button.titleLabel?.text == currentPetType.rawValue {
+//                button.isSelected = true
+//                button.addBorder(borderColor: .black, borderWidth: 1, cornerRadius: 8)
+//            }
+//        }
+//    }
+//
+//    func setupNeuterButton() {
+//        for button in neuterButtons {
+//
+//            button.setTitleColor(.lightGray, for: .normal)
+//            button.setTitleColor(.black, for: .selected)
+//            button.addBorder(borderColor: .lightGray, borderWidth: 1, cornerRadius: 8)
+//            button.addTarget(self, action: #selector(changeNeuterStatus), for: .touchUpInside)
+//
+//            if button.titleLabel?.text == currentNeuterType {
+//                button.isSelected = true
+//                button.addBorder(borderColor: .black, borderWidth: 1, cornerRadius: 8)
+//            }
+//        }
+//    }
     
     //swiftlint:disable function_parameter_count
     func layoutCell(name: String?, gender: String?,
@@ -195,8 +225,8 @@ class ModifyBasicInfoTableViewCell: UITableViewCell {
         guard
             let petType = sender.titleLabel?.text,
             let currentPetType = PetType.init(rawValue: petType)
-            else {
-                return
+        else {
+            return
         }
         
         self.currentPetType = currentPetType
@@ -211,21 +241,21 @@ class ModifyBasicInfoTableViewCell: UITableViewCell {
     }
     
     @objc func changeNeuterStatus(sender: UIButton) {
-           guard
-               let neuter = sender.titleLabel?.text
-            else {
-                return
-           }
-           
-           self.currentNeuterType = neuter
-           
-           for button in neuterButtons {
-               button.isSelected = false
-               button.addBorder(borderColor: .lightGray, borderWidth: 1, cornerRadius: 8)
-           }
-           
-           sender.isSelected = true
-           sender.addBorder(borderColor: .black, borderWidth: 1, cornerRadius: 8)
-       }
+        guard
+            let neuter = sender.titleLabel?.text
+        else {
+            return
+        }
+        
+        self.currentNeuterType = neuter
+        
+        for button in neuterButtons {
+            button.isSelected = false
+            button.addBorder(borderColor: .lightGray, borderWidth: 1, cornerRadius: 8)
+        }
+        
+        sender.isSelected = true
+        sender.addBorder(borderColor: .black, borderWidth: 1, cornerRadius: 8)
+    }
     
 }

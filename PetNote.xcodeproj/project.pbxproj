@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9131C128234A0FDB00BC4D87 /* PNProtectPlanExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9131C127234A0FDB00BC4D87 /* PNProtectPlanExtension.swift */; };
+		9131C12A23520C8B00BC4D87 /* UITabBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9131C12923520C8B00BC4D87 /* UITabBarExtension.swift */; };
 		9142BBD9233DBE5E006418A5 /* DeletePetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142BBD8233DBE5E006418A5 /* DeletePetViewController.swift */; };
 		9142BBDD234242CC006418A5 /* NotifyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142BBDC234242CC006418A5 /* NotifyManager.swift */; };
 		9142BBFF2344566D006418A5 /* AdjustPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142BBFE2344566D006418A5 /* AdjustPhotoViewController.swift */; };
@@ -143,6 +144,7 @@
 		0C36075D08FC74716301080A /* Pods_PetNote.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetNote.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B1361EE367C157E8D7CBCD6 /* Pods-PetNote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetNote.release.xcconfig"; path = "Target Support Files/Pods-PetNote/Pods-PetNote.release.xcconfig"; sourceTree = "<group>"; };
 		9131C127234A0FDB00BC4D87 /* PNProtectPlanExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNProtectPlanExtension.swift; sourceTree = "<group>"; };
+		9131C12923520C8B00BC4D87 /* UITabBarExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarExtension.swift; sourceTree = "<group>"; };
 		9142BBD8233DBE5E006418A5 /* DeletePetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletePetViewController.swift; sourceTree = "<group>"; };
 		9142BBDC234242CC006418A5 /* NotifyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyManager.swift; sourceTree = "<group>"; };
 		9142BBFE2344566D006418A5 /* AdjustPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustPhotoViewController.swift; sourceTree = "<group>"; };
@@ -298,11 +300,21 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9131C12B23531D0900BC4D87 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				9166F0152338C1EE0086C70E /* NotificationManageViewController.swift */,
+				9166F0162338C1EE0086C70E /* NotificatonViewController.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
 		9142BBDA233E29D3006418A5 /* Search Hospital */ = {
 			isa = PBXGroup;
 			children = (
 				9166F0142338C1EE0086C70E /* SearchHospitalViewController.swift */,
 				9166F0172338C1EE0086C70E /* SearchHospitalResultViewController.swift */,
+				9142BC6623471BA9006418A5 /* MapViewController.swift */,
 			);
 			path = "Search Hospital";
 			sourceTree = "<group>";
@@ -539,10 +551,8 @@
 			children = (
 				9166F0132338C1EE0086C70E /* OtherFunctionViewController.swift */,
 				9142BBDA233E29D3006418A5 /* Search Hospital */,
-				9166F0152338C1EE0086C70E /* NotificationManageViewController.swift */,
-				9166F0162338C1EE0086C70E /* NotificatonViewController.swift */,
+				9131C12B23531D0900BC4D87 /* Notification */,
 				9142BBDB233E29F1006418A5 /* About Pet Note */,
-				9142BC6623471BA9006418A5 /* MapViewController.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -737,6 +747,7 @@
 				9166EF2F2338B7D20086C70E /* UIImageExtension.swift */,
 				91D963FA233666B3003A48AD /* URLExtension.swift */,
 				91B97F5323375805008B940F /* UIColorExtension.swift */,
+				9131C12923520C8B00BC4D87 /* UITabBarExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1005,6 +1016,7 @@
 				9181BC2723177E1C007BB7C6 /* AppDelegate.swift in Sources */,
 				9166EFD42338C05D0086C70E /* ChartTableViewCell.swift in Sources */,
 				91D963FB233666B3003A48AD /* URLExtension.swift in Sources */,
+				9131C12A23520C8B00BC4D87 /* UITabBarExtension.swift in Sources */,
 				9166F03A2338C2AA0086C70E /* MedicalRecord.swift in Sources */,
 				9181BC572317C8C2007BB7C6 /* UITableViewExtension.swift in Sources */,
 				9166EF302338B7D20086C70E /* UIImageExtension.swift in Sources */,
