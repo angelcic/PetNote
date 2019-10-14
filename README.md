@@ -17,11 +17,20 @@
 2. 用自定義的 SelectionView 控制子功能畫面的切換
 3. 設計 BaseContainerViewController 讓子功能 VC 繼承，方便傳遞寵物切換的資訊
 4. 用 Singleton 模式設計 StorageManager 管理 Core Data 的存取刪除
+```
+static let shared = StorageManager()
+
+private override init() {
+
+    print(" Core data file path: \(NSPersistentContainer.defaultDirectoryURL())")
+}
+```
 5. 拆分寵物的相關資料諸如基本資料、預防計畫、體重紀錄、症狀紀錄於不同的 entities 並利用 relationship 關聯彼此
 
 #### 基本資料 BasicInfoViewController / ModifyBaseInfoViewController / AdjustPhotoViewController
 
 1. 提供寵物資料的修改和刪除功能，透過 delegate 獲得使用者操作的結果
+
 在 ModifyBaseInfoViewController 設計 protocal 提供方法接口
 ``` 
 protocol ModifyBaseInfoViewControllerDelegate: AnyObject {
