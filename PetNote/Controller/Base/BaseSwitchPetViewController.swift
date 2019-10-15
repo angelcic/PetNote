@@ -9,8 +9,8 @@
 import UIKit
 
 protocol SwitchPetViewControllerProtocol {
-    func changePet(_ indexPath: IndexPath)
-    func petsNumberChange(isEmpty: Bool)
+    func changePet(_ viewController: SwitchPetViewController?, _ indexPath: IndexPath)
+    func petsNumberChange(_ viewController: SwitchPetViewController?, isEmpty: Bool)
 }
 
 typealias BaseSwitchPetViewController = SwitchPetViewController & SwitchPetViewControllerProtocol
@@ -56,7 +56,7 @@ class SwitchPetViewController: BaseViewController, SwitchPetViewDelegate {
                     guard let controller = self as? BaseSwitchPetViewController else {
                         return
                     }
-                    controller.changePet(indexPath)
+                    controller.changePet(self, indexPath)
                 }
         }
     }
@@ -74,9 +74,9 @@ class SwitchPetViewController: BaseViewController, SwitchPetViewDelegate {
             else { return }
             
             if self?.storageManager.datas.count == 0 {
-                controller.petsNumberChange(isEmpty: true)
+                controller.petsNumberChange(self, isEmpty: true)
             } else {
-                controller.petsNumberChange(isEmpty: false)
+                controller.petsNumberChange(self, isEmpty: false)
             }
         }
     }
@@ -100,7 +100,8 @@ class SwitchPetViewController: BaseViewController, SwitchPetViewDelegate {
 
 // 顯示加入成員是否成功，若成功應更新寵物列表
 extension SwitchPetViewController: AddPetViewControllerDelegate {
-    func addPetResult(_ result: Result<Int, Error>) {
+    
+    func addPetResult(_ viewController: AddPetViewController?, _ result: Result<Int, Error>) {
         switch result {
         case .success:
             storageManager.currentPetIndex = storageManager.petsList.count - 1

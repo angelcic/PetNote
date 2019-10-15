@@ -29,28 +29,27 @@ import UIKit
     
     static let shared = StorageManager()
     
-    private override init() {
-        
-        print(" Core data file path: \(NSPersistentContainer.defaultDirectoryURL())")
+    init(container: NSPersistentContainer) {
+        self.persistentContainer = container
     }
     
-    lazy var persistanceContainer: NSPersistentContainer = {
-        
+    convenience override init() {
         let container = NSPersistentContainer(name: "PetNote")
-        
+
         container.loadPersistentStores(completionHandler: { (_, error) in
-            
+
             if let error = error {
                 fatalError("Unresolved error \(error)")
             }
         })
-        
-        return container
-    }()
+        self.init(container: container)
+    }
+    
+    let persistentContainer: NSPersistentContainer!
     
     var viewContext: NSManagedObjectContext {
         
-        return persistanceContainer.viewContext
+        return persistentContainer.viewContext
     }
     
     dynamic var petsList: [PNPetInfo] {

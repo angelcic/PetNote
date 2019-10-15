@@ -187,14 +187,14 @@ class AddingProtectPlanViewController: BaseViewController {
 // MARK: 處理通知設定
 extension AddingProtectPlanViewController: AlertViewDelegate {
        
-    func pressLeftButton() {
+    func pressLeftButton(_ viewController: AlertViewController) {
         if let bundleID = Bundle.main.bundleIdentifier,
             let url = URL(string: UIApplication.openSettingsURLString + bundleID) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
     
-    func pressRightButton() {
+    func pressRightButton(_ viewController: AlertViewController) {
         
     }
 
@@ -459,7 +459,8 @@ extension AddingProtectPlanViewController: UITableViewDataSource {
 }
 
 extension AddingProtectPlanViewController: SettingNotifyTableViewCellDelegate {
-    func alertUserOpenNotification() {
+    
+    func alertUserOpenNotification(_ cell: SettingNotifyTableViewCell) {
         showOpenAlertVC()
     }
 }

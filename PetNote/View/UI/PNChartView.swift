@@ -117,15 +117,15 @@ extension PNChartView: ChartViewDelegate {
     
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         
-        delegate?.chartValueSelected()
+        delegate?.chartValueSelected(self)
     }
     
     func chartValueNothingSelected(_ chartView: ChartViewBase) {
-        delegate?.chartValueNothingSelected()
+        delegate?.chartValueNothingSelected(self)
     }
 }
 
 protocol PNChartViewDelegate: AnyObject {
-    func chartValueSelected()
-    func chartValueNothingSelected()
+    func chartValueSelected(_ chartView: PNChartView)
+    func chartValueNothingSelected(_ chartView: PNChartView)
 }

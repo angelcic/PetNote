@@ -26,10 +26,10 @@ class AddDataTableViewSectionHeaderView: UITableViewHeaderFooterView {
     }
     
     @IBAction func addAction(_ sender: Any) {
-        delegate?.pressAddButton()
+        delegate?.pressAddButton(self)
     }
 }
 
 protocol SectionHeaderDelegate: AnyObject {
-    func pressAddButton()
+    func pressAddButton(_ headerView: AddDataTableViewSectionHeaderView)
 }

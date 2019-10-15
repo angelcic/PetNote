@@ -48,7 +48,7 @@ class ProtectPlanViewController: BaseContainerViewController {
         )
     }
     
-    func petDidChange() {
+    func petDidChange(_ viewController: ContainerViewController) {
         guard
             let pet = currentPet,
             let protectPlan = pet.protectPlan?.sortedArray(
@@ -205,8 +205,9 @@ extension ProtectPlanViewController: UITableViewDelegate {
 }
 
 extension ProtectPlanViewController: SectionHeaderDelegate {
+    
     // MARK: 新增預防計畫
-    func pressAddButton() {
+    func pressAddButton(_ headerView: AddDataTableViewSectionHeaderView) {
         addProtectPlan()
     }
 }

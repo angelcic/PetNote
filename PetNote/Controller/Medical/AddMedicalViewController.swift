@@ -44,7 +44,8 @@ class AddMedicalViewController: BaseViewController {
 
 }
 extension AddMedicalViewController: TitleWithButtonTableViewCellDelegate {
-    func pressRightButton() {
+    
+    func pressRightButton(_ cell: TitleWithButtonTableViewCell) {
         guard let notifySettingVC = UIStoryboard.notify.instantiateViewController(
             withIdentifier: String(describing: SettingNotifyViewController.self))
             as? SettingNotifyViewController

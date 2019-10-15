@@ -30,7 +30,7 @@ class BasicInfoViewController: BaseContainerViewController {
         tableView.registerCellWithNib(identifier: String(describing: AddImageTableViewCell.self), bundle: nil)
     }
     
-    func petDidChange() {
+    func petDidChange(_ viewController: ContainerViewController) {
         tableView.reloadData()
     }
     
@@ -52,40 +52,10 @@ class BasicInfoViewController: BaseContainerViewController {
         self.present(deletePetVC, animated: false, completion: nil)
         
     }
-}
-
-extension BasicInfoViewController: DeletePetViewControllerDelegate {
-    func pressConfirmDeleteButton() {
-        StorageManager.shared.deleteCurrentPet { result in
-            switch result {
-            case .success:
-                StorageManager.shared.currentPetIndex = 0
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-}
-
-extension BasicInfoViewController: AddImageTableViewCellDelegate {
-    func pressAddImageButton() {
-        let imagePicker = UIImagePickerController()
-        imagePicker.sourceType = .photoLibrary
-        imagePicker.delegate = self
-        
-        self.present(imagePicker, animated: false, completion: nil)
-    }
-}
-
-extension BasicInfoViewController: UIImagePickerControllerDelegate {
-    func imagePickerController(
-        _ picker: UIImagePickerController,
-        didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        
-        picker.dismiss(animated: false, completion: nil)
-        
+    
+    func showAdjustImageVC(image: UIImage?) {
         guard
-            let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage,
+            let image = image,
             let adjustImageVC = UIStoryboard.profile.instantiateViewController(
                 withIdentifier: AdjustPhotoViewController.identifier
                 )
@@ -114,6 +84,44 @@ extension BasicInfoViewController: UIImagePickerControllerDelegate {
             self?.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
         }
         show(adjustImageVC, sender: nil)
+    }
+}
+
+extension BasicInfoViewController: DeletePetViewControllerDelegate {
+    
+    func pressConfirmDeleteButton(_ viewController: DeletePetViewController) {
+        StorageManager.shared.deleteCurrentPet { result in
+            switch result {
+            case .success:
+                StorageManager.shared.currentPetIndex = 0
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+}
+
+extension BasicInfoViewController: AddImageTableViewCellDelegate {
+    
+    func pressAddImageButton(_ cell: AddImageTableViewCell) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
+        
+        self.present(imagePicker, animated: false, completion: nil)
+    }
+}
+
+extension BasicInfoViewController: UIImagePickerControllerDelegate {
+    func imagePickerController(
+        _ picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        
+        picker.dismiss(animated: false) { [weak self] in
+            let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+            self?.showAdjustImageVC(image: image)
+            
+        }
         
     }
     
@@ -127,11 +135,12 @@ extension BasicInfoViewController: UINavigationControllerDelegate {
 }
 
 extension BasicInfoViewController: BasicInfoTableViewCellDelegate {
-    func pressDeleteButton() {
+    
+    func pressDeleteButton(_ cell: BasicInfoTableViewCell) {
         showDeletePetVC()
     }
     
-    func pressModifyButton() {
+    func pressModifyButton(_ cell: BasicInfoTableViewCell) {
         guard
             let modifyInfoVC = UIStoryboard.profile.instantiateViewController(
             withIdentifier: ModifyBaseInfoViewController.identifier)
@@ -153,9 +162,11 @@ extension BasicInfoViewController: BasicInfoTableViewCellDelegate {
 }
 
 extension BasicInfoViewController: ModifyBaseInfoViewControllerDelegate {
-    func confirmModify() {
+    
+    func confirmModify(_ viewControler: ModifyBaseInfoViewController?) {
         tableView.reloadRows(at: [IndexPath(row: 1, section: 0)], with: .none)
     }
+    
 }
 
 extension BasicInfoViewController: UITableViewDelegate {

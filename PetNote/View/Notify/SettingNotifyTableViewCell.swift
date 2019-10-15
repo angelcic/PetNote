@@ -63,7 +63,7 @@ enum RepeatType: String {
 }
 
 protocol SettingNotifyTableViewCellDelegate: AnyObject {
-    func alertUserOpenNotification()
+    func alertUserOpenNotification(_ cell: SettingNotifyTableViewCell)
 }
 
 class SettingNotifyTableViewCell: UITableViewCell {
@@ -189,7 +189,12 @@ class SettingNotifyTableViewCell: UITableViewCell {
                 self?.notificationObject.isSwitchOn = sender.isOn
             } else {
                 
-                self?.delegate?.alertUserOpenNotification()
+                if let selfVC = self {
+            
+                    selfVC.delegate?.alertUserOpenNotification(selfVC)
+                    
+                }
+                
                 DispatchQueue.main.async {
                     sender.isOn = false
                 }
@@ -203,9 +208,13 @@ class SettingNotifyTableViewCell: UITableViewCell {
 // 選擇重複類型後要顯示在 textField 上
 extension SettingNotifyTableViewCell: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
         let repeatType = RepeatType.getName(index: row)
+        
         frequencyTextField.text = repeatType
+        
         notificationObject.frequencyTypes = repeatType
+        
     }
 }
 

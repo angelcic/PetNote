@@ -53,12 +53,13 @@ class ProfileDetailViewController: SwitchPetViewController {
 }
 
 extension ProfileDetailViewController: SwitchPetViewControllerProtocol {
-    func petsNumberChange(isEmpty: Bool) {
+    
+    func petsNumberChange(_ viewController: SwitchPetViewController?, isEmpty: Bool) {
         detailView.changeAddPetAlertStatus(isHidden: !isEmpty)
     }
     
     // 切換寵物
-    func changePet(_ indexPath: IndexPath ) {
+    func changePet(_ viewController: SwitchPetViewController?, _ indexPath: IndexPath ) {
         changePet(indexPath.row)
     }
     

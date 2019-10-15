@@ -84,6 +84,7 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         StorageManager.shared.fetchPets()
         
         delegate = self
+                
     }
 
 }

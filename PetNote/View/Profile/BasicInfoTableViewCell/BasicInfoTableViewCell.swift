@@ -9,8 +9,8 @@
 import UIKit
 
 protocol BasicInfoTableViewCellDelegate: AnyObject {
-    func pressModifyButton()
-    func pressDeleteButton()
+    func pressModifyButton(_ cell: BasicInfoTableViewCell)
+    func pressDeleteButton(_ cell: BasicInfoTableViewCell)
 }
 
 class BasicInfoTableViewCell: UITableViewCell {
@@ -61,10 +61,10 @@ class BasicInfoTableViewCell: UITableViewCell {
     //swiftlint:enable function_parameter_count
     
     @IBAction func pressModifyButton() {
-        delegate?.pressModifyButton()
+        delegate?.pressModifyButton(self)
     }
         
     @IBAction func pressDeleteButton() {
-        delegate?.pressDeleteButton()
+        delegate?.pressDeleteButton(self)
     }
 }

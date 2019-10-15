@@ -9,7 +9,7 @@
 import UIKit
 
 protocol NotifyTableViewCellDelegate: AnyObject {
-    func openAlertManager()
+    func openAlertManager(_ cell: NotifyTableViewCell)
 }
 
 class NotifyTableViewCell: UITableViewCell {
@@ -30,7 +30,7 @@ class NotifyTableViewCell: UITableViewCell {
     }
     
     @IBAction func pressAlertManager() {
-        delegate?.openAlertManager()
+        delegate?.openAlertManager(self)
     }
     
 }
