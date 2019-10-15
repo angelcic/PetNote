@@ -17,12 +17,13 @@
 2. 用自定義的 SelectionView 控制子功能畫面的切換
 3. 設計 BaseContainerViewController 讓子功能 VC 繼承，方便傳遞寵物切換的資訊
 4. 用 Singleton 模式設計 StorageManager 管理 Core Data 的存取刪除
-```
+```Swift
 static let shared = StorageManager()
 
 private override init() {
 
     print(" Core data file path: \(NSPersistentContainer.defaultDirectoryURL())")
+    
 }
 ```
 5. 拆分寵物的相關資料諸如基本資料、預防計畫、體重紀錄、症狀紀錄於不同的 entities 並利用 relationship 關聯彼此
@@ -32,19 +33,21 @@ private override init() {
 1. 提供寵物資料的修改和刪除功能，透過 delegate 獲得使用者操作的結果
 
 在 ModifyBaseInfoViewController 設計 protocal 提供方法接口
-``` 
+```Swift 
 protocol ModifyBaseInfoViewControllerDelegate: AnyObject {
+
     func confirmModify()
+    
 } 
 ```
 另外創建 delegate 變數讓需要得知結果的 VC 可以接收操作結果
 
-```
+```Swift
 weak var delegate: ModifyBaseInfoViewControllerDelegate?
 ```
 當使用者做出操作時可呼叫 delegate 執行方法
 
-```
+```Swift
 @IBAction func confirmModifyAction() {
        
     StorageManager.shared.saveAll {[weak self] result in
@@ -55,12 +58,14 @@ weak var delegate: ModifyBaseInfoViewControllerDelegate?
             print(error)
         }
     }
+    
     self.dismiss(animated: false, completion: nil)
+    
 }
 ```
 BasicInfoViewController 在初始化 ModifyBaseInfoViewController 時將自己指定為他的 delegate，就可以對應用者操作的行為執行要做的事
 
-```
+```Swift
 modifyInfoVC.delegate = self
 
 ...
