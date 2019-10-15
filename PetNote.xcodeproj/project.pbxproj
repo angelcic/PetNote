@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9131C128234A0FDB00BC4D87 /* PNProtectPlanExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9131C127234A0FDB00BC4D87 /* PNProtectPlanExtension.swift */; };
 		9131C12A23520C8B00BC4D87 /* UITabBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9131C12923520C8B00BC4D87 /* UITabBarExtension.swift */; };
+		9131C15D2354720A00BC4D87 /* PetNoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9131C15C2354720A00BC4D87 /* PetNoteTests.swift */; };
 		9142BBD9233DBE5E006418A5 /* DeletePetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142BBD8233DBE5E006418A5 /* DeletePetViewController.swift */; };
 		9142BBDD234242CC006418A5 /* NotifyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142BBDC234242CC006418A5 /* NotifyManager.swift */; };
 		9142BBFF2344566D006418A5 /* AdjustPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142BBFE2344566D006418A5 /* AdjustPhotoViewController.swift */; };
@@ -140,11 +141,26 @@
 		933214776B257E5501F30B83 /* Pods_PetNote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C36075D08FC74716301080A /* Pods_PetNote.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		9131C15F2354720A00BC4D87 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9181BC1B23177E1C007BB7C6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9181BC2223177E1C007BB7C6;
+			remoteInfo = PetNote;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		0C36075D08FC74716301080A /* Pods_PetNote.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetNote.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B1361EE367C157E8D7CBCD6 /* Pods-PetNote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetNote.release.xcconfig"; path = "Target Support Files/Pods-PetNote/Pods-PetNote.release.xcconfig"; sourceTree = "<group>"; };
 		9131C127234A0FDB00BC4D87 /* PNProtectPlanExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNProtectPlanExtension.swift; sourceTree = "<group>"; };
 		9131C12923520C8B00BC4D87 /* UITabBarExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarExtension.swift; sourceTree = "<group>"; };
+		9131C14E2354702A00BC4D87 /* PetNoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetNoteTests.swift; sourceTree = "<group>"; };
+		9131C1502354702A00BC4D87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9131C15A2354720A00BC4D87 /* PetNoteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PetNoteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9131C15C2354720A00BC4D87 /* PetNoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetNoteTests.swift; sourceTree = "<group>"; };
+		9131C15E2354720A00BC4D87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9142BBD8233DBE5E006418A5 /* DeletePetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletePetViewController.swift; sourceTree = "<group>"; };
 		9142BBDC234242CC006418A5 /* NotifyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyManager.swift; sourceTree = "<group>"; };
 		9142BBFE2344566D006418A5 /* AdjustPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustPhotoViewController.swift; sourceTree = "<group>"; };
@@ -279,6 +295,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		9131C1572354720A00BC4D87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9181BC2023177E1C007BB7C6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -307,6 +330,24 @@
 				9166F0162338C1EE0086C70E /* NotificatonViewController.swift */,
 			);
 			path = Notification;
+			sourceTree = "<group>";
+		};
+		9131C14D2354702A00BC4D87 /* PetNoteTests */ = {
+			isa = PBXGroup;
+			children = (
+				9131C14E2354702A00BC4D87 /* PetNoteTests.swift */,
+				9131C1502354702A00BC4D87 /* Info.plist */,
+			);
+			path = PetNoteTests;
+			sourceTree = "<group>";
+		};
+		9131C15B2354720A00BC4D87 /* PetNoteTests */ = {
+			isa = PBXGroup;
+			children = (
+				9131C15C2354720A00BC4D87 /* PetNoteTests.swift */,
+				9131C15E2354720A00BC4D87 /* Info.plist */,
+			);
+			path = PetNoteTests;
 			sourceTree = "<group>";
 		};
 		9142BBDA233E29D3006418A5 /* Search Hospital */ = {
@@ -646,6 +687,8 @@
 			isa = PBXGroup;
 			children = (
 				9181BC2523177E1C007BB7C6 /* PetNote */,
+				9131C14D2354702A00BC4D87 /* PetNoteTests */,
+				9131C15B2354720A00BC4D87 /* PetNoteTests */,
 				9181BC2423177E1C007BB7C6 /* Products */,
 				74F357F624683D799F10E0EA /* Pods */,
 				AC18D7B45FD28547649DADAA /* Frameworks */,
@@ -656,6 +699,7 @@
 			isa = PBXGroup;
 			children = (
 				9181BC2323177E1C007BB7C6 /* 毛孩手帳.app */,
+				9131C15A2354720A00BC4D87 /* PetNoteTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -773,6 +817,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		9131C1592354720A00BC4D87 /* PetNoteTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9131C1612354720A00BC4D87 /* Build configuration list for PBXNativeTarget "PetNoteTests" */;
+			buildPhases = (
+				9131C1562354720A00BC4D87 /* Sources */,
+				9131C1572354720A00BC4D87 /* Frameworks */,
+				9131C1582354720A00BC4D87 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9131C1602354720A00BC4D87 /* PBXTargetDependency */,
+			);
+			name = PetNoteTests;
+			productName = PetNoteTests;
+			productReference = 9131C15A2354720A00BC4D87 /* PetNoteTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		9181BC2223177E1C007BB7C6 /* PetNote */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9181BC3823177E1D007BB7C6 /* Build configuration list for PBXNativeTarget "PetNote" */;
@@ -800,10 +862,14 @@
 		9181BC1B23177E1C007BB7C6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1020;
+				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = ichingchen;
 				TargetAttributes = {
+					9131C1592354720A00BC4D87 = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = 9181BC2223177E1C007BB7C6;
+					};
 					9181BC2223177E1C007BB7C6 = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
@@ -823,11 +889,19 @@
 			projectRoot = "";
 			targets = (
 				9181BC2223177E1C007BB7C6 /* PetNote */,
+				9131C1592354720A00BC4D87 /* PetNoteTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		9131C1582354720A00BC4D87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9181BC2123177E1C007BB7C6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -951,6 +1025,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		9131C1562354720A00BC4D87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9131C15D2354720A00BC4D87 /* PetNoteTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9181BC1F23177E1C007BB7C6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1052,6 +1134,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		9131C1602354720A00BC4D87 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9181BC2223177E1C007BB7C6 /* PetNote */;
+			targetProxy = 9131C15F2354720A00BC4D87 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		9181BC2A23177E1C007BB7C6 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -1072,6 +1162,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		9131C1622354720A00BC4D87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5XT523M7P4;
+				INFOPLIST_FILE = PetNoteTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ichingChen.PetNoteTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/毛孩手帳.app/毛孩手帳";
+			};
+			name = Debug;
+		};
+		9131C1632354720A00BC4D87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5XT523M7P4;
+				INFOPLIST_FILE = PetNoteTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ichingChen.PetNoteTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/毛孩手帳.app/毛孩手帳";
+			};
+			name = Release;
+		};
 		9181BC3623177E1D007BB7C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1235,6 +1367,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9131C1612354720A00BC4D87 /* Build configuration list for PBXNativeTarget "PetNoteTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9131C1622354720A00BC4D87 /* Debug */,
+				9131C1632354720A00BC4D87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		9181BC1E23177E1C007BB7C6 /* Build configuration list for PBXProject "PetNote" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

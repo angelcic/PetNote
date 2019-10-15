@@ -9,7 +9,7 @@
 import UIKit
 
 protocol DeletePetViewControllerDelegate: AnyObject {
-    func pressConfirmDeleteButton()
+    func pressConfirmDeleteButton(_ viewController: DeletePetViewController)
 }
 
 class DeletePetViewController: BaseViewController {
@@ -50,7 +50,7 @@ class DeletePetViewController: BaseViewController {
     }
     
     @IBAction func confirmDelete() {
-        delegate?.pressConfirmDeleteButton()
+        delegate?.pressConfirmDeleteButton(self)
         self.dismiss(animated: false, completion: nil)
     }
      

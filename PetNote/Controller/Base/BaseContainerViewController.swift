@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ContainerViewControllerProtocol {
-    func petDidChange()
+    func petDidChange(_ viewController: ContainerViewController)
 }
 
 typealias BaseContainerViewController = ContainerViewController & ContainerViewControllerProtocol
@@ -32,7 +32,7 @@ class ContainerViewController: UIViewController {
         else {
             return
         }
-        controller.petDidChange()
+        controller.petDidChange(self)
     }
     
 }

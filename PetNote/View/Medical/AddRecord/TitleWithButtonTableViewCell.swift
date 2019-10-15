@@ -9,7 +9,7 @@
 import UIKit
 
 protocol TitleWithButtonTableViewCellDelegate: AnyObject {
-    func pressRightButton()
+    func pressRightButton(_ cell: TitleWithButtonTableViewCell)
 }
 
 class TitleWithButtonTableViewCell: UITableViewCell {
@@ -38,7 +38,7 @@ class TitleWithButtonTableViewCell: UITableViewCell {
     }
     
     @IBAction func pressRightButton() {
-        delegate?.pressRightButton()
+        delegate?.pressRightButton(self)
     }
     
 }

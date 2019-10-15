@@ -30,7 +30,7 @@ class BasicInfoViewController: BaseContainerViewController {
         tableView.registerCellWithNib(identifier: String(describing: AddImageTableViewCell.self), bundle: nil)
     }
     
-    func petDidChange() {
+    func petDidChange(_ viewController: ContainerViewController) {
         tableView.reloadData()
     }
     
@@ -88,7 +88,8 @@ class BasicInfoViewController: BaseContainerViewController {
 }
 
 extension BasicInfoViewController: DeletePetViewControllerDelegate {
-    func pressConfirmDeleteButton() {
+    
+    func pressConfirmDeleteButton(_ viewController: DeletePetViewController) {
         StorageManager.shared.deleteCurrentPet { result in
             switch result {
             case .success:
@@ -101,7 +102,8 @@ extension BasicInfoViewController: DeletePetViewControllerDelegate {
 }
 
 extension BasicInfoViewController: AddImageTableViewCellDelegate {
-    func pressAddImageButton() {
+    
+    func pressAddImageButton(_ cell: AddImageTableViewCell) {
         let imagePicker = UIImagePickerController()
         imagePicker.sourceType = .photoLibrary
         imagePicker.delegate = self
@@ -133,11 +135,12 @@ extension BasicInfoViewController: UINavigationControllerDelegate {
 }
 
 extension BasicInfoViewController: BasicInfoTableViewCellDelegate {
-    func pressDeleteButton() {
+    
+    func pressDeleteButton(_ cell: BasicInfoTableViewCell) {
         showDeletePetVC()
     }
     
-    func pressModifyButton() {
+    func pressModifyButton(_ cell: BasicInfoTableViewCell) {
         guard
             let modifyInfoVC = UIStoryboard.profile.instantiateViewController(
             withIdentifier: ModifyBaseInfoViewController.identifier)
@@ -159,9 +162,11 @@ extension BasicInfoViewController: BasicInfoTableViewCellDelegate {
 }
 
 extension BasicInfoViewController: ModifyBaseInfoViewControllerDelegate {
-    func confirmModify() {
+    
+    func confirmModify(_ viewControler: ModifyBaseInfoViewController?) {
         tableView.reloadRows(at: [IndexPath(row: 1, section: 0)], with: .none)
     }
+    
 }
 
 extension BasicInfoViewController: UITableViewDelegate {

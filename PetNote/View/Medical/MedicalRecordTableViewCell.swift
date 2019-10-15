@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol MedicalRecordTableViewCellDelegate: AnyObject {
+    func pressAddButton(_ cell: MedicalRecordTableViewCell)
+}
+
 class MedicalRecordTableViewCell: UITableViewCell {
 
     @IBOutlet weak var backgroundLayer: UIView!
@@ -47,10 +51,6 @@ class MedicalRecordTableViewCell: UITableViewCell {
     }
     
     @IBAction func addAction(_ sender: Any) {
-        delegate?.pressAddButton()
+        delegate?.pressAddButton(self)
     }
-}
-
-protocol MedicalRecordTableViewCellDelegate: AnyObject {
-    func pressAddButton()
 }

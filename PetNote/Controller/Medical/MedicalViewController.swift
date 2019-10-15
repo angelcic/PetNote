@@ -56,11 +56,11 @@ class MedicalViewController: SwitchPetViewController, SwitchPetViewControllerPro
         show(addMedicalRecordVC, sender: nil)
     }
     
-    func petsNumberChange(isEmpty: Bool) {
+    func petsNumberChange(_ viewController: SwitchPetViewController?, isEmpty: Bool) {
         //        TODO: NOOOOOOO PET
     }
 
-    func changePet(_ indexPath: IndexPath) {
+    func changePet(_ viewController: SwitchPetViewController?, _ indexPath: IndexPath) {
         // TODO:
     }
     
@@ -121,7 +121,8 @@ extension MedicalViewController: UITableViewDataSource {
 }
 
 extension MedicalViewController: MedicalRecordTableViewCellDelegate {
-    func pressAddButton() {
+    
+    func pressAddButton(_ cell: MedicalRecordTableViewCell) {
         showAddRecordPage()
     }
 }

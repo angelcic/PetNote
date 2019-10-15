@@ -9,8 +9,8 @@
 import UIKit
 
 protocol AddPetViewDelegate: AnyObject {
-    func cancelAction()
-    func confirmAction(petId: Double, name: String, type: PetType)
+    func cancelAction(_ view: AddPetView)
+    func confirmAction(_ view: AddPetView, petId: Double, name: String, type: PetType)
 }
 
 class AddPetView: UIView {
@@ -98,7 +98,7 @@ class AddPetView: UIView {
     }
        
     @IBAction func cancelAction(_ sender: Any) {
-        delegate?.cancelAction()
+        delegate?.cancelAction(self)
     }
     
     @IBAction func confirmAction(_ sender: Any) {
@@ -112,7 +112,7 @@ class AddPetView: UIView {
         
         let type = petType[currentType]
         let createTime = Date().timeIntervalSince1970
-        delegate?.confirmAction(petId: createTime, name: name, type: type)
+        delegate?.confirmAction(self, petId: createTime, name: name, type: type)
     }
 }
 

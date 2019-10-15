@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ModifyBaseInfoViewControllerDelegate: AnyObject {
-    func confirmModify()
+    func confirmModify(_ viewControler: ModifyBaseInfoViewController?)
 }
 
 class ModifyBaseInfoViewController: BaseViewController {
@@ -76,7 +76,7 @@ class ModifyBaseInfoViewController: BaseViewController {
         StorageManager.shared.saveAll {[weak self] result in
             switch result {
             case .success:
-                self?.delegate?.confirmModify()
+                self?.delegate?.confirmModify(self)
             case .failure(let error):
                 print(error)
             }

@@ -27,18 +27,27 @@ class NotificatonViewController: BaseViewController {
     }
     
     func setupTableView() {
-        tableView.registerCellWithNib(identifier: String(describing: TitleWithButtonTableViewCell.self), bundle: nil)
-        tableView.registerHeaderWithNib(identifier: String(describing: WithImageSectionHeaderView.self), bundle: nil)
+        tableView.registerCellWithNib(
+            identifier: String(describing: TitleWithButtonTableViewCell.self),
+            bundle: nil
+        )
+        tableView.registerHeaderWithNib(
+            identifier: String(describing: WithImageSectionHeaderView.self),
+            bundle: nil
+        )
     }
 }
 
 extension NotificatonViewController: TitleWithButtonTableViewCellDelegate {
-    func pressRightButton() {
-        guard let notifySettingVC = UIStoryboard.notify.instantiateViewController(
-            withIdentifier: String(describing: SettingNotifyViewController.self))
-        as? SettingNotifyViewController
-            else {
-                return
+    
+    func pressRightButton(_ cell: TitleWithButtonTableViewCell) {
+        guard
+            let notifySettingVC = UIStoryboard.notify.instantiateViewController(
+                withIdentifier: String(describing: SettingNotifyViewController.self)
+                )
+                as? SettingNotifyViewController
+        else {
+            return
         }
         
         show(notifySettingVC, sender: nil)
@@ -56,14 +65,17 @@ extension NotificatonViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
         guard let headerView = tableView.dequeueReusableHeaderFooterView(
             withIdentifier: String(describing: WithImageSectionHeaderView.self))
             as? WithImageSectionHeaderView
         else {
             return nil
         }
+        
         headerView.layoutHeaderView(title: "小白的疫苗通知")
         headerView.hideAddButton(false)
+        
         return headerView
     }
     

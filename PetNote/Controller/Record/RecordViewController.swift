@@ -120,7 +120,7 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
         self.tableView.panGestureRecognizer.require(toFail: self.scopeGesture)
     }
     
-    func changePet(_ indexPath: IndexPath) {
+    func changePet(_ viewController: SwitchPetViewController?, _ indexPath: IndexPath) {
         let index = indexPath.row
         if StorageManager.shared.petsList.count > index {
             currentPet = StorageManager.shared.petsList[index]
@@ -128,7 +128,7 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
     }
     
     // 若無成員需阻擋加入紀錄操作
-    func petsNumberChange(isEmpty: Bool) {
+    func petsNumberChange(_ viewController: SwitchPetViewController?, isEmpty: Bool) {
         addButtonMask.isHidden = !isEmpty
     }
     
@@ -230,7 +230,9 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
 
 extension RecordViewController: UIGestureRecognizerDelegate {
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        
         let shouldBegin = self.tableView.contentOffset.y <= -self.tableView.contentInset.top
+        
         if shouldBegin {
             let velocity = self.scopeGesture.velocity(in: self.view)
             switch self.calendar.scope {
@@ -242,6 +244,7 @@ extension RecordViewController: UIGestureRecognizerDelegate {
                 return false
             }
         }
+        
         return shouldBegin
     }
 }

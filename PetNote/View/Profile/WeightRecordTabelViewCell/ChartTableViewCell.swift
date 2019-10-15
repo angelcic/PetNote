@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ChartTableViewCellDelegate: AnyObject {
-    func addWeightRecord(date: Int, weight: Double)
+    func addWeightRecord(_ cell: ChartTableViewCell, date: Int, weight: Double)
 }
 
 class ChartTableViewCell: UITableViewCell {
@@ -67,6 +67,6 @@ class ChartTableViewCell: UITableViewCell {
         
         let date = Int(recordDate.timeIntervalSince1970)
         
-        delegate?.addWeightRecord(date: date, weight: weight)
+        delegate?.addWeightRecord(self, date: date, weight: weight)
     }
 }

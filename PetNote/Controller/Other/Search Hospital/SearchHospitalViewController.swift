@@ -52,8 +52,8 @@ class SearchHospitalViewController: BaseViewController {
 }
 
 extension SearchHospitalViewController: SearchHospitalViewDeleate {
-    
-    func didChangeAddressData(city: String, district: String) {
+        
+    func didChangeAddressData(_ view: SearchHospitalView, city: String, district: String) {
         guard
             !city.isBlank && !district.isBlank
         else {
@@ -63,7 +63,7 @@ extension SearchHospitalViewController: SearchHospitalViewDeleate {
         searchView.updateSearchButton(isEnable: true)
     }
     
-    func pressSearchButton() {
+    func pressSearchButton(_ view: SearchHospitalView) {
         if isSearchingFlag == true { return }
         
         isSearchingFlag = true

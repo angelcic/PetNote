@@ -9,9 +9,9 @@
 import UIKit
 
 protocol  SearchHospitalViewDeleate: AnyObject {
-    func pressSearchButton()
+    func pressSearchButton(_ view: SearchHospitalView)
     
-    func didChangeAddressData(city: String, district: String)
+    func didChangeAddressData(_ view: SearchHospitalView, city: String, district: String)
 }
 
 class SearchHospitalView: UIView {
@@ -61,7 +61,7 @@ class SearchHospitalView: UIView {
     }
     
     @IBAction func search() {
-        delegate?.pressSearchButton()
+        delegate?.pressSearchButton(self)
     }
 
 }
@@ -75,7 +75,7 @@ extension SearchHospitalView: UITextFieldDelegate {
             return
         }
         
-        delegate?.didChangeAddressData(city: city,
+        delegate?.didChangeAddressData(self, city: city,
                                     district: district)
     }
 }

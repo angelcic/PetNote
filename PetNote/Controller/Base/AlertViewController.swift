@@ -9,8 +9,8 @@
 import UIKit
 
 protocol AlertViewDelegate: AnyObject {
-    func pressRightButton()
-    func pressLeftButton()
+    func pressRightButton(_ viewController: AlertViewController)
+    func pressLeftButton(_ viewController: AlertViewController)
 }
 
 class AlertViewController: BaseViewController {
@@ -46,12 +46,12 @@ class AlertViewController: BaseViewController {
     }
     
     @IBAction func pressLeftButtonAction() {
-        delegate?.pressLeftButton()
+        delegate?.pressLeftButton(self)
         self.dismiss(animated: false, completion: nil)
     }
     
     @IBAction func pressRightButtonAction() {
-        delegate?.pressRightButton()
+        delegate?.pressRightButton(self)
         self.dismiss(animated: false, completion: nil)
     }
 }

@@ -18,7 +18,7 @@ class WeightRecordViewController: BaseContainerViewController {
         }
     }
     
-    func petDidChange() {
+    func petDidChange(_ viewController: ContainerViewController) {
         guard
             let pet = currentPet,
             let weights = pet.weightRecord?.sortedArray(using: [NSSortDescriptor(key: "date", ascending: false)])
@@ -169,7 +169,8 @@ extension WeightRecordViewController: UITableViewDataSource {
 }
 
 extension WeightRecordViewController: ChartTableViewCellDelegate {
-    func addWeightRecord(date: Int, weight: Double) {
+    
+    func addWeightRecord(_ cell: ChartTableViewCell, date: Int, weight: Double) {
         
         guard let currentPet = currentPet else {return}
         

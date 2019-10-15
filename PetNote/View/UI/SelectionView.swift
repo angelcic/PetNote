@@ -50,7 +50,7 @@ class SelectionView: UIView {
         stackView.axis = .horizontal
         
         IndicatorView.frame = CGRect(x: 0, y: self.frame.height - 3, width: self.frame.width / CGFloat(buttonNumber), height: 2)
-        IndicatorView.backgroundColor = dataSource?.indicatorColor()
+        IndicatorView.backgroundColor = dataSource?.indicatorColor(self)
         
         self.addSubview(stackView)
         self.addSubview(IndicatorView)
@@ -75,10 +75,10 @@ class SelectionView: UIView {
         for index in 0...buttonNumber - 1 {
             let button = UIButton()
             // 預設的 button 外觀
-            button.setTitleColor(dataSource.textColor(), for: .normal)
-            button.backgroundColor = dataSource.buttonBackgroundColor()
+            button.setTitleColor(dataSource.textColor(self), for: .normal)
+            button.backgroundColor = dataSource.buttonBackgroundColor(self)
             button.setTitle("選項\(index)", for: .normal)
-            button.titleLabel?.font = dataSource.textFont()
+            button.titleLabel?.font = dataSource.textFont(self)
             
             dataSource.buttonForRowAt(self, index: index, button: button)
             
@@ -114,10 +114,10 @@ protocol SelectionViewDataSource {
     
     func numberOfSelectBTN(_ selectView: SelectionView) -> Int
     func buttonForRowAt(_ selectView: SelectionView, index: Int, button: UIButton)
-    func textColor() -> UIColor
-    func indicatorColor() -> UIColor
-    func textFont() -> UIFont
-    func buttonBackgroundColor() -> UIColor
+    func textColor(_ selectView: SelectionView) -> UIColor
+    func indicatorColor(_ selectView: SelectionView) -> UIColor
+    func textFont(_ selectView: SelectionView) -> UIFont
+    func buttonBackgroundColor(_ selectView: SelectionView) -> UIColor
     
 }
 
@@ -129,25 +129,25 @@ extension SelectionViewDataSource {
     }
     
     func buttonForRowAt(_ selectView: SelectionView, index: Int, button: UIButton) {
-        button.backgroundColor = buttonBackgroundColor()
+        button.backgroundColor = buttonBackgroundColor(selectView)
         button.setTitle("選項\(index)", for: .normal)
-        button.titleLabel?.font = textFont()
-        button.tintColor = textColor()
+        button.titleLabel?.font = textFont(selectView)
+        button.tintColor = textColor(selectView)
     }
     
-    func textColor() -> UIColor {
+    func textColor(_ selectView: SelectionView) -> UIColor {
         return .white
     }
     
-    func indicatorColor() -> UIColor {
+    func indicatorColor(_ selectView: SelectionView) -> UIColor {
         return .blue
     }
     
-    func textFont() -> UIFont {
+    func textFont(_ selectView: SelectionView) -> UIFont {
         return UIFont.systemFont(ofSize: 18)
     }
     
-    func buttonBackgroundColor() -> UIColor {
+    func buttonBackgroundColor(_ selectView: SelectionView) -> UIColor {
         return .black
     }
 }

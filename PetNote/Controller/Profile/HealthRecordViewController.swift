@@ -10,7 +10,8 @@
 import UIKit
 
 class HealthRecordViewController: BaseContainerViewController {
-    func petDidChange() {
+    func petDidChange(_ viewController: ContainerViewController) {
+        
     }
     
     @IBOutlet weak var collectionView: UICollectionView! {

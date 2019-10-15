@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AddPetViewControllerDelegate: AnyObject {
-    func addPetResult(_: Result<Int, Error>)
+    func addPetResult(_ viewController: AddPetViewController?, _: Result<Int, Error>)
 }
 
 class AddPetViewController: BaseViewController {
@@ -45,11 +45,11 @@ class AddPetViewController: BaseViewController {
 
 extension AddPetViewController: AddPetViewDelegate {
     
-    func cancelAction() {
+    func cancelAction(_ view: AddPetView) {
         self.dismiss(animated: false, completion: nil)
     }
     
-    func confirmAction(petId: Double, name: String, type: PetType) {
+    func confirmAction(_ view: AddPetView, petId: Double, name: String, type: PetType) {
 
         storageManager.addNewPet(petId: petId, name: name, type: type) {[weak self] result in
             
@@ -62,7 +62,7 @@ extension AddPetViewController: AddPetViewDelegate {
                 print(error)
             }
             
-            self?.delegate?.addPetResult(result)
+            self?.delegate?.addPetResult(self, result)
             self?.dismiss(animated: false, completion: nil)
         }
        

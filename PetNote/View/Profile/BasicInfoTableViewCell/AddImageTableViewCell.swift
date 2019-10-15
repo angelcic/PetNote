@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AddImageTableViewCellDelegate: AnyObject {
-    func pressAddImageButton()
+    func pressAddImageButton(_ cell: AddImageTableViewCell)
 }
 
 class AddImageTableViewCell: UITableViewCell {
@@ -57,7 +57,7 @@ class AddImageTableViewCell: UITableViewCell {
     
     @objc func addImageAction(_ sender: Any) {
         
-        delegate?.pressAddImageButton()
+        delegate?.pressAddImageButton(self)
         
     }
 }
