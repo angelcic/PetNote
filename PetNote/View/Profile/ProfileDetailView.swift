@@ -124,15 +124,15 @@ extension ProfileDetailView: SelectionViewDataSource {
 
     }
     
-    func indicatorColor() -> UIColor {
+    func indicatorColor(_ selectView: SelectionView) -> UIColor {
         return (UIColor.pnBlueDark)!
     }
     
-    func textColor() -> UIColor {
+    func textColor(_ selectView: SelectionView) -> UIColor {
         return (UIColor.pnBlueDark)!
     }
     
-    func buttonBackgroundColor() -> UIColor {
+    func buttonBackgroundColor(_ selectView: SelectionView) -> UIColor {
         return .clear
     }
     
