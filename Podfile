@@ -17,4 +17,11 @@ target 'PetNote' do
   pod 'Firebase/Firestore'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+
+  target 'PetNoteTests' do
+        inherit! :search_paths
+        pod 'Firebase'
+  end
+
+
 end

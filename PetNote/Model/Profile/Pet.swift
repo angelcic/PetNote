@@ -77,6 +77,7 @@ enum Neuter: String {
 
 //swiftlint:disable identifier_name
 enum PetKey: String {
+    case petId
     case name
     case birth
     case petType
@@ -85,6 +86,5 @@ enum PetKey: String {
     case breed
     case color
     case photo
-    case pnId
 }
 //swiftlint:enable identifier_name

@@ -139,6 +139,7 @@
 		91B97F5423375805008B940F /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B97F5323375805008B940F /* UIColorExtension.swift */; };
 		91D963FB233666B3003A48AD /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D963FA233666B3003A48AD /* URLExtension.swift */; };
 		933214776B257E5501F30B83 /* Pods_PetNote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C36075D08FC74716301080A /* Pods_PetNote.framework */; };
+		C8C6C34129BEB92E779B0AA1 /* Pods_PetNoteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 118B12504A91AF557801C2E0 /* Pods_PetNoteTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,11 +154,12 @@
 
 /* Begin PBXFileReference section */
 		0C36075D08FC74716301080A /* Pods_PetNote.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetNote.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		118B12504A91AF557801C2E0 /* Pods_PetNoteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetNoteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3ED40753C1924E3288C1B796 /* Pods-PetNoteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetNoteTests.debug.xcconfig"; path = "Target Support Files/Pods-PetNoteTests/Pods-PetNoteTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4F3032810BD6CD4F73BBD369 /* Pods-PetNoteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetNoteTests.release.xcconfig"; path = "Target Support Files/Pods-PetNoteTests/Pods-PetNoteTests.release.xcconfig"; sourceTree = "<group>"; };
 		8B1361EE367C157E8D7CBCD6 /* Pods-PetNote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetNote.release.xcconfig"; path = "Target Support Files/Pods-PetNote/Pods-PetNote.release.xcconfig"; sourceTree = "<group>"; };
 		9131C127234A0FDB00BC4D87 /* PNProtectPlanExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNProtectPlanExtension.swift; sourceTree = "<group>"; };
 		9131C12923520C8B00BC4D87 /* UITabBarExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarExtension.swift; sourceTree = "<group>"; };
-		9131C14E2354702A00BC4D87 /* PetNoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetNoteTests.swift; sourceTree = "<group>"; };
-		9131C1502354702A00BC4D87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9131C15A2354720A00BC4D87 /* PetNoteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PetNoteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9131C15C2354720A00BC4D87 /* PetNoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetNoteTests.swift; sourceTree = "<group>"; };
 		9131C15E2354720A00BC4D87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8C6C34129BEB92E779B0AA1 /* Pods_PetNoteTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +322,8 @@
 			children = (
 				C1B26700EEE001AE14DFC34D /* Pods-PetNote.debug.xcconfig */,
 				8B1361EE367C157E8D7CBCD6 /* Pods-PetNote.release.xcconfig */,
+				3ED40753C1924E3288C1B796 /* Pods-PetNoteTests.debug.xcconfig */,
+				4F3032810BD6CD4F73BBD369 /* Pods-PetNoteTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -330,15 +335,6 @@
 				9166F0162338C1EE0086C70E /* NotificatonViewController.swift */,
 			);
 			path = Notification;
-			sourceTree = "<group>";
-		};
-		9131C14D2354702A00BC4D87 /* PetNoteTests */ = {
-			isa = PBXGroup;
-			children = (
-				9131C14E2354702A00BC4D87 /* PetNoteTests.swift */,
-				9131C1502354702A00BC4D87 /* Info.plist */,
-			);
-			path = PetNoteTests;
 			sourceTree = "<group>";
 		};
 		9131C15B2354720A00BC4D87 /* PetNoteTests */ = {
@@ -687,7 +683,6 @@
 			isa = PBXGroup;
 			children = (
 				9181BC2523177E1C007BB7C6 /* PetNote */,
-				9131C14D2354702A00BC4D87 /* PetNoteTests */,
 				9131C15B2354720A00BC4D87 /* PetNoteTests */,
 				9181BC2423177E1C007BB7C6 /* Products */,
 				74F357F624683D799F10E0EA /* Pods */,
@@ -810,6 +805,7 @@
 			children = (
 				91A6A442233C4C6900BAF23E /* WebKit.framework */,
 				0C36075D08FC74716301080A /* Pods_PetNote.framework */,
+				118B12504A91AF557801C2E0 /* Pods_PetNoteTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -821,9 +817,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9131C1612354720A00BC4D87 /* Build configuration list for PBXNativeTarget "PetNoteTests" */;
 			buildPhases = (
+				C46087585C65701C3EF328DB /* [CP] Check Pods Manifest.lock */,
 				9131C1562354720A00BC4D87 /* Sources */,
 				9131C1572354720A00BC4D87 /* Frameworks */,
 				9131C1582354720A00BC4D87 /* Resources */,
+				19B1D2E892FFA20E54EDC7EE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -949,6 +947,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		19B1D2E892FFA20E54EDC7EE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PetNoteTests/Pods-PetNoteTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PetNoteTests/Pods-PetNoteTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PetNoteTests/Pods-PetNoteTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9181BC5A2317CDC5007BB7C6 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -965,6 +980,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n\"${PODS_ROOT}/Fabric/run\"\n\n";
+		};
+		C46087585C65701C3EF328DB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PetNoteTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 		DDF1F1DDFC6F4BF17240BFCE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1164,12 +1201,13 @@
 /* Begin XCBuildConfiguration section */
 		9131C1622354720A00BC4D87 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3ED40753C1924E3288C1B796 /* Pods-PetNoteTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5XT523M7P4;
 				INFOPLIST_FILE = PetNoteTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1185,12 +1223,13 @@
 		};
 		9131C1632354720A00BC4D87 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F3032810BD6CD4F73BBD369 /* Pods-PetNoteTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5XT523M7P4;
 				INFOPLIST_FILE = PetNoteTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1336,6 +1375,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ichingChen.PetNote;
+				PRODUCT_MODULE_NAME = PetNote;
 				PRODUCT_NAME = "毛孩手帳";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1358,6 +1398,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ichingChen.PetNote;
+				PRODUCT_MODULE_NAME = PetNote;
 				PRODUCT_NAME = "毛孩手帳";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
