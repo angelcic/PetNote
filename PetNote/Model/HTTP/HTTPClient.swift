@@ -95,6 +95,8 @@ protocol Request {
     var method: String { get }
     
     var endPoint: String { get }
+    
+    var queryParameter: String? { get }
 }
 
 extension Request {
@@ -109,11 +111,11 @@ extension Request {
             URLQueryItem(name: "UnitId", value: "078"),
             URLQueryItem(name: "$top", value: "1000"),
             URLQueryItem(name: "$skip", value: "0"),
-            URLQueryItem(name: "$filter", value: endPoint)
+            URLQueryItem(name: "$filter", value: queryParameter)
         ]
         
         let url = urlComponent.url!
-        print(url.absoluteString)
+//        print(url.absoluteString)
         var request = URLRequest(url: url)
         
         request.allHTTPHeaderFields = headers

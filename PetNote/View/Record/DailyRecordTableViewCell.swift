@@ -19,6 +19,8 @@ class DailyRecordTableViewCell: UITableViewCell {
         }
     }
     
+    @IBOutlet weak var eventCollectionViewHeight: NSLayoutConstraint!
+    
     var events: [String] = [] {
         didSet {
             eventCollectionView.reloadData()
@@ -45,12 +47,25 @@ class DailyRecordTableViewCell: UITableViewCell {
         dateLabel.text = date.getDateString()
         descriptionLabel.text = describe
         self.events = events ?? []
+
+        let eventsNum = self.events.count
+        var rowNum = 0
+        if eventsNum > 0 {
+            rowNum = eventsNum / 3 + 1
+        }
+        let rowHeight = 30
+        
+        let collectionViewHeight = rowHeight * rowNum
+        
+        eventCollectionViewHeight.constant = CGFloat(collectionViewHeight)
     }
     
 }
 extension DailyRecordTableViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.frame.width / 4, height: 20)
+//        let row = events.count / 3 + 1
+        let eventHeight: CGFloat = 20
+        return CGSize(width: self.frame.width / 4, height: eventHeight)
     }
 }
 

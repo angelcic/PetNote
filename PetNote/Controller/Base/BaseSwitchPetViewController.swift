@@ -95,6 +95,7 @@ class SwitchPetViewController: BaseViewController, SwitchPetViewDelegate {
         self.present(addPetVC, animated: false, completion: nil)
         
         addPetVC.view.backgroundColor = UIColor.clear
+        
     }
 }
 
@@ -156,6 +157,7 @@ extension SwitchPetViewController: UICollectionViewDataSource {
         
         if indexPath.section == 0 {
             cell.changeSlectedStatus(false)
+            cell.petImageView.image = nil
             cell.petImageView.contentMode = .center
             cell.petImageBorderView.isHidden = true
             cell.layoutCell(image: UIImage(named: "Icons_24px_Add01"), name: "新增")

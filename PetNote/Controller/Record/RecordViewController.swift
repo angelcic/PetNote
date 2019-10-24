@@ -21,6 +21,8 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
         }
     }
     
+    @IBOutlet weak var tableViewMaskLayer: UIView! 
+    
     @IBOutlet weak var addButton: UIButton! {
         didSet {
             addButton.addCorner(cornerRadius: 30)
@@ -54,6 +56,7 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
     var currentRecord: [PNDailyRecord]? {
         
         didSet {
+            
             eventDate = []
             currentRecord?.forEach({
                 let date = Date(timeIntervalSince1970: $0.date).getDateString(format: "yyyyMMdd")
@@ -104,14 +107,17 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
         }
         setCalendar()
         setupTableView()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+        view.bringSubviewToFront(addButton)
     }
     
     func setupTableView() {
         tableView.registerCellWithNib(identifier: DailyRecordTableViewCell.identifier, bundle: nil)
+        
+        if dateRecord.count == 0 {
+            tableViewMaskLayer.isHidden = false
+        } else {
+            tableViewMaskLayer.isHidden = true
+        }
     }
     
     func setCalendar() {
@@ -146,6 +152,7 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
     
     func resetDateRecord() {
         dateRecord = []
+
         currentRecord?.forEach({
             let date = Date(timeIntervalSince1970: $0.date).getDateString(format: "yyyyMMdd")
             if date == selectedDate.getDateString(format: "yyyyMMdd") {
@@ -153,6 +160,15 @@ class RecordViewController: SwitchPetViewController, SwitchPetViewControllerProt
             }
         })
         tableView.reloadData()
+
+        guard let maskLayer = tableViewMaskLayer else { return }
+        
+        if dateRecord.count == 0 {
+            maskLayer.isHidden = false
+        } else {
+            maskLayer.isHidden = true
+        }
+        
     }
     
     func addDailyRecord(date: Date) {
@@ -302,6 +318,7 @@ extension RecordViewController: UITableViewDelegate {
 }
 
 extension RecordViewController: UITableViewDataSource {
+       
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dateRecord.count
     }

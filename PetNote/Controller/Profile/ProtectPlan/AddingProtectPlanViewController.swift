@@ -298,17 +298,21 @@ extension AddingProtectPlanViewController: UITableViewDelegate {
             
             if scrollView.contentOffset.y <= sectionHeaderHeight && scrollView.contentOffset.y >= 0 {
                 
-                scrollView.contentInset = UIEdgeInsets(top: -scrollView.contentOffset.y,
-                                                       left: 0,
-                                                       bottom: 0,
-                                                       right: 0)
+                scrollView.contentInset = UIEdgeInsets(
+                    top: -scrollView.contentOffset.y,
+                    left: 0,
+                    bottom: 0,
+                    right: 0
+                )
                 
             } else if scrollView.contentOffset.y >= sectionHeaderHeight {
                 
-                scrollView.contentInset = UIEdgeInsets(top: -sectionHeaderHeight,
-                                                       left: 0,
-                                                       bottom: 0,
-                                                       right: 0)
+                scrollView.contentInset = UIEdgeInsets(
+                    top: -sectionHeaderHeight,
+                    left: 0,
+                    bottom: 0,
+                    right: 0
+                )
             }
         }
     }
@@ -326,26 +330,35 @@ extension AddingProtectPlanViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
+            
             var sectionCount = currentPreventType.protectFuntions.count
+            
             if sectionCount == 0 {
                 sectionCount = 1
             }
+            
             return sectionCount
+            
         } else {
+            
             return 1
+            
         }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let view = tableView.dequeueReusableHeaderFooterView(
+        guard
+            let view = tableView.dequeueReusableHeaderFooterView(
             withIdentifier: String(describing: WithImageSectionHeaderView.self))
             as? WithImageSectionHeaderView
-        else {return UIView()}
+        else { return UIView() }
+        
         if section == 0 {
             view.layoutHeaderView(title: "預防計畫")
         } else {
             view.layoutHeaderView(title: "提醒通知")
         }
+        
         return view
     }
     

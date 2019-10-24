@@ -49,4 +49,16 @@ enum HospitalRequest: Request {
         
     }
     
+    var queryParameter: String? {
+        
+        switch self {
+            
+        case .hospitalList(let city, let zip):
+            return
+        "縣市+like+\(city)+and+機構地址+like+\(zip)"
+            
+        }
+        
+    }
+    
 }

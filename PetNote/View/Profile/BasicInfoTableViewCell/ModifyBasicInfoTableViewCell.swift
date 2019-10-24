@@ -257,5 +257,5 @@ class ModifyBasicInfoTableViewCell: UITableViewCell {
         sender.isSelected = true
         sender.addBorder(borderColor: .black, borderWidth: 1, cornerRadius: 8)
     }
-    
+  
 }

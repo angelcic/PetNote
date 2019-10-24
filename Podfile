@@ -13,8 +13,16 @@ target 'PetNote' do
   pod 'FSCalendar'
   pod 'Fabric', '~> 1.10.2'
   pod 'Crashlytics', '~> 3.14.0'
-  pod 'Firebase/Auth'
-  pod 'Firebase/Firestore'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
+
+
 end
+
+
+  target 'PetNoteTests' do
+        inherit! :search_paths
+        pod 'Firebase'
+  end
