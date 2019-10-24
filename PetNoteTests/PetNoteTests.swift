@@ -37,8 +37,7 @@ class PetNoteTests: XCTestCase {
     }()
     
     override func setUp() {
-        super.setUp()        
-        storageManager = StorageManager(container: mockPersistantContainer)
+        super.setUp()
         initStubs()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -48,9 +47,52 @@ class PetNoteTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
-    func testFetchRestaurants() {
+    func testFetch() {
+        storageManager = StorageManager(container: mockPersistantContainer)
+        
         storageManager.fetchPets()
+        
         XCTAssertEqual(storageManager.petsList.count, 1)
+    }
+    
+    func testFetchPets() {
+        
+        let container = MockPersistentContainer(name: "PetNote", managedObjectModel: self.managedObjectModel)
+        let description = NSPersistentStoreDescription()
+        description.type = NSInMemoryStoreType
+        //        description.shouldAddStoreAsynchronously = false
+                
+        container.persistentStoreDescriptions = [description]
+        container.loadPersistentStores(completionHandler: { (_, error) in
+
+            if let error = error {
+                fatalError("Unresolved error \(error)")
+            }
+        })
+        
+        storageManager = StorageManager(container: container)
+        
+        storageManager.fetchPets()
+        
+        guard let viewContext = container.viewContext as? MockViewContext else {
+
+            XCTFail("123")
+
+            return
+        }
+        
+        XCTAssertEqual(viewContext.request?.entityName, "PNPetInfo")
+        XCTAssertNotNil(viewContext.request, "Request should not be nil")
+        
+//        XCTAssertEqual(storageManager.petsList.count, 1)
+    }
+    
+    func testAddNewPet() {
+        
+    }
+    
+    func testDeleteData() {
+        
     }
 
 }
@@ -90,7 +132,7 @@ extension PetNoteTests {
     func flushData() {
         
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> =
-            NSFetchRequest<NSFetchRequestResult>(entityName: "PetNote")
+            NSFetchRequest<NSFetchRequestResult>(entityName: "PNPetInfo")
         
         do {
             let objs = try mockPersistantContainer.viewContext.fetch(fetchRequest)
@@ -107,4 +149,26 @@ extension PetNoteTests {
         }
     }
 
+}
+
+class MockPersistentContainer: NSPersistentContainer {
+    let mockViewContext = MockViewContext()
+    
+    override var viewContext: NSManagedObjectContext {
+        return mockViewContext
+    }
+    
+}
+
+class MockViewContext: NSManagedObjectContext {
+    
+    var request: NSFetchRequest<NSFetchRequestResult>?
+    
+    override func fetch(_ request: NSFetchRequest<NSFetchRequestResult>) throws -> [Any] {
+        
+        self.request = request
+        
+//        return try super.fetch(request)
+        return []
+    }
 }

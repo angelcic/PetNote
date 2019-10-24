@@ -21,7 +21,7 @@ class WeightRecordViewController: BaseContainerViewController {
     func petDidChange(_ viewController: ContainerViewController) {
         guard
             let pet = currentPet,
-            let weights = pet.weightRecord?.sortedArray(using: [NSSortDescriptor(key: "date", ascending: false)])
+            let weights = pet.weightRecord?.sortedArray(using: [NSSortDescriptor(key: "date", ascending: true)])
                 as? [PNWeightRecord]
         else { return }
         self.weights = weights
@@ -84,25 +84,41 @@ class WeightRecordViewController: BaseContainerViewController {
 }
 
 extension WeightRecordViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         
-        let weight = weights[indexPath.row]
-        StorageManager.shared.deleteData(weight) {[weak self] result in
-            
-            switch result {
-            case .success:
-                self?.weights.remove(at: indexPath.row)
-                tableView.reloadData()
-            case .failure(let error):
-                print(error)
+        if indexPath.section == 0 {
+            return UITableViewCell.EditingStyle.none
+        } else {
+            return UITableViewCell.EditingStyle.delete
+        }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if indexPath.section != 0 {
+            let weight = weights[indexPath.row]
+            StorageManager.shared.deleteData(weight) {[weak self] result in
                 
+                switch result {
+                case .success:
+                    self?.weights.remove(at: indexPath.row)
+                    tableView.reloadData()
+                case .failure(let error):
+                    print(error)
+                    
+                }
             }
         }
         
     }
     
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
-        return "刪除"
+        if indexPath.section == 0 {
+            return nil
+        } else {
+            return "刪除"
+        }
     }
 }
 
@@ -157,9 +173,9 @@ extension WeightRecordViewController: UITableViewDataSource {
             else {
                 return UITableViewCell()
             }
-            
-            let date = Int(weights[indexPath.row].date).getDateString()
-            let weight = String(weights[indexPath.row].weight)
+            let weightIndex = weights.count - indexPath.row - 1
+            let date = Int(weights[weightIndex].date).getDateString()
+            let weight = String(weights[weightIndex].weight)
             cell.layoutCell(date: date, weight: weight)
             
             return cell
@@ -183,7 +199,8 @@ extension WeightRecordViewController: ChartTableViewCellDelegate {
         StorageManager.shared.saveAll {[weak self] result in
             switch result {
             case .success:
-                self?.weights.append(weightRecord)
+                self?.weights.insert(weightRecord, at: 0)
+//                self?.weights.append(weightRecord)
                 self?.tableView.reloadData()
             case .failure(let error):
                 print(error)

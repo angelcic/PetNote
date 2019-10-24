@@ -79,14 +79,13 @@ import UIKit
             completion?(Result.success(petsList))
             
         } catch {
-            
             completion?(Result.failure(error))
         }
     }
     
-    func addKVONotification() {
-        self.didChangeValue(forKey: "currentPetIndex")
-    }
+//    func addKVONotification() {
+//        self.didChangeValue(forKey: "currentPetIndex")
+//    }
     
     // MARK: 新增
     func addNewPet(petId: Double, name: String, type: PetType, completion: ((Result<Int, Error>) -> Void)? = nil) {
