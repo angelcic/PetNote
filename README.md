@@ -104,7 +104,7 @@ extension BasicInfoViewController: ModifyBaseInfoViewControllerDelegate {
 
 ### 醫院搜尋 SearchHospitalViewController / SearchHospitalResultViewController / MapViewController
 
-<img src="https://github.com/angelcic/PetNote/blob/develop/petnote_screenshot/hospital_search_2.png" width="200" alt="醫院搜尋"/><img src="https://github.com/angelcic/PetNote/blob/develop/petnote_screenshot/hospital_list.png" width="200" alt="醫院搜尋"/> <img src="https://github.com/angelcic/PetNote/blob/develop/petnote_screenshot/hospital_map.png" width="200" alt="醫院地圖"/>
+<img src="https://github.com/angelcic/PetNote/blob/develop/petnote_screenshot/hospital_search_2.png" width="200" alt="醫院搜尋"/> <img src="https://github.com/angelcic/PetNote/blob/develop/petnote_screenshot/hospital_list.png" width="200" alt="醫院搜尋"/> <img src="https://github.com/angelcic/PetNote/blob/develop/petnote_screenshot/hospital_map.png" width="200" alt="醫院地圖"/>
 
 1. 將台灣地區資料寫成 TaiwanArea.json 檔，下拉選單內容透過讀取 JSON 檔資料取得
 2. 利用政府公開資料查詢指定區域的醫院
