@@ -30,10 +30,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="roP-Dz-erZ">
-                        <rect key="frame" x="20" y="76.5" width="366" height="68.5"/>
+                        <rect key="frame" x="20" y="76.5" width="366" height="60.5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" id="urS-48-Cb9"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="900" id="urS-48-Cb9"/>
                         </constraints>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wTS-5k-6v2">
                             <size key="itemSize" width="50" height="50"/>
@@ -46,7 +46,7 @@
                 <constraints>
                     <constraint firstItem="roP-Dz-erZ" firstAttribute="leading" secondItem="HFR-UM-huB" secondAttribute="leading" id="6Uk-SY-cCs"/>
                     <constraint firstItem="roP-Dz-erZ" firstAttribute="top" secondItem="Mio-3F-hFq" secondAttribute="bottom" constant="8" id="7ag-O3-nnU"/>
-                    <constraint firstItem="roP-Dz-erZ" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" constant="8" id="DNg-AR-3aP"/>
+                    <constraint firstItem="roP-Dz-erZ" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="DNg-AR-3aP"/>
                     <constraint firstItem="Mio-3F-hFq" firstAttribute="top" secondItem="HFR-UM-huB" secondAttribute="bottom" constant="8" id="RGY-q0-IXY"/>
                     <constraint firstItem="roP-Dz-erZ" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="U4Q-O3-FYL"/>
                     <constraint firstItem="Mio-3F-hFq" firstAttribute="leading" secondItem="HFR-UM-huB" secondAttribute="leading" id="XrJ-Jg-ISh"/>

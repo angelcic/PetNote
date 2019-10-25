@@ -59,8 +59,8 @@ class DailyRecordTableViewCell: UITableViewCell {
         
         eventCollectionViewHeight.constant = CGFloat(collectionViewHeight)
     }
-    
 }
+
 extension DailyRecordTableViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 //        let row = events.count / 3 + 1

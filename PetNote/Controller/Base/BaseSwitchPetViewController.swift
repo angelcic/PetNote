@@ -147,15 +147,17 @@ extension SwitchPetViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: PetsCollectionViewCell.identifier,
-            for: indexPath
-        ) as? PetsCollectionViewCell
+        guard
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: PetsCollectionViewCell.identifier,
+                for: indexPath
+                ) as? PetsCollectionViewCell
         else {
-                return UICollectionViewCell()
+            return UICollectionViewCell()
         }
         
         if indexPath.section == 0 {
+            cell.petPhotoObserver = nil
             cell.changeSlectedStatus(false)
             cell.petImageView.image = nil
             cell.petImageView.contentMode = .center
