@@ -1,6 +1,8 @@
 ## 毛孩手帳 PetNote
 [App Store 下載](https://apps.apple.com/tw/app/id1481393644) 
 
+這是一個關於寵物健康紀錄的 App。可以新增多筆寵物資料，並儲存每隻寵物的每日症狀、基本資料、醫療計畫和體重等記錄。另外有提供地區動物醫院的查詢功能，並可跳轉至其他地圖 App 進行導航。 
+
 ### 寵物切換功能 BaseSwitchPetViewController / SwitchPetView
 
 <img src="https://github.com/angelcic/PetNote/blob/develop/petnote_screenshot/switch_pet.jpg" width="200" alt="寵物切換條"/>
