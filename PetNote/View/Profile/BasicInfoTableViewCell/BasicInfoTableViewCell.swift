@@ -9,16 +9,23 @@
 import UIKit
 
 protocol BasicInfoTableViewCellDelegate: AnyObject {
-    func pressModifyButton()
+    func pressModifyButton(_ cell: BasicInfoTableViewCell)
+    func pressDeleteButton(_ cell: BasicInfoTableViewCell)
 }
 
 class BasicInfoTableViewCell: UITableViewCell {
 
     @IBOutlet weak var modifyButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton! {
+        didSet {
+            deleteButton.addBorder(borderColor: UIColor.pnBlueLight!, borderWidth: 1, cornerRadius: 5)
+        }
+    }
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
     @IBOutlet weak var petTypeLabel: UILabel!
+    @IBOutlet weak var neuterLabel: UILabel!
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var birthLabel: UILabel!
     @IBOutlet weak var breedLabel: UILabel!
@@ -39,11 +46,13 @@ class BasicInfoTableViewCell: UITableViewCell {
     
     //swiftlint:disable function_parameter_count
     func layoutCell(name: String?, gender: String?,
-                    petType: String?, petId: String?,
+                    petType: String?, neuter: String?,
+                    petId: String?,
                     birth: String?, breed: String?, color: String?) {
         nameLabel.text = name
         genderLabel.text = gender
         petTypeLabel.text = petType
+        neuterLabel.text = neuter
         idLabel.text = petId
         birthLabel.text = birth
         breedLabel.text = breed
@@ -52,7 +61,10 @@ class BasicInfoTableViewCell: UITableViewCell {
     //swiftlint:enable function_parameter_count
     
     @IBAction func pressModifyButton() {
-        delegate?.pressModifyButton()
+        delegate?.pressModifyButton(self)
     }
-    
+        
+    @IBAction func pressDeleteButton() {
+        delegate?.pressDeleteButton(self)
+    }
 }

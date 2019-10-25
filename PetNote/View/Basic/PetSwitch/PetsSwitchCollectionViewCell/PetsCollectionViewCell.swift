@@ -16,6 +16,7 @@ class PetsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var petImageBorderView: UIView!
     
     var petPhotoObserver: NSKeyValueObservation!
+    var petNameObserver: NSKeyValueObservation!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,7 +33,9 @@ class PetsCollectionViewCell: UICollectionViewCell {
     }
     
     func layoutCell(image: UIImage?, name: String?) {
+        
         petImageView.image = image
+        
         nameLabel.text = name
     }
     

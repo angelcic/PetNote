@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ChartTableViewCellDelegate: AnyObject {
-    func addWeightRecord(date: Int, weight: Double)
+    func addWeightRecord(_ cell: ChartTableViewCell, date: Int, weight: Double)
 }
 
 class ChartTableViewCell: UITableViewCell {
@@ -23,6 +23,8 @@ class ChartTableViewCell: UITableViewCell {
         }
     }
     @IBOutlet weak var weightTextField: UITextField!
+    
+    @IBOutlet weak var alertLabel: UILabel!
     
     @IBOutlet weak var addButton: UIButton!
     
@@ -57,13 +59,14 @@ class ChartTableViewCell: UITableViewCell {
             let weightText = weightTextField.text, !weightText.isBlank,
         let weight = Double(weightText)
         else {
-            print("請輸入體重")
+            alertLabel.isHidden = false
             return
         }
+        alertLabel.isHidden = true
         weightTextField.text = ""
         
         let date = Int(recordDate.timeIntervalSince1970)
         
-        delegate?.addWeightRecord(date: date, weight: weight)
+        delegate?.addWeightRecord(self, date: date, weight: weight)
     }
 }

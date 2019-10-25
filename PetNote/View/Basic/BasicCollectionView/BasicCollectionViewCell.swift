@@ -14,8 +14,8 @@ class BasicCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     
-    var isSelectedBGColor: UIColor = .darkGray
-    var deSelectedBGColor: UIColor = .white
+    var isSelectedBGColor: UIColor = UIColor.pnBlueDark!
+    var deSelectedBGColor: UIColor = UIColor.pnWhite!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,6 +25,16 @@ class BasicCollectionViewCell: UICollectionViewCell {
 
     func layoutCell(title: String) {
         titleLabel.text = title
+    }
+    
+    func layoutCell(title: String, textColor: UIColor) {
+        titleLabel.text = title
+        titleLabel.textColor = textColor
+    }
+    
+    func layoutBGLayerAppearence(bgColor: UIColor, borderWidth: CGFloat, borderColor: UIColor) {
+        backgroundLayer.backgroundColor = bgColor
+        backgroundLayer.addBorder(borderColor: bgColor, borderWidth: borderWidth, cornerRadius: 20)
     }
     
     func changeSelectedStatus() {

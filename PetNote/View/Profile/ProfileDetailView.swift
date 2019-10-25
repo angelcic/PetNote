@@ -8,62 +8,79 @@
 
 import UIKit
 
-protocol ProfileDetailViewDelegate: SwitchPetViewDelegate, NSObject {
+enum PageType: Int {
     
+    case basicInfo = 0
+    
+    case protectPlan = 1
+    
+    case healthRecord = 2
+    
+    var pageTitle: String {
+        switch self {
+        case .basicInfo:
+            return "基本資料"
+        case .protectPlan:
+            return "預防計畫"
+        case .healthRecord:
+            return "體重記錄"
+        }
+    }
 }
 
 class ProfileDetailView: UIView {
     
-    private enum PageType: Int {
-        
-        case basicInfo = 0
-        
-        case protectPlan = 1
-        
-        case healthRecord = 2
-    }
+    //  container view 切換條
+    @IBOutlet weak var selectionViewLayer: UIView!
     
     @IBOutlet weak var basicInfoContainerView: UIView!
     @IBOutlet weak var protectPlanContainerView: UIView!
     @IBOutlet weak var healthRecordContainerView: UIView!
     
-    @IBOutlet weak var selectionViewLayer: UIView!
+    // 無寵物成員提示，無成員時阻擋其他操作
+    @IBOutlet weak var addPetAlertLayer: UIView!
+    
+    let selectionView = SelectionView(CGRect.zero)
     
     var containerViews: [UIView] {
         
-        return [basicInfoContainerView, protectPlanContainerView, healthRecordContainerView]
+        return [basicInfoContainerView,
+                protectPlanContainerView,
+                healthRecordContainerView]
     }
-    
-    weak var delegate: ProfileDetailViewDelegate?
-    
+        
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupSelectionView()
+        self.backgroundColor = .white
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
-//        setupPetSwitchLayer()
-        setupSelectionView()
+        resetSelectionViewFrame()
     }
     
-    // 更新切換頁面條介面大小
     private func setupSelectionView() {
-        
-        let selectionView = SelectionView(
-            CGRect(x: 0,
-                   y: 0,
-                   width: selectionViewLayer.frame.width,
-                   height: selectionViewLayer.frame.height))
         
         selectionView.delegate = self
         selectionView.dataSource = self
         
-        selectionView.backgroundColor = .white
+        selectionView.backgroundColor = .clear
         selectionViewLayer.addSubview(selectionView)
         
     }
     
-    // MARK: 切換分頁
+    // 更新切換頁面條介面大小
+    private func resetSelectionViewFrame() {
+        
+        selectionView.setupFrame(
+            CGRect(x: 0,
+                   y: 0,
+                   width: selectionViewLayer.frame.width,
+                   height: selectionViewLayer.frame.height)
+        )
+    }
+    
     private func updateContainer(type: PageType) {
         
         containerViews.forEach({ $0.isHidden = true })
@@ -82,9 +99,10 @@ class ProfileDetailView: UIView {
         }
     }
     
-    // 更新分頁按鈕狀態
-    func updateSwitchView() {
-//        switchPetView.updatePetsData()
+    func changeAddPetAlertStatus(isHidden: Bool) {
+        
+        addPetAlertLayer.isHidden = isHidden
+        
     }
 }
 
@@ -100,22 +118,22 @@ extension ProfileDetailView: SelectionViewDelegate {
 
 extension ProfileDetailView: SelectionViewDataSource {
     
-    var page: [String] {
-        
-        return ["基本資料", "預防計畫", "健康記錄"]
-        
+    var page: [PageType] {
+
+        return [.basicInfo, .protectPlan, .healthRecord]
+
     }
     
-    func indicatorColor() -> UIColor {
-        return .gray
+    func indicatorColor(_ selectView: SelectionView) -> UIColor {
+        return (UIColor.pnBlueDark)!
     }
     
-    func textColor() -> UIColor {
-        return .gray
+    func textColor(_ selectView: SelectionView) -> UIColor {
+        return (UIColor.pnBlueDark)!
     }
     
-    func buttonBackgroundColor() -> UIColor {
-        return .white
+    func buttonBackgroundColor(_ selectView: SelectionView) -> UIColor {
+        return .clear
     }
     
     func numberOfSelectBTN(_ selectView: SelectionView) -> Int {
@@ -123,6 +141,6 @@ extension ProfileDetailView: SelectionViewDataSource {
     }
     
     func buttonForRowAt(_ selectView: SelectionView, index: Int, button: UIButton) {
-        button.setTitle(page[index], for: .normal)
+        button.setTitle(page[index].pageTitle, for: .normal)
     }
 }

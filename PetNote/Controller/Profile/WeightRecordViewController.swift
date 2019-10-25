@@ -10,12 +10,6 @@ import UIKit
 import Charts
 
 class WeightRecordViewController: BaseContainerViewController {
-
-//    @IBOutlet weak var switchPetLayer: UIView! {
-//        didSet {
-//            switchPetLayer.addSubview(switchPetView)
-//        }
-//    }
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -24,17 +18,22 @@ class WeightRecordViewController: BaseContainerViewController {
         }
     }
     
-    func petDidChange() {
-        guard let pet = currentPet,
-            let weights = pet.weightRecord?.sortedArray(using: [NSSortDescriptor(key: "date", ascending: false)])
-                as? [PNWeightRecord] else { return }
+    func petDidChange(_ viewController: ContainerViewController) {
+        guard
+            let pet = currentPet,
+            let weights = pet.weightRecord?.sortedArray(using: [NSSortDescriptor(key: "date", ascending: true)])
+                as? [PNWeightRecord]
+        else { return }
         self.weights = weights
-        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+        
+        tableView.scrollToRow(at: IndexPath(row: 0, section: 0),
+                              at: .top,
+                              animated: false)
     }
     
     var weights: [PNWeightRecord] = [] {
         didSet {
-            weights.sort(by: >)
+            weights.sort(by: <)
             tableView.reloadData()
         }
     }
@@ -45,7 +44,6 @@ class WeightRecordViewController: BaseContainerViewController {
         super.viewDidLoad()
         
         self.navigationItem.title = "體重記錄"
-//        switchPetView.delegate = self
         setupTableView()
     }
     
@@ -71,8 +69,9 @@ class WeightRecordViewController: BaseContainerViewController {
             let date = Int(weightRecord.date).getDateString(format: "MM/dd")
             recordDates.append(date)
             let weight = weightRecord.weight
+            let entryOffset: Double = 0.2
             let entry =
-                ChartDataEntry.init(x: Double(index), y: weight)
+                ChartDataEntry.init(x: Double(index) + entryOffset, y: weight * 0.1)
             dataEntries.append(entry)
             index += 1
             if index == 6 {
@@ -86,6 +85,41 @@ class WeightRecordViewController: BaseContainerViewController {
 
 extension WeightRecordViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        
+        if indexPath.section == 0 {
+            return UITableViewCell.EditingStyle.none
+        } else {
+            return UITableViewCell.EditingStyle.delete
+        }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if indexPath.section != 0 {
+            let weight = weights[indexPath.row]
+            StorageManager.shared.deleteData(weight) {[weak self] result in
+                
+                switch result {
+                case .success:
+                    self?.weights.remove(at: indexPath.row)
+                    tableView.reloadData()
+                case .failure(let error):
+                    print(error)
+                    
+                }
+            }
+        }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        if indexPath.section == 0 {
+            return nil
+        } else {
+            return "刪除"
+        }
+    }
 }
 
 extension WeightRecordViewController: UITableViewDataSource {
@@ -102,6 +136,7 @@ extension WeightRecordViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         if indexPath.section == 0 {
             guard
                 let cell = tableView.dequeueReusableCell(
@@ -109,20 +144,24 @@ extension WeightRecordViewController: UITableViewDataSource {
                     for: indexPath)
                 as? ChartTableViewCell
             else {
-                    return UITableViewCell()
+                return UITableViewCell()
             }
+            
             cell.delegate = self
+            
             let chartViewFrame = CGRect(x: 0, y: 0,
                                         width: cell.chartLayer.frame.width,
                                         height: cell.chartLayer.frame.height)
-            let chartView = PNChartView(chartViewFrame)
-            chartView.setup()
             
-            chartView.setupData(entries: getWeightDataEntry(), label: "")
-            chartView.setupAxis(xValues: recordDates)
+            let chartView = PNChartView(chartViewFrame)
+            let yValues: [String] = ["0", "10", "20", "30", "40", "50"]
+            chartView.setupChartView(entries: getWeightDataEntry(),
+                                     xValues: recordDates,
+                                     yValues: yValues)
             
             cell.chartLayer.subviews.forEach { $0.removeFromSuperview() }
             cell.chartLayer.addSubview(chartView)
+            
             return cell
             
         } else {
@@ -132,34 +171,37 @@ extension WeightRecordViewController: UITableViewDataSource {
                     for: indexPath)
                     as? WeightLabelTableViewCell
             else {
-                    return UITableViewCell()
+                return UITableViewCell()
             }
-            let date = Int(weights[indexPath.row].date).getDateString()
-            let weight = String(weights[indexPath.row].weight)
+            let weightIndex = weights.count - indexPath.row - 1
+            let date = Int(weights[weightIndex].date).getDateString()
+            let weight = String(weights[weightIndex].weight)
             cell.layoutCell(date: date, weight: weight)
             
             return cell
             
         }
-        
     }
-    
 }
 
 extension WeightRecordViewController: ChartTableViewCellDelegate {
-    func addWeightRecord(date: Int, weight: Double) {
+    
+    func addWeightRecord(_ cell: ChartTableViewCell, date: Int, weight: Double) {
+        
+        guard let currentPet = currentPet else {return}
+        
         let weightRecord = StorageManager.shared.getPNPNWeightRecord()
         weightRecord.date = Int64(date)
         weightRecord.weight = weight
         
-        currentPet?.addToWeightRecord(weightRecord)
+        currentPet.addToWeightRecord(weightRecord)
         
         StorageManager.shared.saveAll {[weak self] result in
             switch result {
             case .success:
-                self?.weights.append(weightRecord)
+                self?.weights.insert(weightRecord, at: 0)
+//                self?.weights.append(weightRecord)
                 self?.tableView.reloadData()
-                print("成功加入體重")
             case .failure(let error):
                 print(error)
             }

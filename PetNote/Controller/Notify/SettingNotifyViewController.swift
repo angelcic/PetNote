@@ -26,7 +26,6 @@ class SettingNotifyViewController: BaseViewController {
     
     override func navigationBarSetting() {
         super.navigationBarSetting()
-        self.navigationController?.navigationBar.tintColor = .darkGray
         let saveButton = UIBarButtonItem(title: "儲存", style: .plain, target: self, action: #selector(saveAction))
         self.navigationItem.rightBarButtonItem = saveButton
     }
@@ -37,7 +36,12 @@ class SettingNotifyViewController: BaseViewController {
     }
     
     @objc func saveAction() {
-        
+        guard let settingNotifyCell = tableView.visibleCells[0]
+            as? SettingNotifyTableViewCell
+        else {
+            return
+        }
+        settingNotifyCell.getNotifySetting()
     }
 
 }

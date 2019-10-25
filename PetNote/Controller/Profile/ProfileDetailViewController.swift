@@ -8,23 +8,18 @@
 
 import UIKit
 
-class ProfileDetailViewController: SwitchPetViewController, SwitchPetViewControllerProtocol {
+class ProfileDetailViewController: SwitchPetViewController {
 
-    @IBOutlet var detailView: ProfileDetailView! {
-        didSet {
-            detailView.delegate = self
-        }
-    }
+    @IBOutlet var detailView: ProfileDetailView!
     
     var containerVCs: [BaseContainerViewController] = []
     var storageManger = StorageManager.shared
     
-//    var observer: NSKeyValueObservation!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+
         self.navigationItem.title = "毛孩資料"
-        
+    
         setupContainerView()
     }
     
@@ -32,6 +27,7 @@ class ProfileDetailViewController: SwitchPetViewController, SwitchPetViewControl
         super.navigationBarSetting()
         
         let saveButton = UIBarButtonItem(title: "新增成員", style: .plain, target: self, action: #selector(addPetAction))
+   
         self.navigationItem.rightBarButtonItem = saveButton
     }
     
@@ -54,8 +50,16 @@ class ProfileDetailViewController: SwitchPetViewController, SwitchPetViewControl
         }
     }
     
+}
+
+extension ProfileDetailViewController: SwitchPetViewControllerProtocol {
+    
+    func petsNumberChange(_ viewController: SwitchPetViewController?, isEmpty: Bool) {
+        detailView.changeAddPetAlertStatus(isHidden: !isEmpty)
+    }
+    
     // 切換寵物
-    func changePet(_ indexPath: IndexPath ) {
+    func changePet(_ viewController: SwitchPetViewController?, _ indexPath: IndexPath ) {
         changePet(indexPath.row)
     }
     
@@ -66,13 +70,4 @@ class ProfileDetailViewController: SwitchPetViewController, SwitchPetViewControl
             })
         }
     }
-    
-    func updateSwitchView() {
-        detailView.updateSwitchView()
-        changePet(storageManger.currentPetIndex)
-    }
-}
-
-extension ProfileDetailViewController: ProfileDetailViewDelegate {
-    
 }

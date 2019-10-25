@@ -27,7 +27,6 @@ class AddMedicalViewController: BaseViewController {
     
     override func navigationBarSetting() {
         super.navigationBarSetting()
-        self.navigationController?.navigationBar.tintColor = .darkGray
         let saveButton = UIBarButtonItem(title: "儲存", style: .plain, target: self, action: #selector(saveAction))
         self.navigationItem.rightBarButtonItem = saveButton
     }
@@ -45,7 +44,8 @@ class AddMedicalViewController: BaseViewController {
 
 }
 extension AddMedicalViewController: TitleWithButtonTableViewCellDelegate {
-    func pressRightButton() {
+    
+    func pressRightButton(_ cell: TitleWithButtonTableViewCell) {
         guard let notifySettingVC = UIStoryboard.notify.instantiateViewController(
             withIdentifier: String(describing: SettingNotifyViewController.self))
             as? SettingNotifyViewController

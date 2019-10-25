@@ -1,7 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,9 +14,31 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mao" translatesAutoresizingMaskIntoConstraints="NO" id="WiQ-hv-UNc">
+                                <rect key="frame" x="132" y="293" width="150" height="150"/>
+                                <color key="tintColor" name="PNDarkPink"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="WiQ-hv-UNc" secondAttribute="height" multiplier="1:1" id="Yo8-99-OSf"/>
+                                    <constraint firstAttribute="width" constant="150" id="jN4-AY-PCh"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="毛孩手帳" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="81" translatesAutoresizingMaskIntoConstraints="NO" id="NbB-EY-jUA">
+                                <rect key="frame" x="157" y="459" width="100" height="25"/>
+                                <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="25"/>
+                                <color key="textColor" name="PNDarkPink"/>
+                                <color key="highlightedColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="WiQ-hv-UNc" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="0BP-BT-7GX"/>
+                            <constraint firstItem="NbB-EY-jUA" firstAttribute="centerX" secondItem="WiQ-hv-UNc" secondAttribute="centerX" id="a8B-VE-zER"/>
+                            <constraint firstItem="NbB-EY-jUA" firstAttribute="top" secondItem="WiQ-hv-UNc" secondAttribute="bottom" constant="16" id="igV-jc-ebW"/>
+                            <constraint firstItem="WiQ-hv-UNc" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-80" id="pQV-o0-vEp"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -22,4 +47,10 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="mao" width="1536" height="1536"/>
+        <namedColor name="PNDarkPink">
+            <color red="0.94117647058823528" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

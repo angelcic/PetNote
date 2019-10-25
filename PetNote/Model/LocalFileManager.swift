@@ -14,6 +14,7 @@ class LocalFileManager {
     static let shared = LocalFileManager()
     
     let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+    
     lazy var docURL = URL(string: documentDirectory)
     
     let imageDirectoryURL: URL = {
@@ -24,11 +25,6 @@ class LocalFileManager {
         return imageFolderURL
     }()
     
-//    let imageDirectoryPath: String = {
-//        let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-//        return url.absoluteString
-//    }()
-    
     private init() {
         
     }
@@ -37,36 +33,42 @@ class LocalFileManager {
         // 判斷存圖片的資料夾是否存在
         
         let isExist = FileManager.default.fileExists(atPath: imageDirectoryURL.absoluteString)
-        
+        let photoName = "\(petId).jpg"
         if isExist {
             //        若有則進行存檔
             let filePath = imageDirectoryURL.appendingPathComponent(
-                "\(petId).jpg",
-                isDirectory: false).absoluteString
-            print("filePath = \(filePath)")
+                photoName,
+                isDirectory: false
+            ).absoluteString
+            
             let imageData = image.fixedOrientation()!.jpegData(compressionQuality: 1)
             
-            let result = FileManager.default.createFile(atPath: filePath, contents: imageData, attributes: nil)
+            let result = FileManager.default.createFile(
+                atPath: filePath,
+                contents: imageData,
+                attributes: nil
+            )
             
             if result {
-                print("圖片存取成功")
-                completion?(Result.success(filePath))
+                completion?(Result.success(photoName))
             } else {
-                print("圖片存取失敗")
                 completion?(Result.failure(LocalFileIOError.saveFileError))
             }
             
         } else {
-            //        若無則創建
+            // 若無則創建
             do {
                 try FileManager.default.createDirectory(
                     atPath: imageDirectoryURL.absoluteString,
                     withIntermediateDirectories: true,
-                    attributes: nil)
+                    attributes: nil
+                )
+                
                 // 創建成功繼續執行寫入檔案
                 saveImage(petId: petId, image: image, completion: completion)
+                
             } catch let error {
-                print("創建檔案夾失敗")
+                // 創建檔案夾失敗
                 print(error.localizedDescription)
                 completion?(Result.failure(LocalFileIOError.createFolderError))
                 
@@ -74,25 +76,36 @@ class LocalFileManager {
         }
     }
     
-    func readImage(imagePath: String?, completion: ((Result<UIImage, Error>) -> Void)? = nil) -> UIImage? {
-        
-        guard let imagePath = imagePath else {
+    func readImage(fileName: String?, completion: ((Result<UIImage, Error>) -> Void)? = nil) -> UIImage? {
+                
+        guard let fileName = fileName else {
             return nil
         }
+        
+        let imagePath = imageDirectoryURL.appendingPathComponent(
+            fileName,
+            isDirectory: false
+        ).absoluteString
         
         if FileManager.default.fileExists(atPath: imagePath) {
             
             if let image = UIImage(contentsOfFile: imagePath) {
                 
                 completion?(Result.success(image))
+                
                 return image
+                
             } else {
+                
                 completion?(Result.failure(LocalFileIOError.readFileError))
+                
                 return nil
             }
             
         } else {
+            
             completion?(Result.failure(LocalFileIOError.pathNotFound))
+            
             return nil
         }
     }
@@ -102,10 +115,11 @@ class LocalFileManager {
             try FileManager.default.createDirectory(
                 atPath: path,
                 withIntermediateDirectories: true,
-                attributes: nil)
+                attributes: nil
+            )
             completion?(Result.success(()))
         } catch let error {
-            print("創建檔案夾失敗")
+            
             print(error.localizedDescription)
             completion?(Result.failure(LocalFileIOError.createFolderError))
             

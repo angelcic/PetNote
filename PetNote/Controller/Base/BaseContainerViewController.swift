@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ContainerViewControllerProtocol {
-    func petDidChange()
+    func petDidChange(_ viewController: ContainerViewController)
 }
 
 typealias BaseContainerViewController = ContainerViewController & ContainerViewControllerProtocol
@@ -17,19 +17,22 @@ typealias BaseContainerViewController = ContainerViewController & ContainerViewC
 class ContainerViewController: UIViewController {
 
     var currentPet: PNPetInfo? {
-        
         didSet {
-            guard let controller = self as? BaseContainerViewController else {
-                return
-            }
-            controller.petDidChange()
+            currentPetWasSet() 
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    }
+    
+    func currentPetWasSet() {
+        guard
+            let controller = self as? BaseContainerViewController
+        else {
+            return
+        }
+        controller.petDidChange(self)
     }
     
 }

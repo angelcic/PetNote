@@ -6,11 +6,12 @@
 //  Copyright © 2019 ichingchen. All rights reserved.
 //
 
+// 健康紀錄選單首頁，因目前只有體重紀錄功能，所以沒有使用此頁面
 import UIKit
 
 class HealthRecordViewController: BaseContainerViewController {
-    func petDidChange() {
-        // TODO: 切換寵物
+    func petDidChange(_ viewController: ContainerViewController) {
+        
     }
     
     @IBOutlet weak var collectionView: UICollectionView! {
@@ -27,7 +28,6 @@ class HealthRecordViewController: BaseContainerViewController {
         super.viewDidLoad()
         
         setCollectionView()
-        // Do any additional setup after loading the view.
     }
     
     func setCollectionView() {
@@ -37,9 +37,11 @@ class HealthRecordViewController: BaseContainerViewController {
 
 extension HealthRecordViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // TODO:
+        
         let weightRecordVC = UIStoryboard.profile.instantiateViewController(
-            withIdentifier: String(describing: WeightRecordViewController.self))
+            withIdentifier: String(describing: WeightRecordViewController.self)
+        )
+        
         show(weightRecordVC, sender: nil)
     }
 }
@@ -54,7 +56,8 @@ extension HealthRecordViewController: UICollectionViewDataSource {
         guard let
             cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: BasicCollectionViewCell.identifier,
-                for: indexPath)
+                for: indexPath
+                )
                 as? BasicCollectionViewCell
         else {
             return UICollectionViewCell()

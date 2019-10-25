@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AddPetViewControllerDelegate: AnyObject {
-    func addPetResult(_: Result<Int, Error>)
+    func addPetResult(_ viewController: AddPetViewController?, _: Result<Int, Error>)
 }
 
 class AddPetViewController: BaseViewController {
@@ -20,13 +20,17 @@ class AddPetViewController: BaseViewController {
             addPetView.addBorder(borderColor: .gray,
                                  borderWidth: 1,
                                  cornerRadius: 20)
-            if let petView = Bundle(for: AddPetView.self).loadNibNamed("\(AddPetView.self)",
-                owner: nil,
-                options: nil)?.first as? AddPetView {
-                addPetView.addSubview(petView)
-                petView.frame = addPetView.bounds
-                petView.delegate = self
+            
+            guard let petView = Bundle(for: AddPetView.self).loadNibNamed("\(AddPetView.self)", owner: nil, options: nil)?.first
+                as? AddPetView
+            else {
+                return
             }
+            
+            addPetView.addSubview(petView)
+            petView.frame = addPetView.bounds
+            petView.delegate = self
+            
         }
     }
     weak var delegate: AddPetViewControllerDelegate?
@@ -36,36 +40,29 @@ class AddPetViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 }
 
 extension AddPetViewController: AddPetViewDelegate {
     
-    func cancelAction() {
+    func cancelAction(_ view: AddPetView) {
         self.dismiss(animated: false, completion: nil)
     }
     
-    func confirmAction(petId: Double, name: String, type: PetType) {
-//        guard let
+    func confirmAction(_ view: AddPetView, petId: Double, name: String, type: PetType) {
+
         storageManager.addNewPet(petId: petId, name: name, type: type) {[weak self] result in
             
             switch result {
                 
             case .success(let index):
-                print("success")
                 self?.storageManager.currentPetIndex = index
-//                PNGlobalProperties.currentPetIndex = index
-//                guard let parentVC = self?.navigationController?.parent
-//                    as? ProfileDetailViewController
-//                else {
-//                    return
-//                }
+                
             case .failure(let error):
                 print(error)
             }
             
-            self?.delegate?.addPetResult(result)
+            self?.delegate?.addPetResult(self, result)
             self?.dismiss(animated: false, completion: nil)
         }
        

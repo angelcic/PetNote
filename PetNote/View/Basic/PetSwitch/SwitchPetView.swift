@@ -65,7 +65,6 @@ class SwitchPetView: UIView {
         super.init(coder: aDecoder)
         setupCollectionView()
         setupCollectionViewCell()
-//        fatalError("init(coder:) has not been implemented")
     }
     
     private func setupCollectionViewCell() {
@@ -146,23 +145,18 @@ class SwitchPetView: UIView {
             else {
                     return
             }
-            if collectionView.indexPath(for: cell)?.section == 0 {
-                print("!!!!")
-            }
             cell.changeSlectedStatus()
         }
     }
     
     func updateSelectedStatus(indexPath: IndexPath, isSelected: Bool) {
-        if indexPath.section == 0 {
-            print("!!!!")
+        
+        guard
+            let cell = collectionView.cellForItem(at: indexPath)
+                as? PetsCollectionViewCell
+        else {
+            return
         }
-            guard
-                let cell = collectionView.cellForItem(at: indexPath)
-                    as? PetsCollectionViewCell
-            else {
-                return
-            }
-            cell.changeSlectedStatus(isSelected)
+        cell.changeSlectedStatus(isSelected)
     }
 }

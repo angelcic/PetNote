@@ -23,8 +23,18 @@ class BaseViewController: UIViewController {
     
     // 設定 navigationbar 文字顏色、按鈕
     func navigationBarSetting() {
-        self.navigationController?.navigationBar.tintColor = .darkGray
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        // navigation bar tint color
+        self.navigationController?.navigationBar.tintColor = .pnWhite
+        
+        // navigation bar back button text
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+
+        // navigation bar 背景色
+        self.navigationController?.navigationBar.barTintColor = .pnBlueDark
+        
+        // navigation bar title text color
+        self.navigationController?.navigationBar.titleTextAttributes =
+            [NSAttributedString.Key.foregroundColor: (UIColor.pnWhite)!]
     }
 
 }

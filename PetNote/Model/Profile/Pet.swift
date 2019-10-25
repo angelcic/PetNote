@@ -18,19 +18,22 @@ struct Pet {
     var breed: String?
     var color: String?
     var photo: UIImage?
+    var neuter: String
     
-    init(name: String, type: PetType) {
-       self.init(name: name, type: type,
-                 birth: nil, gender: nil,
-                 petId: nil, breed: nil,
-                 color: nil, photo: nil)
-        
-    }
+//    init(name: String, type: PetType) {
+//       self.init(name: name, type: type,
+//                 birth: nil, gender: nil,
+//                 petId: nil, breed: nil,
+//                 color: nil, photo: nil,
+//                 neuter: "未結紮")
+//
+//    }
     
     init(name: String, type: PetType,
-         birth: String?, gender: String?,
-         petId: String?, breed: String?,
-         color: String?, photo: UIImage?) {
+         birth: String? = nil, gender: String? = nil,
+         petId: String? = nil, breed: String? = nil,
+         color: String? = nil, photo: UIImage? = nil,
+         neuter: String = "未結紮") {
         self.name = name
         self.type = type
         self.birth = birth
@@ -39,6 +42,7 @@ struct Pet {
         self.breed = breed
         self.color = color
         self.photo = photo
+        self.neuter = neuter
     }
 }
 
@@ -47,63 +51,33 @@ enum PetType: String {
     case dog = "汪"
     case other = "其它"
     
-//    static func getPetType(with index: Int) -> PetType {
-//        switch index {
-//        case 0:
-//            return .cat
-//        case 1:
-//            return .dog
-//        case 2:
-//            return .other
-//        default:
-//            return .cat
-//        }
-//    }
-//    
-//    func getPetTypeIndex() -> Int {
-//        switch self {
-//        case .cat:
-//            return 0
-//        case .dog:
-//            return 1
-//        case .other:
-//            return 2
-//        }
-//    }
+    var defaultImage: UIImage? {
+        switch self {
+        case .cat:
+            return UIImage(named: "default_cat")
+        case .dog:
+            return UIImage(named: "default_dog")
+        case .other:
+            return UIImage(named: "default_other")
+        }
+    }
+    
 }
 
 enum Gender: String {
     case girl = "女生"
     case boy = "男生"
     
-//    static func getGender(with text: String) -> Gender {
-//        let type = Gender(rawValue: text)
-//        return type ?? .girl
-//    }
-//
-//    static func getGender(with index: Int) -> Gender {
-//
-//        switch index {
-//        case 0:
-//            return .girl
-//        case 1:
-//            return .boy
-//        default:
-//            return .girl
-//        }
-//    }
-//
-//    func getGenderIndex() -> Int {
-//        switch self {
-//        case .girl:
-//            return 0
-//        case .boy:
-//            return 1
-//        }
-//    }
 }
+
+enum Neuter: String {
+    case isNeuter = "已結紮"
+    case unNeuter = "未結紮"
+}
+
 //swiftlint:disable identifier_name
 enum PetKey: String {
+    case petId
     case name
     case birth
     case petType
@@ -112,6 +86,5 @@ enum PetKey: String {
     case breed
     case color
     case photo
-    case pnId
 }
 //swiftlint:enable identifier_name

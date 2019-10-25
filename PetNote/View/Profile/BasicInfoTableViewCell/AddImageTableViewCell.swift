@@ -9,21 +9,32 @@
 import UIKit
 
 protocol AddImageTableViewCellDelegate: AnyObject {
-    func pressAddImageButton()
+    func pressAddImageButton(_ cell: AddImageTableViewCell)
 }
 
 class AddImageTableViewCell: UITableViewCell {
 
     @IBOutlet weak var petImageView: UIImageView! {
         didSet {
-//            petImageView.backgroundColor = .orange
-            petImageView.layer.cornerRadius = 30
+            petImageView.layer.cornerRadius = 75
             petImageView.clipsToBounds = true
             petImageView.contentMode = .scaleAspectFill
         }
     }
     
-    @IBOutlet weak var addImageButton: UIButton!
+    @IBOutlet weak var backgroundImageView: UIImageView! {
+        didSet {
+            backgroundImageView.addCorner(cornerRadius: 20)
+        }
+    }
+    
+    @IBOutlet weak var addImageView: UIView! {
+        didSet {
+            addImageView.addCorner(cornerRadius: 5)
+            let tapAction =  UITapGestureRecognizer(target: self, action: #selector(addImageAction))
+            addImageView.addGestureRecognizer(tapAction)
+        }
+    }
     
     weak var delegate: AddImageTableViewCellDelegate?
     
@@ -39,12 +50,14 @@ class AddImageTableViewCell: UITableViewCell {
     }
     
     func layoutCell(image: UIImage?) {
+        
         petImageView.image = image
+        
     }
     
-    @IBAction func addImageAction(_ sender: Any) {
+    @objc func addImageAction(_ sender: Any) {
         
-        delegate?.pressAddImageButton()
+        delegate?.pressAddImageButton(self)
         
     }
 }

@@ -5,7 +5,6 @@
 //  Created by iching chen on 2019/8/29.
 //  Copyright © 2019 ichingchen. All rights reserved.
 //
-// 目前這個view已經用不到了
 
 import UIKit
 
@@ -22,17 +21,17 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         profileRootView.delegate = self
         
         navigationBarSetting()
         
-        pets.append(Pet(name: "蘋果花", type: .cat))
-        pets.append(Pet(name: "琵琶", type: .cat))
+//        pets.append(Pet(name: "蘋果花", type: .cat, gender: nil, birth: nil))
+//        pets.append(Pet(name: "琵琶", type: .cat, gender: nil, birth: nil))
     }
     
     // 設定 navigationbar 文字顏色、按鈕
     private func navigationBarSetting() {
-        self.navigationController?.navigationBar.tintColor = .darkGray
         let addPetButton = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addPet))
         addPetButton.image = UIImage(named: "icons-50px_add")
         self.navigationItem.rightBarButtonItem = addPetButton
@@ -79,15 +78,13 @@ class ProfileViewController: UIViewController {
     
     func showDetailPage() {
         guard let detailViewController =
-            UIStoryboard.profile.instantiateViewController(
-                withIdentifier: "PetDetailPage")
-                as? ProfileDetailViewController
+            UIStoryboard.profile.instantiateViewController(withIdentifier: "PetDetailPage") as? ProfileDetailViewController
         else {
             print("can't find ProfileDetailViewController")
             return
         }
         detailViewController.view.backgroundColor = .white
-//        detailViewController.pets = pets
+//        detailViewControlle br.pets = pets
         self.navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
@@ -122,7 +119,6 @@ extension ProfileViewController: UITableViewDelegate {
         } else {
             
             print("添加寵物")
-            addPet()
         }
     }
 }
@@ -150,19 +146,12 @@ extension ProfileViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: ProfileTableViewCell.identifier,
-            for: indexPath)
-            as? ProfileTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ProfileTableViewCell.identifier, for: indexPath) as? ProfileTableViewCell
         else {
             return UITableViewCell()
         }
         if indexPath.section < pets.count {
-            if indexPath.section == 0 {
-                cell.setImage(name: "IMG_1098")
-            } else {
-                cell.setImage(name: "IMG_8903")
-            }
+            cell.setImage(name: "IMG_1098")
             cell.setText(name: pets[indexPath.section].name, gender: "♂︎", birth: "2018年1月23日")
         } else {
             cell.showAddPetLabel()

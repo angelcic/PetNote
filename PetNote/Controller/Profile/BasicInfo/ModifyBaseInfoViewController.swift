@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ModifyBaseInfoViewControllerDelegate: AnyObject {
-    func confirmModify()
+    func confirmModify(_ viewControler: ModifyBaseInfoViewController?)
 }
 
 class ModifyBaseInfoViewController: BaseViewController {
@@ -17,7 +17,6 @@ class ModifyBaseInfoViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
-            tableView.delegate = self
             tableView.addCorner(cornerRadius: 30)
             tableView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         }
@@ -32,6 +31,7 @@ class ModifyBaseInfoViewController: BaseViewController {
             
         }
     }
+    
     weak var delegate: ModifyBaseInfoViewControllerDelegate?
     
     var currentPet: PNPetInfo?
@@ -40,7 +40,8 @@ class ModifyBaseInfoViewController: BaseViewController {
         if let cell = Bundle(for: ModifyBasicInfoTableViewCell.self).loadNibNamed(
             ModifyBasicInfoTableViewCell.identifier,
             owner: nil,
-            options: nil)?.first as? ModifyBasicInfoTableViewCell {
+            options: nil)?.first
+            as? ModifyBasicInfoTableViewCell {
             return cell
         } else {
             return ModifyBasicInfoTableViewCell()
@@ -66,6 +67,7 @@ class ModifyBaseInfoViewController: BaseViewController {
         currentPet?.name = infoCell.nameTextField.text
         currentPet?.gender = infoCell.currentGender.rawValue
         currentPet?.petType = infoCell.currentPetType.rawValue
+        currentPet?.neuter = infoCell.currentNeuterType
         currentPet?.id = infoCell.idTextField.text
         currentPet?.birth = Int64(infoCell.birthDay.timeIntervalSince1970)
         currentPet?.breed = infoCell.breedTextField.text
@@ -74,7 +76,7 @@ class ModifyBaseInfoViewController: BaseViewController {
         StorageManager.shared.saveAll {[weak self] result in
             switch result {
             case .success:
-                self?.delegate?.confirmModify()
+                self?.delegate?.confirmModify(self)
             case .failure(let error):
                 print(error)
             }
@@ -82,10 +84,6 @@ class ModifyBaseInfoViewController: BaseViewController {
         
         self.dismiss(animated: false, completion: nil)
     }
-}
-
-extension ModifyBaseInfoViewController: UITableViewDelegate {
-    
 }
 
 extension ModifyBaseInfoViewController: UITableViewDataSource {
@@ -102,6 +100,7 @@ extension ModifyBaseInfoViewController: UITableViewDataSource {
         infoCell.layoutCell(name: currentPet.name,
                         gender: currentPet.gender,
                         petType: currentPet.getPetType().rawValue,
+                        neuter: currentPet.neuter,
                         petId: currentPet.id,
                         birth: Int(currentPet.birth),
                         breed: currentPet.breed,

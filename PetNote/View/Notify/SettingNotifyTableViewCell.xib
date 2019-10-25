@@ -1,137 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="543" id="KGk-i7-Jjw" customClass="SettingNotifyTableViewCell" customModule="PetNote" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="364" height="543"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="428" id="KGk-i7-Jjw" customClass="SettingNotifyTableViewCell" customModule="PetNote" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="364" height="428"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="364" height="542.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="364" height="428"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="752" verticalCompressionResistancePriority="752" text="開啟通知" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOH-bg-j3P">
-                        <rect key="frame" x="20" y="75" width="82" height="24"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <rect key="frame" x="23" y="31" width="65.5" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="751" verticalCompressionResistancePriority="751" text="提醒頻率" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ah-ff-zLP">
-                        <rect key="frame" x="20" y="129" width="82" height="24"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <rect key="frame" x="23" y="80.5" width="65.5" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="下次提醒日期" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3b-I1-wZ2">
-                        <rect key="frame" x="20" y="183" width="123" height="24"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="751" text="下次提醒日期" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3b-I1-wZ2">
+                        <rect key="frame" x="23" y="130" width="98" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="提醒時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vHH-pc-BOw">
-                        <rect key="frame" x="20" y="237" width="82" height="24"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最後一次提醒日期" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZj-jO-fwj">
-                        <rect key="frame" x="20" y="291" width="164" height="22.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <rect key="frame" x="23" y="179.5" width="65.5" height="24"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="752" verticalCompressionResistancePriority="752" text="提醒文字設定" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IsS-0R-JOi">
-                        <rect key="frame" x="20" y="343.5" width="123" height="24"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <rect key="frame" x="23" y="233.5" width="98" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="09e-kU-gYF">
-                        <rect key="frame" x="295" y="71.5" width="51" height="31"/>
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="09e-kU-gYF">
+                        <rect key="frame" x="298" y="31" width="33" height="19.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="09e-kU-gYF" secondAttribute="height" multiplier="49:31" id="G37-cp-eBu"/>
+                        </constraints>
                     </switch>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="每天" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="29E-le-vi9">
-                        <rect key="frame" x="299" y="129" width="45" height="24"/>
+                        <rect key="frame" x="316" y="80" width="33" height="21"/>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2019/09/21" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HaQ-Xm-Jd8">
-                        <rect key="frame" x="235" y="183" width="109" height="24"/>
+                        <rect key="frame" x="266" y="129.5" width="83" height="21"/>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
-                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="上午 07:30" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pux-LX-1Ft">
-                        <rect key="frame" x="241" y="237" width="103" height="24"/>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="07:30" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pux-LX-1Ft">
+                        <rect key="frame" x="307" y="181" width="42" height="21"/>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
-                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2019/09/21" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="85o-bj-wdI">
-                        <rect key="frame" x="235" y="290.5" width="109" height="24"/>
-                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                        <textInputTraits key="textInputTraits"/>
-                    </textField>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="該餵ＯＯＯ吃藥囉💊" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Zil-6c-zdL">
-                        <rect key="frame" x="20" y="382.5" width="304" height="120"/>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="預防計畫預定日期到囉" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Zil-6c-zdL">
+                        <rect key="frame" x="23" y="268" width="306" height="120"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="120" id="AMY-3L-Zj2"/>
                         </constraints>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="SOH-bg-j3P" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Bb4-fd-2UH"/>
+                    <constraint firstItem="SOH-bg-j3P" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="Bb4-fd-2UH"/>
                     <constraint firstItem="Zil-6c-zdL" firstAttribute="leading" secondItem="SOH-bg-j3P" secondAttribute="leading" id="Bmc-iH-XdG"/>
                     <constraint firstItem="IsS-0R-JOi" firstAttribute="leading" secondItem="SOH-bg-j3P" secondAttribute="leading" id="EXd-Ko-TeF"/>
+                    <constraint firstItem="IsS-0R-JOi" firstAttribute="top" secondItem="vHH-pc-BOw" secondAttribute="bottom" constant="30" id="Frh-jk-joZ"/>
                     <constraint firstItem="Z3b-I1-wZ2" firstAttribute="top" secondItem="6Ah-ff-zLP" secondAttribute="bottom" constant="30" id="Fzh-FS-mBf"/>
-                    <constraint firstItem="09e-kU-gYF" firstAttribute="centerY" secondItem="SOH-bg-j3P" secondAttribute="centerY" id="Hag-w4-moL"/>
                     <constraint firstItem="Z3b-I1-wZ2" firstAttribute="leading" secondItem="SOH-bg-j3P" secondAttribute="leading" id="I3T-7d-uFl"/>
                     <constraint firstItem="29E-le-vi9" firstAttribute="centerY" secondItem="6Ah-ff-zLP" secondAttribute="centerY" id="Jcd-st-IYf"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Zil-6c-zdL" secondAttribute="trailing" constant="20" id="Ks8-nj-KnF"/>
                     <constraint firstItem="HaQ-Xm-Jd8" firstAttribute="trailing" secondItem="29E-le-vi9" secondAttribute="trailing" id="Kx0-Mk-eNm"/>
                     <constraint firstItem="vHH-pc-BOw" firstAttribute="top" secondItem="Z3b-I1-wZ2" secondAttribute="bottom" constant="30" id="Pb4-me-ZUe"/>
-                    <constraint firstItem="09e-kU-gYF" firstAttribute="trailing" secondItem="29E-le-vi9" secondAttribute="trailing" id="PoN-6d-Z8Z"/>
+                    <constraint firstItem="09e-kU-gYF" firstAttribute="trailing" secondItem="29E-le-vi9" secondAttribute="trailing" constant="-20" id="PoN-6d-Z8Z"/>
                     <constraint firstItem="HaQ-Xm-Jd8" firstAttribute="centerY" secondItem="Z3b-I1-wZ2" secondAttribute="centerY" id="Qmz-ip-she"/>
-                    <constraint firstItem="85o-bj-wdI" firstAttribute="centerY" secondItem="yZj-jO-fwj" secondAttribute="centerY" id="R4r-bZ-qeX"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="09e-kU-gYF" secondAttribute="trailing" id="UPp-7N-aGT"/>
-                    <constraint firstItem="IsS-0R-JOi" firstAttribute="top" secondItem="yZj-jO-fwj" secondAttribute="bottom" constant="30" id="UhZ-hI-R2A"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="09e-kU-gYF" secondAttribute="trailing" constant="20" id="UPp-7N-aGT"/>
                     <constraint firstItem="Zil-6c-zdL" firstAttribute="top" secondItem="IsS-0R-JOi" secondAttribute="bottom" constant="15" id="WTj-Re-u7K"/>
                     <constraint firstItem="vHH-pc-BOw" firstAttribute="leading" secondItem="SOH-bg-j3P" secondAttribute="leading" id="YX4-Ly-SG0"/>
                     <constraint firstItem="6Ah-ff-zLP" firstAttribute="top" secondItem="SOH-bg-j3P" secondAttribute="bottom" constant="30" id="bUY-dS-XXE"/>
-                    <constraint firstItem="yZj-jO-fwj" firstAttribute="leading" secondItem="SOH-bg-j3P" secondAttribute="leading" id="fmo-Xs-sDT"/>
                     <constraint firstAttribute="bottom" secondItem="Zil-6c-zdL" secondAttribute="bottom" constant="40" id="hqa-cs-Mme"/>
+                    <constraint firstItem="09e-kU-gYF" firstAttribute="centerY" secondItem="SOH-bg-j3P" secondAttribute="centerY" id="imz-Ng-wvJ"/>
                     <constraint firstItem="6Ah-ff-zLP" firstAttribute="leading" secondItem="SOH-bg-j3P" secondAttribute="leading" id="k3H-Sc-lFb"/>
                     <constraint firstItem="Pux-LX-1Ft" firstAttribute="centerY" secondItem="vHH-pc-BOw" secondAttribute="centerY" id="m6W-Cl-vuo"/>
-                    <constraint firstItem="85o-bj-wdI" firstAttribute="trailing" secondItem="29E-le-vi9" secondAttribute="trailing" id="qDF-pM-dD1"/>
                     <constraint firstItem="SOH-bg-j3P" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="20" id="srE-di-Zh5"/>
                     <constraint firstItem="Pux-LX-1Ft" firstAttribute="trailing" secondItem="29E-le-vi9" secondAttribute="trailing" id="vRE-qE-VP6"/>
-                    <constraint firstItem="yZj-jO-fwj" firstAttribute="top" secondItem="vHH-pc-BOw" secondAttribute="bottom" constant="30" id="zaj-9L-WcO"/>
+                    <constraint firstItem="09e-kU-gYF" firstAttribute="height" secondItem="SOH-bg-j3P" secondAttribute="height" id="vy0-Ep-Uoa"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="frequencyTextField" destination="29E-le-vi9" id="7Rx-BG-XsO"/>
-                <outlet property="lastNotifyDate" destination="85o-bj-wdI" id="fmC-me-tPl"/>
-                <outlet property="nextNotifyDate" destination="HaQ-Xm-Jd8" id="8tx-yc-2XL"/>
+                <outlet property="nextNotifyDateTextField" destination="HaQ-Xm-Jd8" id="YTZ-1b-KSQ"/>
                 <outlet property="notifySwitch" destination="09e-kU-gYF" id="QvP-ny-YYC"/>
                 <outlet property="notifyTextView" destination="Zil-6c-zdL" id="U0S-Y5-X8b"/>
-                <outlet property="notifyTime" destination="Pux-LX-1Ft" id="0hP-wX-CTD"/>
+                <outlet property="notifyTimeTextField" destination="Pux-LX-1Ft" id="VuJ-Zu-qZa"/>
             </connections>
-            <point key="canvasLocation" x="169.56521739130437" y="251.45089285714283"/>
+            <point key="canvasLocation" x="168.75" y="190.14084507042253"/>
         </tableViewCell>
     </objects>
 </document>

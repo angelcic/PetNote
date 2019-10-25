@@ -29,16 +29,32 @@ class AddMedicalRecordViewController: BaseViewController {
     
     override func navigationBarSetting() {
         super.navigationBarSetting()
-        self.navigationController?.navigationBar.tintColor = .darkGray
-        let saveButton = UIBarButtonItem(title: "儲存", style: .plain, target: self, action: #selector(saveAction))
+        let saveButton = UIBarButtonItem(
+            title: "儲存",
+            style: .plain,
+            target: self,
+            action: #selector(saveAction)
+        )
         self.navigationItem.rightBarButtonItem = saveButton
     }
     
     func setupTableView() {
-        tableView.registerCellWithNib(identifier: String(describing: BasicMedicalRecordTableViewCell.self), bundle: nil)
-        tableView.registerCellWithNib(identifier: String(describing: TitleWithDateTableViewCell.self), bundle: nil)
-        tableView.registerCellWithNib(identifier: String(describing: TitleWithButtonTableViewCell.self), bundle: nil)
-        tableView.registerHeaderWithNib(identifier: String(describing: WithImageSectionHeaderView.self), bundle: nil)
+        tableView.registerCellWithNib(
+            identifier: String(describing: BasicMedicalRecordTableViewCell.self),
+            bundle: nil
+        )
+        tableView.registerCellWithNib(
+            identifier: String(describing: TitleWithDateTableViewCell.self),
+            bundle: nil
+        )
+        tableView.registerCellWithNib(
+            identifier: String(describing: TitleWithButtonTableViewCell.self),
+            bundle: nil
+        )
+        tableView.registerHeaderWithNib(
+            identifier: String(describing: WithImageSectionHeaderView.self),
+            bundle: nil
+        )
     }
     
     @objc func saveAction() {
@@ -48,7 +64,8 @@ class AddMedicalRecordViewController: BaseViewController {
 }
 
 extension AddMedicalRecordViewController: TitleWithButtonTableViewCellDelegate {
-    func pressRightButton() {
+    
+    func pressRightButton(_ cell: TitleWithButtonTableViewCell) {
         guard let notifySettingVC = UIStoryboard.notify.instantiateViewController(
             withIdentifier: String(describing: SettingNotifyViewController.self))
             as? SettingNotifyViewController
@@ -162,12 +179,15 @@ extension AddMedicalRecordViewController: UITableViewDataSource {
 }
 
 extension AddMedicalRecordViewController: WithImageSectionHeaderDelegate {
-    func pressAddButton() {
-        guard let addMedicalVC = UIStoryboard.medical.instantiateViewController(
-            withIdentifier: String(describing: AddMedicalViewController.self))
-        as? AddMedicalViewController
-            else {
-                return
+    
+    func pressAddButton(_ headerView: WithImageSectionHeaderView) {
+        guard
+            let addMedicalVC = UIStoryboard.medical.instantiateViewController(
+                withIdentifier: String(describing: AddMedicalViewController.self)
+                )
+                as? AddMedicalViewController
+        else {
+            return
         }
         
         show(addMedicalVC, sender: nil)

@@ -28,10 +28,10 @@ class WithImageSectionHeaderView: UITableViewHeaderFooterView {
     }
     
     @IBAction func addAction(_ sender: Any) {
-        delegate?.pressAddButton()
+        delegate?.pressAddButton(self)
     }
 }
 
 protocol WithImageSectionHeaderDelegate: AnyObject {
-    func pressAddButton()
+    func pressAddButton(_ headerView: WithImageSectionHeaderView)
 }

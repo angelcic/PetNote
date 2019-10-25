@@ -17,14 +17,27 @@ class AddRecordViewController: BaseViewController {
         }
     }
     
-    let symptoms: [String] = ["嘔吐", "拉肚子", "流眼淚", "打噴嚏", "精神不佳", "食慾不佳", "外傷"]
+    var selecedDate: Date = Date()
+    var saveDateEvent: ((Date, [String], String) -> Void)?
+    
+    var descriptionText: String = ""
+    var events: [String] = []
+    
+    let symptoms: [Event] = [
+        Event(title: "嘔吐"),
+        Event(title: "拉肚子"),
+        Event(title: "流眼淚"),
+        Event(title: "打噴嚏"),
+        Event(title: "精神不佳"),
+        Event(title: "食慾不佳"),
+        Event(title: "外傷")
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "添加症狀記錄"
         
-        setupTableView() 
-        // Do any additional setup after loading the view.
+        setupTableView()
     }
     
     func setupTableView() {
@@ -36,18 +49,43 @@ class AddRecordViewController: BaseViewController {
     
     override func navigationBarSetting() {
         super.navigationBarSetting()
-        self.navigationController?.navigationBar.tintColor = .darkGray
         let saveButton = UIBarButtonItem(title: "儲存", style: .plain, target: self, action: #selector(saveAction))
         self.navigationItem.rightBarButtonItem = saveButton
     }
     
+    func setupNavigationTitle(title: String) {
+        self.navigationItem.title = title
+    }
+    
     @objc func saveAction() {
+        
+        if let dateCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? DateSelectTableViewCell {
+            selecedDate = dateCell.getDate()
+        }
+        if let describeCell = tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? DescriptionTableViewCell {
+            descriptionText = describeCell.getDescription()
+        }
+        events = []
+        symptoms.forEach {
+            if $0.isSelected {
+                events.append($0.title)
+            }
+        }
+        saveDateEvent?(selecedDate, events, descriptionText)
+        
+        navigationController?.popToRootViewController(animated: false)
         
     }
 }
 
 extension AddRecordViewController: ProtectTypeTableViewCellDelegate {
     func checkAction(cell: ProtectTypeTableViewCell) {
+        guard
+            let indexPath = tableView.indexPath(for: cell)
+        else {
+            return
+        }
+        symptoms[indexPath.row].changeSelectedStatus()
     }
 }
 
@@ -80,6 +118,7 @@ extension AddRecordViewController: UITableViewDataSource {
                 else {
                     return UITableViewCell()
                 }
+                cell.layoutCell(eventDate: selecedDate)
                 return cell
             } else {
                 guard
@@ -98,11 +137,16 @@ extension AddRecordViewController: UITableViewDataSource {
                     withIdentifier: String(describing: ProtectTypeTableViewCell.self),
                     for: indexPath)
                 as? ProtectTypeTableViewCell
-                else {
-                    return UITableViewCell()
+            else {
+                return UITableViewCell()
             }
             cell.delegate = self
-            cell.layoutCell(title: symptoms[indexPath.row], hideTextField: true)
+            
+            cell.layoutCell(
+                title: symptoms[indexPath.row].title,
+                hideTextField: true
+            )
+            
             return cell
         }
     }
